@@ -1,4 +1,5 @@
 hstt2smt.*
+!source/hstt2smt.cpp
 bin/
 build/
 
