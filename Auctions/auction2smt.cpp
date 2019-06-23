@@ -18,13 +18,12 @@ int main(int argc, char **argv) {
 
         SolvingArguments * sargs = SolvingArguments::readArguments(argc,argv,pargs);
 
-//	Auction * instance = parser::parseAuction(pargs->getArgument(0));
-//	AuctionEncoding * encoding = new AuctionEncoding(instance,
-//	sargs->getAMOPBEncoding());
-//	BasicController c(sargs,encoding,false,instance->computeLB(),instance->computeUB());
-//	//
-//	BasicController c(sargs,encoding,false,0,0);
-//	c.run();
+    Auction * instance/* = parser::parseAuction(pargs->getArgument(0))*/;
+    AuctionEncoding * encoding = new AuctionEncoding(instance,
+    sargs->getAMOPBEncoding());
+    BasicController c(sargs,encoding,false,instance->computeLB(),instance->computeUB());
+//    BasicController c(sargs,encoding,false,0,0);  //PER ISMA
+    c.run();
 
 	return 0;
 }
