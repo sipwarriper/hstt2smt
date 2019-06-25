@@ -5,6 +5,8 @@
 
 TestEncoding::TestEncoding(int mult) : Encoding(){
     _mult = mult;
+    _x.resize(10);
+    _Ivar.resize(10);
 }
 
 TestEncoding::~TestEncoding(){ }
@@ -21,7 +23,7 @@ SMTFormula * TestEncoding::encode(int lb, int ub){
 
     //nomes 3 variables enteres certes
     vector<literal> x(10);
-    for(int i; i<10; i++)
+    for(int i=0; i<10; i++)
         x[i] = f->newBoolVar("x",i);
     f->addAMK(x,3);
 
