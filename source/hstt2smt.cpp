@@ -1,5 +1,4 @@
 #include <iostream>
-#include "XHSTTPrinterModel.h"
 #include "XMLParser.h"
 #include "basiccontroller.h"
 #include "solvingarguments.h"

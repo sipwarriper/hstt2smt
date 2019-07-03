@@ -105,10 +105,7 @@ bool Event::has_preassigned_resource(const std::string& role) const {
 	return resources_.find(role)->second != nullptr;
 }
 
-bool Event::has_preassigned_time() const
-{
-	return !time_.empty();
-}
+bool Event::has_preassigned_time() const{	return !time_.empty();  }
 
 bool Event::is_preassigned(int num) const{
 	bool result = false;
@@ -122,10 +119,7 @@ std::set<const Resource*> Event::get_preassigned_resources() const{
 	return result;
 }
 
-Resource Event::get_preassigned_resource(const std::string& role)
-{
-	return *resources_[role];
-}
+Resource Event::get_preassigned_resource(const std::string& role){	return *resources_[role];   }
 
 std::set<std::string> Event::get_roles() const{
 	auto result = std::set<std::string>();
@@ -133,10 +127,14 @@ std::set<std::string> Event::get_roles() const{
 	return result;
 }
 
-std::set<int> Event::get_needed_resources() const
-{
-	return needed_;
-}
+std::set<int> Event::get_needed_resources() const{	return needed_; }
+
+int Event::get_duration() const{    return duration_;   }
+
+std::string Event::get_time_ref() const {   return time_;    }
+
+
+std::unordered_map<std::string, Resource*> Event::get_resources() const{    return resources_;   }
 
 Resource Event::get_preassigned(const int& num) const {
 	for (auto & resource : resources_) if (resource.second->get_num() == num) return *resource.second;

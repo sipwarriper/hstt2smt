@@ -94,6 +94,9 @@ public:
 
 	std::set<std::string> get_roles() const;
 	std::set<int> get_needed_resources() const;
+    int get_duration() const;
+    std::string get_time_ref() const;
+    std::unordered_map<std::string, Resource*> get_resources() const;
 
 	Resource get_preassigned(const int &num) const;
 	std::set<int> get_preassigned_nums() const; //returns a set containing all numerals of preassigned resources

@@ -15,13 +15,13 @@ class Group;
 class Model {
 
 public:
-	virtual ~Model() = default;
-	Model();
+    virtual ~Model() = default;
+    Model();
 	//TODO: desfer virtuals dels registres
-	virtual void register_time(const std::string& id, const std::string& name);
-	virtual void register_event(const std::string& id, const std::string& name, const int &duration, const std::string &color = "");
-	virtual void register_resource(std::string id, std::string name, std::string rtype);
-	virtual void register_resource_type(std::string id, std::string name);
+    void register_time(const std::string& id, const std::string& name);
+    void register_event(const std::string& id, const std::string& name, const int &duration, const std::string &color = "");
+    void register_resource(std::string id, std::string name, std::string rtype);
+    void register_resource_type(std::string id, std::string name);
 
 	Time* get_time_by_ref(std::string ref) const;
 	Resource* get_resource_by_ref(std::string ref) const;
@@ -43,6 +43,7 @@ public:
 	std::set<std::string> get_times_from_group(const std::string & group_ref) const;
 
 	virtual void set_time_for_event(int event_num, int duration, Time* start_t) = 0;
+
 	virtual void prefer_resources_constraint(const std::set<std::string> &events_ids, const std::set<std::string> &resources_ids, const std::string &role) = 0;
 	virtual void prefer_times_constraint(const int &cost, const std::set<std::string> &events_ids, const std::set<std::string> &times_ids, int duration) = 0;
 	virtual void avoid_clashes_constraint(const int &cost, const std::set<std::string> &resources_ids) = 0;

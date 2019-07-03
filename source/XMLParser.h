@@ -6,7 +6,7 @@
 
 class XMLParser {
 public:
-    XMLParser(Model* model, std::string filename); //constructor
+    XMLParser(Model* instance, std::string filename); //constructor
 
 
     void parse_model();

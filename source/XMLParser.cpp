@@ -1,16 +1,15 @@
 #include "XMLParser.h"
-#include "XHSTTPrinterModel.h"
 #include <iostream>
 #include <limits>
 #include <algorithm>
 #include <math.h>
 
-XMLParser::XMLParser(Model* model, std::string filename) {
+XMLParser::XMLParser(Model* instance, std::string filename) {
 
     if(!document.load_file(filename.c_str())){
         throw std::runtime_error("Error loading xml file. Aborting.");
     }
-	model_ = model;
+    model_ = instance;
 
 	xml_source_filename_ = filename;
 	xml_root_ = document.root();
