@@ -3,7 +3,7 @@
 #include "basiccontroller.h"
 #include "solvingarguments.h"
 
-#include "testencoding.h"
+#include "satbasicmodel.h"
 
 enum ProgramArg {
     MULT
@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     int option = pargs->getIntOption(MULT);
 
 
-    TestEncoding * encoding = new TestEncoding(option);
+    SATBasicModel * encoding = new SATBasicModel(pargs->getArgument(0));
 
     BasicController c(sargs,encoding, false, 0,0);
     c.run();
