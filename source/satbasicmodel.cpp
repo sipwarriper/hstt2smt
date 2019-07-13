@@ -4,6 +4,7 @@
 #include <limits.h>
 #include "XMLParser.h"
 #include <unordered_map>
+#include <algorithm>
 
 SATBasicModel::SATBasicModel(std::string filename) : Model(){
     formula_ = new SMTFormula();
@@ -145,9 +146,49 @@ void SATBasicModel::set_time_for_event(int event_num, int duration, Time* start_
 }
 
 void SATBasicModel::prefer_resources_constraint(const std::set<std::string> &events_ids, const std::set<std::string> &resources_ids, const std::string &role){
-
+    //no nhi ha en el brazil instances, aixi q de moment no cal
 }
 void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std::string> &events_ids, const std::set<std::string> &times_ids, int duration){
+    int time_count = times_.size();
+
+    //create a set with all forbidden time slots
+    std::set<int> forbidden;
+    for (int i=0; i<time_count; i++){
+        if(times_ids.find(num2time_[i]->get_identifier()) == times_ids.end())
+            forbidden.insert(i);
+    }
+
+    float weight = cost/events_ids.size();
+
+    //for each event, forbid all forbidden times for the given duration (if any)
+    for (auto &event_id: events_ids){
+        Event *event = events_[event_id];
+        int e = event->get_num();
+        if (duration<0){
+            for (int d=1; d<event->get_duration()+1; d++){
+                for(auto &t : forbidden){
+                    boolvar x = formula_->newBoolVar("prefer_times", e,d,t);
+                    clauses_.push_back(!xd_[e][d][t] | x);
+                    pseudoVars_.insert({x, weight});
+                }
+            }
+            for(auto &t : forbidden){
+                boolvar x1 = formula_->newBoolVar("prefer_times_1", e, t);
+                boolvar x2 = formula_->newBoolVar("prefer_times_2", e, t);
+                clauses_.push_back(!xt_[e][t] | x1);
+                clauses_.push_back(!xs_[e][t] | x2);
+                pseudoVars_.insert({x1, weight});
+                pseudoVars_.insert({x2, weight});
+            }
+        }
+        else if (xd_[e].find(duration)!= xd_[e].end()){
+            for(auto &t : forbidden){
+                boolvar x = formula_->newBoolVar("prefer_times", e, t);
+                clauses_.push_back(!xd_[e][duration][t] | x);
+                pseudoVars_.insert({x,weight});
+            }
+        }
+    }
 
 }
 void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std::string> &resources_ids){
@@ -156,9 +197,12 @@ void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std
     for (auto &r_id: resources_ids){
         Resource *resource = resources_[r_id];
         std::set<int> requiring_events = xr_[resource->get_num()];
-        for(int t = 0; t<time_count; t++) ;
-            //todo: preguntar per pesos
-
+        for(int t = 0; t<time_count; t++)
+            for(auto &e: requiring_events){
+                boolvar i_var = formula_->newBoolVar("avoid_clashes", t, e);
+                pseudoVars_.insert({i_var, weight});
+                clauses_.push_back(xt_[e][t] | i_var);
+            }
     }
 }
 void SATBasicModel::split_events_constraint(const int &cost, const std::set<std::string> &events, const int &min, const int &max, const int &min_amount, const int &max_amount){
