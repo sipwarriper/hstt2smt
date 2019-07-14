@@ -206,6 +206,44 @@ void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std
     }
 }
 void SATBasicModel::split_events_constraint(const int &cost, const std::set<std::string> &events, const int &min, const int &max, const int &min_amount, const int &max_amount){
+    int time_count = times_.size();
+    float _w = cost/events.size();
+    float weight = std::max(static_cast<float>(1), _w);
+
+    for (auto & event_id : events){
+        Event * event = events_[event_id];
+        int e = event->get_num();
+
+        //nullify all durations below minimum
+        for (int d = 1; d<min; d++){
+            for(int t = 0; t<time_count; t++){
+                boolvar x = formula_->newBoolVar("split_events", e, d, t);
+                clauses_.push_back(!xd_[e][d][t] | x);
+                pseudoVars_.insert({x, weight});
+            }
+        }
+        //nullify all durations above maximum
+        for(int d = max+1; d<event->get_duration()+1; d++){
+            for(int t = 0; t<time_count; t++){
+                boolvar x = formula_->newBoolVar("split_events", e, d, t);
+                clauses_.push_back(!xd_[e][d][t] | x);
+                pseudoVars_.insert({x, weight});
+            }
+        }
+
+        if(min_amount == max_amount && min_amount>0){
+            //exactly_k de xs_[e]
+        }
+        else{
+            if(min_amount>0){
+                //atleast k de xs_[e]
+            }
+            if(max_amount < time_count){
+                //atmost k de xs[e]
+            }
+        }
+    }
+
 
 }
 void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std::string> &event_groups, std::unordered_map<std::string, std::pair<int, int>> time_groups){
