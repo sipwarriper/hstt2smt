@@ -250,7 +250,22 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
 
 }
 void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &times_ids){
+    float weight = cost/resources_ids.size();
 
+    std::set<int> unavaliable_times;
+    for (auto & time_id : times_ids)
+        unavaliable_times.insert(times_[time_id]->get_num());
+    for (auto & resource_id : resources_ids){
+        //get all events that the resource are to attend
+        for (int e : xr_[resources_[resource_id]->get_num()]){
+            for(int t: unavaliable_times){
+                boolvar x = formula_->newBoolVar("avoid_unavailable_times"+resource_id, e, t);
+                clauses_.push_back(!xt_[e][t] | x);
+                pseudoVars_.insert({x, weight});
+            }
+        }
+
+    }
 }
 void SATBasicModel::distribute_split_events_constraints(const int &cost, const std::set<std::string> &event_ids, const int &duration, const int &min, const int &max){
 

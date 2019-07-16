@@ -552,7 +552,7 @@ void SMTFormula::addEK(const vector<literal> & v, int K){
 		vector<literal> sorted(n);
 		addSorting(v,sorted);
 		if(K>0) addClause(sorted[K-1]);
-		if(K<n)addClause(!sorted[K]);
+        if(K<n) addClause(!sorted[K]);
 	}
 }
 
