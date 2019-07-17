@@ -247,6 +247,90 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
 
 }
 void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std::string> &event_groups, std::unordered_map<std::string, std::pair<int, int>> time_groups){
+    int time_count = times_.size();
+
+    float _w = cost/event_groups.size();
+    float weight = std::max(static_cast<float>(1), _w);
+
+    std::vector<std::vector<int>> time_ranges;
+
+    for(auto & time_group_it : time_groups){
+        Group *time_group = time_groups_[time_group_it.first];
+        int min = time_group_it.second.first;
+        int max = time_group_it.second.second;
+        std::vector<int> time_nums;
+        for (std::string time_id : time_group->get_elems())
+            time_nums.push_back(times_[time_id]->get_num());
+        std::sort(time_nums.begin(), time_nums.end());
+
+        //generate a list with the time_nums that do not have an immediat predecessor within the group
+        // and impose that for those times, if xt_ then xs_ (that is, those times will always be starting times)
+        std::vector<int> heads;
+        for(int i = 0; i<time_nums.size(); i++){
+            int prev = i==0?time_nums.size()-1:i-1;
+            if(time_nums[i] != time_nums[prev]+1) heads.push_back(time_nums[i]);
+        }
+
+        for(int i = 0; i<time_nums.size()-1; i++){
+            std::vector<int> r;
+            while (i< time_nums.size()-1 && time_nums[i] == time_nums[i+1]-1){
+                r.push_back(time_nums[i]);
+                i++;
+            }
+            r.push_back(time_nums[i]);
+            i++;
+            time_ranges.push_back(r);
+        }
+
+        for(std::string event_group_id : event_groups){
+            Group * event_group = event_groups_[event_group_id];
+            for (std::string event_id : event_group->get_elems()){
+                int e = events_[event_id]->get_num();
+                //impose that for headtimes, if xt then xs such that all starting times of the time group are marked as such in xs if they are set in xt.
+                for(int t : heads)
+                    clauses_.push_back(!xt_[e][t] | xs_[e][t]);
+
+            }
+            //need of weighted cardinality constraint...
+            //self.clauses.extend(self.card.weighted_card(z_args, 0, minimum, len(z_args), maximum, weight))
+        }
+    }
+
+    //time_ranges will contain a list of all consecutive time ranges, so for each event
+    for(auto & event_it : events_){
+        Event* event = event_it.second;
+        int e = event->get_num();
+        for (std::vector<int> tr : time_ranges){
+            for(int d = 1; d < event->get_duration(); d++){
+                //initial, if the event is scheduled with duration d, then time t+d must be free
+                for(int i = 0; i<tr.size()-d; i++){
+                    clauses_.push_back(!xd_[e][d][tr[i]] | !xt_[e][tr[i]+d]);
+                    clause cl;
+                    for (int t = tr[i]; t<tr[i]+d; t++)
+                        cl = cl | !xt_[e][t];
+                    cl = cl | xt_[e][tr[i]+d];
+                    if (i>0)
+                        cl = cl | xt_[e][tr[i-1]];
+                    cl = cl | xd_[e][d][tr[i]];
+                    clauses_.push_back(cl);
+                }
+                //final if all the last d times of a time_range are set, then xd must be also set.
+                if(tr.size()-d >=0){
+                    clause cl;
+                    for(int t = tr[tr.size()-d]; t<tr[tr.size()-1]+1; t++)
+                        cl = cl | !xt_[e][tr.size()-d-1];
+                    if (tr.size()-d > 0)
+                        cl = cl | xd_[e][d][tr[tr.size()-d-1]];
+                    cl = cl | xd_[e][d][tr[tr.size()-d]];
+                    clauses_.push_back(cl);
+                }
+                //also nullify all unfeasible times.
+                int ini = std::max(static_cast<int>(tr.size()-d+1), 0);
+                for(int i = ini; i< tr.size(); i++)
+                    clauses_.push_back(!xd_[e][d][tr[i]]);
+            }
+        }
+    }
 
 }
 void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &times_ids){
@@ -268,7 +352,7 @@ void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const st
     }
 }
 void SATBasicModel::distribute_split_events_constraints(const int &cost, const std::set<std::string> &event_ids, const int &duration, const int &min, const int &max){
-
+    //mirarsho amb en suy
 }
 void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
 
