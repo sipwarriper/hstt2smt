@@ -280,14 +280,23 @@ public:
 	//Adds exactly-one constraint on the literals in 'v'
 	void addEO(const vector<literal> & v, AMOEncoding enc = AMO_QUAD);
 
-	//Adds at-least-K constraint on the literals in 'v'
-	void addALK(const vector<literal> & v, int K);
+    //Adds at-least-K constraint on the literals in 'v'
+    void addALK(const vector<literal> & v, int K);
 
-	//Adds at-most-K constraint on the literals in 'v'
+    //Adds at-least-K constraint on the literals in 'v'... forces c to be true if the alk is violated (!alk_enc -> c)
+    void addALKWithCheckVar(const vector<literal> & v, int K, boolvar c);
+
+    //Adds at-most-K constraint on the literals in 'v'
 	void addAMK(const vector<literal> & v, int K, CardinalityEncoding enc = CARD_SORTER);
 
-	//Adds exactly-K constraint on the literals in 'v'
-	void addEK(const vector<literal> & v, int K);
+    //Adds at-most-K constraint on the literals in 'v'.... forces c to be true if the amk is violated (!amk_enc-> c)
+    void addAMKWithCheckVar(const vector<literal> & v, int K, boolvar c, CardinalityEncoding enc = CARD_SORTER);
+
+    //Adds exactly-K constraint on the literals in 'v'
+    void addEK(const vector<literal> & v, int K);
+
+    //Adds exactly-K constraint on the literals in 'v'... forces c to be true if the ek is violated (!ek_enc-> c)
+    void addEKwithCheckVar(const vector<literal> & v, int K, boolvar c);
 
 	//Adds PB constraint Q*X <= K
 	void addPB(const vector<int> & Q, const vector<literal> & X, int K, PBEncoding = PB_BDD);

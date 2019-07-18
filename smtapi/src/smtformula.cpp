@@ -503,6 +503,31 @@ void SMTFormula::addALK(const vector<literal> & v, int K){
 	}
 }
 
+
+void SMTFormula::addALKWithCheckVar(const vector<literal> & v, int K, boolvar c){
+    int n = v.size();
+    if(K>n){ //Trivially false
+        addEmptyClause();
+        addClause(c);//then c must be true.
+        return;
+    }
+    else if(K<0){//Trivially true
+        addClause(!c); //then c must be false.
+        return;
+    }
+    else if(n==0 && K == 0){//Trivially true
+        addClause(!c); //then c must be false
+        return;
+    }
+    else if(n==1 && K==1)
+        addClause(v[0] | c);
+    else{
+        vector<literal> sorted(n);
+        addSorting(v,sorted);
+        if(K>0) addClause(sorted[K-1] | c);
+    }
+}
+
 void SMTFormula::addAMK(const vector<literal> & v, int K, CardinalityEncoding enc){
 	int n = v.size();
 	if(K < 0){ //Trivially false
@@ -538,6 +563,45 @@ void SMTFormula::addAMK(const vector<literal> & v, int K, CardinalityEncoding en
 	}
 }
 
+void SMTFormula::addAMKWithCheckVar(const vector<literal> & v, int K, boolvar c, CardinalityEncoding enc = CARD_SORTER){
+    int n = v.size();
+    if(K < 0){ //Trivially false
+        addEmptyClause();
+        addClause(c); //c must b true
+        return;
+    }
+    else if(K>n){ //Trivially true
+        addClause(!c); //c must be false
+        return;
+    }
+    else if((n==0 && K == 0) || (n==1 && K==1)){ //Trivially true
+        addClause(!c); //c must be false
+        return;
+    }
+    else{
+        switch(enc){
+            case CARD_TOTALIZER:
+            {
+                vector<literal> root(min(K+1,n));
+                addTotalizer(v,root,K);
+                if(root.size() > K)
+                    addClause(!root[K] | c);
+            }
+            break;
+
+            case CARD_SORTER:
+            default:
+            {
+                vector<literal> sorted(n);
+                addSorting(v,sorted);
+                if(K<n)
+                    addClause(!sorted[K] | c);
+            }
+            break;
+        }
+    }
+}
+
 void SMTFormula::addEK(const vector<literal> & v, int K){
 	int n = v.size();
 	if(K>n | K < 0){ //Triviavlly false
@@ -554,6 +618,28 @@ void SMTFormula::addEK(const vector<literal> & v, int K){
 		if(K>0) addClause(sorted[K-1]);
         if(K<n) addClause(!sorted[K]);
 	}
+}
+
+void SMTFormula::addEKwithCheckVar(const vector<literal> & v, int K, boolvar c){
+
+    int n = v.size();
+    if(K>n | K < 0){ //Triviavlly false
+        addEmptyClause();
+        addClause(c); //c must b true
+        return;
+    }
+    else if(n==0 && K == 0){ //Trivially true
+        addClause(!c);
+        return;
+    }
+    else if(n==1 && K==1)
+        addClause(v[0]| c);
+    else{
+        vector<literal> sorted(n);
+        addSorting(v,sorted);
+        if(K>0) addClause(sorted[K-1] | c);
+        if(K<n) addClause(!sorted[K] | c);
+    }
 }
 
 void SMTFormula::addPB(const vector<int> & Q, const vector<literal> & X, int K, PBEncoding encoding){
