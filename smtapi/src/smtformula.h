@@ -296,7 +296,7 @@ public:
     void addEK(const vector<literal> & v, int K);
 
     //Adds exactly-K constraint on the literals in 'v'... forces c to be true if the ek is violated (!ek_enc-> c)
-    void addEKwithCheckVar(const vector<literal> & v, int K, boolvar c);
+    void addEKWithCheckVar(const vector<literal> & v, int K, boolvar c);
 
 	//Adds PB constraint Q*X <= K
 	void addPB(const vector<int> & Q, const vector<literal> & X, int K, PBEncoding = PB_BDD);

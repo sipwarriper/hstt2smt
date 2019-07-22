@@ -121,7 +121,7 @@ void Model::resource_to_group(const std::string& resource_id, const std::string&
 	if (resources_[resource_id]->get_rtype_ref() != resource_groups_[group_ref]->get_opt())
 		throw ModelException("Attached resource to a group of different type");
 	resources_[resource_id]->add_group(group_ref);
-	resource_groups_[resource_id]->add_element(resource_id);
+    resource_groups_[group_ref]->add_element(resource_id);
 }
 
 void Model::event_to_group(const std::string& event_id, const std::string& group_ref){

@@ -12,6 +12,7 @@ Group::Group(const std::string& id, const std::string& name, const std::string& 
 	identifier_ = id;
 	name_ = name;
 	gtype_ = gtype;
+    opt_ = opt;
 	elems_ = std::set<std::string>();
 }
 

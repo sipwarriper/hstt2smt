@@ -44,7 +44,7 @@ private:
     std::unordered_map<int, std::vector<boolvar>> xt_;//xt --> key: event number, content: boolvar for time (active time)
     std::unordered_map<int, std::vector<boolvar>> xs_;//xs --> key: event number, content: boolvar for time (starting time)
     std::unordered_map<int, std::unordered_map<int, std::vector<boolvar>>> xd_;//xd --> key: event number, content: dictionary --> key: 1..event.duration+1, content: variable for starting time with duration key
-    std::set<std::pair<boolvar, int>> pseudoVars_; //pseudoVars --> vector with pairs of variables and their weights.
+    std::vector<std::pair<boolvar, int>> pseudoVars_; //pseudoVars --> vector with pairs of variables and their weights.
 
     std::unordered_map<int, std::set<int>> xr_; //xr --> key: resource num, content: set with all the events that demand such resource.
 

@@ -563,7 +563,7 @@ void SMTFormula::addAMK(const vector<literal> & v, int K, CardinalityEncoding en
 	}
 }
 
-void SMTFormula::addAMKWithCheckVar(const vector<literal> & v, int K, boolvar c, CardinalityEncoding enc = CARD_SORTER){
+void SMTFormula::addAMKWithCheckVar(const vector<literal> & v, int K, boolvar c, CardinalityEncoding enc){
     int n = v.size();
     if(K < 0){ //Trivially false
         addEmptyClause();
@@ -620,7 +620,7 @@ void SMTFormula::addEK(const vector<literal> & v, int K){
 	}
 }
 
-void SMTFormula::addEKwithCheckVar(const vector<literal> & v, int K, boolvar c){
+void SMTFormula::addEKWithCheckVar(const vector<literal> & v, int K, boolvar c){
 
     int n = v.size();
     if(K>n | K < 0){ //Triviavlly false

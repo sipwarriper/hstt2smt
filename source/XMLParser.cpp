@@ -77,9 +77,9 @@ void XMLParser::parse_resources(const pugi::xml_node& xml_resources){
 		
 		model_->register_resource(id, name, rtype);
 		//parse the groups this elem belongs to
-		pugi::xml_node xml_groups = xml_elem.child("ResourceGroups");
+        pugi::xml_node xml_groups = xml_elem.child("ResourceGroups");
 		if(xml_groups){
-			for (pugi::xml_node xml_group : xml_elem.children("ResourceGroup"))
+            for (pugi::xml_node xml_group : xml_groups.children("ResourceGroup"))
 				model_->resource_to_group(id, xml_group.attribute("Reference").as_string());
 		}
 	}
@@ -267,8 +267,9 @@ std::set<std::string> XMLParser::gather_resources_from_constraint(const pugi::xm
 	pugi::xml_node xml_groups = xml_apply.child("ResourceGroups");
 	if (xml_groups) {
 		for (pugi::xml_node xml_group : xml_groups.children("ResourceGroup")) {
-			std::set<std::string> temp = model_->get_resources_from_group(xml_group.attribute("Reference").as_string());
-			resources.insert(temp.begin(), temp.end());
+                std::string id = xml_group.attribute("Reference").as_string();
+                std::set<std::string> temp = model_->get_resources_from_group(id);
+                resources.insert(temp.begin(), temp.end());
 		}
 	}
 	pugi::xml_node xml_resources = xml_apply.child("Resources");
@@ -396,9 +397,8 @@ void XMLParser::parse_spread_events_constraint(const pugi::xml_node& xml_node){
 		pugi::xml_node xml_apply = xml_node.child("AppliesTo");
 		pugi::xml_node xml_groups = xml_apply.child("EventGroups");
 		if (xml_groups) {
-			for (pugi::xml_node xml_group : xml_groups.children("EventGroup")) {
-				std::set<std::string> temp = model_->get_events_from_group(xml_group.attribute("Reference").as_string());
-				events_groups.insert(temp.begin(), temp.end());
+            for (pugi::xml_node xml_group : xml_groups.children("EventGroup")) {
+                events_groups.insert(xml_group.attribute("Reference").as_string());
 			}
 		}
 
@@ -423,7 +423,7 @@ void XMLParser::parse_spread_events_constraint(const pugi::xml_node& xml_node){
 void XMLParser::parse_avoid_unavailable_times_constraint(const pugi::xml_node& xml_node){
 	if(xml_node){
 		pugi::xml_node xml_apply = xml_node.child("AppliesTo");
-		std::set<std::string> resources = gather_events_from_constraint(xml_apply);
+        std::set<std::string> resources = gather_resources_from_constraint(xml_apply);
 		std::set<std::string> times = gather_times_from_constraint(xml_node);
 
 		int points_of_app = resources.size();
