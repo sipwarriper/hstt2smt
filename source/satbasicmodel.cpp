@@ -510,6 +510,14 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
 
 
 SMTFormula * SATBasicModel::encode(int LB, int UB){
+    formula_->addClauses(clauses_);
+    std::vector<literal> boolvars;
+    std::vector<int> q;
+    for(std::pair<boolvar, int> p: pseudoVars_){
+        boolvars.push_back(p.first);
+        q.push_back(p.second);
+    }
+    formula_->addPB(q,boolvars,UB);
     return formula_;
 }
 
