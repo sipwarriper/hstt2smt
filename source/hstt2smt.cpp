@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 
     SATBasicModel * encoding = new SATBasicModel(pargs->getArgument(0));
 
-    BasicController c(sargs,encoding, false, 0,0);
+    BasicController c(sargs,encoding, false, 0,INT_MAX);
     c.run();
 
 
