@@ -9,15 +9,10 @@
 
 SATBasicModel::SATBasicModel(std::string filename) : Model(){
     formula_ = new SMTFormula();
-
+    pseudoValue = INT_MAX;
 
     auto parser = XMLParser(this, filename);
     parser.parse_model();
-
-
-    //we need to remove duplicated clauses
-    //TODO: dis
-
 }
 
 SATBasicModel::~SATBasicModel(){
@@ -159,7 +154,7 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
             forbidden.insert(i);
     }
 
-    float weight = cost/events_ids.size();
+    int weight = cost/events_ids.size();
 
     //for each event, forbid all forbidden times for the given duration (if any)
     for (auto &event_id: events_ids){
@@ -194,7 +189,7 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
 }
 void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std::string> &resources_ids){
     int time_count = times_.size();
-    float weight = cost/resources_ids.size();
+    int weight = cost/resources_ids.size();
     for (auto &r_id: resources_ids){
         Resource *resource = resources_[r_id];
         std::set<int> requiring_events = xr_[resource->get_num()];
@@ -209,7 +204,7 @@ void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std
 void SATBasicModel::split_events_constraint(const int &cost, const std::set<std::string> &events, const int &min, const int &max, const int &min_amount, const int &max_amount){
     int time_count = times_.size();
     float _w = cost/events.size();
-    float weight = std::max(static_cast<float>(1), _w);
+    int weight = std::max(static_cast<float>(1), _w);
 
     for (auto & event_id : events){
         Event * event = events_[event_id];
@@ -260,7 +255,7 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
     int time_count = times_.size();
 
     float _w = cost/event_groups.size();
-    float weight = std::max(static_cast<float>(1), _w);
+    int weight = std::max(static_cast<float>(1), _w);
 
     std::vector<std::vector<int>> time_ranges;
 
@@ -362,7 +357,7 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
 
 }
 void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &times_ids){
-    float weight = cost/resources_ids.size();
+    int weight = cost/resources_ids.size();
 
     std::set<int> unavaliable_times;
     for (auto & time_id : times_ids)
@@ -383,8 +378,8 @@ void SATBasicModel::distribute_split_events_constraints(const int &cost, const s
     //mirarsho amb en suy
 }
 void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
-    float w_ = cost/resources_ids.size();
-    float weight = std::max(static_cast<float>(1), w_);
+    int w_ = cost/resources_ids.size();
+    int weight = std::max(1, w_);
     for (std::string resource_id : resources_ids){
         int r = resources_[resource_id]->get_num();
         std::vector<literal> idle_vars;
@@ -461,8 +456,8 @@ void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<
 
 }
 void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
-    float w_ = cost/resources_ids.size();
-    float weight = std::max(static_cast<float>(1), w_);
+    int w_ = cost/resources_ids.size();
+    int weight = std::max(1, w_);
     int time_count = times_.size();
     for (std::string r_id : resources_ids){
         int r = resources_[r_id]->get_num();
@@ -510,22 +505,56 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
 
 
 SMTFormula * SATBasicModel::encode(int LB, int UB){
-    formula_->addClauses(clauses_);
+    SMTFormula * f = new SMTFormula();
+    *f = *formula_;///POSSIBLE ERROR POINT!
+    f->addClauses(clauses_);
     std::vector<literal> boolvars;
     std::vector<int> q;
     for(std::pair<boolvar, int> p: pseudoVars_){
         boolvars.push_back(p.first);
         q.push_back(p.second);
     }
-    formula_->addPB(q,boolvars,UB);
-    return formula_;
+    f->addPB(q,boolvars,UB);
+    return f;
 }
 
 void SATBasicModel::setModel(const EncodedFormula &ef, int lb, int ub, const vector<bool> &bmodel, const vector<int> &imodel){
-
+    xt_Res_ = std::unordered_map<int,std::vector<bool>>();
+    xs_Res_ = std::unordered_map<int,std::vector<bool>>();
+    xd_Res_ = std::unordered_map<int, std::unordered_map<int,std::vector<bool>>>();
+    pseudoVars_Res_ = std::vector<bool>();
+    for(auto & it : xt_){
+        std::vector<bool> vec;
+        for(boolvar b : it.second)
+            vec.push_back(ef.f->getBValue(b,bmodel));
+        xt_Res_.insert({it.first,vec});
+    }
+    for(auto & it : xs_){
+        std::vector<bool> vec;
+        for(boolvar b : it.second)
+            vec.push_back(ef.f->getBValue(b,bmodel));
+        xs_Res_.insert({it.first, vec});
+    }
+    for(auto & it: xd_){
+        std::unordered_map<int, std::vector<bool>> map_;
+        for(auto & it2 : it.second){
+            std::vector<bool> vec;
+            for(boolvar b : it2.second)
+                vec.push_back(ef.f->getBValue(b,bmodel));
+            map_.insert({it2.first, vec});
+        }
+        xd_Res_.insert({it.first, map_});
+    }
+    int _aux_pseudo_total = 0;
+    for (auto p_ : pseudoVars_){
+        bool value = ef.f->getBValue(p_.first,bmodel);
+        if (value) _aux_pseudo_total += p_.second;
+        pseudoVars_Res_.push_back(value);
+    }
+    pseudoValue = _aux_pseudo_total;
 }
 int SATBasicModel::getObjective() const{
-    return 0;
+    return pseudoValue;
 }
 bool SATBasicModel::printSolution(ostream &os) const{
 
