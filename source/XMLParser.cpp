@@ -3,6 +3,7 @@
 #include <limits>
 #include <algorithm>
 #include <math.h>
+#include <limits.h>
 
 XMLParser::XMLParser(Model* instance, std::string filename) {
 
@@ -301,7 +302,7 @@ std::set<std::string> XMLParser::gather_times_from_constraint(const pugi::xml_no
 int XMLParser::constraint_cost(pugi::xml_node xml_node, int points_of_application){//todo revisar tipo retorn
 	bool required = xml_node.child("Required").text().as_bool();
 	if (required)
-		return std::numeric_limits<int>::max();
+        return INT_MAX;
 
 	int weight = xml_node.child("Weight").text().as_int();
 	std::string costFunc = xml_node.child("CostFunction").text().as_string();

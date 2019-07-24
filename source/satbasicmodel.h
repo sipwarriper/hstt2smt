@@ -49,6 +49,14 @@ private:
     std::unordered_map<int, std::set<int>> xr_; //xr --> key: resource num, content: set with all the events that demand such resource.
 
 
+    std::unordered_map<int, std::vector<bool>> xt_Res_;
+    std::unordered_map<int, std::vector<bool>> xs_Res_;
+    std::unordered_map<int, std::unordered_map<int, std::vector<bool>>> xd_Res_;
+    std::vector<bool> pseudoVars_Res_;
+
+    int pseudoValue;
+
+
 
 
 
