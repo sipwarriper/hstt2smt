@@ -163,25 +163,39 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
         if (duration<0){
             for (int d=1; d<event->get_duration()+1; d++){
                 for(auto &t : forbidden){
-                    boolvar x = formula_->newBoolVar("prefer_times", e,d,t);
-                    clauses_.push_back(!xd_[e][d][t] | x);
-                    pseudoVars_.push_back({x, weight});
+                    clause cl = !xd_[e][d][t];
+                    if(cost>=0){
+                        boolvar x = formula_->newBoolVar("prefer_times", e,d,t);
+                        pseudoVars_.push_back({x, weight});
+                        cl = cl | x;
+                    }
+                    clauses_.push_back(cl);
                 }
             }
             for(auto &t : forbidden){
-                boolvar x1 = formula_->newBoolVar("prefer_times_1", e, t);
-                boolvar x2 = formula_->newBoolVar("prefer_times_2", e, t);
-                clauses_.push_back(!xt_[e][t] | x1);
-                clauses_.push_back(!xs_[e][t] | x2);
-                pseudoVars_.push_back({x1, weight});
-                pseudoVars_.push_back({x2, weight});
+                clause cl1 = !xt_[e][t];
+                clause cl2 = !xs_[e][t];
+                if(cost>=0){
+                    boolvar x1 = formula_->newBoolVar("prefer_times_1", e, t);
+                    boolvar x2 = formula_->newBoolVar("prefer_times_2", e, t);
+                    cl1 = cl1 | x1;
+                    cl2 = cl2 | x2;
+                    pseudoVars_.push_back({x1, weight});
+                    pseudoVars_.push_back({x2, weight});
+                }
+                clauses_.push_back(cl1);
+                clauses_.push_back(cl2);
             }
         }
         else if (xd_[e].find(duration)!= xd_[e].end()){
             for(auto &t : forbidden){
-                boolvar x = formula_->newBoolVar("prefer_times", e, t);
-                clauses_.push_back(!xd_[e][duration][t] | x);
-                pseudoVars_.push_back({x,weight});
+                clause cl = !xd_[e][duration][t];
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("prefer_times", e, t);
+                    cl = cl | x;
+                    pseudoVars_.push_back({x,weight});
+                }
+                clauses_.push_back(cl);
             }
         }
     }
@@ -195,9 +209,13 @@ void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std
         std::set<int> requiring_events = xr_[resource->get_num()];
         for(int t = 0; t<time_count; t++)
             for(auto &e: requiring_events){
-                boolvar i_var = formula_->newBoolVar("avoid_clashes", t, e);
-                pseudoVars_.push_back({i_var, weight});
-                clauses_.push_back(xt_[e][t] | i_var);
+                clause cl = xt_[e][t];
+                if(cost>=0){
+                    boolvar i_var = formula_->newBoolVar("avoid_clashes", t, e);
+                    pseudoVars_.push_back({i_var, weight});
+                    cl = cl | i_var;
+                }
+                clauses_.push_back(cl);
             }
     }
 }
@@ -213,17 +231,25 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
         //nullify all durations below minimum
         for (int d = 1; d<min; d++){
             for(int t = 0; t<time_count; t++){
-                boolvar x = formula_->newBoolVar("split_events", e, d, t);
-                clauses_.push_back(!xd_[e][d][t] | x);
-                pseudoVars_.push_back({x, weight});
+                clause cl = !xd_[e][d][t];
+                if (cost >= 0){
+                    boolvar x = formula_->newBoolVar("split_events", e, d, t);
+                    cl = cl | x;
+                    pseudoVars_.push_back({x, weight});
+                }
+                clauses_.push_back(cl);
             }
         }
         //nullify all durations above maximum
         for(int d = max+1; d<event->get_duration()+1; d++){
             for(int t = 0; t<time_count; t++){
-                boolvar x = formula_->newBoolVar("split_events", e, d, t);
-                clauses_.push_back(!xd_[e][d][t] | x);
-                pseudoVars_.push_back({x, weight});
+                clause cl = !xd_[e][d][t];
+                if(cost >= 0){
+                    boolvar x = formula_->newBoolVar("split_events", e, d, t);
+                    cl = cl | x;
+                    pseudoVars_.push_back({x, weight});
+                }
+                clauses_.push_back(cl);
             }
         }
         std::vector<literal> vec_;
@@ -231,22 +257,37 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
 
         if(min_amount == max_amount && min_amount>0){
             //exactly_k de xs_[e]
-            boolvar x = formula_->newBoolVar("split_events", e);
-            formula_->addEKWithCheckVar(vec_, min_amount,x);
-            pseudoVars_.push_back({x,weight});
+            if (cost>=0){
+                boolvar x = formula_->newBoolVar("split_events", e);
+                formula_->addEKWithCheckVar(vec_, min_amount,x);
+                pseudoVars_.push_back({x,weight});
+            }
+            else{
+                 formula_->addEK(vec_, min_amount);
+            }
         }
         else{
             if(min_amount>0){
                 //atleast k de xs_[e]
-                boolvar x = formula_->newBoolVar("split_events_min", e);
-                formula_->addALKWithCheckVar(vec_, min_amount,x);
-                pseudoVars_.push_back({x,weight});
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("split_events_min", e);
+                    formula_->addALKWithCheckVar(vec_, min_amount,x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                     formula_->addALK(vec_, min_amount);
+                }
             }
             if(max_amount < time_count){
                 //atmost k de xs[e]
-                boolvar x = formula_->newBoolVar("split_events_max", e);
-                formula_->addAMKWithCheckVar(vec_, max_amount,x);
-                pseudoVars_.push_back({x,weight});
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("split_events_max", e);
+                    formula_->addAMKWithCheckVar(vec_, max_amount,x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else {
+                     formula_->addAMK(vec_, max_amount);
+                }
             }
         }
     }
@@ -300,20 +341,35 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
                     z_args.push_back(xs_[e][t]);
             }
             if(min == max & min>0){
-                boolvar x = formula_->newBoolVar("spread_events_"+event_group_id);
-                formula_->addEKWithCheckVar(z_args, min, x);
-                pseudoVars_.push_back({x,weight});
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("spread_events_"+event_group_id);
+                    formula_->addEKWithCheckVar(z_args, min, x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                    formula_->addEK(z_args, min);
+                }
             }
             else{
                 if(min>0){
-                    boolvar x = formula_->newBoolVar("spread_events_min_"+event_group_id);
-                    formula_->addALKWithCheckVar(z_args, min, x);
-                    pseudoVars_.push_back({x,weight});
+                    if(cost>=0){
+                        boolvar x = formula_->newBoolVar("spread_events_min_"+event_group_id);
+                        formula_->addALKWithCheckVar(z_args, min, x);
+                        pseudoVars_.push_back({x,weight});
+                    }
+                    else{
+                        formula_->addALK(z_args, min);
+                    }
                 }
                 if(max < z_args.size()){
-                    boolvar x = formula_->newBoolVar("spread_events_max_"+event_group_id);
-                    formula_->addAMKWithCheckVar(z_args, max, x);
-                    pseudoVars_.push_back({x,weight});
+                    if(cost>=0){
+                        boolvar x = formula_->newBoolVar("spread_events_max_"+event_group_id);
+                        formula_->addAMKWithCheckVar(z_args, max, x);
+                        pseudoVars_.push_back({x,weight});
+                    }
+                    else{
+                        formula_->addAMK(z_args, max);
+                    }
                 }
             }
         }
@@ -366,9 +422,13 @@ void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const st
         //get all events that the resource are to attend
         for (int e : xr_[resources_[resource_id]->get_num()]){
             for(int t: unavaliable_times){
-                boolvar x = formula_->newBoolVar("avoid_unavailable_times"+resource_id, e, t);
-                clauses_.push_back(!xt_[e][t] | x);
-                pseudoVars_.push_back({x, weight});
+                clause cl = !xt_[e][t];
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("avoid_unavailable_times"+resource_id, e, t);
+                    cl = cl | x;
+                    pseudoVars_.push_back({x, weight});
+                }
+                clauses_.push_back(cl);
             }
         }
 
@@ -436,20 +496,37 @@ void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<
             }
         }
         if(min == max & min>0){
-            boolvar x = formula_->newBoolVar("limit_idle_"+resource_id);
-            formula_->addEKWithCheckVar(idle_vars, min, x);
-            pseudoVars_.push_back({x,weight});
+            if(cost>=0){
+                boolvar x = formula_->newBoolVar("limit_idle_"+resource_id);
+                formula_->addEKWithCheckVar(idle_vars, min, x);
+                pseudoVars_.push_back({x,weight});
+            }
+            else{
+                formula_->addEK(idle_vars, min);
+            }
         }
         else{
             if(min>0){
-                boolvar x = formula_->newBoolVar("limit_idle_min_"+resource_id);
-                formula_->addALKWithCheckVar(idle_vars, min, x);
-                pseudoVars_.push_back({x,weight});
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("limit_idle_min_"+resource_id);
+                    formula_->addALKWithCheckVar(idle_vars, min, x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                    formula_->addALK(idle_vars, min);
+                }
+
             }
             if(max < idle_vars.size()){
-                boolvar x = formula_->newBoolVar("limit_idle_max_"+resource_id);
-                formula_->addAMKWithCheckVar(idle_vars, max, x);
-                pseudoVars_.push_back({x,weight});
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("limit_idle_max_"+resource_id);
+                    formula_->addAMKWithCheckVar(idle_vars, max, x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                    formula_->addAMK(idle_vars, max);
+                }
+
             }
         }
     }
@@ -481,20 +558,35 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
             busies  .push_back(busy);
         }
         if(min == max & min>0){
-            boolvar x = formula_->newBoolVar("cluster_busy_times", r);
-            formula_->addEKWithCheckVar(busies, min, x);
-            pseudoVars_.push_back({x,weight});
+            if(cost>=0){
+                boolvar x = formula_->newBoolVar("cluster_busy_times", r);
+                formula_->addEKWithCheckVar(busies, min, x);
+                pseudoVars_.push_back({x,weight});
+            }
+            else{
+                formula_->addEK(busies, min);
+            }
         }
         else{
             if(min>0){
-                boolvar x = formula_->newBoolVar("cluster_busy_times_min", r);
-                formula_->addALKWithCheckVar(busies, min, x);
-                pseudoVars_.push_back({x,weight});
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("cluster_busy_times_min", r);
+                    formula_->addALKWithCheckVar(busies, min, x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                    formula_->addALK(busies, min);
+                }
             }
             if(max < busies.size()){
-                boolvar x = formula_->newBoolVar("cluster_busy_times_max", r);
-                formula_->addAMKWithCheckVar(busies, max, x);
-                pseudoVars_.push_back({x,weight});
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("cluster_busy_times_max", r);
+                    formula_->addAMKWithCheckVar(busies, max, x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                    formula_->addAMK(busies, max);
+                }
             }
         }
 
