@@ -5,6 +5,17 @@
 #include "Model.h"
 #include "encoding.h"
 
+struct AssignmentEntry{
+    std::string event_id;
+    int duration;
+    std::string time_id;
+    AssignmentEntry(std::string e_id, int d, std::string t_id){
+        event_id = e_id;
+        duration = d;
+        time_id = t_id;
+    }
+};
+
 class SATBasicModel : public Model, public Encoding
 {
 public:
@@ -17,7 +28,7 @@ public:
     int getObjective() const;
     bool printSolution(ostream &os) const;
 
-
+    std::vector<AssignmentEntry> get_time_assignments() const;
     void set_time_for_event(int event_num, int duration, Time* start_t);
 
     void prefer_resources_constraint(const std::set<std::string> &events_ids, const std::set<std::string> &resources_ids, const std::string &role);

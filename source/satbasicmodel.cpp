@@ -20,6 +20,24 @@ SATBasicModel::~SATBasicModel(){
 }
 
 
+std::vector<AssignmentEntry> SATBasicModel::get_time_assignments() const{
+    int time_count = times_.size();
+    std::vector<AssignmentEntry> result;
+    for (auto & event : events_){
+        for (int d = 1; d<event.second->get_duration()+1; d++){
+            for(int i=0; i<time_count; i++){
+                int e_num = event.second->get_num();
+                bool var = xd_Res_.find(e_num)->second.find(d)->second[i];
+                if(var){
+                    AssignmentEntry entry(event.first, d, num2time_.find(i)->second->get_identifier());
+                    result.push_back(entry);
+                }
+            }
+        }
+    }
+    return result;
+}
+
 void SATBasicModel::on_parsed_events(bool spread_constraint){
     //initialize xr_
     for(auto &r : resources_)
@@ -49,8 +67,7 @@ void SATBasicModel::on_parsed_events(bool spread_constraint){
             int preassigned = times_[event->get_time_ref()]->get_num();
             for (int t=0;t<time_count;t++){
                 if(t != preassigned){
-                    clause _c = !xt_[e_num][t];
-                    clauses_.push_back(_c);
+                    clauses_.push_back(!xt_[e_num][t]);
                 }
             }
             clauses_.push_back(xt_[e_num][preassigned]);
@@ -62,9 +79,11 @@ void SATBasicModel::on_parsed_events(bool spread_constraint){
             formula_->addEK(_literals,event->get_duration());
 
             //Xs contained in Xt
-            for(int i = 0; i<time_count; i++) clauses_.push_back(!xs_[e_num][i] | xt_[e_num][i]); //xs implies x
+            for(int i = 0; i<time_count; i++)
+                clauses_.push_back(!xs_[e_num][i] | xt_[e_num][i]); //xs implies x
             //if event is taking place in xt and not in xt-1 then it must be a starting time
-            for(int i = 1; i<time_count; i++) clauses_.push_back(!xt_[e_num][i] | xt_[e_num][i-1] | xs_[e_num][i]); //TODO: es podria afegir un exactly one per apurar aquesta clausula (potser ja hi es)
+            for(int i = 1; i<time_count; i++)
+                clauses_.push_back(!xt_[e_num][i] | xt_[e_num][i-1] | xs_[e_num][i]); //TODO: es podria afegir un exactly one per apurar aquesta clausula (potser ja hi es)
 
             //if an envent occurs at the first time slot, then it must be a starting time.
             clauses_.push_back(!xt_[e_num][0] | xs_[e_num][0]);
@@ -94,7 +113,7 @@ void SATBasicModel::on_parsed_events(bool spread_constraint){
             }
 
             //if an event wit duration d i taking place, make sure no other events start while the event is taking place.
-            if(i>1){ //TODO: revisar
+            if(i>1){
                 for(int t = 0; t<time_count-i+1; t++){
                     for(int ti = t+1; ti<t+i; ti++)
                         clauses_.push_back(!xd_[e_num][i][t] | !xs_[e_num][ti]);
@@ -202,97 +221,103 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
 
 }
 void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std::string> &resources_ids){
+    //Problematic
     int time_count = times_.size();
     int weight = cost/resources_ids.size();
     for (auto &r_id: resources_ids){
         Resource *resource = resources_[r_id];
         std::set<int> requiring_events = xr_[resource->get_num()];
-        for(int t = 0; t<time_count; t++)
+        for(int t = 0; t<time_count; t++){
+            std::vector<literal> _lts;
             for(auto &e: requiring_events){
-                clause cl = xt_[e][t];
-                if(cost>=0){
-                    boolvar i_var = formula_->newBoolVar("avoid_clashes", t, e);
-                    pseudoVars_.push_back({i_var, weight});
-                    cl = cl | i_var;
-                }
-                clauses_.push_back(cl);
+                _lts.push_back(xt_[e][t]);
             }
+            if(cost<0){
+                formula_->addAMO(_lts);
+            }
+            else{
+                boolvar x = formula_->newBoolVar("avoid_clashes",t);
+                formula_->addAMKWithCheckVar(_lts, 1, x);
+                pseudoVars_.push_back({x,weight});
+            }
+        }
     }
 }
 void SATBasicModel::split_events_constraint(const int &cost, const std::set<std::string> &events, const int &min, const int &max, const int &min_amount, const int &max_amount){
-    int time_count = times_.size();
-    float _w = cost/events.size();
-    int weight = std::max(static_cast<float>(1), _w);
+        int time_count = times_.size();
+        float _w = cost/events.size();
+        int weight = std::max(static_cast<float>(1), _w);
 
-    for (auto & event_id : events){
-        Event * event = events_[event_id];
-        int e = event->get_num();
+        for (auto & event_id : events){
+            Event * event = events_[event_id];
+            int e = event->get_num();
 
-        //nullify all durations below minimum
-        for (int d = 1; d<min; d++){
-            for(int t = 0; t<time_count; t++){
-                clause cl = !xd_[e][d][t];
-                if (cost >= 0){
-                    boolvar x = formula_->newBoolVar("split_events", e, d, t);
-                    cl = cl | x;
-                    pseudoVars_.push_back({x, weight});
+            //nullify all durations below minimum
+            for (int d = 1; d<min; d++){
+                for(int t = 0; t<time_count; t++){
+                    clause cl = !xd_[e][d][t];
+                    if (cost >= 0){
+                        boolvar x = formula_->newBoolVar("split_events", e, d, t);
+                        cl = cl | x;
+                        pseudoVars_.push_back({x, weight});
+                    }
+                    clauses_.push_back(cl);
                 }
-                clauses_.push_back(cl);
             }
-        }
-        //nullify all durations above maximum
-        for(int d = max+1; d<event->get_duration()+1; d++){
-            for(int t = 0; t<time_count; t++){
-                clause cl = !xd_[e][d][t];
-                if(cost >= 0){
-                    boolvar x = formula_->newBoolVar("split_events", e, d, t);
-                    cl = cl | x;
-                    pseudoVars_.push_back({x, weight});
+            //nullify all durations above maximum
+            for(int d = max+1; d<event->get_duration()+1; d++){
+                for(int t = 0; t<time_count; t++){
+                    clause cl = !xd_[e][d][t];
+                    if(cost >= 0){
+                        boolvar x = formula_->newBoolVar("split_events", e, d, t);
+                        cl = cl | x;
+                        pseudoVars_.push_back({x, weight});
+                    }
+                    clauses_.push_back(cl);
                 }
-                clauses_.push_back(cl);
             }
-        }
-        std::vector<literal> vec_;
-        vec_.insert(vec_.end(), xs_[e].begin(), xs_[e].end());
+            std::vector<literal> vec_;
+            vec_.insert(vec_.end(), xs_[e].begin(), xs_[e].end());
 
-        if(min_amount == max_amount && min_amount>0){
-            //exactly_k de xs_[e]
-            if (cost>=0){
-                boolvar x = formula_->newBoolVar("split_events", e);
-                formula_->addEKWithCheckVar(vec_, min_amount,x);
-                pseudoVars_.push_back({x,weight});
-            }
-            else{
-                 formula_->addEK(vec_, min_amount);
-            }
-        }
-        else{
-            if(min_amount>0){
-                //atleast k de xs_[e]
-                if(cost>=0){
-                    boolvar x = formula_->newBoolVar("split_events_min", e);
-                    formula_->addALKWithCheckVar(vec_, min_amount,x);
+            if(min_amount == max_amount && min_amount>0){
+                //exactly_k de xs_[e]
+                if (cost>=0){
+                    boolvar x = formula_->newBoolVar("split_events", e);
+                    formula_->addEKWithCheckVar(vec_, min_amount,x);
                     pseudoVars_.push_back({x,weight});
                 }
                 else{
-                     formula_->addALK(vec_, min_amount);
+                     formula_->addEK(vec_, min_amount);
                 }
             }
-            if(max_amount < time_count){
-                //atmost k de xs[e]
-                if(cost>=0){
-                    boolvar x = formula_->newBoolVar("split_events_max", e);
-                    formula_->addAMKWithCheckVar(vec_, max_amount,x);
-                    pseudoVars_.push_back({x,weight});
+            else{
+                if(min_amount>0){
+                    //atleast k de xs_[e]
+                    if(cost>=0){
+                        boolvar x = formula_->newBoolVar("split_events_min", e);
+                        formula_->addALKWithCheckVar(vec_, min_amount,x);
+                        pseudoVars_.push_back({x,weight});
+                    }
+                    else{
+                         formula_->addALK(vec_, min_amount);
+                    }
                 }
-                else {
-                     formula_->addAMK(vec_, max_amount);
+                if(max_amount < time_count){
+                    //atmost k de xs[e]
+                    if(cost>=0){
+                        boolvar x = formula_->newBoolVar("split_events_max", e);
+                        formula_->addAMKWithCheckVar(vec_, max_amount,x);
+                        pseudoVars_.push_back({x,weight});
+                    }
+                    else {
+                         formula_->addAMK(vec_, max_amount);
+                    }
                 }
             }
         }
-    }
 }
 void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std::string> &event_groups, std::unordered_map<std::string, std::pair<int, int>> time_groups){
+    //problematic
     int time_count = times_.size();
 
     float _w = cost/event_groups.size();
@@ -316,8 +341,8 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
             int prev = i==0?time_nums.size()-1:i-1;
             if(time_nums[i] != time_nums[prev]+1) heads.push_back(time_nums[i]);
         }
-
-        for(int i = 0; i<time_nums.size()-1; i++){
+        int i = 0;
+        while(i < time_nums.size()-1){
             std::vector<int> r;
             while (i< time_nums.size()-1 && time_nums[i] == time_nums[i+1]-1){
                 r.push_back(time_nums[i]);
@@ -337,7 +362,7 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
                 //impose that for headtimes, if xt then xs such that all starting times of the time group are marked as such in xs if they are set in xt.
                 for(int t : heads)
                     clauses_.push_back(!xt_[e][t] | xs_[e][t]);
-                for(int t:time_nums)
+                for(int t : time_nums)
                     z_args.push_back(xs_[e][t]);
             }
             if(min == max & min>0){
@@ -380,27 +405,29 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
         Event* event = event_it.second;
         int e = event->get_num();
         for (std::vector<int> tr : time_ranges){
-            for(int d = 1; d < event->get_duration(); d++){
+            for(int d = 1; d < event->get_duration()+1; d++){
                 //initial, if the event is scheduled with duration d, then time t+d must be free
                 for(int i = 0; i<tr.size()-d; i++){
-                    clauses_.push_back(!xd_[e][d][tr[i]] | !xt_[e][tr[i]+d]);
-                    clause cl;
+                    //clauses_.push_back(!xd_[e][d][tr[i]] | !xt_[e][tr[i]+d]);
+                    std::vector<literal> _v;
                     for (int t = tr[i]; t<tr[i]+d; t++)
-                        cl = cl | !xt_[e][t];
-                    cl = cl | xt_[e][tr[i]+d];
+                        _v.push_back(!xt_[e][t]);
+                    _v.push_back(xt_[e][tr[i]+d]);
                     if (i>0)
-                        cl = cl | xt_[e][tr[i-1]];
-                    cl = cl | xd_[e][d][tr[i]];
+                        _v.push_back(xt_[e][tr[i-1]]);
+                    _v.push_back(xd_[e][d][tr[i]]);
+                    clause cl(_v);
                     clauses_.push_back(cl);
                 }
                 //final if all the last d times of a time_range are set, then xd must be also set.
                 if(tr.size()-d >=0){
-                    clause cl;
+                    std::vector<literal> _v;
                     for(int t = tr[tr.size()-d]; t<tr[tr.size()-1]+1; t++)
-                        cl = cl | !xt_[e][tr.size()-d-1];
+                        _v.push_back(!xt_[e][t]);
                     if (tr.size()-d > 0)
-                        cl = cl | xd_[e][d][tr[tr.size()-d-1]];
-                    cl = cl | xd_[e][d][tr[tr.size()-d]];
+                        _v.push_back(xt_[e][tr[tr.size()-d-1]]);
+                    _v.push_back(xd_[e][d][tr[tr.size()-d]]);
+                    clause cl(_v);
                     clauses_.push_back(cl);
                 }
                 //also nullify all unfeasible times.
@@ -591,7 +618,6 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
         }
 
     }
-
 }
 
 
@@ -607,6 +633,7 @@ SMTFormula * SATBasicModel::encode(int LB, int UB){
         q.push_back(p.second);
     }
     f->addPB(q,boolvars,UB);
+
     return f;
 }
 
@@ -647,8 +674,13 @@ void SATBasicModel::setModel(const EncodedFormula &ef, int lb, int ub, const vec
 }
 int SATBasicModel::getObjective() const{
     return pseudoValue;
+//    return 0;
 }
 bool SATBasicModel::printSolution(ostream &os) const{
+    std::vector<AssignmentEntry> result_vec = get_time_assignments();
+    for (AssignmentEntry entry : result_vec)
+        os<<"Event reference: " << entry.event_id << " --- Duration: " << entry.duration << " --- Time reference: " << entry.time_id<< std::endl;
+    return true;
 
 }
 
