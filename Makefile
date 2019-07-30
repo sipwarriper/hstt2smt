@@ -19,7 +19,7 @@ endif
 
 CCFLAGS  := $(FLAGS) 
 CXXFLAGS := $(FLAGS) -std=c++17
-LIBS    :=  -lyices -lpugixml -L$(BUILDDIR)/$(PLATFORM)
+LIBS    :=  -lyices -lpugixml -lncurses -L$(BUILDDIR)/$(PLATFORM)
 
 DEFS := -DUSEYICES -DUSEGLUCOSE
 

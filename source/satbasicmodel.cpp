@@ -1,8 +1,9 @@
 #include "satbasicmodel.h"
 #include "util.h"
 #include "errors.h"
-#include <limits.h>
 #include "XMLParser.h"
+#include "TextTable.h"
+#include <limits.h>
 #include <unordered_map>
 #include <algorithm>
 #include <unordered_set>
@@ -13,6 +14,13 @@ SATBasicModel::SATBasicModel(std::string filename) : Model(){
 
     auto parser = XMLParser(this, filename);
     parser.parse_model();
+    week_days_dict = {
+        {'o',0},//mOnday
+        {'u',1},//tUesday
+        {'e',2},//wEdneseday
+        {'h',3},//tHursday
+        {'r',4}//fRiday
+    };
 }
 
 SATBasicModel::~SATBasicModel(){
@@ -678,10 +686,62 @@ int SATBasicModel::getObjective() const{
 }
 bool SATBasicModel::printSolution(ostream &os) const{
     std::vector<AssignmentEntry> result_vec = get_time_assignments();
-    for (AssignmentEntry entry : result_vec)
-        os<<"Event reference: " << entry.event_id << " --- Duration: " << entry.duration << " --- Time reference: " << entry.time_id<< std::endl;
+    //for (AssignmentEntry entry : result_vec)
+    //    os<<"Event reference: " << entry.event_id << " --- Duration: " << entry.duration << " --- Time reference: " << entry.time_id<< std::endl;
+    std::unordered_map<std::string, std::vector<AssignmentEntry>> week_events;
+    std::vector<std::string> week_days;
+    for(AssignmentEntry entry : result_vec){
+        std::set<std::string> time_groups_ids = times_.find(entry.time_id)->second->get_groups();
+        std::string week_day;
+        for(std::string time_group_id : time_groups_ids){
+            Group* group = time_groups_.find(time_group_id)->second;
+            if(group->get_opt() == "Day"){
+                week_day = group->get_name();
+                break;
+            }
+        }
+        week_events[week_day].push_back(entry);
+    }
+
+    for(auto it: week_events){
+        std::sort(it.second.begin(), it.second.end(), [](AssignmentEntry a, AssignmentEntry b) -> bool{ return a.time_id<b.time_id;});
+        week_days.push_back(it.first);
+    }
+
+    std::sort(week_days.begin(), week_days.end(), [this](std::string a, std::string b)->bool{
+        auto it1 = week_days_dict.find(a[1]);
+        auto it2 = week_days_dict.find(b[1]);
+        return it1->first<it2->first;
+    });
+
+    std::vector<std::vector<std::string>> schedule_by_columns;
+    int longest_day_times=0;
+    for(auto it : week_events){
+        std::vector<std::string> week;
+        week.push_back(it.first);
+        for(AssignmentEntry entry : it.second){
+            for(int i = 0; i<entry.duration; i++)
+                week.push_back(entry.event_id);
+        }
+        schedule_by_columns.push_back(week);
+        if (longest_day_times<week.size()) longest_day_times = week.size();
+    }
+
+    TextTable t( '-', '|', '+' );
+
+    for(int i = 0; i<longest_day_times; i++){
+        for(int j = 0; j<week_days.size(); j++){
+            if(schedule_by_columns[j].size()>i)
+                t.add(schedule_by_columns[j][i]);
+        }
+        t.endOfRow();
+    }
+
+    os<<std::endl<<t;
+
     return true;
 
 }
+
 
 

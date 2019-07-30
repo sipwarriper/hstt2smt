@@ -20,6 +20,8 @@ public:
 	void add_element(const std::string & ref);
 	std::set<std::string> get_elems() const;
 	std::string get_opt() const;
+    std::string get_name() const;
+
 protected:
 	std::string identifier_;
 	std::string name_;
@@ -35,6 +37,7 @@ public:
     int get_num() const;
     std::string get_identifier() const;
 	void add_group(const std::string& group_ref);
+    std::set<std::string> get_groups() const;
 
 protected:
     std::string identifier_;
@@ -65,6 +68,7 @@ protected:
 class Time: public ModelEntity{
 public:
     Time(const std::string &id="", const std::string &name="NAMELESS_TIME");
+
 private:
     std::string type_;
 };

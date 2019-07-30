@@ -67,6 +67,8 @@ private:
 
     int pseudoValue;
 
+    std::unordered_map<char,int> week_days_dict;
+
 
 
 

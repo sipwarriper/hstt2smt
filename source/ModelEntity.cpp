@@ -26,6 +26,8 @@ std::set<std::string> Group::get_elems() const{
 
 std::string Group::get_opt() const { return opt_;}
 
+std::string Group::get_name() const { return name_; }
+
 ModelEntity::ModelEntity(const std::string &id, const std::string &name) {
     identifier_ = id;
     name_ = name;
@@ -44,6 +46,8 @@ std::string ModelEntity::get_identifier() const{
 void ModelEntity::add_group(const std::string& group_ref){
 	groups_.insert(group_ref);
 }
+
+std::set<std::string> ModelEntity::get_groups() const{ return groups_; }
 
 ResourceType::ResourceType(const std::string &id, const std::string &name) : ModelEntity(id, name) {
     type_ = "resource_type";
