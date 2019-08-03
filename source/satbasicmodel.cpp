@@ -7,6 +7,28 @@
 #include <unordered_map>
 #include <algorithm>
 #include <unordered_set>
+//Encodings to test:
+//  1- AMK -> CARD_TOTALIZER
+//         -> CARD_SORTER (default)
+//  2- AMO -> AMO_QUAD    (default)
+//         -> AMO_LOG
+//         -> AMO_LADDER
+//         -> AMO_HEULE
+// 3- PB   -> PB_BDD      (default)
+//         -> PB_BDD2
+//         -> PB_SWC
+//         -> PB_GT
+//         -> PB_GT2
+//         -> PB_GPW
+//         -> PB_LPW
+//         -> PB_GBM
+//         -> PB_LBM
+
+
+#define ENC_AMK CARD_SORTER
+#define ENC_AMO AMO_QUAD
+#define ENC_PB PB_BDD
+
 
 SATBasicModel::SATBasicModel(std::string filename) : Model(){
     formula_ = new SMTFormula();
@@ -241,11 +263,11 @@ void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std
                 _lts.push_back(xt_[e][t]);
             }
             if(cost<0){
-                formula_->addAMO(_lts);
+                formula_->addAMO(_lts,ENC_AMO);
             }
             else{
                 boolvar x = formula_->newBoolVar("avoid_clashes",t);
-                formula_->addAMKWithCheckVar(_lts, 1, x);
+                formula_->addAMKWithCheckVar(_lts, 1, x,ENC_AMK);
                 pseudoVars_.push_back({x,weight});
             }
         }
@@ -314,11 +336,11 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
                     //atmost k de xs[e]
                     if(cost>=0){
                         boolvar x = formula_->newBoolVar("split_events_max", e);
-                        formula_->addAMKWithCheckVar(vec_, max_amount,x);
+                        formula_->addAMKWithCheckVar(vec_, max_amount,x,ENC_AMK);
                         pseudoVars_.push_back({x,weight});
                     }
                     else {
-                         formula_->addAMK(vec_, max_amount);
+                         formula_->addAMK(vec_, max_amount,ENC_AMK);
                     }
                 }
             }
@@ -397,11 +419,11 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
                 if(max < z_args.size()){
                     if(cost>=0){
                         boolvar x = formula_->newBoolVar("spread_events_max_"+event_group_id);
-                        formula_->addAMKWithCheckVar(z_args, max, x);
+                        formula_->addAMKWithCheckVar(z_args, max, x,ENC_AMK);
                         pseudoVars_.push_back({x,weight});
                     }
                     else{
-                        formula_->addAMK(z_args, max);
+                        formula_->addAMK(z_args, max,ENC_AMK);
                     }
                 }
             }
@@ -555,11 +577,11 @@ void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<
             if(max < idle_vars.size()){
                 if(cost>=0){
                     boolvar x = formula_->newBoolVar("limit_idle_max_"+resource_id);
-                    formula_->addAMKWithCheckVar(idle_vars, max, x);
+                    formula_->addAMKWithCheckVar(idle_vars, max, x,ENC_AMK);
                     pseudoVars_.push_back({x,weight});
                 }
                 else{
-                    formula_->addAMK(idle_vars, max);
+                    formula_->addAMK(idle_vars, max,ENC_AMK);
                 }
 
             }
@@ -590,7 +612,7 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
                 clauses_.push_back(!b | busy);
             }
             clauses_.push_back(cl);
-            busies  .push_back(busy);
+            busies.push_back(busy);
         }
         if(min == max & min>0){
             if(cost>=0){
@@ -616,11 +638,11 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
             if(max < busies.size()){
                 if(cost>=0){
                     boolvar x = formula_->newBoolVar("cluster_busy_times_max", r);
-                    formula_->addAMKWithCheckVar(busies, max, x);
+                    formula_->addAMKWithCheckVar(busies, max, x,ENC_AMK);
                     pseudoVars_.push_back({x,weight});
                 }
                 else{
-                    formula_->addAMK(busies, max);
+                    formula_->addAMK(busies, max, ENC_AMK);
                 }
             }
         }
@@ -640,7 +662,7 @@ SMTFormula * SATBasicModel::encode(int LB, int UB){
         boolvars.push_back(p.first);
         q.push_back(p.second);
     }
-    f->addPB(q,boolvars,UB);
+    f->addPB(q,boolvars,UB,ENC_PB);
 
     return f;
 }
