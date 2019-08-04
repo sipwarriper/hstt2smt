@@ -25,7 +25,7 @@
 //         -> PB_LBM
 
 
-#define ENC_AMK CARD_SORTER
+#define ENC_AMK CARD_TOTALIZER
 #define ENC_AMO AMO_QUAD
 #define ENC_PB PB_BDD
 
