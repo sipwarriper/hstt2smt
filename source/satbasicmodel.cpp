@@ -217,6 +217,7 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
                         boolvar x = formula_->newBoolVar("prefer_times", e,d,t);
                         pseudoVars_.push_back({x, weight});
                         cl = cl | x;
+                        clauses_.push_back(xd_[e][d][t] | !x);
                     }
                     clauses_.push_back(cl);
                 }
@@ -243,6 +244,7 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
                     boolvar x = formula_->newBoolVar("prefer_times", e, t);
                     cl = cl | x;
                     pseudoVars_.push_back({x,weight});
+                    clauses_.push_back(xd_[e][duration][t] | !x);
                 }
                 clauses_.push_back(cl);
             }
@@ -290,6 +292,7 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
                         boolvar x = formula_->newBoolVar("split_events", e, d, t);
                         cl = cl | x;
                         pseudoVars_.push_back({x, weight});
+                        clauses_.push_back(xd_[e][d][t] | !x);
                     }
                     clauses_.push_back(cl);
                 }
@@ -302,6 +305,7 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
                         boolvar x = formula_->newBoolVar("split_events", e, d, t);
                         cl = cl | x;
                         pseudoVars_.push_back({x, weight});
+                        clauses_.push_back(xd_[e][d][t] | !x);
                     }
                     clauses_.push_back(cl);
                 }
@@ -760,6 +764,13 @@ bool SATBasicModel::printSolution(ostream &os) const{
     }
 
     os<<std::endl<<t;
+    int num = 0, num2=0;
+    for(bool a : pseudoVars_Res_){
+        if (a) num++;
+        num2++;
+    }
+    os<<std::endl<<"Violated Soft Clauses (violated/total): ("<<num<<"/"<<num2<<")";
+
 
     return true;
 

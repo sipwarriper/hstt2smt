@@ -519,12 +519,14 @@ void SMTFormula::addALKWithCheckVar(const vector<literal> & v, int K, boolvar c)
         addClause(!c); //then c must be false
         return;
     }
-    else if(n==1 && K==1)
+    else if(n==1 && K==1){
         addClause(v[0] | c);
+    }
     else{
         vector<literal> sorted(n);
         addSorting(v,sorted);
-        if(K>0) addClause(sorted[K-1] | c);
+        if(K>0)
+            addClause(sorted[K-1] | c);
     }
 }
 
