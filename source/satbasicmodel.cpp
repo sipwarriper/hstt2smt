@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <unordered_set>
+#include "gnuplot-iostream.h"
 //Encodings to test:
 //  1- AMK -> CARD_TOTALIZER
 //         -> CARD_SORTER (default)
@@ -496,7 +497,50 @@ void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const st
     }
 }
 void SATBasicModel::distribute_split_events_constraints(const int &cost, const std::set<std::string> &event_ids, const int &duration, const int &min, const int &max){
-    //mirarsho amb en suy
+    int w_ = cost/event_ids.size();
+    int weight = std::max(1,w_);
+    for(std::string event_id : event_ids){
+        Event* event = events_[event_id];
+        if (xd_[event->get_num()].find(duration)==xd_[event->get_num()].end())
+            throw ModelException("Invalid duration on distribute split events constraint for event");
+        std::vector<literal> xd_vars;
+        for (int t = 0; t<times_.size(); t++)
+            xd_vars.push_back(xd_[event->get_num()][duration][t]);
+
+        if(min == max & min>0){
+            if(cost>=0){
+                boolvar x = formula_->newBoolVar("distribute_split_events_"+event_id);
+                formula_->addEKWithCheckVar(xd_vars, min, x);
+                pseudoVars_.push_back({x,weight});
+            }
+            else{
+                formula_->addEK(xd_vars, min);
+            }
+        }
+        else{
+            if(min>0){
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("distribute_split_events_min_"+event_id);
+                    formula_->addALKWithCheckVar(xd_vars, min, x);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                    formula_->addALK(xd_vars, min);
+                }
+            }
+            if(max < xd_vars.size()){
+                if(cost>=0){
+                    boolvar x = formula_->newBoolVar("distribute_split_events_max_"+event_id);
+                    formula_->addAMKWithCheckVar(xd_vars, max, x,ENC_AMK);
+                    pseudoVars_.push_back({x,weight});
+                }
+                else{
+                    formula_->addAMK(xd_vars, max,ENC_AMK);
+                }
+            }
+        }
+
+    }
 }
 void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
     int w_ = cost/resources_ids.size();
@@ -770,7 +814,6 @@ bool SATBasicModel::printSolution(ostream &os) const{
         num2++;
     }
     os<<std::endl<<"Violated Soft Clauses (violated/total): ("<<num<<"/"<<num2<<")";
-
 
     return true;
 

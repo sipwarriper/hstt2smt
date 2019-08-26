@@ -5,8 +5,8 @@
 APPNAME := hstt2smt
 BINDIR	:= bin
 PLATFORM    := linux
-SOURCES := source smtapi/src smtapi/src/solvers/glucose gnuplot-iostream #insert multiple folders here if wanted, but it already does a recursive search
-INCLUDE := smtapi/src smtapi/src/controllers smtapi/src/encoders smtapi/src/MDD smtapi/src/optimizers smtapi/src/util smtapi/src/solvers/glucose/ smtapi/src/solvers/glucose/core smtapi/src/solvers/glucose/mtl smtapi/src/solvers/glucose/simp smtapi/src/solvers/glucose/utils gnuplot-iostream gnuplot-iostream/legacy gnuplot-iostream/unittest-output-good
+SOURCES := source smtapi/src smtapi/src/solvers/glucose #insert multiple folders here if wanted, but it already does a recursive search
+INCLUDE := smtapi/src smtapi/src/controllers smtapi/src/encoders smtapi/src/MDD smtapi/src/optimizers smtapi/src/util smtapi/src/solvers/glucose/ smtapi/src/solvers/glucose/core smtapi/src/solvers/glucose/mtl smtapi/src/solvers/glucose/simp smtapi/src/solvers/glucose/utils gnuplot-iostream
 BUILDDIR := build
 DEBUG := 0
 
@@ -19,9 +19,9 @@ endif
 
 CCFLAGS  := $(FLAGS) 
 CXXFLAGS := $(FLAGS) -std=c++17
-LIBS    :=  -lyices -lpugixml -lncurses -L$(BUILDDIR)/$(PLATFORM)
+LIBS    :=  -lyices -lpugixml -lncurses -lboost_iostreams -lboost_system -lboost_filesystem -L$(BUILDDIR)/$(PLATFORM)
 
-DEFS := -DUSEYICES -DUSEGLUCOSE
+DEFS := -DUSEYICES -DUSEGLUCOSE -DUSE_ARMA=0 -DUSE_BLITZ=0
 
 
 

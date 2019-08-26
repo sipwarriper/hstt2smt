@@ -1,0 +1,30 @@
+\babel@toc {catalan}{}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}, motivacions, prop\IeC {\`o}sit i objectius}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Grup de recerca L\IeC {\`o}gica i Programaci\IeC {\'o}}{3}{section.1.1}
+\contentsline {chapter}{\numberline {2}Estudi de viabilitat}{4}{chapter.2}
+\contentsline {chapter}{\numberline {3}Metodologia i Planificaci\IeC {\'o}}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Metodologia}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Planificaci\IeC {\'o}}{5}{section.3.2}
+\contentsline {chapter}{\numberline {4}Marc de treball i conceptes previs}{6}{chapter.4}
+\contentsline {section}{\numberline {4.1}Definici\IeC {\'o} del problema}{6}{section.4.1}
+\contentsline {section}{\numberline {4.2}Format XHSTT}{6}{section.4.2}
+\contentsline {section}{\numberline {4.3}Cardinality encodings}{6}{section.4.3}
+\contentsline {section}{\numberline {4.4}Estat de l'art}{6}{section.4.4}
+\contentsline {chapter}{\numberline {5}Requisits del sistema}{7}{chapter.5}
+\contentsline {chapter}{\numberline {6}Estudis i decisions}{8}{chapter.6}
+\contentsline {section}{\numberline {6.1}Programari utilitzat}{8}{section.6.1}
+\contentsline {section}{\numberline {6.2}Maquinari utilitzat}{8}{section.6.2}
+\contentsline {chapter}{\numberline {7}An\IeC {\`a}lisis i disseny del sistema}{9}{chapter.7}
+\contentsline {section}{\numberline {7.1}An\IeC {\`a}lisis}{9}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Necessitats del sistema}{9}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}An\IeC {\`a}lisis de processos}{9}{subsection.7.1.2}
+\contentsline {section}{\numberline {7.2}Disseny}{9}{section.7.2}
+\contentsline {section}{\numberline {7.3}Interf\IeC {\'\i }cies d'usuari}{9}{section.7.3}
+\contentsline {section}{\numberline {7.4}Model de dades}{10}{section.7.4}
+\contentsline {section}{\numberline {7.5}Model d'objectes}{10}{section.7.5}
+\contentsline {chapter}{\numberline {8}Implementaci\IeC {\'o} i proves}{12}{chapter.8}
+\contentsline {chapter}{\numberline {9}Implantaci\IeC {\'o} i resultats}{13}{chapter.9}
+\contentsline {chapter}{\numberline {10}Conclusions}{14}{chapter.10}
+\contentsline {chapter}{\numberline {11}Treball futur}{15}{chapter.11}
+\contentsline {chapter}{\numberline {12}Bibliografia}{16}{chapter.12}
+\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{17}{chapter.13}

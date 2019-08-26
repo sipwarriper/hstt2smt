@@ -1,0 +1,15 @@
+1. Introducció, motivacions, propòsit i objectius del projecte 
+2. Estudi de viabilitat
+3. Metodologia
+4. Planificació 
+5. Marc de treball i conceptes previs
+6. Requisits del sistema
+7. Estudis i decisions
+8. Analisi i disseny del sistema
+9. Implementacio i proves
+10. Implantacio i resultats
+11. Conclusions
+12. Treball futur.
+13. Bibliografia
+14. Annexos::::PROLLY UNNEDED
+

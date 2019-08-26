@@ -6,7 +6,7 @@
 #include "satbasicmodel.h"
 
 enum ProgramArg {
-    MULT
+    HB
 };
 
 
@@ -21,28 +21,20 @@ int main(int argc, char **argv) {
         arguments::arg("filename","Instance file path.")
     },1,{
         //Program Options
-        arguments::iop("mult", "multiplier",MULT, 1, "The multiplier set on the testing. Default: 1")
+        arguments::iop("hb", "higher-bound",HB, 100, "The higher bound for the optimizer. Default 100")
     },"Solve the combinatorial HSTT problem.");
 
 
     SolvingArguments * sargs = SolvingArguments::readArguments(argc,argv,pargs);
 
 
-    int option = pargs->getIntOption(MULT);
+    int option = pargs->getIntOption(HB);
 
 
     SATBasicModel * encoding = new SATBasicModel(pargs->getArgument(0));
 
-    BasicController c(sargs,encoding, false, 0,100);
+    BasicController c(sargs,encoding, false, 0,option);
     c.run();
-
-
-
-
-    //    auto printer = XHSTTPrinterModel(pargs->getArgument(0));
-
-
-
 
     return 0;
 }
