@@ -1,9 +1,3 @@
-//************************************************//
-// This code was found here:                      //
-//   https://github.com/haarcuba/cpp-text-table   //
-//                                                //
-//************************************************//
-
 #include <iostream>
 #include <map>
 #include <iomanip>
