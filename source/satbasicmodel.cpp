@@ -201,10 +201,8 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
     for (int i=0; i<time_count; i++){
         if(times_ids.find(num2time_[i]->get_identifier()) == times_ids.end())
             forbidden.insert(i);
-    }
-
+    }  
     int weight = cost/events_ids.size();
-
     //for each event, forbid all forbidden times for the given duration (if any)
     for (auto &event_id: events_ids){
         Event *event = events_[event_id];
@@ -256,6 +254,7 @@ void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std
     //Problematic
     int time_count = times_.size();
     int weight = cost/resources_ids.size();
+
     for (auto &r_id: resources_ids){
         Resource *resource = resources_[r_id];
         std::set<int> requiring_events = xr_[resource->get_num()];
@@ -279,6 +278,7 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
         int time_count = times_.size();
         float _w = cost/events.size();
         int weight = std::max(static_cast<float>(1), _w);
+
 
         for (auto & event_id : events){
             Event * event = events_[event_id];
@@ -498,6 +498,7 @@ void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const st
 void SATBasicModel::distribute_split_events_constraints(const int &cost, const std::set<std::string> &event_ids, const int &duration, const int &min, const int &max){
     int w_ = cost/event_ids.size();
     int weight = std::max(1,w_);
+
     for(std::string event_id : event_ids){
         Event* event = events_[event_id];
         if (xd_[event->get_num()].find(duration)==xd_[event->get_num()].end())
@@ -544,6 +545,7 @@ void SATBasicModel::distribute_split_events_constraints(const int &cost, const s
 void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
     int w_ = cost/resources_ids.size();
     int weight = std::max(1, w_);
+
     for (std::string resource_id : resources_ids){
         int r = resources_[resource_id]->get_num();
         std::vector<literal> idle_vars;
@@ -700,18 +702,18 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
 
 
 SMTFormula * SATBasicModel::encode(int LB, int UB){
-    SMTFormula * f = new SMTFormula();
-    *f = *formula_;///POSSIBLE ERROR POINT!
-    f->addClauses(clauses_);
+    f_ = new SMTFormula();
+    formula_->copy_to(f_);///POSSIBLE ERROR POINT!
+    f_->addClauses(clauses_);
     std::vector<literal> boolvars;
     std::vector<int> q;
     for(std::pair<boolvar, int> p: pseudoVars_){
         boolvars.push_back(p.first);
         q.push_back(p.second);
     }
-    f->addPB(q,boolvars,UB,ENC_PB);
+    f_->addPB(q,boolvars,UB,ENC_PB);
 
-    return f;
+    return f_;
 }
 
 void SATBasicModel::setModel(const EncodedFormula &ef, int lb, int ub, const vector<bool> &bmodel, const vector<int> &imodel){
@@ -816,6 +818,18 @@ bool SATBasicModel::printSolution(ostream &os) const{
 
     return true;
 
+}
+
+int SATBasicModel::calculate_LB() const{
+    return 0;
+}
+
+int SATBasicModel::calculate_UB() const{
+    int res=0;
+    for (auto & elem : pseudoVars_){
+        res+=elem.second;
+    }
+    return res;
 }
 
 

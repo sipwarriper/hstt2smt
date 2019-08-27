@@ -46,10 +46,14 @@ public:
 
     void on_parsed_events(bool spread_constraint=true); //declare all related variables, xhstt constrains are still to be known.
 
+    int calculate_LB() const;
+    int calculate_UB() const;
+
 
 private:
 
     SMTFormula *formula_; //current formula
+    SMTFormula *f_; //formula to return
     std::vector<clause> clauses_;//current clauses list?
 
     std::unordered_map<int, std::vector<boolvar>> xt_;//xt --> key: event number, content: boolvar for time (active time)

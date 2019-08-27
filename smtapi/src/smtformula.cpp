@@ -1952,5 +1952,22 @@ void SMTFormula::addSorting(const vector<literal> &x, vector<literal> &y){
 	}
 }
 
+void SMTFormula::copy_to(SMTFormula *f2) const{
+    f2->nBoolVars = nBoolVars; f2->nIntVars = nIntVars; f2->nClauses = nClauses;
+    f2->hasObjFunc = hasObjFunc; f2->hassoftclauseswithvars = hassoftclauseswithvars; f2->isMinimization = isMinimization;
+    f2->LB = LB; f2->UB;
+    f2->falsevar = falsevar; f2->truevar = truevar; f2->objFunc = objFunc;
+
+    f2->clauses = vector<clause>(clauses);    f2->softclauses = vector<clause>(softclauses);
+    f2->weights = vector<int>(weights);    f2->softclausevars = vector<intvar>(softclausevars);
+
+    f2->mapBoolVars = map<string,boolvar>(mapBoolVars); f2->mapIntVars = map<string,intvar>(mapIntVars);
+
+    f2->boolVarNames = vector<string>(boolVarNames); f2->intVarNames = vector<string>(intVarNames);
+    f2->declareVar = vector<bool>(declareVar); //True iff if the i-th int var is a variable has to be declared (i.e. is not a soft clause var)
+
+
+}
+
 }
 
