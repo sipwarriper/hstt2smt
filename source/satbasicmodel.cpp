@@ -7,7 +7,6 @@
 #include <unordered_map>
 #include <algorithm>
 #include <unordered_set>
-#include "gnuplot-iostream.h"
 //Encodings to test:
 //  1- AMK -> CARD_TOTALIZER
 //         -> CARD_SORTER (default)

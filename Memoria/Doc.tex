@@ -131,7 +131,7 @@
   \section{Metodologia}
   La part més important i grossa d'aquest treball és la creació d'un generador automàtic d'horaris utilitzant les eines oferides per el grup de recerca. 
   Primer caldrà estudiar el problema (HSTT) i la seva duresa, per poder ser capaç d'entendre el què estem treballant.
-  Des de aquí es procedirà a la implementació del programa, utilitzant la API SMT creada per el Dr. Jordi Coll, el qual es membre del departament de recerca.
+  Des de aquí es procedirà a la implementació del programa, utilitzant la API SMT creada per el Dr. Jordi Coll, el qual es membre del grup de recerca de Logica i Programació del departament de Informatica, Matematica Aplicada i Estadistica.
   Aquesta API ens estalviarà la codificació de les restriccions de cardinalitat i les restriccions pseudo-booleanes, 
   apart de oferir-nos una interfície senzilla per poder implementar el model en diferents encodings i múltiples opcions.
 
@@ -157,8 +157,9 @@
   
   Amb això el generador es donarà per acabat i es passarà a la confecció de la memòria del treball. 
 
-  %%diagrama de gent...
+  %%diagrama de gantt...
 
+  %%CAL AMPLIAR
 
 
 
@@ -179,7 +180,7 @@
   Per fer això requerirem d'una llibreria que ens permeti llegir fitxers XML (en aquest cas s'ha decidit utilitzar pugixml\footnote{https://pugixml.org/}). També requerirem insta\l.lar el yices\footnote{https://yices.csl.sri.com/}. 
   Posat que la API SMT del Dr. Jordi Coll està desenvolupada per a linux, necessitarem que la màquina on s'executi utilitzi de sistema operatiu una distribució de Linux amb un compilador C++. 
  % TODO: CAL COMPLETAR!!
- 
+ %Dubixet!
 
   \chapter{Estudis i decisions}
   \section{Programari utilitzat}
@@ -217,8 +218,8 @@
   \end{itemize}
 
   \subsection{Anàlisis de processos}
-  Pel que fa els processos no serà gaire complicat. L'usuari cridarà el programa, el programa s'encarregarà de codificar el model pel yices i cridar-lo per resoldre'l, utilitzant la llibreria per C++ pròpia del yices.
-
+  L'usuari cridarà el programa, el programa s'encarregarà de codificar el model pel yices i cridar-lo per resoldre'l, utilitzant la llibreria per C++ pròpia del yices.
+  %AMPLIAR + dibuixet
 
   
   \section{Disseny}    
