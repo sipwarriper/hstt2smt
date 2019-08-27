@@ -2,4 +2,11 @@ hstt2smt.*
 !source/hstt2smt.cpp
 bin/
 build/
-
+Memoria/Doc.aux
+Memoria/Doc.fdb_latexmk
+Memoria/Doc.fls
+Memoria/Doc.log
+Memoria/Doc.out
+Memoria/Doc.synctex.gz
+Memoria/Doc.toc
+Memoria/.vscode
