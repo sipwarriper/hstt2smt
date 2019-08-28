@@ -5,7 +5,7 @@
 #include <math.h>
 #include <limits.h>
 
-XMLParser::XMLParser(Model* instance, std::string filename) {
+XMLParser::XMLParser(std::shared_ptr<Model> instance, std::string filename) {
 
     if(!document.load_file(filename.c_str())){
         throw std::runtime_error("Error loading xml file. Aborting.");
@@ -126,7 +126,7 @@ void XMLParser::parse_events(const pugi::xml_node& xml_events){
 	for (pugi::xml_node xml_elem : xml_events.children("Event")){
 		std::string id = xml_elem.attribute("Id").as_string();
 
-		Event* event = model_->get_event_by_ref(id);
+        std::shared_ptr<Event> event = model_->get_event_by_ref(id);
 		pugi::xml_node xml_resources = xml_elem.child("Resources");
 		
 		if (!xml_resources || !xml_resources.child("Resource"))
@@ -134,7 +134,7 @@ void XMLParser::parse_events(const pugi::xml_node& xml_events){
 
 		for(pugi::xml_node xml_resource : xml_resources.children("Resource")){
 			std::string ref = xml_resource.attribute("Reference").as_string();
-			Resource* resource = model_->get_resource_by_ref(ref);
+            std::shared_ptr<Resource> resource = model_->get_resource_by_ref(ref);
 			std::string role = "";
 			std::string rtype = "";
 

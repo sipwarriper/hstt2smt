@@ -3,6 +3,7 @@
 #include <map>
 #include <unordered_map>
 #include <exception>
+#include <memory>
 #include "ModelEntity.h"
 
 class ModelEntity;
@@ -23,10 +24,10 @@ public:
     void register_resource(std::string id, std::string name, std::string rtype);
     void register_resource_type(std::string id, std::string name);
 
-	Time* get_time_by_ref(std::string ref) const;
-	Resource* get_resource_by_ref(std::string ref) const;
-	Event* get_event_by_ref(std::string ref) const;
-	ResourceType* get_rtype_by_ref(std::string ref) const;
+    std::shared_ptr<Time> get_time_by_ref(std::string ref) const;
+    std::shared_ptr<Resource> get_resource_by_ref(std::string ref) const;
+    std::shared_ptr<Event> get_event_by_ref(std::string ref) const;
+    std::shared_ptr<ResourceType> get_rtype_by_ref(std::string ref) const;
 
 	void declare_time_group(const std::string& id, const std::string& name, const std::string& tag ="");
 	void declare_resource_group(const std::string& id, const std::string& name, const std::string& rtype_ref);
@@ -63,22 +64,22 @@ public:
 
 
 protected:
-	std::map<std::string, Event*> events_;
-	std::map<std::string, Resource*> resources_;
-	std::map<std::string, Time*> times_;
+    std::map<std::string, std::shared_ptr<Event>> events_;
+    std::map<std::string, std::shared_ptr<Resource>> resources_;
+    std::map<std::string, std::shared_ptr<Time>> times_;
 
-	std::unordered_map<std::string, ResourceType*> rtypes_;
+    std::unordered_map<std::string, std::shared_ptr<ResourceType>> rtypes_;
 
-	std::unordered_map<std::string, Group*> time_groups_;
-	std::unordered_map<std::string, Group*> event_groups_;
-	std::unordered_map<std::string, Group*> resource_groups_;
+    std::unordered_map<std::string, std::shared_ptr<Group>> time_groups_;
+    std::unordered_map<std::string, std::shared_ptr<Group>> event_groups_;
+    std::unordered_map<std::string, std::shared_ptr<Group>> resource_groups_;
 
 
 	//num2 dictionaries (allowing fast fetching of elements by its elements.num attribute)
-	std::unordered_map<int, Event*> num2event_;
-	std::unordered_map<int, Resource*> num2resource_;
-	std::unordered_map<int, Time*> num2time_;
-	std::unordered_map<int, ResourceType*> num2rtype_;
+    std::unordered_map<int, std::shared_ptr<Event>> num2event_;
+    std::unordered_map<int, std::shared_ptr<Resource>> num2resource_;
+    std::unordered_map<int, std::shared_ptr<Time>> num2time_;
+    std::unordered_map<int, std::shared_ptr<ResourceType>> num2rtype_;
 	   	 
 };
 

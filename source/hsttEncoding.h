@@ -16,11 +16,12 @@ struct AssignmentEntry{
     }
 };
 
-class SATBasicModel : public Model, public Encoding
+class HSTTEncoding : public Model, public Encoding, public enable_shared_from_this<HSTTEncoding>
 {
 public:
-    SATBasicModel(std::string filename);
-    ~SATBasicModel();
+
+    HSTTEncoding(std::string filename);
+    ~HSTTEncoding();
 
     SMTFormula * encode(int LB = 0, int UB = INT_MAX);
 
@@ -52,7 +53,7 @@ public:
 
 private:
 
-    SMTFormula *formula_; //current formula
+    std::unique_ptr <SMTFormula>formula_; //current formula
     SMTFormula *f_; //formula to return
     std::vector<clause> clauses_;//current clauses list?
 

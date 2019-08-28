@@ -6,14 +6,14 @@
 
 class XMLParser {
 public:
-    XMLParser(Model* instance, std::string filename); //constructor
+    XMLParser(std::shared_ptr<Model> instance, std::string filename); //constructor
 
 
     void parse_model();
 
 private:
     pugi::xml_document document;
-    Model *model_;
+    std::shared_ptr<Model> model_;
 	pugi::xml_node xml_root_;
 	std::string xml_source_filename_;
 	pugi::xml_node xml_instances_;

@@ -96,7 +96,7 @@ Event::Event(const std::string& id, const std::string& rename, const int &durati
 	duration_ = duration;
 	color_ = color;
 	time_ = "";
-	resources_ = std::unordered_map<std::string, Resource*>();
+    resources_ = std::unordered_map<std::string, std::shared_ptr<Resource>>();
 	mapping_ = std::unordered_map<std::string, std::string>();
 	needed_ = std::set<int>();
 }
@@ -118,8 +118,8 @@ bool Event::is_preassigned(int num) const{
 	return result;
 }
 
-std::set<const Resource*> Event::get_preassigned_resources() const{
-	auto result = std::set<const Resource*>();
+std::set<std::shared_ptr<Resource>> Event::get_preassigned_resources() const{
+    auto result = std::set<std::shared_ptr<Resource>>();
 	for (auto& resource : resources_) if (resource.second != nullptr) result.insert(resource.second);
 	return result;
 }
@@ -139,7 +139,7 @@ int Event::get_duration() const{    return duration_;   }
 std::string Event::get_time_ref() const {   return time_;    }
 
 
-std::unordered_map<std::string, Resource*> Event::get_resources() const{    return resources_;   }
+std::unordered_map<std::string, std::shared_ptr<Resource>> Event::get_resources() const{    return resources_;   }
 
 Resource Event::get_preassigned(const int& num) const {
 	for (auto & resource : resources_) if (resource.second->get_num() == num) return *resource.second;
@@ -154,7 +154,7 @@ std::set<int> Event::get_preassigned_nums() const {
 
 void Event::set_time(const std::string& time_ref){ time_ = time_ref; }
 
-void Event::attach_reosurce(Resource* resource, std::string role, std::string resource_type, Model* model){
+void Event::attach_reosurce(std::shared_ptr<Resource> resource, std::string role, std::string resource_type, std::shared_ptr<Model> model){
 	int num;
 	if (resource == nullptr){
 		if (role.empty() || resource_type.empty())

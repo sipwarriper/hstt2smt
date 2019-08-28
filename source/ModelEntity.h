@@ -3,6 +3,7 @@
 #include <string>
 #include <set>
 #include <unordered_map>
+#include <memory>
 #include "Model.h"
 
 //global variables
@@ -93,20 +94,20 @@ public:
 	bool has_preassigned_time() const;
 	bool is_preassigned(int num) const;
 
-	std::set<const Resource*> get_preassigned_resources() const;
+    std::set<std::shared_ptr<Resource>> get_preassigned_resources() const;
 	Resource get_preassigned_resource(const std::string &role);
 
 	std::set<std::string> get_roles() const;
 	std::set<int> get_needed_resources() const;
     int get_duration() const;
     std::string get_time_ref() const;
-    std::unordered_map<std::string, Resource*> get_resources() const;
+    std::unordered_map<std::string, std::shared_ptr<Resource>> get_resources() const;
 
 	Resource get_preassigned(const int &num) const;
 	std::set<int> get_preassigned_nums() const; //returns a set containing all numerals of preassigned resources
 
 	void set_time(const std::string& time_ref);
-	void attach_reosurce(Resource* resource, std::string role, std::string resource_type, Model* model);
+    void attach_reosurce(std::shared_ptr<Resource> resource, std::string role, std::string resource_type, std::shared_ptr<Model> model);
 	
 protected:
 	std::string type_;
@@ -114,7 +115,7 @@ protected:
 	int duration_;
 	std::string time_; //time reference
 
-	std::unordered_map<std::string, Resource*> resources_;
+    std::unordered_map<std::string, std::shared_ptr<Resource>> resources_;
 	std::unordered_map<std::string, std::string> mapping_; //roles->rtype_ref
 
 	std::set<int> needed_; //set of needed ResourceType num's 

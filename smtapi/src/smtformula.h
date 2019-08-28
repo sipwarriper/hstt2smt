@@ -333,7 +333,7 @@ public:
 	//Adds the codification of "y is the result of merging x1,x2". Used in cardinality constraint
 	void addMerge(const vector<literal> &x1, const vector<literal> &x2, vector<literal> &y);
 
-    void copy_to(SMTFormula* f2) const;
+    void copy_to(SMTFormula *f2) const;
 };
 
 }

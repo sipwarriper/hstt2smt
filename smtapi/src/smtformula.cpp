@@ -43,7 +43,12 @@ SMTFormula::SMTFormula() {
 }
 
 SMTFormula::~SMTFormula() {
-
+//    mapIntVars.clear();mapBoolVars.clear();
+//    clauses.clear(); softclauses.clear();
+//    weights.clear(); softclausevars.clear();
+//    boolVarNames.clear(); intVarNames.clear();
+//    declareVar.clear();
+//	objFunc.~intsum();
 }
 
 FORMULA_TYPE SMTFormula::getType() const{
@@ -1952,7 +1957,7 @@ void SMTFormula::addSorting(const vector<literal> &x, vector<literal> &y){
 	}
 }
 
-void SMTFormula::copy_to(SMTFormula *f2) const{
+void SMTFormula::copy_to(SMTFormula* f2) const{
     f2->nBoolVars = nBoolVars; f2->nIntVars = nIntVars; f2->nClauses = nClauses;
     f2->hasObjFunc = hasObjFunc; f2->hassoftclauseswithvars = hassoftclauseswithvars; f2->isMinimization = isMinimization;
     f2->LB = LB; f2->UB;

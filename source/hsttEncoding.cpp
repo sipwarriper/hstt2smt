@@ -1,4 +1,4 @@
-#include "satbasicmodel.h"
+#include "hsttEncoding.h"
 #include "util.h"
 #include "errors.h"
 #include "XMLParser.h"
@@ -30,11 +30,15 @@
 #define ENC_PB PB_BDD
 
 
-SATBasicModel::SATBasicModel(std::string filename) : Model(){
-    formula_ = new SMTFormula();
+HSTTEncoding::HSTTEncoding(std::string filename) : Model(){
+    formula_ = std::make_unique<SMTFormula>();
     pseudoValue = INT_MAX;
-
-    auto parser = XMLParser(this, filename);
+    xt_Res_ = std::unordered_map<int,std::vector<bool>>();
+    xs_Res_ = std::unordered_map<int,std::vector<bool>>();
+    xd_Res_ = std::unordered_map<int, std::unordered_map<int,std::vector<bool>>>();
+    pseudoVars_Res_ = std::vector<bool>();
+    const auto wptr = std::shared_ptr<HSTTEncoding>(this, [](HSTTEncoding*){}); //workaround
+    auto parser = XMLParser(shared_from_this(), filename);
     parser.parse_model();
     week_days_dict = {
         {'o',0},//mOnday
@@ -43,14 +47,15 @@ SATBasicModel::SATBasicModel(std::string filename) : Model(){
         {'h',3},//tHursday
         {'r',4}//fRiday
     };
+    formula_->addClauses(clauses_);
 }
 
-SATBasicModel::~SATBasicModel(){
+HSTTEncoding::~HSTTEncoding(){
 
 }
 
 
-std::vector<AssignmentEntry> SATBasicModel::get_time_assignments() const{
+std::vector<AssignmentEntry> HSTTEncoding::get_time_assignments() const{
     int time_count = times_.size();
     std::vector<AssignmentEntry> result;
     for (auto & event : events_){
@@ -68,7 +73,7 @@ std::vector<AssignmentEntry> SATBasicModel::get_time_assignments() const{
     return result;
 }
 
-void SATBasicModel::on_parsed_events(bool spread_constraint){
+void HSTTEncoding::on_parsed_events(bool spread_constraint){
     //initialize xr_
     for(auto &r : resources_)
         xr_.insert({r.second->get_num(), std::set<int>()});
@@ -76,7 +81,7 @@ void SATBasicModel::on_parsed_events(bool spread_constraint){
     int time_count = times_.size();
 
     for(auto & event_it : events_){
-        Event *event = event_it.second;
+        std::shared_ptr <Event> event = event_it.second;
         int e_num = event_it.second->get_num();
         std::vector<boolvar> xt_e(time_count);
         std::vector<boolvar> xs_e(time_count);
@@ -186,14 +191,14 @@ void SATBasicModel::on_parsed_events(bool spread_constraint){
 
 
 
-void SATBasicModel::set_time_for_event(int event_num, int duration, Time* start_t){
+void HSTTEncoding::set_time_for_event(int event_num, int duration, Time* start_t){
     //TODO mirarse si cal, sembla q no
 }
 
-void SATBasicModel::prefer_resources_constraint(const std::set<std::string> &events_ids, const std::set<std::string> &resources_ids, const std::string &role){
+void HSTTEncoding::prefer_resources_constraint(const std::set<std::string> &events_ids, const std::set<std::string> &resources_ids, const std::string &role){
     //no nhi ha en el brazil instances, aixi q de moment no cal
 }
-void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std::string> &events_ids, const std::set<std::string> &times_ids, int duration){
+void HSTTEncoding::prefer_times_constraint(const int &cost, const std::set<std::string> &events_ids, const std::set<std::string> &times_ids, int duration){
     int time_count = times_.size();
 
     //create a set with all forbidden time slots
@@ -205,7 +210,7 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
     int weight = cost/events_ids.size();
     //for each event, forbid all forbidden times for the given duration (if any)
     for (auto &event_id: events_ids){
-        Event *event = events_[event_id];
+        std::shared_ptr<Event> event = events_[event_id];
         int e = event->get_num();
         if (duration<0){
             for (int d=1; d<event->get_duration()+1; d++){
@@ -250,13 +255,13 @@ void SATBasicModel::prefer_times_constraint(const int &cost, const std::set<std:
     }
 
 }
-void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std::string> &resources_ids){
+void HSTTEncoding::avoid_clashes_constraint(const int &cost, const std::set<std::string> &resources_ids){
     //Problematic
     int time_count = times_.size();
     int weight = cost/resources_ids.size();
 
     for (auto &r_id: resources_ids){
-        Resource *resource = resources_[r_id];
+        std::shared_ptr<Resource> resource = resources_[r_id];
         std::set<int> requiring_events = xr_[resource->get_num()];
         for(int t = 0; t<time_count; t++){
             std::vector<literal> _lts;
@@ -274,14 +279,14 @@ void SATBasicModel::avoid_clashes_constraint(const int &cost, const std::set<std
         }
     }
 }
-void SATBasicModel::split_events_constraint(const int &cost, const std::set<std::string> &events, const int &min, const int &max, const int &min_amount, const int &max_amount){
+void HSTTEncoding::split_events_constraint(const int &cost, const std::set<std::string> &events, const int &min, const int &max, const int &min_amount, const int &max_amount){
         int time_count = times_.size();
         float _w = cost/events.size();
         int weight = std::max(static_cast<float>(1), _w);
 
 
         for (auto & event_id : events){
-            Event * event = events_[event_id];
+            std::shared_ptr<Event> event = events_[event_id];
             int e = event->get_num();
 
             //nullify all durations below minimum
@@ -350,7 +355,7 @@ void SATBasicModel::split_events_constraint(const int &cost, const std::set<std:
             }
         }
 }
-void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std::string> &event_groups, std::unordered_map<std::string, std::pair<int, int>> time_groups){
+void HSTTEncoding::spread_events_constraint(const int &cost, const std::set<std::string> &event_groups, std::unordered_map<std::string, std::pair<int, int>> time_groups){
     //problematic
     int time_count = times_.size();
 
@@ -360,7 +365,7 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
     std::vector<std::vector<int>> time_ranges;
 
     for(auto & time_group_it : time_groups){
-        Group *time_group = time_groups_[time_group_it.first];
+        std::shared_ptr<Group> time_group = time_groups_[time_group_it.first];
         int min = time_group_it.second.first;
         int max = time_group_it.second.second;
         std::vector<int> time_nums;
@@ -388,7 +393,7 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
         }
 
         for(std::string event_group_id : event_groups){
-            Group * event_group = event_groups_[event_group_id];
+            std::shared_ptr<Group>  event_group = event_groups_[event_group_id];
             std::vector<literal> z_args;
             std::set<std::string> elems = event_group->get_elems();
             for (std::string event_id : elems){
@@ -436,7 +441,7 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
 
     //time_ranges will contain a list of all consecutive time ranges, so for each event
     for(auto & event_it : events_){
-        Event* event = event_it.second;
+        std::shared_ptr<Event> event = event_it.second;
         int e = event->get_num();
         for (std::vector<int> tr : time_ranges){
             for(int d = 1; d < event->get_duration()+1; d++){
@@ -473,7 +478,7 @@ void SATBasicModel::spread_events_constraint(const int &cost, const std::set<std
     }
 
 }
-void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &times_ids){
+void HSTTEncoding::avoid_unavailable_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &times_ids){
     int weight = cost/resources_ids.size();
 
     std::set<int> unavaliable_times;
@@ -495,12 +500,12 @@ void SATBasicModel::avoid_unavailable_times_constraint(const int &cost, const st
 
     }
 }
-void SATBasicModel::distribute_split_events_constraints(const int &cost, const std::set<std::string> &event_ids, const int &duration, const int &min, const int &max){
+void HSTTEncoding::distribute_split_events_constraints(const int &cost, const std::set<std::string> &event_ids, const int &duration, const int &min, const int &max){
     int w_ = cost/event_ids.size();
     int weight = std::max(1,w_);
 
     for(std::string event_id : event_ids){
-        Event* event = events_[event_id];
+        std::shared_ptr<Event> event = events_[event_id];
         if (xd_[event->get_num()].find(duration)==xd_[event->get_num()].end())
             throw ModelException("Invalid duration on distribute split events constraint for event");
         std::vector<literal> xd_vars;
@@ -542,7 +547,7 @@ void SATBasicModel::distribute_split_events_constraints(const int &cost, const s
 
     }
 }
-void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
+void HSTTEncoding::limit_idle_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
     int w_ = cost/resources_ids.size();
     int weight = std::max(1, w_);
 
@@ -638,7 +643,7 @@ void SATBasicModel::limit_idle_times_constraint(const int &cost, const std::set<
     }
 
 }
-void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
+void HSTTEncoding::cluster_busy_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max){
     int w_ = cost/resources_ids.size();
     int weight = std::max(1, w_);
     int time_count = times_.size();
@@ -701,10 +706,9 @@ void SATBasicModel::cluster_busy_times_constraint(const int &cost, const std::se
 
 
 
-SMTFormula * SATBasicModel::encode(int LB, int UB){
+SMTFormula * HSTTEncoding::encode(int LB, int UB){
     f_ = new SMTFormula();
     formula_->copy_to(f_);///POSSIBLE ERROR POINT!
-    f_->addClauses(clauses_);
     std::vector<literal> boolvars;
     std::vector<int> q;
     for(std::pair<boolvar, int> p: pseudoVars_){
@@ -716,11 +720,11 @@ SMTFormula * SATBasicModel::encode(int LB, int UB){
     return f_;
 }
 
-void SATBasicModel::setModel(const EncodedFormula &ef, int lb, int ub, const vector<bool> &bmodel, const vector<int> &imodel){
-    xt_Res_ = std::unordered_map<int,std::vector<bool>>();
-    xs_Res_ = std::unordered_map<int,std::vector<bool>>();
-    xd_Res_ = std::unordered_map<int, std::unordered_map<int,std::vector<bool>>>();
-    pseudoVars_Res_ = std::vector<bool>();
+void HSTTEncoding::setModel(const EncodedFormula &ef, int lb, int ub, const vector<bool> &bmodel, const vector<int> &imodel){
+    xt_Res_.clear();
+    xs_Res_.clear();
+    xd_Res_.clear();
+    pseudoVars_Res_.clear();
     for(auto & it : xt_){
         std::vector<bool> vec;
         for(boolvar b : it.second)
@@ -751,11 +755,11 @@ void SATBasicModel::setModel(const EncodedFormula &ef, int lb, int ub, const vec
     }
     pseudoValue = _aux_pseudo_total;
 }
-int SATBasicModel::getObjective() const{
+int HSTTEncoding::getObjective() const{
     return pseudoValue;
 //    return 0;
 }
-bool SATBasicModel::printSolution(ostream &os) const{
+bool HSTTEncoding::printSolution(ostream &os) const{
     std::vector<AssignmentEntry> result_vec = get_time_assignments();
     //for (AssignmentEntry entry : result_vec)
     //    os<<"Event reference: " << entry.event_id << " --- Duration: " << entry.duration << " --- Time reference: " << entry.time_id<< std::endl;
@@ -765,7 +769,7 @@ bool SATBasicModel::printSolution(ostream &os) const{
         std::set<std::string> time_groups_ids = times_.find(entry.time_id)->second->get_groups();
         std::string week_day;
         for(std::string time_group_id : time_groups_ids){
-            Group* group = time_groups_.find(time_group_id)->second;
+            std::shared_ptr<Group> group = time_groups_.find(time_group_id)->second;
             if(group->get_opt() == "Day"){
                 week_day = group->get_name();
                 break;
@@ -814,17 +818,17 @@ bool SATBasicModel::printSolution(ostream &os) const{
         if (a) num++;
         num2++;
     }
-    os<<std::endl<<"Violated Soft Clauses (violated/total): ("<<num<<"/"<<num2<<")";
+    os<<std::endl<<"Violated Soft Clauses (violated/total): ("<<num<<"/"<<num2<<") ----------- Total cost: "<<pseudoValue;
 
     return true;
 
 }
 
-int SATBasicModel::calculate_LB() const{
+int HSTTEncoding::calculate_LB() const{
     return 0;
 }
 
-int SATBasicModel::calculate_UB() const{
+int HSTTEncoding::calculate_UB() const{
     int res=0;
     for (auto & elem : pseudoVars_){
         res+=elem.second;

@@ -2,25 +2,25 @@
 
 Model::Model()
 {
-	events_ = std::map<std::string, Event*>();
-	resources_ = std::map<std::string, Resource*>();
-	times_ = std::map<std::string, Time*>();
+    events_ = std::map<std::string, std::shared_ptr<Event>>();
+    resources_ = std::map<std::string, std::shared_ptr<Resource>>();
+    times_ = std::map<std::string, std::shared_ptr<Time>>();
 
-	rtypes_ = std::unordered_map<std::string, ResourceType*>();
+    rtypes_ = std::unordered_map<std::string, std::shared_ptr<ResourceType>>();
 
-	time_groups_ = std::unordered_map<std::string, Group*>();
-	event_groups_ = std::unordered_map<std::string, Group*>();
-	resource_groups_ = std::unordered_map<std::string, Group*>();
+    time_groups_ = std::unordered_map<std::string, std::shared_ptr<Group>>();
+    event_groups_ = std::unordered_map<std::string, std::shared_ptr<Group>>();
+    resource_groups_ = std::unordered_map<std::string, std::shared_ptr<Group>>();
 
-	num2event_ = std::unordered_map<int, Event*>();
-	num2resource_ = std::unordered_map<int, Resource*>();
-	num2time_ = std::unordered_map<int, Time*>();
-	num2rtype_ = std::unordered_map<int, ResourceType*>();
+    num2event_ = std::unordered_map<int, std::shared_ptr<Event>>();
+    num2resource_ = std::unordered_map<int, std::shared_ptr<Resource>>();
+    num2time_ = std::unordered_map<int, std::shared_ptr<Time>>();
+    num2rtype_ = std::unordered_map<int, std::shared_ptr<ResourceType>>();
 }
 
 void Model::register_time(const std::string& id, const std::string& name){
 	if (times_.find(id) == times_.end()) {
-		Time *time = new Time(id, name);
+        std::shared_ptr<Time> time(new Time(id, name));
 		times_.insert({id, time});
 		num2time_.insert({ time->get_num(),time});
 	}
@@ -29,9 +29,9 @@ void Model::register_time(const std::string& id, const std::string& name){
 
 void Model::register_event(const std::string& id, const std::string& name, const int &duration, const std::string &color){
 	if (events_.find(id) == events_.end()) {
-		Event *event = new Event(id, name, duration, color);
+        std::shared_ptr<Event> event(new Event(id, name, duration, color));
 		events_.insert({id,event});
-		num2event_.insert({ event->get_num(), event });
+        num2event_.insert({ event->get_num(), event });
 		auto testing = event->get_preassigned_resources();
 	}
 	else throw ModelException("Multiple Events with the same id");
@@ -40,7 +40,7 @@ void Model::register_event(const std::string& id, const std::string& name, const
 void Model::register_resource(std::string id, std::string name, std::string rtype_id){
 	if(rtypes_.find(rtype_id) != rtypes_.end()){
 		if(resources_.find(id) == resources_.end()){
-			Resource *resource = new Resource(id, name, rtype_id);
+            std::shared_ptr<Resource> resource(new Resource(id, name, rtype_id));
 			resources_.insert({id, resource});
 			num2resource_.insert({ resource->get_num(), resource });
 			rtypes_[rtype_id]->add_resource(*resource);
@@ -52,30 +52,30 @@ void Model::register_resource(std::string id, std::string name, std::string rtyp
 
 void Model::register_resource_type(std::string id, std::string name){
 	if(rtypes_.find(id) == rtypes_.end()){
-		ResourceType *rtype = new ResourceType(id, name);
+        std::shared_ptr<ResourceType> rtype(new ResourceType(id, name));
 		rtypes_.insert({ id, rtype });
 	}
 }
 
-Time* Model::get_time_by_ref(std::string ref) const{
+std::shared_ptr<Time> Model::get_time_by_ref(std::string ref) const{
 	auto it = times_.find(ref);
 	if (it != times_.end()) return it->second;
 	return nullptr;
 }
 
-Resource* Model::get_resource_by_ref(std::string ref) const{
+std::shared_ptr<Resource> Model::get_resource_by_ref(std::string ref) const{
 	auto it = resources_.find(ref);
 	if (it != resources_.end()) return it->second;
 	return nullptr;
 }
 
-Event* Model::get_event_by_ref(std::string ref) const{
+std::shared_ptr<Event> Model::get_event_by_ref(std::string ref) const{
 	auto it = events_.find(ref);
 	if (it != events_.end()) return it->second;
 	return nullptr;
 }
 
-ResourceType* Model::get_rtype_by_ref(std::string ref) const{
+std::shared_ptr<ResourceType> Model::get_rtype_by_ref(std::string ref) const{
 	auto it = rtypes_.find(ref);
 	if (it != rtypes_.end()) return it->second;
 	return nullptr;
@@ -83,7 +83,7 @@ ResourceType* Model::get_rtype_by_ref(std::string ref) const{
 
 void Model::declare_time_group(const std::string& id, const std::string& name, const std::string& tag){
 	if (time_groups_.find(id)==time_groups_.end()){
-		Group *group = new Group(id, name, "TimeGroup", tag);
+        std::shared_ptr<Group> group(new Group(id, name, "TimeGroup", tag));
 		time_groups_.insert({id, group});
 	}
 	else throw ModelException("Already defined TimeGroup");
@@ -92,7 +92,7 @@ void Model::declare_time_group(const std::string& id, const std::string& name, c
 void Model::declare_resource_group(const std::string& id, const std::string& name, const std::string& rtype_ref){
 	if(rtypes_.find(rtype_ref) != rtypes_.end()){
 		if(resource_groups_.find(id) == resource_groups_.end()){
-			Group *group = new Group(id, name, "ResourceGroup", rtype_ref);
+            std::shared_ptr<Group> group(new Group(id, name, "ResourceGroup", rtype_ref));
 			resource_groups_.insert({ id, group });
 		}
 		else throw ModelException("Already defined ResourceGroup");
@@ -102,7 +102,7 @@ void Model::declare_resource_group(const std::string& id, const std::string& nam
 
 void Model::declare_event_group(const std::string& id, const std::string& name, const std::string& tag){
 	if (event_groups_.find(id) == event_groups_.end()){
-		Group *group = new Group(id, name, "EventGroup", tag);
+        std::shared_ptr<Group> group(new Group(id, name, "EventGroup", tag));
 		event_groups_.insert({ id, group });
 	}
 	else throw ModelException("Already defined EventGroup");

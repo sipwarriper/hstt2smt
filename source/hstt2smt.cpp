@@ -3,7 +3,7 @@
 #include "basiccontroller.h"
 #include "solvingarguments.h"
 
-#include "satbasicmodel.h"
+#include "hsttEncoding.h"
 
 enum ProgramArg {
     UB
@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     int option = pargs->getIntOption(UB);
 
 
-    SATBasicModel * encoding = new SATBasicModel(pargs->getArgument(0));
+    HSTTEncoding * encoding = new HSTTEncoding(pargs->getArgument(0));
 
 
     int LB = encoding->calculate_LB();
