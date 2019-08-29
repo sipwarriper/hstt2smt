@@ -425,10 +425,46 @@
   
 
   \section{Estat de l'art}
-  \subsection{Problemes CSP}
+
+  En aquest apartat del treball es repassaran diverses tecnologies i conceptes que ens podrien ajudar a resoldre el problema HSTT. 
+  Com s'ha vist anteriorment HSTT és un problema de \textit{scheduling} que pertany a NP-Complet i, per tant, no es coneix un mètode determinista en temps polinòmic que pugui resoldre el problema. 
+
+  Existeixen diferents aproximacions per problemes del tipus de HSTT, en aquest treball es centrerà en els mètodes deterministes que guaranteixen la optimalitat. Aquests mètodes busquen la millor solució al problema entre totes les combinacions 
+  que respecten totes les condicions imposades per la instància del problema que volem resoldre. HSTT entra en la categoria de tècniques basades en programació per restriccions i les tècniques basades en reduccions de altres problemes NP-complets com SAT, SMT, etc.
+
+ 
+
+  \subsection{Problemes de Satisfacció de Restriccions}
+  
+  Els problemes de Satisfacció de Restriccions (CSP de \textit{Constraint Programming Problem}) són una representació de problemes combinatoris. Un CSP està format per un conjunt finit de variables, cada una de les quals te un domini, i un conjunt de restriccions. Cada restricció esta definida sobre un subconjunt de les variables i en restringeix els valors que poden agafar. 
+  La idea és trobar una assignació de variables que compleixi totes les restriccions imposades. En alguns problemes, l'objectiu es trobar-les totes, o trobar la millor, si hi ha alguna forma de determinar quines solucions són millors que d'altres utilitzant una formula objectiu.
+  
   \subsection{SAT}
-  \subsection{MaxSAT}
-  \subsection{Satisfiability Modulo Theories SMT}
+
+  SAT probé de SATISFIABILITY, que és la abrebiació de \textit{Boolean Satisfiability Problem}. 
+  El problema SAT consisteix en, donada una fòrmula de lògica proposicional (una expressió booleana), determinar una assignació de variables (model) per el qual la fórmula sigui certe, o la determinació de que no existeix tal assignació.
+  Per exemple, per a la fòrmula $A \vee \neg B$ és satisfactible amb $A = Cert$ i $B = Fals$ posat que farien la fòrmula certa; en canvi per la fòrmula $A \vee \neg A$ no hi ha cap assignació que la faci certa, per tant en diriem insatisfactible. 
+  SAT consisteix doncs, en determinar si una fòrmula booleana és o no satisfactible.
+  
+  SAT va ser el primer problema en ser demostrat que era NP-Complet el 1971 per Steven Cool\cite{cook1971complexity}, per tant, tal i com s'ha dit anteriorment, tot problema NP es pot reduir a SAT.
+  El fet de que es pot reduir qualsevol problema decidible a SAT en temps polinomíc i la seva simplicitat de formulació el fan un problema d'especial interès en la comunitat científica, generant grans quantitats d'avenços en aquest camp, 
+  però, òbviament, tot i així, encara no existeix cap forma de resoldre'l en temps polinomíc ni s'ha demostrat que es pugui (això seria demostrar si P=NP o no!\footnote{\url{https://en.wikipedia.org/wiki/P_versus_NP_problem}} per més informació sobre P=NP)
+  
+  \paragraph*{Representació formal, CNF}~\\
+
+  CNF prové de \textit{Conjunctive Normal Form} que es tradueix com a Forma Normal Conjuntiva. En lògica booleana una fòrmula esta en CNF si és una conjunció de una o més clàusules i aquestes són una disjunció de literals. O sigui, una AND de ORs. 
+  Tota fòrmula proposocional pot ser transformada a CNF. Aquesta transformació es basa en les regles d'equivalències lògiques: la doble negació, les lleis De Morgan i la llei de distributivitat.  
+  \subsection{Extensions de SAT}
+  \subsubsection{MaxSAT}
+  MaxSAT de \textit{Maximum SATisfiability problem}és una generalització de SAT que consisteix en trobar el màxim nombre de clàusules d'una fòrmula booleana en CNF que es poden satifer. 
+  Es pot definir una versió de MaxSAT amb pesos: donada una fòrmula CNF assignem pesos no negatius a cada clàusula i busuqem la assignació de variables que maximitzen el pes sumat de les clàusules satisfetes. 
+  Es pot considerar que MaxSAT seria una instància de aquesta versió on tots els pesos son 1. 
+  \subsubsection{SMT}
+  De \textit{Satisfiability Modulo Theories}, SMT és una generalització de SAT on algunes de les variables proposicionals tenen el paper de predicats amb interpretacions predefinides a d'altres teories. Existeixen diversos tipos de teories: d'igualtat, d'aritmètica lineal, entera, d'aritèmtica lineal mixta, d'arrays, de BitVectors, etc.
+  
+  Exemple de fòrmula SMT: $p \vee q \vee (x<5) \vee (y<x)$
+
+  Una teoria es defineix com a conjunt de fòrmules lògiques de primer ordre tencades sota conseqüència booleana, o sigui, s'han de poder reduir a un resultat booleà. 
   \subsection{Cardinality Encodings}
   
   
@@ -439,10 +475,20 @@
 
   \chapter{Requisits del sistema}
 
-  En aquest treball es pretén desenvolupar un programa en C++ que haurà de ser capaç de rebre un fitxer xml en format XHSTT, llegir-lo, codificar-ne el model a yices, resoldre'l i mostrar-ne el resultat de forma llegible. 
-  Per fer això requerirem d'una llibreria que ens permeti llegir fitxers XML (en aquest cas s'ha decidit utilitzar pugixml\footnote{https://pugixml.org/}). També requerirem insta\l.lar el yices\footnote{https://yices.csl.sri.com/}. 
-  Posat que la API SMT del Dr. Jordi Coll està desenvolupada per a linux, necessitarem que la màquina on s'executi utilitzi de sistema operatiu una distribució de Linux amb un compilador C++. 
- % TODO: CAL COMPLETAR!!
+  En aquest treball es pretén desenvolupar un generador de horaris automàtic 
+  amb SAT i/o SMT que serà capaç de rebre una instància XHSTT en un fitxer xml passat per paràmetre, 
+  llegir-lo, codificar-ne un model utilitzant la API SMT desenvolupada pel Dr. Jordi Coll, resoldre'l i retornar un resultat, mostrant-lo per pantalla, o retornant un fitxer amb la instància XHSTT amb la nova solució insertada.
+
+  Per fer-ho, serà necessari l'ús de un conjunt de llibreries i programari:
+
+  \begin{itemize}
+    \item Llibreria que permeti el tractament de fitxers XML, S'ha optat per pugixml\footnote{https://pugixml.org/}
+    \item Posat que la API SMT utilitza Yices 2\footnote{https://yices.csl.sri.com/} com a únic solver SMT, necessitarem tenir-ne la seva llibreria insta\l.lada.
+    \item Posat que la API SMT està desenvolupada per GNU/Linux, serà necessari treballar una màquina que tingui insta\l.lat una distribució Linux.
+  \end{itemize}
+  
+  Apart de tot el mencionat, també ha calgut decidir un país per el qual el generador d'horaris estarà desenvolupat. Això és degut a qué en funció del país els requisits dels horaris generats varien àmpliament en funció de les característiques pròpies del sistema educatiu de cada país.
+  En aquest treball s'ha decidit optar per les instàncies de Brazil.
  
  \begin{figure}[ht!]
   \includegraphics[width=\textwidth]{Diagrames/Arqui1.png}
@@ -453,21 +499,98 @@
 
   \chapter{Estudis i decisions}
   \section{Programari utilitzat}
+  En aquesta secció del treball es veurà tot el programari que s'ha utilitzat per la confecció d'aquest.
+  \subsection{Yices 2}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Diagrames/logoYices.png}
+    \caption{Logo Yices 2}
+    \label{fig:yices}
+  \end{figure}
+  El Yices 2 és un \textit{SMT Solver} \textit{Open Source}\footnote{Repositori GitHub: \url{https://github.com/SRI-CSL/yices2}} sota llicència GPL que decideix la satisfactibilitat de fòrmules que contenen símbols de funcions no interpretades amb igualtat, aritmètica real i entera, BitVectors, tipus escalars i tuples. El Yices 2 suporta aritmètica linear i no linear.
+  
+  El Yices 2 pot processar fitxers d'entrada en notació SMT-LIB\footnote{\url{http://smtlib.cs.uiowa.edu/}}, es pot usar alternativament el llenguatge propi del Yices 2 i també te una API per C i C++.
+  
+  En la implementació d'aquest treball, s'usa dins de la API SMT del Dr. Jordi Coll com un dels \textit{solvers} que es poden utilitzar i és l'ùnic que permet SMT d'entre ells. S'ha decidit usar aquest a que és dels millors que hi ha i el grup de recerca hi te experiència prèvia. 
 
-  \subsection{Yices}
-  \subsection{Pugixml}
+  S'ha utilitzat la versió 2.6.1.
+
+  \subsection{pugixml}
+  El pugixml és una llibreria C++ lleugera per al processament XML. És extremadament portable amb distribucions. També és opensource\footnote{Repositori GitHub: \url{https://github.com/zeux/pugixml}} sota llicència MIT.
+
+  pugixml permet un processament de documents XML molt ràpid, còmode i eficient amb la memòria. Tot i això, al tenir un \textit{parser} DOM, no pot processar fitxers XML que no quèpiguen a la memòria.
+  
+  Degut a les caràcterístiques mencionades i a experiència prèvia amb la llibreria, s'ha decidit utilitzar-la per a la programació del \textit{parser} XHSTT. 
+
+  S'ha utilitzat en la versió 1.9-1.
+
   \subsection{C++}
-  \subsection{QtCreator}
-  \subsection{\LaTeX}
-  \subsection{Linux}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.2\textwidth]{Diagrames/cpp.png}
+    \caption{Logo C++}
+    \label{fig:cpp}
+  \end{figure}
+  
+  Llenguatge de programació de propòsit general creat per Bjarne Stroustrup com a extensió del llenguatge de programació C. 
+  Des de llavors, el llenguatge s'ha expandit molt i el C++ permet programació orientada a objectes, genèrica i funcional, a més de facilitats per manipulació de memòria a baix nivell. 
+  Pràcticament sempre és implementat com a llenguatge compilat.
 
-  A continuació s'enumera tot el programari que s'ha utilitzat per la confecció d'aquest treball:
-  \begin{itemize}
-  \item El solver utilitzat és el Yices versió 2.6.1 degut a que és dels millors que hi ha i el grup de recerca hi te experiència prèvia. 
-  \item Per la lectura de les instancies XHSTT s'ha utilitzat la llibreria pugixml versió 1.9-1. S'ha decidit usar aquesta llibreria pel fet de que ja hi tenia experiència prèvia.
-  \item La codificació del generador s'ha fet en C++ 17 i s'ha compilat amb el gcc versió 9.1.0-2 perquè és amb el que es treballa al departament i permet la utilització de la API SMT del Dr. Jordi Coll. Per desenvolupar s'ha utilitzat el IDE qtCreator 4.9.2-3.
-  \item La elaboració d'aquesta memòria s'ha fet amb \LaTeX, utilitzant com a IDE el Microsoft Visual Studio Code amb la versió lliure per linux 1.37.1-1, juntament amb l'expansió LaTeX Workshop (versió 5.6.0). 
-  \end{itemize}
+  El compilador per a C++ que s'ha utilitzat es el G++ inclòs en el GNU Compiler Collection, que inclou compiladors per a C, C++, Objective-C, Fortran, Ada, Go i D, a més de llibreries per aquests llenguatges. 
+  
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.2\textwidth]{Diagrames/gcc.png}
+    \caption{Logo G++}
+    \label{fig:gpp}
+  \end{figure}
+
+
+  En aquest treball s'ha decidit utilitzar el C++ perquè és amb el que es treballa al grup de recerca i és amb el que està feta la API SMT. El C++ s'ha utilitzat en la revisió C++17 del seu estandard. El GCC utilitzat ha estat en la versió 9.1.0-2. 
+
+  \subsection{QtCreator}
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.2\textwidth]{Diagrames/qtc.png}
+    \caption{Logo QtCreator}
+    \label{fig:qtc}
+  \end{figure}
+
+  El QtCreator és un Entorn de Desoenvolupament Integrat (IDE de \textit{Integrated Development Environment}) multiplataforma per a C++, 
+  JavaScript i QML que forma part del SDK per el \textit{framework} de desenvolupament d'aplicacions amb GUi Qt. Utilitza 
+
+  S'ha utilitzat la versió 4.9.2-3.
+
+  \subsection{\LaTeX}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Diagrames/latex.png}
+    \caption{Logo \LaTeX}
+    \label{fig:latex}
+  \end{figure}
+  
+
+  Aquesta memòria s'ha confeccionat amb \LaTeX, que és un sistema de composició d'alta qualitat que inclou funcions dissenyades per a la creació de documents tècnics i científics amb la intenció de ajudar al creador a centrar-se més en el contingut que en la forma.
+\LaTeX és l'estàndard de facto per a la comunicació i publicació de documents científics. 
+
+Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open Source\footnote{Link GitHub: \url{https://github.com/Microsoft/vscode}} Visual Studio Code. S'ha utilitzat en la versió 1.37.1-2 amb extensions per a facilitar l'edició del document tex.
+
+
+
+  \subsection{GNU/Linux}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.2\textwidth]{Diagrames/Linux.png}
+    \caption{Logo Linux}
+    \label{fig:linux}
+  \end{figure}
+  Linux és una familia de sistemes operatius formats pel \textit{kernel} Linux juntament amb les utilitats GNU. 
+  El generador que s'ha fet en aquest treball ha estat desenvolupat per a linux, degut a la facilitat d'accés a les múltiples llibreries que s'han utilitzat, a que la API SMT ha estat desenvolupada també per a Linux i simplement per prèferencia personal, degut a que el sistema operatiu que utilitzo dia a dia és una distribució Linux.
+
+  En concret s'ha treballat amb la distribució Arch Linux en la versió del kernel Linux 5.29.arch1-1 al final del treball (s'han usat versions anteriors que han anat sortint mentre es desenvolupava el treball).
+
 
   \section{Maquinari utilitzat}
   Per efectuar les proves de rendiment s'ha utilitzat un ordinador amb les següents especificacions:
@@ -504,9 +627,9 @@
   % En la fase de disseny cal determinar les interfícies d’usuaris, els models físics de 
   % dades, (no cal)els models físics de processos i, si escau, el model d’objectes. En aquest 
   % àmbit, els patrons de disseny permeten reutilitzar solucions generals a problemes 
-  \section{Interfícies d'usuari}
+  \subsection{Interfícies d'usuari}
   El programa funcionarà via consola. Les dades necessàries, com ara el fitxer amb la instància, es passaran per paràmetres, utilitzant el sistema existent en la API SMT del Dr. Jordi Coll.
-  \section{Model de dades}
+  \subsection{Model de dades}
 
   El model de dades correspondria al següent diagrama:
   \begin{figure}[ht!]
@@ -515,7 +638,7 @@
     \label{fig:DataModel}
   \end{figure}
 
-  \section{Model d'objectes}
+  \subsection{Model d'objectes}
 
   El model d'objectes correspondria al següent diagrama:
   \begin{figure}[ht!]

@@ -1,0 +1,20 @@
+<Resources>
+    <ResourceTypes>
+        <ResourceType Id="Room">
+            <Name>Room</Name>
+        </ResourceType>
+    </ResourceTypes>
+    <ResourceGroups>
+        <ResourceGroup Id="Rooms">
+            <Name>Rooms</Name>
+            <ResourceType Reference="Room"/>
+        </ResourceGroup>
+    </ResourceGroups>
+    <Resource Id="Room1">
+        <Name>Room1</Name>
+        <ResourceType Reference="Room"/>
+        <ResourceGroups>
+            <ResourceGroup Reference="Rooms"/>
+        </ResourceGroups>
+    </Resource>
+</Resources>

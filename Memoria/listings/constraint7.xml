@@ -1,0 +1,18 @@
+<AvoidUnavailableTimesConstraint Id="AvoidUnavailableTimes_T1">
+    <Name>ForbiddenTimesOfT1</Name>
+    <Required>true</Required>
+    <Weight>1</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <Resources>
+            <Resource Reference="T1"/>
+        </Resources>
+    </AppliesTo>
+    <Times>
+        <Time Reference="We_1"/>
+        <Time Reference="We_2"/>
+        <Time Reference="We_3"/>
+        <Time Reference="We_4"/>
+        <Time Reference="We_5"/>
+    </Times>
+</AvoidUnavailableTimesConstraint>

@@ -1,0 +1,21 @@
+<Times>
+    <TimeGroups>
+        <Day Id="DayId">
+            <Name>DayName</Name>
+        </Day>
+        <Week Id="WeekId">
+            <Name>WeekName</Name>
+        </Day>
+        <TimeGroup Id="TimeGroupId">
+            <Name>TimeGroupName</Name>
+        </TimeGroup>
+    </TimeGroups>
+    <Time Id="TimeId">
+        <Name>Time Name</Name>
+        <Day Reference="DayId"/> 
+        <Week Id="WeekId"/> 
+        <TimeGroups>
+            <TimeGroup Reference="TimeGroupId"/>
+        </TimeGroups>
+    </Time>
+<\Times>

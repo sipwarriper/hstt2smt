@@ -1,0 +1,15 @@
+<SplitEventsConstraint Id="SplitEventsConstraint">
+    <Name>Split events to duration 1 and 2</Name>
+    <Required>true</Required>
+    <Weight>1</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+        </EventGroups>
+    </AppliesTo>
+    <MinimumDuration>1</MinimumDuration>
+    <MaximumDuration>2</MaximumDuration>
+    <MinimumAmount>1</MinimumAmount>
+    <MaximumAmount>999</MaximumAmount>
+</SplitEventsConstraint>

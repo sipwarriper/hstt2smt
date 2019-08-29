@@ -399,9 +399,10 @@ void XMLParser::parse_spread_events_constraint(const pugi::xml_node& xml_node){
 		pugi::xml_node xml_groups = xml_apply.child("EventGroups");
 		if (xml_groups) {
             for (pugi::xml_node xml_group : xml_groups.children("EventGroup")) {
-                events_groups.insert(xml_group.attribute("Reference").as_string());
+                std::string e = xml_group.attribute("Reference").as_string();
+                events_groups.insert(e);
 			}
-		}
+        }
 
 		//gather all time groups to which this constraint applies
 		auto time_groups = std::unordered_map<std::string, std::pair<int, int>>();

@@ -1,0 +1,14 @@
+[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:307> INFO - Logfile is '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.blg'
+[22] biber:315> INFO - === Thu Aug 29, 2019, 02:53:35
+[42] Biber.pm:371> INFO - Reading '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf'
+[107] Biber.pm:886> INFO - Using all citekeys in bib section 0
+[119] Biber.pm:4093> INFO - Processing section 0
+[128] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[130] bibtex.pm:1523> INFO - LaTeX decoding ...
+[148] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography.bib'
+[250] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'variable = shifted' with 'variable = non-ignorable'
+[251] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[251] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ca-AD'
+[267] bbl.pm:636> INFO - Writing '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl' with encoding 'UTF-8'
+[274] bbl.pm:739> INFO - Output to /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl

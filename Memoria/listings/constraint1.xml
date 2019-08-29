@@ -1,0 +1,11 @@
+<AssignTimeConstraint Id="AssignTimes">
+    <Name>AssignTimes</Name>
+    <Required>true</Required>
+    <Weight>1</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+        </EventGroups>
+    </AppliesTo>
+</AssignTimeConstraint>

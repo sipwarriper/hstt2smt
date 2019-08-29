@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.19)  28 AUG 2019 22:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.19)  29 AUG 2019 11:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -912,7 +912,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 239.
-<Diagrames/Reduccio.png, id=318, 698.61pt x 135.50626pt>
+<Diagrames/Reduccio.png, id=324, 698.61pt x 135.50626pt>
 File: Diagrames/Reduccio.png Graphic file (type png)
 <use Diagrames/Reduccio.png>
 Package pdftex.def Info: Diagrames/Reduccio.png  used on input line 245.
@@ -967,85 +967,127 @@ Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint9.xml) [17] [18]
+(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint9.xml) [17]
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+
+ []
+
+[18] [19]
 Cap\'{\i }tol 5.
-<Diagrames/Arqui1.png, id=636, 914.41624pt x 670.505pt>
+<Diagrames/Arqui1.png, id=652, 914.41624pt x 670.505pt>
 File: Diagrames/Arqui1.png Graphic file (type png)
 <use Diagrames/Arqui1.png>
-Package pdftex.def Info: Diagrames/Arqui1.png  used on input line 448.
+Package pdftex.def Info: Diagrames/Arqui1.png  used on input line 494.
 (pdftex.def)             Requested size: 483.69684pt x 354.67024pt.
-[19
-
- </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui1.png>]
-Cap\'{\i }tol 6.
 [20
 
-] [21]
-Cap\'{\i }tol 7.
-<Diagrames/ModelDades.png, id=655, 1210.5225pt x 1143.27126pt>
-File: Diagrames/ModelDades.png Graphic file (type png)
-<use Diagrames/ModelDades.png>
-Package pdftex.def Info: Diagrames/ModelDades.png  used on input line 513.
-(pdftex.def)             Requested size: 483.69684pt x 456.82939pt.
+] [21 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui1.png>]
+Cap\'{\i }tol 6.
+<Diagrames/logoYices.png, id=665, 308.46951pt x 86.37146pt>
+File: Diagrames/logoYices.png Graphic file (type png)
+<use Diagrames/logoYices.png>
+Package pdftex.def Info: Diagrames/logoYices.png  used on input line 506.
+(pdftex.def)             Requested size: 193.47577pt x 54.17311pt.
 [22
 
-]
-<Diagrames/UMLKai.png, id=660, 770.88pt x 510.90875pt>
-File: Diagrames/UMLKai.png Graphic file (type png)
-<use Diagrames/UMLKai.png>
-Package pdftex.def Info: Diagrames/UMLKai.png  used on input line 522.
-(pdftex.def)             Requested size: 483.69684pt x 320.57231pt.
- [23 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/ModelDades.png>] [24 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/UMLKai.png>]
-Cap\'{\i }tol 8.
-[25
-
-]
-Cap\'{\i }tol 9.
+ </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/logoYices.png>]
+<Diagrames/cpp.png, id=681, 361.35pt x 406.51875pt>
+File: Diagrames/cpp.png Graphic file (type png)
+<use Diagrames/cpp.png>
+Package pdftex.def Info: Diagrames/cpp.png  used on input line 530.
+(pdftex.def)             Requested size: 96.73788pt x 108.83107pt.
+<Diagrames/gcc.png, id=682, 109.40875pt x 130.4875pt>
+File: Diagrames/gcc.png Graphic file (type png)
+<use Diagrames/gcc.png>
+Package pdftex.def Info: Diagrames/gcc.png  used on input line 544.
+(pdftex.def)             Requested size: 96.73788pt x 115.37688pt.
+<Diagrames/qtc.png, id=683, 401.5pt x 401.5pt>
+File: Diagrames/qtc.png Graphic file (type png)
+<use Diagrames/qtc.png>
+Package pdftex.def Info: Diagrames/qtc.png  used on input line 556.
+(pdftex.def)             Requested size: 96.73788pt x 96.73567pt.
+ [23 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/cpp.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gcc.png (PNG copy)>]
+<Diagrames/latex.png, id=691, 317.185pt x 120.45pt>
+File: Diagrames/latex.png Graphic file (type png)
+<use Diagrames/latex.png>
+Package pdftex.def Info: Diagrames/latex.png  used on input line 569.
+(pdftex.def)             Requested size: 193.47577pt x 73.47438pt.
+<Diagrames/Linux.png, id=694, 281.05pt x 331.2375pt>
+File: Diagrames/Linux.png Graphic file (type png)
+<use Diagrames/Linux.png>
+Package pdftex.def Info: Diagrames/Linux.png  used on input line 585.
+(pdftex.def)             Requested size: 96.73788pt x 114.00917pt.
+ [24 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/qtc.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/latex.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Linux.png>] [25]
+Cap\'{\i }tol 7.
+<Diagrames/ModelDades.png, id=712, 1210.5225pt x 1143.27126pt>
+File: Diagrames/ModelDades.png Graphic file (type png)
+<use Diagrames/ModelDades.png>
+Package pdftex.def Info: Diagrames/ModelDades.png  used on input line 636.
+(pdftex.def)             Requested size: 483.69684pt x 456.82939pt.
 [26
 
 ]
+<Diagrames/UMLKai.png, id=717, 770.88pt x 510.90875pt>
+File: Diagrames/UMLKai.png Graphic file (type png)
+<use Diagrames/UMLKai.png>
+Package pdftex.def Info: Diagrames/UMLKai.png  used on input line 645.
+(pdftex.def)             Requested size: 483.69684pt x 320.57231pt.
+ [27 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/ModelDades.png>] [28 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/UMLKai.png>]
+Cap\'{\i }tol 8.
+[29
+
+]
+Cap\'{\i }tol 9.
+[30
+
+]
 Cap\'{\i }tol 10.
-[27
+[31
 
 ]
 Cap\'{\i }tol 11.
-[28
+[32
 
 ]
 Cap\'{\i }tol 12.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 557.
+(hyperref)                removing `\@ifnextchar' on input line 680.
 
-[29
-
-] [30
+[33
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 562.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 562.
+
+Package biblatex Warning: No driver for entry type 'artricle'.
+(biblatex)                Using fallback driver on input line 682.
+
+[34
+
+] [35]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 685.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 685.
  (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 562.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 562.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 685.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 685.
 Package rerunfilecheck Info: File `Doc.out' has not changed.
-(rerunfilecheck)             Checksum: E78EA7855872BD6062094557965B755E;2952.
+(rerunfilecheck)             Checksum: 6360855CE9B9216262945932AAC9A8AD;3070.
 Package logreq Info: Writing requests to 'Doc.run.xml'.
 \openout1 = `Doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27616 strings out of 492623
- 500449 string characters out of 6135669
- 952528 words of memory out of 5000000
- 30695 multiletter control sequences out of 15000+600000
+ 27712 strings out of 492623
+ 502777 string characters out of 6135669
+ 953166 words of memory out of 5000000
+ 30757 multiletter control sequences out of 15000+600000
  16128 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,8n,48p,881b,1975s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf (30 pages, 344285 bytes).
+Output written on /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf (35 pages, 475499 bytes).
 PDF statistics:
- 850 PDF objects out of 1000 (max. 8388607)
- 786 compressed objects within 8 object streams
- 342 named destinations out of 1000 (max. 500000)
- 393 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 943 PDF objects out of 1000 (max. 8388607)
+ 862 compressed objects within 9 object streams
+ 371 named destinations out of 1000 (max. 500000)
+ 431 words of extra memory for PDF output out of 10000 (max. 10000000)
 

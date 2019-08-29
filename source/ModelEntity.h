@@ -118,6 +118,7 @@ protected:
     std::unordered_map<std::string, std::shared_ptr<Resource>> resources_;
 	std::unordered_map<std::string, std::string> mapping_; //roles->rtype_ref
 
-	std::set<int> needed_; //set of needed ResourceType num's 
+    std::set<int> needed_; //set of needed ResourceType num's
+    std::string class_;
 
 };

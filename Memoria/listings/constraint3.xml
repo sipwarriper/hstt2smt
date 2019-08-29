@@ -1,0 +1,25 @@
+<DistributeSplitEventsConstraint Id="DistributeSplit_1">
+    <Name>At least 1 double lesson(s)</Name>
+    <Required>false</Required>
+    <Weight>1</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <EventGroups>
+            <EventGroup Reference="gr_T1-S1"/>
+            <EventGroup Reference="gr_T1-S2"/>
+            <EventGroup Reference="gr_T1-S3"/>
+            <EventGroup Reference="gr_T3-S1"/>
+            <EventGroup Reference="gr_T3-S2"/>
+            <EventGroup Reference="gr_T3-S3"/>
+            <EventGroup Reference="gr_T4-S1"/>
+            <EventGroup Reference="gr_T4-S2"/>
+            <EventGroup Reference="gr_T4-S3"/>
+            <EventGroup Reference="gr_T8-S1"/>
+            <EventGroup Reference="gr_T8-S2"/>
+            <EventGroup Reference="gr_T8-S3"/>
+        </EventGroups>
+    </AppliesTo>
+    <Duration>2</Duration>
+    <Minimum>1</Minimum>
+    <Maximum>1</Maximum>
+</DistributeSplitEventsConstraint>

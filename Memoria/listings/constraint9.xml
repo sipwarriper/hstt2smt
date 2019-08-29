@@ -1,0 +1,26 @@
+<ClusterBusyTimesConstraint Id="MaxNofDaysConstraint_T_days_2">
+    <Name>Not more than 2 days with lessons</Name>
+    <Required>false</Required>
+    <Weight>9</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <Resources>
+            <Resource Reference="T1"/>
+            <Resource Reference="T2"/>
+            <Resource Reference="T3"/>
+            <Resource Reference="T4"/>
+            <Resource Reference="T5"/>
+            <Resource Reference="T7"/>
+            <Resource Reference="T8"/>
+        </Resources>
+    </AppliesTo>
+    <TimeGroups>
+        <TimeGroup Reference="gr_Mo"/>
+        <TimeGroup Reference="gr_Tu"/>
+        <TimeGroup Reference="gr_We"/>
+        <TimeGroup Reference="gr_Th"/>
+        <TimeGroup Reference="gr_Fr"/>
+    </TimeGroups>
+    <Minimum>0</Minimum>
+    <Maximum>2</Maximum>
+</ClusterBusyTimesConstraint>

@@ -1,0 +1,15 @@
+<PreferTimesConstraint Id="PreferredTimes">
+    <Name>Times for duration 2</Name>
+    <Required>true</Required>
+    <Weight>1</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+        </EventGroups>
+    </AppliesTo>
+    <TimeGroups>
+        <TimeGroup Reference="gr_TimesDurationTwo"/>
+    </TimeGroups>
+    <Duration>2</Duration>
+</PreferTimesConstraint>

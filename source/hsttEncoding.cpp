@@ -446,8 +446,10 @@ void HSTTEncoding::spread_events_constraint(const int &cost, const std::set<std:
         for (std::vector<int> tr : time_ranges){
             for(int d = 1; d < event->get_duration()+1; d++){
                 //initial, if the event is scheduled with duration d, then time t+d must be free
-                for(int i = 0; i<tr.size()-d; i++){
-                    //clauses_.push_back(!xd_[e][d][tr[i]] | !xt_[e][tr[i]+d]);
+				for(int i = 0; i<static_cast<int>(tr.size())-d; i++){
+//					bool deb = d<(tr.size()-d);
+//					std::cout<<i << " < " << tr.size() << " - " << d << " --> " <<deb<<" - "<<false<<std::endl;
+                    clauses_.push_back(!xd_[e][d][tr[i]] | !xt_[e][tr[i]+d]);
                     std::vector<literal> _v;
                     for (int t = tr[i]; t<tr[i]+d; t++)
                         _v.push_back(!xt_[e][t]);
@@ -763,56 +765,73 @@ bool HSTTEncoding::printSolution(ostream &os) const{
     std::vector<AssignmentEntry> result_vec = get_time_assignments();
     //for (AssignmentEntry entry : result_vec)
     //    os<<"Event reference: " << entry.event_id << " --- Duration: " << entry.duration << " --- Time reference: " << entry.time_id<< std::endl;
-    std::unordered_map<std::string, std::vector<AssignmentEntry>> week_events;
-    std::vector<std::string> week_days;
+
+    std::unordered_map<std::string, std::vector<AssignmentEntry>> classXweeks;
+
+
     for(AssignmentEntry entry : result_vec){
-        std::set<std::string> time_groups_ids = times_.find(entry.time_id)->second->get_groups();
-        std::string week_day;
-        for(std::string time_group_id : time_groups_ids){
-            std::shared_ptr<Group> group = time_groups_.find(time_group_id)->second;
-            if(group->get_opt() == "Day"){
-                week_day = group->get_name();
-                break;
+        std::string e = entry.event_id;
+        Resource r = events_.find(e)->second->get_preassigned_resource("Class");
+        classXweeks[r.get_identifier()].push_back(entry);
+    }
+
+    for(auto& cl: classXweeks){
+        os<<"\nClass "<<cl.first;
+
+        std::unordered_map<std::string, std::vector<AssignmentEntry>> week_events;
+        std::vector<std::string> week_days;
+        for(AssignmentEntry entry : cl.second){
+            std::set<std::string> time_groups_ids = times_.find(entry.time_id)->second->get_groups();
+            std::string week_day;
+            for(std::string time_group_id : time_groups_ids){
+                std::shared_ptr<Group> group = time_groups_.find(time_group_id)->second;
+                if(group->get_opt() == "Day"){
+                    week_day = group->get_name();
+                    break;
+                }
             }
+            week_events[week_day].push_back(entry);
         }
-        week_events[week_day].push_back(entry);
-    }
 
-    for(auto it: week_events){
-        std::sort(it.second.begin(), it.second.end(), [](AssignmentEntry a, AssignmentEntry b) -> bool{ return a.time_id<b.time_id;});
-        week_days.push_back(it.first);
-    }
-
-    std::sort(week_days.begin(), week_days.end(), [this](std::string a, std::string b)->bool{
-        auto it1 = week_days_dict.find(a[1]);
-        auto it2 = week_days_dict.find(b[1]);
-        return it1->first<it2->first;
-    });
-
-    std::vector<std::vector<std::string>> schedule_by_columns;
-    int longest_day_times=0;
-    for(auto it : week_events){
-        std::vector<std::string> week;
-        week.push_back(it.first);
-        for(AssignmentEntry entry : it.second){
-            for(int i = 0; i<entry.duration; i++)
-                week.push_back(entry.event_id);
+        for(auto it: week_events){
+            std::sort(it.second.begin(), it.second.end(), [](AssignmentEntry a, AssignmentEntry b) -> bool{ return a.time_id<b.time_id;});
+            week_days.push_back(it.first);
         }
-        schedule_by_columns.push_back(week);
-        if (longest_day_times<week.size()) longest_day_times = week.size();
-    }
 
-    TextTable t( '-', '|', '+' );
+        std::sort(week_days.begin(), week_days.end(), [this](std::string a, std::string b)->bool{
+            auto it1 = week_days_dict.find(a[1]);
+            auto it2 = week_days_dict.find(b[1]);
+            return it1->second<it2->second;
+        });
 
-    for(int i = 0; i<longest_day_times; i++){
-        for(int j = 0; j<week_days.size(); j++){
-            if(schedule_by_columns[j].size()>i)
-                t.add(schedule_by_columns[j][i]);
+        std::vector<std::vector<std::string>> schedule_by_columns;
+        int longest_day_times=0;
+        for(std::string weekday : week_days){
+            std::vector<std::string> week;
+            week.push_back(weekday);
+            std::vector<AssignmentEntry> events = week_events[weekday];
+            for(AssignmentEntry entry : events){
+                for(int i = 0; i<entry.duration; i++)
+                    week.push_back(entry.event_id);
+            }
+            schedule_by_columns.push_back(week);
+            if (longest_day_times<week.size()) longest_day_times = week.size();
         }
-        t.endOfRow();
+
+        TextTable t( '-', '|', '+' );
+
+        for(int i = 0; i<longest_day_times; i++){
+            for(int j = 0; j<week_days.size(); j++){
+                if(schedule_by_columns[j].size()>i)
+                    t.add(schedule_by_columns[j][i]);
+            }
+            t.endOfRow();
+        }
+
+        os<<std::endl<<t;
     }
 
-    os<<std::endl<<t;
+    //
     int num = 0, num2=0;
     for(bool a : pseudoVars_Res_){
         if (a) num++;

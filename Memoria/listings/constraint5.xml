@@ -1,0 +1,23 @@
+<SpreadEventsConstraint Id="SpreadEvents_2">
+    <Name>Spread events max 1 per day</Name>
+    <Required>true</Required>
+    <Weight>1</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <EventGroups>
+            <EventGroup Reference="gr_T1-S1"/>
+            <EventGroup Reference="gr_T1-S2"/>
+            <EventGroup Reference="gr_T1-S3"/>
+        </EventGroups>
+    </AppliesTo>
+    <TimeGroups>
+        <TimeGroup Reference="gr_Mo">
+            <Minimum>0</Minimum>
+            <Maximum>1</Maximum>
+        </TimeGroup>
+        <TimeGroup Reference="gr_Tu">
+            <Minimum>0</Minimum>
+            <Maximum>1</Maximum>
+        </TimeGroup>
+    </TimeGroups>
+</SpreadEventsConstraint>

@@ -1,0 +1,28 @@
+<Events>
+    <EventGroups>
+        <Course Id="gr_T1-S1">
+            <Name>T1-S1</Name>
+        </Course>
+        <EventGroup Id="gr_AllEvents">
+            <Name>All Events</Name>
+        </EventGroup>
+    </EventGroups>
+    <Event Id="T1-S1">
+        <Name>T1-S1</Name>
+        <Duration>3</Duration>
+        <Course Reference="gr_T1-S1"/>
+        <Resources>
+            <Resource Reference="S1">
+                <Role>Class</Role>
+                <ResourceType Reference="Class"/>
+            </Resource>
+            <Resource Reference="T1">
+                <Role>Teacher</Role>
+                <ResourceType Reference="Teacher"/>
+            </Resource>
+        </Resources>
+        <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+        </EventGroups>
+    </Event>
+</Events>

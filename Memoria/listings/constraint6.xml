@@ -1,0 +1,12 @@
+<AvoidClashesConstraint Id="NoResourceClashes">
+    <Name>NoResourceClashes</Name>
+    <Required>true</Required>
+    <Weight>1</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+            <ResourceGroup Reference="gr_Classes"/>
+        </ResourceGroups>
+    </AppliesTo>
+</AvoidClashesConstraint>

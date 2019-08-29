@@ -1,0 +1,20 @@
+<LimitIdleTimesConstraint Id="noIDLETimesT">
+    <Name>No IDLE times for teachers</Name>
+    <Required>false</Required>
+    <Weight>3</Weight>
+    <CostFunction>Linear</CostFunction>
+    <AppliesTo>
+        <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+        </ResourceGroups>
+    </AppliesTo>
+    <TimeGroups>
+        <TimeGroup Reference="gr_Mo"/>
+        <TimeGroup Reference="gr_Tu"/>
+        <TimeGroup Reference="gr_We"/>
+        <TimeGroup Reference="gr_Th"/>
+        <TimeGroup Reference="gr_Fr"/>
+    </TimeGroups>
+    <Minimum>0</Minimum>
+    <Maximum>0</Maximum>
+</LimitIdleTimesConstraint>
