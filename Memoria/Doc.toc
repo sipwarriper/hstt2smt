@@ -3,7 +3,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}, motivacions, prop\IeC {\`o}sit i objectius}{4}{chapter.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Grup de recerca L\IeC {\`o}gica i Programaci\IeC {\'o}}{4}{section.1.1}% 
+\contentsline {section}{\numberline {1.1}Grup de recerca L\IeC {\`o}gica i Programaci\IeC {\'o}}{5}{section.1.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}Estructura del Treball}{5}{section.1.2}% 
 \defcounter {refsection}{0}\relax 
@@ -15,92 +15,96 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.1}Pressupost}{6}{subsection.2.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Metodologia i Planificaci\IeC {\'o}}{7}{chapter.3}% 
+\contentsline {chapter}{\numberline {3}Metodologia i Planificaci\IeC {\'o}}{8}{chapter.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Metodologia}{7}{section.3.1}% 
+\contentsline {section}{\numberline {3.1}Metodologia}{8}{section.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Planificaci\IeC {\'o}}{7}{section.3.2}% 
+\contentsline {section}{\numberline {3.2}Planificaci\IeC {\'o}}{8}{section.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Marc de treball i conceptes pr\IeC {\`e}vis}{9}{chapter.4}% 
+\contentsline {chapter}{\numberline {4}Marc de treball i conceptes pr\IeC {\`e}vis}{10}{chapter.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Marc de treball}{9}{section.4.1}% 
+\contentsline {section}{\numberline {4.1}Marc de treball}{10}{section.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Definici\IeC {\'o} del problema}{9}{section.4.2}% 
+\contentsline {section}{\numberline {4.2}Definici\IeC {\'o} del problema}{10}{section.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Estudi de duresa}{9}{subsection.4.2.1}% 
+\contentsline {subsection}{\numberline {4.2.1}Estudi de duresa}{10}{subsection.4.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1.1}Inc\IeC {\'\i }s en la teor\IeC {\'\i }a de la computaci\IeC {\'o}}{9}{subsubsection.4.2.1.1}% 
+\contentsline {subsubsection}{\numberline {4.2.1.1}Inc\IeC {\'\i }s en la teor\IeC {\'\i }a de la computaci\IeC {\'o}}{10}{subsubsection.4.2.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1.2}Duresa de HSTT}{10}{subsubsection.4.2.1.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1.2}Duresa de HSTT}{11}{subsubsection.4.2.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Format XHSTT}{12}{section.4.3}% 
+\contentsline {section}{\numberline {4.3}Format XHSTT}{13}{section.4.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.1}Temps, Recursos i Events}{12}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.1}Temps, Recursos i Events}{13}{subsection.4.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.2}Restriccions}{14}{subsection.4.3.2}% 
+\contentsline {subsection}{\numberline {4.3.2}Restriccions}{15}{subsection.4.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Estat de l'art}{20}{section.4.4}% 
+\contentsline {section}{\numberline {4.4}Estat de l'art}{21}{section.4.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}Problemes de Satisfacci\IeC {\'o} de Restriccions}{20}{subsection.4.4.1}% 
+\contentsline {subsection}{\numberline {4.4.1}Problemes de Satisfacci\IeC {\'o} de Restriccions}{21}{subsection.4.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}SAT}{20}{subsection.4.4.2}% 
+\contentsline {subsection}{\numberline {4.4.2}SAT}{21}{subsection.4.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.3}Extensions de SAT}{21}{subsection.4.4.3}% 
+\contentsline {subsection}{\numberline {4.4.3}Extensions de SAT}{22}{subsection.4.4.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.4.3.1}MaxSAT}{21}{subsubsection.4.4.3.1}% 
+\contentsline {subsubsection}{\numberline {4.4.3.1}MaxSAT}{22}{subsubsection.4.4.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.4.3.2}SMT}{21}{subsubsection.4.4.3.2}% 
+\contentsline {subsubsection}{\numberline {4.4.3.2}SMT}{22}{subsubsection.4.4.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.4}Cardinality Encodings}{21}{subsection.4.4.4}% 
+\contentsline {subsection}{\numberline {4.4.4}Cardinality Encodings}{22}{subsection.4.4.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Requisits del sistema}{22}{chapter.5}% 
+\contentsline {subsubsection}{\numberline {4.4.4.1}Cardinality Constraints comparadaes amb 1}{22}{subsubsection.4.4.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Estudis i decisions}{24}{chapter.6}% 
+\contentsline {subsubsection}{\numberline {4.4.4.2}Cardinality Constraints comparadaes amb k}{23}{subsubsection.4.4.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Programari utilitzat}{24}{section.6.1}% 
+\contentsline {chapter}{\numberline {5}Requisits del sistema}{24}{chapter.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.1}Yices 2}{24}{subsection.6.1.1}% 
+\contentsline {chapter}{\numberline {6}Estudis i decisions}{26}{chapter.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}pugixml}{24}{subsection.6.1.2}% 
+\contentsline {section}{\numberline {6.1}Programari utilitzat}{26}{section.6.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.3}C++}{25}{subsection.6.1.3}% 
+\contentsline {subsection}{\numberline {6.1.1}Yices 2}{26}{subsection.6.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.4}QtCreator}{25}{subsection.6.1.4}% 
+\contentsline {subsection}{\numberline {6.1.2}pugixml}{26}{subsection.6.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.5}\LaTeX }{26}{subsection.6.1.5}% 
+\contentsline {subsection}{\numberline {6.1.3}C++}{27}{subsection.6.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.6}GNU/Linux}{26}{subsection.6.1.6}% 
+\contentsline {subsection}{\numberline {6.1.4}QtCreator}{27}{subsection.6.1.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Maquinari utilitzat}{27}{section.6.2}% 
+\contentsline {subsection}{\numberline {6.1.5}\LaTeX }{28}{subsection.6.1.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}An\IeC {\`a}lisis i disseny del sistema}{28}{chapter.7}% 
+\contentsline {subsection}{\numberline {6.1.6}GNU/Linux}{28}{subsection.6.1.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}An\IeC {\`a}lisis}{28}{section.7.1}% 
+\contentsline {section}{\numberline {6.2}Maquinari utilitzat}{29}{section.6.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1.1}Necessitats del sistema}{28}{subsection.7.1.1}% 
+\contentsline {chapter}{\numberline {7}An\IeC {\`a}lisis i disseny del sistema}{30}{chapter.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1.2}An\IeC {\`a}lisis de processos}{28}{subsection.7.1.2}% 
+\contentsline {section}{\numberline {7.1}An\IeC {\`a}lisis}{30}{section.7.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}Disseny}{28}{section.7.2}% 
+\contentsline {subsection}{\numberline {7.1.1}Necessitats del sistema}{30}{subsection.7.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2.1}Interf\IeC {\'\i }cies d'usuari}{28}{subsection.7.2.1}% 
+\contentsline {subsection}{\numberline {7.1.2}An\IeC {\`a}lisis de processos}{30}{subsection.7.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2.2}Model de dades}{29}{subsection.7.2.2}% 
+\contentsline {section}{\numberline {7.2}Disseny}{30}{section.7.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2.3}Model d'objectes}{29}{subsection.7.2.3}% 
+\contentsline {subsection}{\numberline {7.2.1}Interf\IeC {\'\i }cies d'usuari}{30}{subsection.7.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Implementaci\IeC {\'o} i proves}{31}{chapter.8}% 
+\contentsline {subsection}{\numberline {7.2.2}Model de dades}{31}{subsection.7.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.1}Codificaci\IeC {\'o}}{31}{section.8.1}% 
+\contentsline {subsection}{\numberline {7.2.3}Model d'objectes}{31}{subsection.7.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1.1}Model}{32}{subsection.8.1.1}% 
+\contentsline {chapter}{\numberline {8}Implementaci\IeC {\'o} i proves}{33}{chapter.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {9}Implantaci\IeC {\'o} i resultats}{33}{chapter.9}% 
+\contentsline {section}{\numberline {8.1}Codificaci\IeC {\'o}}{33}{section.8.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Conclusions}{34}{chapter.10}% 
+\contentsline {subsection}{\numberline {8.1.1}Model}{34}{subsection.8.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Treball futur}{35}{chapter.11}% 
+\contentsline {chapter}{\numberline {9}Implantaci\IeC {\'o} i resultats}{35}{chapter.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{36}{chapter.12}% 
+\contentsline {chapter}{\numberline {10}Conclusions}{36}{chapter.10}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{38}{chapter.13}% 
+\contentsline {chapter}{\numberline {11}Treball futur}{37}{chapter.11}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{38}{chapter.12}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{40}{chapter.13}% 

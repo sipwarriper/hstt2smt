@@ -60,33 +60,6 @@
   identifierstyle=\color{maroon}
 }
 
-% \lstset{
-%   language=XML,
-%   morekeywords={encoding,
-%     Time, Name, Day, TimeGroups, TimeGroup, Resource, ResourceGroup, ResourceType, Event, Duration, Course, Role, 
-%     AssignTimeConstraint, SplitEventsConstrain,DistributeSplitEventsConstraint, PreferTimesConstraint, SpreadEventsConstraint, AvoidClashesConstraint, AvoidUnavailableTimesConstraint, LimitIdleTimesConstraint, ClusterBusyTimesConstraint,
-%     AppliesTio, Minimum, Maximum, Required, Weight, CostFunction, Week, Day, }
-% }
-  % \lstset{frame=tb,
-  % language=Matlab,
-  % aboveskip=3mm,
-  % belowskip=3mm,
-  % showstringspaces=false,
-  % columns=flexible,
-  % basicstyle={\small\ttfamily},
-  % numbers=none,
-  % numberstyle=\tiny\color{gray},
-  % keywordstyle=\color{blue},
-  % commentstyle=\color{dkgreen},
-  % stringstyle=\color{mauve},
-  % breaklines=true,
-  % breakatwhitespace=true,
-  % tabsize=3,
-  % extendedchars=true,
-  % literate={á}{{\'a}}1 {à}{{\`a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`e}}1 {í}{{\'i}}1 {ï}{{\"i}}1 {ó}{{\'o}}1 {ò}{{\`o}}1 {ú}{{\'u}}1 {ü}{{\"u}}1 {ç}{{\c{c}}}1
-  %             {Á}{{\'A}}1 {À}{{\`A}}1 {Ã}{{\~A}}1 {É}{{\'E}}1 {È}{{\`E}}1 {Í}{{\'I}}1 {Ï}{{\"I}}1 {Ó}{{\'O}}1 {Ò}{{\`O}}1 {Ú}{{\'U}}1 {Ü}{{\"U}}1 {Ç}{{\c{C}}}1
-  % }
-  
   \usepackage{hyperref}
   \hypersetup{
     colorlinks=false, %set true if you want colored links
@@ -118,17 +91,23 @@
   % \section{Propòsit}
   % \section{Objectius}
 
-  La confecció d'horaris de institut es un problema que amaga una alta combinatòria, dificultant-ne molt la seva elaboració manual posat que s'han de prendre moltíssimes decisions a cegues, 
-  fent que sigui molt probable cometre errors en la confecció. El HSTT (High School TimeTabling) consisteix en la solució de forma automàtica de aquest problema d'alta complexitat (NP). 
-  Així doncs el problema consisteix en la configuració automàtica de horaris de institut partint de una sèrie de recursos 
+  La confecció d'horaris és un problema recorrent amb el que es troben els instituts que amaga una alta combinatòria, dificultant-ne molt la seva elaboració manual posat que s'han de prendre moltíssimes decisions a cegues,
+  fent que sigui molt probable cometre errors en la confecció. En aquesta situació, amb la aparició dels computadors molts instituts varen decidir ajudar-se en aquesta tasca utilitzant eines informàtiques capaces 
+  d'explorar grans quantitats de combinacions per segon. No obstant a això, amb aquelles primeres eines es seguien tenint molts problemes per generar horaris viables, que normalment eren de qualitat baixa 
+  i requerien un refinament posterior que s'havia de fer de forma manual.
+  
+  El HSTT (High School TimeTabling) consisteix en la solució de forma automàtica de aquest problema d'alta complexitat (NP). 
+  Així doncs, el que s'intenta és la configuració automàtica de horaris de institut partint de una sèrie de recursos 
   (per exemple: aules, professors, assignatures, grups) i repartir-los de manera que sigui viable i tenint en compte 
   de manera total o parcial les preferències del professorat en quant a horaris, continuïtat, grups, etc. Tot aixó fa que el problema sigui molt difícil de resoldre, degut al gran nombre de combinacions possibles entre els diferents recursos.
   
   Afegint dificultat al problema, depenguen del país del qual estiguem parlant existeixen una gran diversitat de requisits propis, degut a les característiques pròpies del sistema d'estudis secundaris de cada lloc.
+
+  Degut a tot el mencionat encara no existeix cap eina capaç de trobar una solució òptima al problema de manera determinista en un temps raonable, encara que s'ha avançat molt en la resolució de problemes d'aquest tipus i costen de trobar instituts que optin per fer els horaris de forma manual.
   
   Els objectius d'aquest treball són els següents:
   \begin{itemize}
-    \item Aprofundir sobre el problema treballat en sí i sobre els problemes de satisfacció de restriccions en general i les tècniques que s'utilitzen per resoldre'ls, com ara, SAT i les seves diverses extensions.
+    \item Aprofundir sobre el problema de la generació d'horaris en sí i sobre els problemes de satisfacció de restriccions en general i les tècniques que s'utilitzen per resoldre'ls, com ara, SAT i les seves diverses extensions.
     \item Desenvolupar un generador d'horaris automàtic utilitzant les tècniques estudiades anteriorment, aprofitant les eines relacionades que s'han desenvolupades recentment pel grup de recerca Lògica i Programació, que resolgui el problema en un temps raonable i intenti trobi la millor solució possible, 
     cosa que es preveu molt complicada d'aconseguir en un temps raonable en les instàncies grosses.
     
@@ -197,22 +176,52 @@
 
   \section{Viabilitat econòmica}
   
-  Degut a que tot el software utilitzat és gratuït, lliure i de codi obert, i que el codi que el grup de recerca m'ha cedit també ha estat gratuït, no s'ha requerit de cap inversió ni despesa econòmica. 
+  Degut a que tot el software utilitzat és gratuït, lliure i de codi obert, i que el codi que el grup de recerca m'ha cedit també ha estat gratuït. Per part del maquinari, només s'ha utilitzat el que ja tenia amb anterioritat, així que per aquesta banda tampoc ha suposat cap cost.
+  Així doncs, aquest projecte no s'ha requerit de cap inversió ni despesa econòmica. 
   Així doncs l'únic cost que ha suposat aquest treball han estat el temps necessari per fer-lo i les ganes que se li han hagut de ficar. 
 
+
   \subsection{Pressupost}
-  Tot i que, com s'ha explicat anteriorment, el desenvolupament d'aquest treball no té cost, s'ha decidit fer una simulació del que costaria contractar un programador per fer el treball. En la següent taula el cost:
+  Tot i que, com s'ha explicat anteriorment, el desenvolupament d'aquest treball no té cost, s'ha decidit fer una simulació del que costaria contractar un programador per fer el treball.
   
   \begin{center}
-    \begin{tabular}{||c | c | c||} 
+    \begin{tabular}{|| c | c | c | c||} 
     \hline
-    \euro/h & Hores & Cost \\ [0.5ex] 
+     & \euro/h & Hores & Cost \\ [0.5ex] 
     \hline\hline
-    14 & 180 & 2520 \\ [1ex] 
+    Programador & 14 & 180 & 2520 \\ [1ex] 
     \hline
    \end{tabular}
    \end{center}
 
+   A part també s'han de tenir en compte el maquinari utilitzat:
+   \begin{center}
+    \begin{tabular}{|| c | c | c | c||} 
+    \hline
+     & Cost Total & Hores & \euro/h \\ [0.5ex] 
+    \hline\hline
+    Ordinador Principal & 828 & 170 & 4.9 \\ [1ex] 
+    Ordinador Portatil Secundari & 200 & 10 & 20 \\ [1ex] 
+    \hline\hline
+    Total & 1028 & 190 & 5.71 \\
+
+
+    \hline
+   \end{tabular}
+   \end{center}
+
+
+   També cal tenir en compte que els tutors del treball m'han ajudat molt, i han dedicat part del seu temps en les reunions, intercanvis de mails i conversacions que s'han tingut sobre el treball.
+   \begin{center}
+    \begin{tabular}{|| c | c ||} 
+    \hline
+     & Hores \\ [0.5ex] 
+    \hline\hline
+    Josep Suy & 20 \\ [1ex] 
+    Jordi Coll & 10 \\ [1ex] 
+    \hline
+   \end{tabular}
+   \end{center}
   % preguntar suy
   %==================
   % Cal justificar quins són els paràmetres que feien possible el desenvolupament del
@@ -228,6 +237,10 @@
   Des de aquí es procedirà a la implementació del programa, utilitzant la API SMT creada per el Dr. Jordi Coll, el qual es membre del grup de recerca de Lògica i Programació del departament de Informàtica, Matemàtica Aplicada i Estadística.
   Aquesta API ens estalviarà la codificació de les restriccions de cardinalitat i les restriccions pseudo-booleanes, 
   apart de oferir-nos una interfície senzilla per poder implementar el model en diferents encodings i múltiples opcions.
+
+  Després de fer un estudi preliminar del problema i el treball prèvi respecte aquest, la metodologia de treball que s'ha seguit ha estat la de entregues periòdiques. 
+  Consistint en fer una reunió amb els tutors per decidir el pròxim pas del treball i jo dedicar-me durant un temps a fer aquest pas. Després d'aquest temps es convoca una altre reunió on es valora el treball fet i es decideix com seguir. 
+  Des de aquí es va repetint fins a acabar el projecte.
 
   %1 - estudiar el problema
   %2 - fer el parser
@@ -534,9 +547,40 @@
   Una teoria es defineix com a conjunt de fòrmules lògiques de primer ordre tencades sota conseqüència booleana, o sigui, s'han de poder reduir a un resultat booleà. 
   \subsection{Cardinality Encodings}
   
+  Les \textit{cardinality constraints} són aquelles que expresen límits numèrics en quantitats discretes, sorgeixen freqüentment en la codificació de problemes del món real: per exemple un enginyer vol expressar que almenys $n$ parts d'un cert tipus son necessàries per fer funcionar el producte.
+
+  Podem definir dos tipus de \textit{cardinality constraints}:
+  \begin{itemize}
+    \item Les que comparen amb 1: \textit{Exactly One (EO)}, \textit{At Most One (AmO)} i \textit{At Least One (ALO)}
+    \item Les que comparen amb k: \textit{Exactly k (EK)}, \textit{At Most k (AMK)} i \textit{At Least k (ALK)}
+  \end{itemize}
+
+  \subsubsection{Cardinality Constraints comparadaes amb 1}
+
+  \paragraph*{ALO i EO}
   
+  Per codificar una \textit{ALO} a CNF consisteix en una clàusula amb totes les variables sobre les quals s'aplica. Al ser una OR, per complir la clàusula, una de les variables haurà de ser certa.
 
+  Per altre banda per codificar una \textit{EO}, només cal codificar una ALO i una \textit{AMO} per el conjunt de variables.
+  
+  \paragraph*{AMO}
 
+  Per al AMO existeixen diferents encodings. A continuació en veurem alguns:
+  \begin{itemize}
+    \item Quadràtic: consisteix en en fer clàusules binaries (mutexes) del tipus: \[ \neg x_i \vee \neg x_j \qquad i \in 1..n-1, j \in i+1..n\] Aquest encoding introdueix $O(n^2)$ clàusules binaries, pero no introdueix variables auxiliars.
+    \item Logarítmic: aquest encoding consisteix en introduir $O(log_2 n)$ variables auxiliars i $O(n log_2 n)$ clàusules i consisteix en generar clàusules binàries per $i \in 0..n-1, j \in 0..m-1$ on $m$ és $log_2(n)$:\\
+          \begin{center}
+            $x_i \rightarrow \neg y_i$, si el bit $j$ del nombre i és 0. \\
+            $x_i \rightarrow y_i$, si el bit $j$ del nombre i és 1.
+          \end{center}
+    \item Ladder encoding
+    
+    \item Heule encoding
+    
+  \end{itemize}
+
+  \subsubsection{Cardinality Constraints comparadaes amb k}
+  \paragraph*{Sorter}
 
 
 
@@ -725,9 +769,11 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \begin{itemize}
     \item \textit{Parser }del fitxer en format XHSTT. \\ S'encarrega de llegir el fitxer XHSTT i extreure'n la informació de la instància contenida en el fitxer XML en format XHSTT passat per parametre. És important que aquest fitxer tingui l'estructura establerta en el format XHSTT.
     \item Bloc de codificació de la instància a SMT. \\ En aquest apartat utilitzem la API SMT per tal de codificar la instància a SMT i passar-la al \textit{solver} corresponent, el Yices 2.
+    \item Bloc de escriptura del resultat a XHSTT. \\ En aquest apartat creem un fitxer amb la instància treballada XHSTT i hi afegim la solució trobada al final.
   \end{itemize}
 
-  L'usuari només tindrà un binari, anomenat \textit{hstt2smt}, amb el qual interectuarà per resoldre una instància que passarà per fitxer. Aquest s'encarregarà de fer tota la feina. Aquest binari serà el resultat de compilar el generador amb la API SMT i les llibreries que es necessiten per poder treballar amb XML i amb SMT.
+  L'usuari només tindrà un binari, anomenat \textit{hstt2smt}, amb el qual interectuarà per resoldre una instància que passarà per fitxer. Aquest s'encarregarà de fer tota la feina. 
+  Aquest binari serà el resultat de compilar el generador amb la API SMT i les llibreries que es necessiten per poder treballar amb XML i amb SMT.
   %%%REVISAR%%%%%
 
   \section{Codificació}
@@ -773,7 +819,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \item $Xs_{0,0} ... Xs_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui l'instància. Cada una de aquestes variables indica si un event comença en l'espai de temps representat. Un event comença en un espai de temps si no es donava en l'espai de temps anterior i/o si l'espai de temps és la primera hora del dia.
     Doncs si per l'event $e$ i l'espai $t$, $Xt_{e,t}$ és certa, vol dir que en el temps $t$, $e$ comença i que cap més variable $Xs_{e,i}$ serà certa i que la variable $Xt_{e,t}$ serà certa.
     %A continuar
-
+ 
   \end{itemize}
    
   % En aquest apartat es detallen els problemes i les solucions apareguts en la 

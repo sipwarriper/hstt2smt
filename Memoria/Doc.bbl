@@ -679,6 +679,34 @@
       \verb https://en.wikipedia.org/w/index.php?title=Satisfiability_modulo_theories&oldid=909772056
       \endverb
     \endentry
+    \entry{sinz2005towards}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=b4417367042e77e23bdbc8008317154e}{%
+           family={Sinz},
+           familyi={S\bibinitperiod},
+           given={Carsten},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b4417367042e77e23bdbc8008317154e}
+      \strng{fullhash}{b4417367042e77e23bdbc8008317154e}
+      \strng{bibnamehash}{b4417367042e77e23bdbc8008317154e}
+      \strng{authorbibnamehash}{b4417367042e77e23bdbc8008317154e}
+      \strng{authornamehash}{b4417367042e77e23bdbc8008317154e}
+      \strng{authorfullhash}{b4417367042e77e23bdbc8008317154e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International conference on principles and practice of constraint programming}
+      \field{title}{Towards an optimal CNF encoding of boolean cardinality constraints}
+      \field{year}{2005}
+      \true{nocite}
+      \field{pages}{827\bibrangedash 831}
+      \range{pages}{5}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
