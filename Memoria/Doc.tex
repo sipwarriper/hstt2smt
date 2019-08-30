@@ -99,7 +99,7 @@
   El HSTT (High School TimeTabling) consisteix en la solució de forma automàtica de aquest problema d'alta complexitat (NP). 
   Així doncs, el que s'intenta és la configuració automàtica de horaris de institut partint de una sèrie de recursos 
   (per exemple: aules, professors, assignatures, grups) i repartir-los de manera que sigui viable i tenint en compte 
-  de manera total o parcial les preferències del professorat en quant a horaris, continuïtat, grups, etc. Tot aixó fa que el problema sigui molt difícil de resoldre, degut al gran nombre de combinacions possibles entre els diferents recursos.
+  de manera total o parcial les preferències del professorat en quant a horaris, continuïtat, grups, etc. Tot això fa que el problema sigui molt difícil de resoldre, degut al gran nombre de combinacions possibles entre els diferents recursos.
   
   Afegint dificultat al problema, depenguen del país del qual estiguem parlant existeixen una gran diversitat de requisits propis, degut a les característiques pròpies del sistema d'estudis secundaris de cada lloc.
 
@@ -116,7 +116,7 @@
   \section{Grup de recerca Lògica i Programació}
   Aquest treball s'emmarca dins del grup de recerca de Lògica i Programació de l'àmbit d'àrea tècnica de la Universitat de Girona.
 
-  El grup basa la seva recerca en l'estudi de satisfactibilitat de formules proposicionals booleanes (SAT) i Satisfiability Modulo Theories (SMT) i les seves
+  El grup basa la seva recerca en l'estudi de satisfactibilitat de fórmules proposicionals booleanes (SAT) i Satisfiability Modulo Theories (SMT) i les seves
   aplicació per a la resolució de problemes combinatoris com ara problemes de \textit{scheduling} i \textit{planning} arribant a utilitzar amb èxit tècniques innovadores en altres àmbits com
   pot ser: els problemes de \textit{scheduling} i \textit{planning}.
 
@@ -127,15 +127,15 @@
   \begin{enumerate}
     \item Introducció, motivacions, propòsit i objectius: Situa el marc del projecte, explica les raons per les quals s'ha escollit el treball i en defineix els objectius.
     \item Estudi de viabilitat: Justifica la capacitat de fer el projecte
-    \item Metodologia i Planificació: Tot i que a la guía van separats, s'ha decidit ajuntar-los per la gran relació que tenen entre ells. En aquest apartat s'exposa la metodologia que s'ha seguit a la hora de implementar el projecte i es defineix l'estratègia seguida per arribar als objectius.
-    \item Marc de treball i conceptes prèvis: S'exposa el treball prèvi realitzat sobre el problema, i els coneixements necessaris per a la implementació del programa.
+    \item Metodologia i Planificació: Tot i que a la guia van separats, s'ha decidit ajuntar-los per la gran relació que tenen entre ells. En aquest apartat s'exposa la metodologia que s'ha seguit a la hora de implementar el projecte i es defineix l'estratègia seguida per arribar als objectius.
+    \item Marc de treball i conceptes previs: S'exposa el treball previ realitzat sobre el problema, i els coneixements necessaris per a la implementació del programa.
     \item Requisits del sistema: Requisits funcionals i no funcionals que ha de complir el sistema.
     \item Anàlisi i disseny del sistema: Descripció del maquinari i programari utilitzat durant el desenvolupament del projecte.
     \item Implementació i proves: Es detalla la implementació del programa, els problemes que han aparegut i les solucions que s'han donat a aquests.
     \item Implantació i resultats: Detalla els resultats obtinguts.
     \item Conclusions: Conclusió del projecte i els resultats
     \item Treball futur: Possibles ampliacions, millores o treballs futurs que es poden realitzar.
-    \item Bibliografía: Referències utilitzades per desenvolupar el projecte.
+    \item Bibliografia: Referències utilitzades per desenvolupar el projecte.
     \item Manual d'usuari i insta\l.lació: Especifica les passes a seguir per utilitzar el sistema creat en un ordinador.
 
   \end{enumerate}
@@ -236,9 +236,9 @@
   Primer caldrà estudiar el problema (HSTT) i la seva duresa, per poder ser capaç d'entendre el què estem treballant.
   Des de aquí es procedirà a la implementació del programa, utilitzant la API SMT creada per el Dr. Jordi Coll, el qual es membre del grup de recerca de Lògica i Programació del departament de Informàtica, Matemàtica Aplicada i Estadística.
   Aquesta API ens estalviarà la codificació de les restriccions de cardinalitat i les restriccions pseudo-booleanes, 
-  apart de oferir-nos una interfície senzilla per poder implementar el model en diferents encodings i múltiples opcions.
+  apart de oferir-nos una interfície senzilla per poder implementar el model en diferents \textit{encodings} i múltiples opcions.
 
-  Després de fer un estudi preliminar del problema i el treball prèvi respecte aquest, la metodologia de treball que s'ha seguit ha estat la de entregues periòdiques. 
+  Després de fer un estudi preliminar del problema i el treball previ respecte aquest, la metodologia de treball que s'ha seguit ha estat la de entregues periòdiques. 
   Consistint en fer una reunió amb els tutors per decidir el pròxim pas del treball i jo dedicar-me durant un temps a fer aquest pas. Després d'aquest temps es convoca una altre reunió on es valora el treball fet i es decideix com seguir. 
   Des de aquí es va repetint fins a acabar el projecte.
 
@@ -255,11 +255,11 @@
   \section{Planificació}
 
   Com s'ha dit en l'apartat anterior primer caldrà estudiar el problema HSTT i la seva duresa. 
-  Després es procedirà amb el disseny i la implementació del generador. Primer caldrà dissenyar implementar i testejar un \textit{parser} pels fitxers. En aquest pas també cal pensar i implementar en quina estructura es guardaràn aquestes dades i com es transferiràn en el model que es codificarà posteriorment. 
+  Després es procedirà amb el disseny i la implementació del generador. Primer caldrà dissenyar implementar i testejar un \textit{parser} pels fitxers. En aquest pas també cal pensar i implementar en quina estructura es guardaran aquestes dades i com es transferiran en el model que es codificarà posteriorment. 
 
   Al tenir el \textit{parser} i l'estructura de dades enllestits caldrà començar a estudiar com funciona la API per C++ del Yices i 
   posteriorment la API SMT del Dr. Jordi Coll. Això ens permetrà començar a dissenyar, codificar i testejar el model, que és el següent pas del treball. 
-  Al tenir enllestit el model, es faràn les proves de rendiment amb diferents límits de optimització i diferents encodings de les restriccions de cardinalitat.
+  Al tenir enllestit el model, es faran les proves de rendiment amb diferents límits de optimització i diferents \textit{encodings} de les restriccions de cardinalitat.
   Finalment s'implementarà una forma maca i llegible de mostrar els horaris generats.
   
   Amb això el generador es donarà per acabat i es passarà a la confecció de la memòria del treball. 
@@ -282,22 +282,22 @@
   \chapter{Marc de treball i conceptes prèvis}
   \section{Marc de treball}
     Com s'ha mencionat en la introducció aquest treball s'emmarca dins del grup de recerca de Lògica i Programació (LAP) del departament de Informàtica, Matemàtica Aplicada i Estadística (IMAE) de la Universitat de Girona. 
-    En el treball s'utilitzaràn les eines desenvolupades recentment en el grup de recerca, per ser exactes, la API SMT feta en C++ per el Dr. Jordi Coll. 
-    Aquesta API permet codificar problemes SAT, MaxSAT i SMT per a diferents solvers de forma transparent a aquest i te implementades les diferents restriccions de cardinalitat i pseudo-booleanes en les diferents possibles codificacions. 
+    En el treball s'utilitzaran les eines desenvolupades recentment en el grup de recerca, per ser exactes, la API SMT feta en C++ per el Dr. Jordi Coll. 
+    Aquesta API permet codificar problemes SAT, MaxSAT i SMT per a diferents \textit{solvers} de forma transparent a aquest i te implementades les diferents restriccions de cardinalitat i pseudo-booleanes en les diferents possibles codificacions. 
     També inclou diferents algoritmes d'optimització implementats.
 
-    La resta del treball prévi seria el treball també sobre confecció d'horaris d'institut fet el 2015 per en Cristòfor Nogueira\cite{treballCristo}
+    La resta del treball previ seria el treball també sobre confecció d'horaris d'institut fet el 2015 per en Cristòfor Nogueira\cite{treballCristo}
     %nose seguir  
     %s'ha de mencionar el treball den cristofol, probablament, 
 
   \section{Definició del problema}
     El problema que es treballa és el de la confecció d'horaris per a institut (HSTT de \textit{High School Time Tables}). 
     Aquest consisteix en assignar a cada assignatura que es fa en un centre l'espai de temps en que s'impartirà i el conjunt de recursos que utilitzarà. 
-    Els recursos normalment seràn professors i aules, però es contemplen altres possibles necessitats especials de cada centre, per això es generalitza.
+    Els recursos normalment seran professors i aules, però es contemplen altres possibles necessitats especials de cada centre, per això es generalitza.
 
     La duresa de aquest problema es troba en assignar un espai de temps per a cada assignatura donant-li els recursos que necessita sense violar cap restricció que aquests tinguin, 
     com podria ser no fer dues assignatures a la vegada en la mateixa aula, o sigui, que al realitzar-se la assignatura tots els seus recursos estiguin disponibles.  
-    De la mateixa manera es poden imposar diverses restriccions de naturaleses diferents i amb cada una s'aniràn reduint les possibles combinacions vàlides i fent més i més difícil la generació del horari.
+    De la mateixa manera es poden imposar diverses restriccions de naturaleses diferents i amb cada una s'aniran reduint les possibles combinacions vàlides i fent més i més difícil la generació del horari.
     \subsection{Estudi de duresa}
 
     
@@ -309,17 +309,17 @@
     Un problema decidible és aquell per el qual existeix una màquina de Turing que para en totes les entrades possibles amb una resposta: sí o no. Aquests problemes també són coneguts com a Turing Decidibles. 
     Així doncs, un problema decidible és aquell pel qual sempre podrem construir un algorisme que sempre respon el problema.
     
-    Un problema pot ser semi-decidible, això passa quan una màquina de turing quan l'entrada és acceptada, però es pot penjar o es pot parar quan l'entrada es rebutja. Aquests problemes també son referits com a Turing Reconeixibles.
+    Un problema pot ser semi-decidible, això passa quan una màquina de Turing quan l'entrada és acceptada, però es pot penjar o es pot parar quan l'entrada es rebutja. Aquests problemes també son referits com a Turing Reconeixibles.
     
     Un problema indecidible és aquell pel qual no podem construir un algorisme que resolgui el problema en temps finit. Aquests problemes poden ser parcialment decidibles, però sempre hi haurà una condició que portara la màquina de Turing a bucle infinit.
 
 
     \paragraph*{P, NP i NP-Completesa}
     \begin{itemize}
-      \item \textbf{P: }És el conjunt de problems que poden ser resolts en temps polinòmic amb una màquina de Turing determinista. 
+      \item \textbf{P: }És el conjunt de problemes que poden ser resolts en temps polinòmic amb una màquina de Turing determinista. 
       \item \textbf{NP: }És el conjunt de problemes que poden ser resolts en temps polinòmic amb una màquina de Turing no determinista. 
       \item \textbf{NP-Complet: }És el conjunt de problemes més durs en el conjunt NP. Un problema C és NP-Complet si C és NP i tot problema NP és reduïble a C.
-      \item \textbf{NP-Hard: }És el conjunt de problemes als quals es pot reduïr tot problema NP. O sigui, un problema C és NP-Hard si tot problema NP és reduïble a C. 
+      \item \textbf{NP-Hard: }És el conjunt de problemes als quals es pot reduir tot problema NP. O sigui, un problema C és NP-Hard si tot problema NP és reduïble a C. 
       \item \textbf{Reducció: }Si tenim dos problemes $L_1$ i $L_2$  i tenim un algoritme $A_2$ que resol $L_2$. Reduir $L_1$ a $L_2$ és transformar el problema $L_1$ a $L_2$ així poder utilitzar el algoritme $A_2$ per resoldre el problema, creant així un algoritme $A_1$ amb l'estructura que es pot veure en la figura \ref{fig:reduccio}
       \begin{figure}[ht!]
         \includegraphics[width=\textwidth]{Diagrames/Reduccio.png}
@@ -339,7 +339,7 @@
     Es pot demostrar la NP-Completesa del problema HSTT reduint un problema NP-Complet conegut a HSTT, en aquest cas, el problema de la motxilla\cite{wiki:bin}, d'acord amb la demostració proposada per B. Cooper i J.H. Kingston \cite{complexityHSTT}.
 
     Una de les fonts de la duresa del problema ve a l'hora de gestionar els recursos de manera coherent. Així que al confeccionar un horari serà d'interès mantenir el nombre d'incoherències per sota un llindar. 
-    Les instànces HSTT acostumen a tenir com a mínim un tipus de recurs que compleix aquestes premises. 
+    Les instàncies HSTT acostumen a tenir com a mínim un tipus de recurs que compleix aquestes premisses. 
     En cas q no en tinguin, és possible realitzar una transformació binària per arribar a aquesta formulació, 
     ja que tots els recursos poden atendre a un nombre limitat d'assignatures de manera simultània i totes les instàncies disposen d'un nombre limitat de recursos. Per tant, i per simplificar, considerarem només un únic recurs, de disponibilitat limitada. També considerarem que un recurs només pot atendre a una assignatura alhora.
 
@@ -372,8 +372,8 @@
     Podríem reimplementar, doncs, $f$ de manera que a partir de la solució obtinguda per la instància HSTT es limiti a esbrinar per cada event $u_i$, amb quint event $y_i$ es solapa, de manera que $f(u_i) =j$.
 
   \section{Format XHSTT}
-  Un dels problemes que presenta HSTT és la complexitat que té representar una instància amb totes les possibles restriccions possibles. Per això s'ha optat utilitzar el format genèric de instanciació de HSTT anomenat XHSTT (de \textit{Xml-format High School TimeTabling}) utilitzat per HSEval\cite{xhstt}.
-  Aquest format és obert i preveu l'addició d'elements i restriccions, així que en aquest treball només es tindràn en compte un subconjunt d'ells.
+  Un dels problemes que presenta HSTT és la complexitat que té representar una instància amb totes les possibles restriccions possibles. Per això s'ha optat utilitzar el format genèric per a representar les instàncies de HSTT anomenat XHSTT (de \textit{Xml-format High School TimeTabling}) utilitzat per HSEval\cite{xhstt}.
+  Aquest format és obert i preveu l'addició d'elements i restriccions, així que en aquest treball només es tindran en compte un subconjunt d'ells.
   
   Aquest format utilitza quatre tipus de fills en les instancies:
   \begin{itemize}
@@ -385,7 +385,7 @@
 
   \subsection{Temps, Recursos i Events}
   \paragraph*{Temps}~\\
-  En aquest tipus de fill es defineixen els multiples espais de temps, i opcionalment els grups de espais de temps. Els Grups de espais de temps (\textit{TimeGroups}) poden ser de tres tipus: 
+  En aquest tipus de fill es defineixen els múltiples espais de temps, i opcionalment els grups de espais de temps. Els Grups de espais de temps (\textit{TimeGroups}) poden ser de tres tipus: 
   \textit{Week}, \textit{Day} i \textit{TimeGroup}. Cada grup consisteix en un nom i un identificador.
   
   Un espai de temps es defineix amb la clau \textit{Time}. Aquesta es pot relacionar amb un grup d'espais de temps utilitzant l'identificador d'aquest. Apart d'això té un nom i un identificador.
@@ -418,7 +418,7 @@
   Com a pautes generals, cada restricció tindrà els següents camps:
   \begin{itemize}
     \item \textit{Name}: un nom.
-    \item \textit{Required}: ens diu si el generador té permés (\textit{false}) o no (\textit{true}) violar la restricció . 
+    \item \textit{Required}: ens diu si el generador té permès (\textit{false}) o no (\textit{true}) violar la restricció . 
         O sigui, si és una \textit{Soft Constraint} o una \textit{Hard Constraint}.
     \item \textit{Weight}: ens indica el pes de la restricció.
     \item \textit{CostFunction}: Ens indica la funció que segueix el cost.
@@ -509,7 +509,7 @@
   En aquest apartat del treball es repassaran diverses tecnologies i conceptes que ens podrien ajudar a resoldre el problema HSTT. 
   Com s'ha vist anteriorment HSTT és un problema de \textit{scheduling} que pertany a NP-Complet i, per tant, no es coneix un mètode determinista en temps polinòmic que pugui resoldre el problema. 
 
-  Existeixen diferents aproximacions per problemes del tipus de HSTT, en aquest treball es centrerà en els mètodes deterministes que guaranteixen la optimalitat. Aquests mètodes busquen la millor solució al problema entre totes les combinacions 
+  Existeixen diferents aproximacions per problemes del tipus de HSTT, en aquest treball es centrarà en els mètodes deterministes que garanteixen la optimitat. Aquests mètodes busquen la millor solució al problema entre totes les combinacions 
   que respecten totes les condicions imposades per la instància del problema que volem resoldre. HSTT entra en la categoria de tècniques basades en programació per restriccions i les tècniques basades en reduccions de altres problemes NP-complets com SAT, SMT, etc.
 
  
@@ -521,33 +521,33 @@
   
   \subsection{SAT}
 
-  SAT probé de SATISFIABILITY, que és la abrebiació de \textit{Boolean Satisfiability Problem}. 
-  El problema SAT consisteix en, donada una fòrmula de lògica proposicional (una expressió booleana), determinar una assignació de variables (model) per el qual la fórmula sigui certe, o la determinació de que no existeix tal assignació.
-  Per exemple, per a la fòrmula $A \vee \neg B$ és satisfactible amb $A = Cert$ i $B = Fals$ posat que farien la fòrmula certa; en canvi per la fòrmula $A \vee \neg A$ no hi ha cap assignació que la faci certa, per tant en diriem insatisfactible. 
+  SAT prové de SATISFIABILITY, que és la abreviació de \textit{Boolean Satisfiability Problem}. 
+  El problema SAT consisteix en, donada una fòrmula de lògica proposicional (una expressió booleana), determinar una assignació de variables (model) per el qual la fórmula sigui certa, o la determinació de que no existeix tal assignació.
+  Per exemple, per a la fòrmula $A \vee \neg B$ és satisfactible amb $A = Cert$ i $B = Fals$ posat que farien la fórmula certa; en canvi per la fórmula $A \vee \neg A$ no hi ha cap assignació que la faci certa, per tant en diríem insatisfactible. 
   SAT consisteix doncs, en determinar si una fòrmula booleana és o no satisfactible.
   
   SAT va ser el primer problema en ser demostrat que era NP-Complet el 1971 per Steven Cool\cite{cook1971complexity}, per tant, tal i com s'ha dit anteriorment, tot problema NP es pot reduir a SAT.
-  El fet de que es pot reduir qualsevol problema decidible a SAT en temps polinomíc i la seva simplicitat de formulació el fan un problema d'especial interès en la comunitat científica, generant grans quantitats d'avenços en aquest camp, 
-  però, òbviament, tot i així, encara no existeix cap forma de resoldre'l en temps polinomíc ni s'ha demostrat que es pugui (això seria demostrar si P=NP o no!\footnote{\url{https://en.wikipedia.org/wiki/P_versus_NP_problem}} per més informació sobre P=NP)
+  El fet de que es pot reduir qualsevol problema decidible a SAT en temps polinòmic i la seva simplicitat de formulació el fan un problema d'especial interès en la comunitat científica, generant grans quantitats d'avenços en aquest camp, 
+  però, òbviament, tot i així, encara no existeix cap forma de resoldre'l en temps polinòmic ni s'ha demostrat que es pugui (això seria demostrar si P=NP o no!\footnote{\url{https://en.wikipedia.org/wiki/P_versus_NP_problem}} per més informació sobre P=NP)
   
   \paragraph*{Representació formal, CNF}~\\
 
   CNF prové de \textit{Conjunctive Normal Form} que es tradueix com a Forma Normal Conjuntiva. En lògica booleana una fòrmula esta en CNF si és una conjunció de una o més clàusules i aquestes són una disjunció de literals. O sigui, una AND de ORs. 
-  Tota fòrmula proposocional pot ser transformada a CNF. Aquesta transformació es basa en les regles d'equivalències lògiques: la doble negació, les lleis De Morgan i la llei de distributivitat.  
+  Tota fórmula proposicional pot ser transformada a CNF. Aquesta transformació es basa en les regles d'equivalències lògiques: la doble negació, les lleis De Morgan i la propietat distributiva  
   \subsection{Extensions de SAT}
   \subsubsection{MaxSAT}
-  MaxSAT de \textit{Maximum SATisfiability problem}és una generalització de SAT que consisteix en trobar el màxim nombre de clàusules d'una fòrmula booleana en CNF que es poden satifer. 
-  Es pot definir una versió de MaxSAT amb pesos: donada una fòrmula CNF assignem pesos no negatius a cada clàusula i busuqem la assignació de variables que maximitzen el pes sumat de les clàusules satisfetes. 
+  MaxSAT de \textit{Maximum SATisfiability problem}és una generalització de SAT que consisteix en trobar el màxim nombre de clàusules d'una fórmula booleana en CNF que es poden satisfer. 
+  Es pot definir una versió de MaxSAT amb pesos: donada una fórmula CNF assignem pesos no negatius a cada clàusula i busquem la assignació de variables que maximitzen el pes sumat de les clàusules satisfetes. 
   Es pot considerar que MaxSAT seria una instància de aquesta versió on tots els pesos son 1. 
   \subsubsection{SMT}
-  De \textit{Satisfiability Modulo Theories}, SMT és una generalització de SAT on algunes de les variables proposicionals tenen el paper de predicats amb interpretacions predefinides a d'altres teories. Existeixen diversos tipos de teories: d'igualtat, d'aritmètica lineal, entera, d'aritèmtica lineal mixta, d'arrays, de BitVectors, etc.
+  De \textit{Satisfiability Modulo Theories}, SMT és una generalització de SAT on algunes de les variables proposicionals tenen el paper de predicats amb interpretacions predefinides a d'altres teories. Existeixen diversos tipus de teories: d'igualtat, d'aritmètica lineal, entera, d'aritmètica lineal mixta, d'arrays, de BitVectors, etc.
   
-  Exemple de fòrmula SMT: $p \vee q \vee (x<5) \vee (y<x)$
+  Exemple de fórmula SMT: $p \vee q \vee (x<5) \vee (y<x)$
 
-  Una teoria es defineix com a conjunt de fòrmules lògiques de primer ordre tencades sota conseqüència booleana, o sigui, s'han de poder reduir a un resultat booleà. 
+  Una teoria es defineix com a conjunt de fórmules lògiques de primer ordre tancades sota conseqüència booleana, o sigui, s'han de poder reduir a un resultat booleà. 
   \subsection{Cardinality Encodings}
   
-  Les \textit{cardinality constraints} són aquelles que expresen límits numèrics en quantitats discretes, sorgeixen freqüentment en la codificació de problemes del món real: per exemple un enginyer vol expressar que almenys $n$ parts d'un cert tipus son necessàries per fer funcionar el producte.
+  Les \textit{cardinality constraints} són aquelles que expressen límits numèrics en quantitats discretes, sorgeixen freqüentment en la codificació de problemes del món real: per exemple un enginyer vol expressar que almenys $n$ parts d'un cert tipus son necessàries per fer funcionar el producte.
 
   Podem definir dos tipus de \textit{cardinality constraints}:
   \begin{itemize}
@@ -567,7 +567,7 @@
 
   Per al AMO existeixen diferents encodings. A continuació en veurem alguns:
   \begin{itemize}
-    \item Quadràtic: consisteix en en fer clàusules binaries (mutexes) del tipus: \[ \neg x_i \vee \neg x_j \qquad i \in 1..n-1, j \in i+1..n\] Aquest encoding introdueix $O(n^2)$ clàusules binaries, pero no introdueix variables auxiliars.
+    \item Quadràtic: consisteix en en fer clàusules binaries (mutexes) del tipus: \[ \neg x_i \vee \neg x_j \qquad i \in 1..n-1, j \in i+1..n\] Aquest encoding introdueix $O(n^2)$ clàusules binaries, però no introdueix variables auxiliars.
     \item Logarítmic: aquest encoding consisteix en introduir $O(log_2 n)$ variables auxiliars i $O(n log_2 n)$ clàusules i consisteix en generar clàusules binàries per $i \in 0..n-1, j \in 0..m-1$ on $m$ és $log_2(n)$:\\
           \begin{center}
             $x_i \rightarrow \neg y_i$, si el bit $j$ del nombre i és 0. \\
@@ -587,19 +587,19 @@
   \chapter{Requisits del sistema}
 
   En aquest treball es pretén desenvolupar un generador de horaris automàtic 
-  amb SAT i/o SMT que serà capaç de rebre una instància XHSTT en un fitxer xml passat per paràmetre, 
-  llegir-lo, codificar-ne un model utilitzant la API SMT desenvolupada pel Dr. Jordi Coll, resoldre'l i retornar un resultat, mostrant-lo per pantalla, o retornant un fitxer amb la instància XHSTT amb la nova solució insertada.
+  amb SAT i/o SMT que serà capaç de rebre una instància XHSTT en un fitxer XML passat per paràmetre, 
+  llegir-lo, codificar-ne un model utilitzant la API SMT desenvolupada pel Dr. Jordi Coll, resoldre'l i retornar un resultat, mostrant-lo per pantalla, o retornant un fitxer amb la instància XHSTT amb la nova solució inserida.
 
   Per fer-ho, serà necessari l'ús de un conjunt de llibreries i programari:
 
   \begin{itemize}
     \item Llibreria que permeti el tractament de fitxers XML, S'ha optat per pugixml\footnote{https://pugixml.org/}
-    \item Posat que la API SMT utilitza Yices 2\footnote{https://yices.csl.sri.com/} com a únic solver SMT, necessitarem tenir-ne la seva llibreria insta\l.lada.
+    \item Posat que la API SMT utilitza Yices 2\footnote{https://yices.csl.sri.com/} com a únic \textit{solver} SMT, necessitarem tenir-ne la seva llibreria insta\l.lada.
     \item Posat que la API SMT està desenvolupada per GNU/Linux, serà necessari treballar una màquina que tingui insta\l.lat una distribució Linux.
   \end{itemize}
   
-  Apart de tot el mencionat, també ha calgut decidir un país per el qual el generador d'horaris estarà desenvolupat. Això és degut a qué en funció del país els requisits dels horaris generats varien àmpliament en funció de les característiques pròpies del sistema educatiu de cada país.
-  En aquest treball s'ha decidit optar per les instàncies de Brazil, degut que tenen tots els recursos assignats a algun event, de manera que només es demana al generador organitzar els events, reduïnt l'espai de cerca.
+  Apart de tot el mencionat, també ha calgut decidir un país per el qual el generador d'horaris estarà desenvolupat. Això és degut a que en funció del país els requisits dels horaris generats varien àmpliament en funció de les característiques pròpies del sistema educatiu de cada país.
+  En aquest treball s'ha decidit optar per les instàncies de Brazil, degut que tenen tots els recursos assignats a algun event, de manera que només es demana al generador organitzar els events, reduint l'espai de cerca.
  
  \begin{figure}[ht!]
   \includegraphics[width=\textwidth]{Diagrames/Arqui1.png}
@@ -622,16 +622,16 @@
   
   El Yices 2 pot processar fitxers d'entrada en notació SMT-LIB\footnote{\url{http://smtlib.cs.uiowa.edu/}}, es pot usar alternativament el llenguatge propi del Yices 2 i també te una API per C i C++.
   
-  En la implementació d'aquest treball, s'usa dins de la API SMT del Dr. Jordi Coll com un dels \textit{solvers} que es poden utilitzar i és l'ùnic que permet SMT d'entre ells. S'ha decidit usar aquest a que és dels millors que hi ha i el grup de recerca hi te experiència prèvia. 
+  En la implementació d'aquest treball, s'usa dins de la API SMT del Dr. Jordi Coll com un dels \textit{solvers} que es poden utilitzar i és l'únic que permet SMT d'entre ells. S'ha decidit usar aquest a que és dels millors que hi ha i el grup de recerca hi te experiència prèvia. 
 
   S'ha utilitzat la versió 2.6.1.
 
   \subsection{pugixml}
   El pugixml és una llibreria C++ lleugera per al processament XML. És extremadament portable amb distribucions. També és opensource\footnote{Repositori GitHub: \url{https://github.com/zeux/pugixml}} sota llicència MIT.
 
-  pugixml permet un processament de documents XML molt ràpid, còmode i eficient amb la memòria. Tot i això, al tenir un \textit{parser} DOM, no pot processar fitxers XML que no quèpiguen a la memòria.
+  pugixml permet un processament de documents XML molt ràpid, còmode i eficient amb la memòria. Tot i això, al tenir un \textit{parser} DOM, no pot processar fitxers XML que no càpiguen a la memòria.
   
-  Degut a les caràcterístiques mencionades i a experiència prèvia amb la llibreria, s'ha decidit utilitzar-la per a la programació del \textit{parser} XHSTT. 
+  Degut a les característiques mencionades i a experiència prèvia amb la llibreria, s'ha decidit utilitzar-la per a la programació del \textit{parser} XHSTT. 
 
   S'ha utilitzat en la versió 1.9-1.
 
@@ -698,7 +698,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \label{fig:linux}
   \end{figure}
   Linux és una familia de sistemes operatius formats pel \textit{kernel} Linux juntament amb les utilitats GNU. 
-  El generador que s'ha fet en aquest treball ha estat desenvolupat per a linux, degut a la facilitat d'accés a les múltiples llibreries que s'han utilitzat, a que la API SMT ha estat desenvolupada també per a Linux i simplement per prèferencia personal, degut a que el sistema operatiu que utilitzo dia a dia és una distribució Linux.
+  El generador que s'ha fet en aquest treball ha estat desenvolupat per a linux, degut a la facilitat d'accés a les múltiples llibreries que s'han utilitzat, a que la API SMT ha estat desenvolupada també per a Linux i simplement per preferència personal, degut a que el sistema operatiu que utilitzo dia a dia és una distribució Linux.
 
   En concret s'ha treballat amb la distribució Arch Linux en la versió del kernel Linux 5.29.arch1-1 al final del treball (s'han usat versions anteriors que han anat sortint mentre es desenvolupava el treball).
 
@@ -729,7 +729,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \end{itemize}
 
   \subsection{Anàlisis de processos}
-  L'usuari cridarà el programa, el programa llegirà el fitxer XHSTT que li ha passat l'usuari per paràmetre i s'encarregarà de codificar el model pel yices i cridar-lo per resoldre'l, utilitzant la llibreria per C++ pròpia del yices.
+  L'usuari cridarà el programa, el programa llegirà el fitxer XHSTT que li ha passat l'usuari per paràmetre i s'encarregarà de codificar el model pel yices i cridar-lo per resoldre'l, utilitzant la llibreria per C++ pròpia del Yices 2.
   %AMPLIAR + dibuixet un dibuixet amb lo de requeriments mes enfocat als processos
 
 
@@ -767,36 +767,36 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   L'implementaci'o del generador s'he fet en C++, i està format per un conjunt de blocs definits:\
   \begin{itemize}
-    \item \textit{Parser }del fitxer en format XHSTT. \\ S'encarrega de llegir el fitxer XHSTT i extreure'n la informació de la instància contenida en el fitxer XML en format XHSTT passat per parametre. És important que aquest fitxer tingui l'estructura establerta en el format XHSTT.
+    \item \textit{Parser }del fitxer en format XHSTT. \\ S'encarrega de llegir el fitxer XHSTT i extreure'n la informació de la instància contenida en el fitxer XML en format XHSTT passat per paràmetre. És important que aquest fitxer tingui l'estructura establerta en el format XHSTT.
     \item Bloc de codificació de la instància a SMT. \\ En aquest apartat utilitzem la API SMT per tal de codificar la instància a SMT i passar-la al \textit{solver} corresponent, el Yices 2.
     \item Bloc de escriptura del resultat a XHSTT. \\ En aquest apartat creem un fitxer amb la instància treballada XHSTT i hi afegim la solució trobada al final.
   \end{itemize}
 
-  L'usuari només tindrà un binari, anomenat \textit{hstt2smt}, amb el qual interectuarà per resoldre una instància que passarà per fitxer. Aquest s'encarregarà de fer tota la feina. 
+  L'usuari només tindrà un binari, anomenat \textit{hstt2smt}, amb el qual interactuarà per resoldre una instància que passarà per fitxer. Aquest s'encarregarà de fer tota la feina. 
   Aquest binari serà el resultat de compilar el generador amb la API SMT i les llibreries que es necessiten per poder treballar amb XML i amb SMT.
   %%%REVISAR%%%%%
 
   \section{Codificació}
   En aquesta secció es descriu la implementació de la codificació a SMT del generador d'horaris. 
-  Posat que SMT no permet clausules violables, per a la codificació d'aquesta s'utilitzarà el cost i una variable auxiliar per cada clausula \textit{soft}, 
-  que s'afegira a la seva corresponent clausula de forma condicional, negant la clausula inicial, de manera que si no es compleix la clausula inicial, la variable auxiliar hagi de ser certa. Al acabar la codifciació de la instància afegirem una clàusula pseudo-booleana amb totes les variables auxiliars amb els seus pesos, comparada amb un upperbound.
+  Posat que SMT no permet clausules violables, per a la codificació d'aquesta s'utilitzarà el cost i una variable auxiliar per cada clàusula \textit{soft}, 
+  que s'afegira a la seva corresponent clàusula de forma condicional, negant la clàusula inicial, de manera que si no es compleix la clàusula inicial, la variable auxiliar hagi de ser certa. Al acabar la codificació de la instància afegirem una clàusula pseudo-booleana amb totes les variables auxiliars amb els seus pesos, comparada amb un upperbound.
   Posat que la funció d'optimització serà la de minimitzar el cost total, el optimitzador anirà modificant el upperbound intentant reduir la funció objectiu, que també és el resultat exacte de la pseudo-booleana.
 
   Per exemple, si tenim les \textit{soft-clauses} següents: $SC_1$, $SC_2$, $SC_3$ amb costos respectivament: $W_1$, $W_2$, $W_3$. 
-  Creariem les variables auxiliars $Aux_1$, $Aux_2$ i $Aux_3$. Amb això creariem les següents clausules:
+  Creariem les variables auxiliars $Aux_1$, $Aux_2$ i $Aux_3$. Amb això crearíem les següents clàusules:
   \begin{gather*}
     \neg SC_1 \rightarrow Aux_1 \\
     \neg SC_2 \rightarrow Aux_2 \\
     \neg SC_3 \rightarrow Aux_3
   \end{gather*}
 
-  Hi aplicariem Algebra de Bool per convertir a CNF i convertiriem les clausules que són tipus $\neg A \rightarrow B$ a $\neg (\neg A) \vee B$ i d'aquí eliminariem la doble negació, quedant $A \vee B$:
+  Hi aplicaríem Algebra de Bool per convertir a CNF i convertiríem les clàusules que són tipus $\neg A \rightarrow B$ a $\neg (\neg A) \vee B$ i d'aquí eliminaríem la doble negació, quedant $A \vee B$:
   \begin{gather*}
     \neg SC_1 \vee Aux_1 \\
     \neg SC_2 \vee Aux_2 \\
     \neg SC_3 \vee Aux_3
   \end{gather*}vee
-  Així doncs, afegint la clausula pseudobooleana amb les variables auxiliars i els pesos, ens quedarien les següents clausules:
+  Així doncs, afegint la clàusula pseudo-booleana amb les variables auxiliars i els pesos, ens quedarien les següents clàusules:
   \begin{gather*}
       SC_1 \vee Aux_1 \\
       SC_2 \vee Aux_2 \\
@@ -805,18 +805,18 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \end{gather*}
 
 
-  Aquesta codificació està pensada per resoldre instàncies en què tots els recursos estàn assignats a algun event, com ara les instàncies de Brazil que són en les que ens hem enfocat al desenvolupar el generador. 
+  Aquesta codificació està pensada per resoldre instàncies en què tots els recursos estan assignats a algun event, com ara les instàncies de Brazil que són en les que ens hem enfocat al desenvolupar el generador. 
   Aquesta particularitat ens permet simplificar l'espai de cerca degut a la reducció de la combinatòria del problema, i permet una codificació més simple i directe de les restriccions de que es compon.
 
   \subsection{Model}
 
-  El model està pensat per treballar a centrant-nos en els Events, els quals podriem definir com una reunió a la que es presenten diferents recursos i la nostre feina és la de decidir en quins espais de temps dels disponibles fiquem cada reunió d'aquestes.
+  El model està pensat per treballar a centrant-nos en els Events, els quals podríem definir com una reunió a la que es presenten diferents recursos i la nostre feina és la de decidir en quins espais de temps dels disponibles fiquem cada reunió d'aquestes.
 
   Les variables del model són les següents:
   \begin{itemize}
-    \item $Xt_{0,0} ... Xt_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui l'instància. Cada una d'aquestes variables indica si un event en un espai de temps, s'està celebrant o no. 
+    \item $Xt_{0,0} ... Xt_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui la instancià. Cada una d'aquestes variables indica si un event en un espai de temps, s'està celebrant o no. 
     Doncs si per l'event $e$ i l'espai $t$, $Xt_{e,t}$ és certa, vol dir que en el temps $t$, $e$ s'està celebrant.
-    \item $Xs_{0,0} ... Xs_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui l'instància. Cada una de aquestes variables indica si un event comença en l'espai de temps representat. Un event comença en un espai de temps si no es donava en l'espai de temps anterior i/o si l'espai de temps és la primera hora del dia.
+    \item $Xs_{0,0} ... Xs_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui la instància. Cada una de aquestes variables indica si un event comença en l'espai de temps representat. Un event comença en un espai de temps si no es donava en l'espai de temps anterior i/o si l'espai de temps és la primera hora del dia.
     Doncs si per l'event $e$ i l'espai $t$, $Xt_{e,t}$ és certa, vol dir que en el temps $t$, $e$ comença i que cap més variable $Xs_{e,i}$ serà certa i que la variable $Xt_{e,t}$ serà certa.
     %A continuar
  
