@@ -377,13 +377,13 @@ void HSTTEncoding::spread_events_constraint(const int &cost, const std::set<std:
         // and impose that for those times, if xt_ then xs_ (that is, those times will always be starting times)
         std::vector<int> heads;
         for(int i = 0; i<time_nums.size(); i++){
-            int prev = i==0?time_nums.size()-1:i-1;
+            int prev = i==0?static_cast<int>(time_nums.size())-1:i-1;
             if(time_nums[i] != time_nums[prev]+1) heads.push_back(time_nums[i]);
         }
         int i = 0;
         while(i < time_nums.size()-1){
             std::vector<int> r;
-            while (i< time_nums.size()-1 && time_nums[i] == time_nums[i+1]-1){
+            while (i< static_cast<int>(time_nums.size())-1 && time_nums[i] == time_nums[i+1]-1){
                 r.push_back(time_nums[i]);
                 i++;
             }
@@ -461,13 +461,13 @@ void HSTTEncoding::spread_events_constraint(const int &cost, const std::set<std:
                     clauses_.push_back(cl);
                 }
                 //final if all the last d times of a time_range are set, then xd must be also set.
-                if(tr.size()-d >=0){
+                if(static_cast<int>(tr.size())-d >=0){
                     std::vector<literal> _v;
-                    for(int t = tr[tr.size()-d]; t<tr[tr.size()-1]+1; t++)
+                    for(int t = tr[static_cast<int>(tr.size())-d]; t<tr[static_cast<int>(tr.size())-1]+1; t++)
                         _v.push_back(!xt_[e][t]);
-                    if (tr.size()-d > 0)
-                        _v.push_back(xt_[e][tr[tr.size()-d-1]]);
-                    _v.push_back(xd_[e][d][tr[tr.size()-d]]);
+                    if (static_cast<int>(tr.size())-d > 0)
+                        _v.push_back(xt_[e][tr[static_cast<int>(tr.size())-d-1]]);
+                    _v.push_back(xd_[e][d][tr[static_cast<int>(tr.size())-d]]);
                     clause cl(_v);
                     clauses_.push_back(cl);
                 }

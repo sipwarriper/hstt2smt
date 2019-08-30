@@ -20,6 +20,10 @@
     \usepackage{listings}
     \usepackage{booktabs}
     \usepackage[sorting=none]{biblatex}
+    \usepackage{eurosym}
+    \usepackage[figuresleft]{rotating}
+    \usepackage{mathtools}
+
     \addbibresource{bibliography.bib}
     \bibliography{bibliography}
     
@@ -122,8 +126,13 @@
   
   Afegint dificultat al problema, depenguen del país del qual estiguem parlant existeixen una gran diversitat de requisits propis, degut a les característiques pròpies del sistema d'estudis secundaris de cada lloc.
   
-  Els objectius d'aquest treball són aprofundir en el problema treballat, l'estat actual d'aquest, estudiar les tècniques més utilitzades per resoldre'l actualment. També es pretén solucionar-lo usant les eines desenvolupades recentment pel grup de recerca de Lògica i Programació. Així s'implementarà un generador 
-  d'horaris capaç de resoldre el problema utilitzant aquestes tècniques basades en SMT i SAT.
+  Els objectius d'aquest treball són els següents:
+  \begin{itemize}
+    \item Aprofundir sobre el problema treballat en sí i sobre els problemes de satisfacció de restriccions en general i les tècniques que s'utilitzen per resoldre'ls, com ara, SAT i les seves diverses extensions.
+    \item Desenvolupar un generador d'horaris automàtic utilitzant les tècniques estudiades anteriorment, aprofitant les eines relacionades que s'han desenvolupades recentment pel grup de recerca Lògica i Programació, que resolgui el problema en un temps raonable i intenti trobi la millor solució possible, 
+    cosa que es preveu molt complicada d'aconseguir en un temps raonable en les instàncies grosses.
+    
+  \end{itemize}
   
   \section{Grup de recerca Lògica i Programació}
   Aquest treball s'emmarca dins del grup de recerca de Lògica i Programació de l'àmbit d'àrea tècnica de la Universitat de Girona.
@@ -133,6 +142,24 @@
   pot ser: els problemes de \textit{scheduling} i \textit{planning}.
 
   Durant la elaboració del treball he rebut ajuda i assessorament dels membres del grup, incloent el meu tutor de projecte, el Dr. Josep Suy, qui també en forma part.
+
+  \section{Estructura del Treball}
+  A continuació s'exposa l'estructura d'aquest document: 
+  \begin{enumerate}
+    \item Introducció, motivacions, propòsit i objectius: Situa el marc del projecte, explica les raons per les quals s'ha escollit el treball i en defineix els objectius.
+    \item Estudi de viabilitat: Justifica la capacitat de fer el projecte
+    \item Metodologia i Planificació: Tot i que a la guía van separats, s'ha decidit ajuntar-los per la gran relació que tenen entre ells. En aquest apartat s'exposa la metodologia que s'ha seguit a la hora de implementar el projecte i es defineix l'estratègia seguida per arribar als objectius.
+    \item Marc de treball i conceptes prèvis: S'exposa el treball prèvi realitzat sobre el problema, i els coneixements necessaris per a la implementació del programa.
+    \item Requisits del sistema: Requisits funcionals i no funcionals que ha de complir el sistema.
+    \item Anàlisi i disseny del sistema: Descripció del maquinari i programari utilitzat durant el desenvolupament del projecte.
+    \item Implementació i proves: Es detalla la implementació del programa, els problemes que han aparegut i les solucions que s'han donat a aquests.
+    \item Implantació i resultats: Detalla els resultats obtinguts.
+    \item Conclusions: Conclusió del projecte i els resultats
+    \item Treball futur: Possibles ampliacions, millores o treballs futurs que es poden realitzar.
+    \item Bibliografía: Referències utilitzades per desenvolupar el projecte.
+    \item Manual d'usuari i insta\l.lació: Especifica les passes a seguir per utilitzar el sistema creat en un ordinador.
+
+  \end{enumerate}
 
 %   La introducció serveix per situar el marc del projecte. Aquesta primera etapa implica
 % establir les raons que justificaven el desenvolupament del projecte i el que se
@@ -153,6 +180,38 @@
 % En aquest apartat l’estudiant també ha de justificar els apartats de la memòria
 % afegits, suprimits o canviats d’ordre respecte del que descriu aquest document.
   \chapter{Estudi de viabilitat}
+
+  \section{Viabilitat tècnica}
+
+  Per tal de realitzar aquest projecte farà el software necessari per poder tractar un fitxer XML, codificar una instància del problema en C++ i resoldre-la amb un \textit{solver} SAT o d'alguna extensió de SAT. 
+  Abans de iniciar el projecte, s'ha comprovat l'existència d'aquest software i que aquest estigués disponible de forma gratuïta, de fet, tot el software que s'utilitzi en aquest projecte serà de codi obert.
+
+  Per part dels requisits de maquinari, tot i que HSTT és un problema dur, 
+  després de veure el treball previ realitzat en aquest mateix problema i d'altres de característiques semblants, s'ha determinat que la meva màquina d'ús diari és més que suficient per a tal de realitzar el desenvolupament del generador d'horaris.
+
+  Pel que fa a la habilitat de desenvolupar aquest treball s'ha determinat que era possible degut a que 
+  el grup de recerca Lògica i Programació ha treballat i aconseguit solucionar problemes semblants de forma exitosa utilitzant tècniques innovadores. 
+  Utilitzant els avenços fets pel grup s'ha decidit que es podria desenvolupar el treball en el marc de temps desitjat.
+
+
+
+  \section{Viabilitat econòmica}
+  
+  Degut a que tot el software utilitzat és gratuït, lliure i de codi obert, i que el codi que el grup de recerca m'ha cedit també ha estat gratuït, no s'ha requerit de cap inversió ni despesa econòmica. 
+  Així doncs l'únic cost que ha suposat aquest treball han estat el temps necessari per fer-lo i les ganes que se li han hagut de ficar. 
+
+  \subsection{Pressupost}
+  Tot i que, com s'ha explicat anteriorment, el desenvolupament d'aquest treball no té cost, s'ha decidit fer una simulació del que costaria contractar un programador per fer el treball. En la següent taula el cost:
+  
+  \begin{center}
+    \begin{tabular}{||c | c | c||} 
+    \hline
+    \euro/h & Hores & Cost \\ [0.5ex] 
+    \hline\hline
+    14 & 180 & 2520 \\ [1ex] 
+    \hline
+   \end{tabular}
+   \end{center}
 
   % preguntar suy
   %==================
@@ -191,22 +250,30 @@
   Finalment s'implementarà una forma maca i llegible de mostrar els horaris generats.
   
   Amb això el generador es donarà per acabat i es passarà a la confecció de la memòria del treball. 
+  A continuació un diagrama de Gantt mostrant la planificació feta.
 
   %% diagrama de gantt...
 
   %% CAL AMPLIAR
 
+  \begin{figure}
+    \centering
+    \includegraphics[angle=90,origin=c,height=0.58\textheight]{Diagrames/gantt1.png} 
+    \caption{Diagrama de Gantt}
+    \label{fig:Gantt}
+  \end{figure}
 
 
 
-  \chapter{Marc de treball i conceptes previs}
+
+  \chapter{Marc de treball i conceptes prèvis}
   \section{Marc de treball}
-    Com s'ha mencionat en la introducció aquest treball s'enmarca dins del grup de recerca de Lògica i Programació (LAP) del departament de Informàtica, Matemàtica Aplicada i Estadística (IMAE) de la Universitat de Girona. 
+    Com s'ha mencionat en la introducció aquest treball s'emmarca dins del grup de recerca de Lògica i Programació (LAP) del departament de Informàtica, Matemàtica Aplicada i Estadística (IMAE) de la Universitat de Girona. 
     En el treball s'utilitzaràn les eines desenvolupades recentment en el grup de recerca, per ser exactes, la API SMT feta en C++ per el Dr. Jordi Coll. 
     Aquesta API permet codificar problemes SAT, MaxSAT i SMT per a diferents solvers de forma transparent a aquest i te implementades les diferents restriccions de cardinalitat i pseudo-booleanes en les diferents possibles codificacions. 
     També inclou diferents algoritmes d'optimització implementats.
 
-    La resta del treball prévi seria el treball també sobre confecció d'horaris fet el 2015 per en Cristòfor Nogueira\cite{treballCristo}
+    La resta del treball prévi seria el treball també sobre confecció d'horaris d'institut fet el 2015 per en Cristòfor Nogueira\cite{treballCristo}
     %nose seguir  
     %s'ha de mencionar el treball den cristofol, probablament, 
 
@@ -488,7 +555,7 @@
   \end{itemize}
   
   Apart de tot el mencionat, també ha calgut decidir un país per el qual el generador d'horaris estarà desenvolupat. Això és degut a qué en funció del país els requisits dels horaris generats varien àmpliament en funció de les característiques pròpies del sistema educatiu de cada país.
-  En aquest treball s'ha decidit optar per les instàncies de Brazil.
+  En aquest treball s'ha decidit optar per les instàncies de Brazil, degut que tenen tots els recursos assignats a algun event, de manera que només es demana al generador organitzar els events, reduïnt l'espai de cerca.
  
  \begin{figure}[ht!]
   \includegraphics[width=\textwidth]{Diagrames/Arqui1.png}
@@ -653,6 +720,61 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   
 
   \chapter{Implementació i proves}
+
+  L'implementaci'o del generador s'he fet en C++, i està format per un conjunt de blocs definits:\
+  \begin{itemize}
+    \item \textit{Parser }del fitxer en format XHSTT. \\ S'encarrega de llegir el fitxer XHSTT i extreure'n la informació de la instància contenida en el fitxer XML en format XHSTT passat per parametre. És important que aquest fitxer tingui l'estructura establerta en el format XHSTT.
+    \item Bloc de codificació de la instància a SMT. \\ En aquest apartat utilitzem la API SMT per tal de codificar la instància a SMT i passar-la al \textit{solver} corresponent, el Yices 2.
+  \end{itemize}
+
+  L'usuari només tindrà un binari, anomenat \textit{hstt2smt}, amb el qual interectuarà per resoldre una instància que passarà per fitxer. Aquest s'encarregarà de fer tota la feina. Aquest binari serà el resultat de compilar el generador amb la API SMT i les llibreries que es necessiten per poder treballar amb XML i amb SMT.
+  %%%REVISAR%%%%%
+
+  \section{Codificació}
+  En aquesta secció es descriu la implementació de la codificació a SMT del generador d'horaris. 
+  Posat que SMT no permet clausules violables, per a la codificació d'aquesta s'utilitzarà el cost i una variable auxiliar per cada clausula \textit{soft}, 
+  que s'afegira a la seva corresponent clausula de forma condicional, negant la clausula inicial, de manera que si no es compleix la clausula inicial, la variable auxiliar hagi de ser certa. Al acabar la codifciació de la instància afegirem una clàusula pseudo-booleana amb totes les variables auxiliars amb els seus pesos, comparada amb un upperbound.
+  Posat que la funció d'optimització serà la de minimitzar el cost total, el optimitzador anirà modificant el upperbound intentant reduir la funció objectiu, que també és el resultat exacte de la pseudo-booleana.
+
+  Per exemple, si tenim les \textit{soft-clauses} següents: $SC_1$, $SC_2$, $SC_3$ amb costos respectivament: $W_1$, $W_2$, $W_3$. 
+  Creariem les variables auxiliars $Aux_1$, $Aux_2$ i $Aux_3$. Amb això creariem les següents clausules:
+  \begin{gather*}
+    \neg SC_1 \rightarrow Aux_1 \\
+    \neg SC_2 \rightarrow Aux_2 \\
+    \neg SC_3 \rightarrow Aux_3
+  \end{gather*}
+
+  Hi aplicariem Algebra de Bool per convertir a CNF i convertiriem les clausules que són tipus $\neg A \rightarrow B$ a $\neg (\neg A) \vee B$ i d'aquí eliminariem la doble negació, quedant $A \vee B$:
+  \begin{gather*}
+    \neg SC_1 \vee Aux_1 \\
+    \neg SC_2 \vee Aux_2 \\
+    \neg SC_3 \vee Aux_3
+  \end{gather*}vee
+  Així doncs, afegint la clausula pseudobooleana amb les variables auxiliars i els pesos, ens quedarien les següents clausules:
+  \begin{gather*}
+      SC_1 \vee Aux_1 \\
+      SC_2 \vee Aux_2 \\
+      SC_3 \vee Aux_3 \\
+      Aux_1*W_1 + Aux_2*W_2 + Aux_3*W_3 <= UPPERBOUND
+  \end{gather*}
+
+
+  Aquesta codificació està pensada per resoldre instàncies en què tots els recursos estàn assignats a algun event, com ara les instàncies de Brazil que són en les que ens hem enfocat al desenvolupar el generador. 
+  Aquesta particularitat ens permet simplificar l'espai de cerca degut a la reducció de la combinatòria del problema, i permet una codificació més simple i directe de les restriccions de que es compon.
+
+  \subsection{Model}
+
+  El model està pensat per treballar a centrant-nos en els Events, els quals podriem definir com una reunió a la que es presenten diferents recursos i la nostre feina és la de decidir en quins espais de temps dels disponibles fiquem cada reunió d'aquestes.
+
+  Les variables del model són les següents:
+  \begin{itemize}
+    \item $Xt_{0,0} ... Xt_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui l'instància. Cada una d'aquestes variables indica si un event en un espai de temps, s'està celebrant o no. 
+    Doncs si per l'event $e$ i l'espai $t$, $Xt_{e,t}$ és certa, vol dir que en el temps $t$, $e$ s'està celebrant.
+    \item $Xs_{0,0} ... Xs_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui l'instància. Cada una de aquestes variables indica si un event comença en l'espai de temps representat. Un event comença en un espai de temps si no es donava en l'espai de temps anterior i/o si l'espai de temps és la primera hora del dia.
+    Doncs si per l'event $e$ i l'espai $t$, $Xt_{e,t}$ és certa, vol dir que en el temps $t$, $e$ comença i que cap més variable $Xs_{e,i}$ serà certa i que la variable $Xt_{e,t}$ serà certa.
+    %A continuar
+
+  \end{itemize}
    
   % En aquest apartat es detallen els problemes i les solucions apareguts en la 
   % implementació, així com, si és el cas, el model de classes i els algorismes més 
@@ -677,9 +799,10 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   %%diagrama de gantt... semblant pero diferent del inicial
   \chapter{Treball futur}
 
-  \chapter{Manual d'usuari i insta\l.lació}
   \nocite{*}
-  \printbibliography[heading=bibintoc]
+  \chapter{Bibliografía}
+  \printbibliography[heading=none]
+  \chapter{Manual d'usuari i insta\l.lació}
   
   
   \end{document}
