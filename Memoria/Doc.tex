@@ -569,18 +569,30 @@
   \begin{itemize}
     \item Quadràtic: consisteix en en fer clàusules binaries (mutexes) del tipus: \[ \neg x_i \vee \neg x_j \qquad i \in 1..n-1, j \in i+1..n\] Aquest encoding introdueix $O(n^2)$ clàusules binaries, però no introdueix variables auxiliars.
     \item Logarítmic: aquest encoding consisteix en introduir $O(log_2 n)$ variables auxiliars i $O(n log_2 n)$ clàusules i consisteix en generar clàusules binàries per $i \in 0..n-1, j \in 0..m-1$ on $m$ és $log_2(n)$:\\
-          \begin{center}
+          \begin{center}[label=$\circ$]
             $x_i \rightarrow \neg y_i$, si el bit $j$ del nombre i és 0. \\
             $x_i \rightarrow y_i$, si el bit $j$ del nombre i és 1.
           \end{center}
-    \item Ladder encoding
+    \item Ladder encoding: Aquest encoding introdueix $O(n)$ variables auxiliars $a_i$. Cada variable d'aquestes expresa \textit{ALO($\{x_0, ... , x_i\}$)} és cert. \\
+          Per cada $i \in 0...n-1$ hi haurà 3 clàusules:
+          \begin{itemize}[label=$\circ$]
+            \item $\neg x_i \vee a_i$
+            \item $\neg a_i \vee a_{i+1}$  (aquesta clàusula només per $i \in 0...n-2$)
+            \item $\neg a_i \vee \neg x_{i+1}$ (aquesta clàusula només per  $i \in 0...n-2$)
+          \end{itemize}
     
-    \item Heule encoding
+    \item Heule encoding: Aquest encoding afegeix $O(n)$ variables auxiliars i introdueix $O(n)$ clàusules. Consisteix en fer el següent:\\ 
+    \begin{itemize}
+      \item Si $n \leq 3$, l'encoding és el mateix que el quadràtic.
+      \item si $n \geq 4$, introdueix una variable i codifica \textit{AMO$(\{x_0, x_1, y\})$} i \textit{AMO$(\{x_2, x_3, ...  ,\neg y\})$} de forma recursiva.
+    \end{itemize}
+          
     
   \end{itemize}
 
   \subsubsection{Cardinality Constraints comparadaes amb k}
   \paragraph*{Sorter}
+  \paragraph*{Totalizer}
 
 
 
