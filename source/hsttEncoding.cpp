@@ -794,7 +794,7 @@ bool HSTTEncoding::printSolution(ostream &os) const{
         }
 
         for(auto it: week_events){
-            std::sort(it.second.begin(), it.second.end(), [](AssignmentEntry a, AssignmentEntry b) -> bool{ return a.time_id<b.time_id;});
+//            std::sort(it.second.begin(), it.second.end(), [](AssignmentEntry a, AssignmentEntry b) -> bool{ return a.time_id<b.time_id;});
             week_days.push_back(it.first);
         }
 
@@ -810,9 +810,10 @@ bool HSTTEncoding::printSolution(ostream &os) const{
             std::vector<std::string> week;
             week.push_back(weekday);
             std::vector<AssignmentEntry> events = week_events[weekday];
+            std::sort(events.begin(), events.end(), [](AssignmentEntry a, AssignmentEntry b) -> bool{ return a.time_id<b.time_id;});
             for(AssignmentEntry entry : events){
                 for(int i = 0; i<entry.duration; i++)
-                    week.push_back(entry.event_id);
+                    week.push_back(entry.time_id + " - " + entry.event_id);
             }
             schedule_by_columns.push_back(week);
             if (longest_day_times<week.size()) longest_day_times = week.size();

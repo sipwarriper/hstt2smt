@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <vector>
 #include <unordered_map>
 #include <exception>
 #include <memory>
@@ -12,6 +13,20 @@ class Time;
 class Event;
 class ResourceType;
 class Group;
+
+
+
+struct AssignmentEntry{
+    std::string event_id;
+    int duration;
+    std::string time_id;
+    AssignmentEntry(std::string e_id, int d, std::string t_id){
+        event_id = e_id;
+        duration = d;
+        time_id = t_id;
+    }
+};
+
 
 class Model {
 
@@ -57,9 +72,8 @@ public:
 	virtual void limit_idle_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max) = 0;
 	virtual void cluster_busy_times_constraint(const int &cost, const std::set<std::string> &resources_ids, const std::set<std::string> &time_groups_ids, const int &min, const int &max) = 0;
 	virtual void on_parsed_events(bool spread_constraint=true) = 0;
-	//TODO: cal ficar parametres i arreglar el return d'aquests metodes
 
-	//todo: virtual std::vector<> get_times_assignments() = 0;
+    virtual std::vector<AssignmentEntry> get_time_assignments() const = 0;
  
 
 

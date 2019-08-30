@@ -42,14 +42,7 @@ SMTFormula::SMTFormula() {
 	hassoftclauseswithvars = false;
 }
 
-SMTFormula::~SMTFormula() {
-//    mapIntVars.clear();mapBoolVars.clear();
-//    clauses.clear(); softclauses.clear();
-//    weights.clear(); softclausevars.clear();
-//    boolVarNames.clear(); intVarNames.clear();
-//    declareVar.clear();
-//	objFunc.~intsum();
-}
+SMTFormula::~SMTFormula() { }
 
 FORMULA_TYPE SMTFormula::getType() const{
 	if(nIntVars > 0){

@@ -4,6 +4,7 @@
 #include "solvingarguments.h"
 
 #include "hsttEncoding.h"
+#include "xmlwritter.h"
 
 enum ProgramArg {
     UB
@@ -42,5 +43,6 @@ int main(int argc, char **argv) {
     std::cout<<"Starting to solve"<<std::endl;
     c.run();
 
+    XMLWritter writter(pargs->getArgument(0), shared_ptr<HSTTEncoding>(encoding));
     return 0;
 }

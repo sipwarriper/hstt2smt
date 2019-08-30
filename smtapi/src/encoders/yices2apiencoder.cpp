@@ -67,9 +67,9 @@ bool Yices2APIEncoder::checkSAT(int lb, int ub){
 			this->lastIntvar = 0;
 			this->lastClause = -1;
 			workingFormula = EncodedFormula(enc->encode(lb, ub),lb,ub);
-			yices_reset_context(ctx);
-			boolvars.clear();
-			intvars.clear();
+                   yices_reset_context(ctx);
+                    boolvars.clear();
+                    intvars.clear();
 		}
 	}
 	lastLB = lb;

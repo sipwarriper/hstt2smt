@@ -5,17 +5,6 @@
 #include "Model.h"
 #include "encoding.h"
 
-struct AssignmentEntry{
-    std::string event_id;
-    int duration;
-    std::string time_id;
-    AssignmentEntry(std::string e_id, int d, std::string t_id){
-        event_id = e_id;
-        duration = d;
-        time_id = t_id;
-    }
-};
-
 class HSTTEncoding : public Model, public Encoding, public enable_shared_from_this<HSTTEncoding>
 {
 public:
