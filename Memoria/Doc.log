@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.19)  31 AUG 2019 12:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.19)  31 AUG 2019 14:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -949,284 +949,292 @@ Cap\'{\i }tol 2.
 
 ] [7]
 Cap\'{\i }tol 3.
-<Diagrames/gantt1.png, id=395, 2276.505pt x 310.15875pt>
-File: Diagrames/gantt1.png Graphic file (type png)
-<use Diagrames/gantt1.png>
-Package pdftex.def Info: Diagrames/gantt1.png  used on input line 274.
-(pdftex.def)             Requested size: 2276.49948pt x 310.15799pt.
-
-LaTeX Warning: Float too large for page by 37.27611pt on input line 277.
-
 [8
 
-] [9 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gantt1.png (PNG copy)>]
+]
+<Diagrames/gantt1.png, id=399, 2276.505pt x 310.15875pt>
+File: Diagrames/gantt1.png Graphic file (type png)
+<use Diagrames/gantt1.png>
+Package pdftex.def Info: Diagrames/gantt1.png  used on input line 285.
+(pdftex.def)             Requested size: 2276.49948pt x 310.15799pt.
+
+
+LaTeX Warning: Float too large for page by 37.27611pt on input line 288.
+
+[9] [10 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gantt1.png (PNG copy)>]
 Cap\'{\i }tol 4.
-[10
+[11
 
 ]
-<Diagrames/Reduccio.png, id=412, 698.61pt x 135.50626pt>
+<Diagrames/Reduccio.png, id=416, 698.61pt x 135.50626pt>
 File: Diagrames/Reduccio.png Graphic file (type png)
 <use Diagrames/Reduccio.png>
-Package pdftex.def Info: Diagrames/Reduccio.png  used on input line 325.
+Package pdftex.def Info: Diagrames/Reduccio.png  used on input line 336.
 (pdftex.def)             Requested size: 483.69684pt x 93.82195pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
 
  []
 
-[11 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Reduccio.png>] [12] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/time_ex.xml [13]) (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/resource_ex.xml) (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/event_ex.xml [14])
-Underfull \hbox (badness 10000) in paragraph at lines 428--429
+[12 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Reduccio.png>] [13] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/time_ex.xml [14]) (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/resource_ex.xml) (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/event_ex.xml [15])
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
 
  []
 
-[15] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint1.xml)
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
+[16] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint1.xml)
+Underfull \hbox (badness 10000) in paragraph at lines 448--449
 
  []
 
 (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint2.xml)
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
-[16] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint3.xml)
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
+[17] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint3.xml)
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint4.xml [17])
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
+(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint4.xml [18])
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
 
  []
 
 (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint5.xml)
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint6.xml [18])
-Underfull \hbox (badness 10000) in paragraph at lines 481--482
+(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint6.xml [19])
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
 (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint7.xml)
-Underfull \hbox (badness 10000) in paragraph at lines 489--490
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint8.xml [19])
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
+(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint8.xml [20])
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint9.xml) [20]
-Underfull \hbox (badness 10000) in paragraph at lines 533--534
+(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint9.xml) [21]
+Underfull \hbox (badness 10000) in paragraph at lines 544--545
 
  []
 
-[21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 571--572
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 584--586
+[22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 582--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 594--596
+Underfull \hbox (badness 10000) in paragraph at lines 595--597
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--598
+Underfull \hbox (badness 10000) in paragraph at lines 605--607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--599
+Underfull \hbox (badness 10000) in paragraph at lines 609--609
 
  []
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 615--619
+
+Underfull \hbox (badness 10000) in paragraph at lines 610--610
 
  []
 
-<Diagrames/totalizer.png, id=742, 422.57875pt x 302.12875pt>
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 626--630
+
+ []
+
+<Diagrames/totalizer.png, id=747, 422.57875pt x 302.12875pt>
 File: Diagrames/totalizer.png Graphic file (type png)
 <use Diagrames/totalizer.png>
-Package pdftex.def Info: Diagrames/totalizer.png  used on input line 622.
+Package pdftex.def Info: Diagrames/totalizer.png  used on input line 633.
 (pdftex.def)             Requested size: 241.84842pt x 172.91591pt.
 
-Overfull \hbox (14.14822pt too wide) in paragraph at lines 627--628
+Overfull \hbox (14.14822pt too wide) in paragraph at lines 638--639
 []\OT1/cmr/m/n/10.95 Seguint amb l'e-xem-ple de la fi-gu-ra []4.2[] tindr^^S^^Pem com a en-tra-da el con-junt de va-ri-a-bles $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 x[]; x[]; x[]; x[]; x[]; x[]\OMS/cmsy/m/n/10.95 g$
  []
 
-[24 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/totalizer.png>] [25]
+[25 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/totalizer.png>] [26]
 Cap\'{\i }tol 5.
-<Diagrames/Arqui1.png, id=760, 914.41624pt x 794.97pt>
+<Diagrames/Arqui1.png, id=764, 914.41624pt x 794.97pt>
 File: Diagrames/Arqui1.png Graphic file (type png)
 <use Diagrames/Arqui1.png>
-Package pdftex.def Info: Diagrames/Arqui1.png  used on input line 656.
+Package pdftex.def Info: Diagrames/Arqui1.png  used on input line 667.
 (pdftex.def)             Requested size: 483.69684pt x 420.50723pt.
-[26
+[27
 
-] [27 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui1.png>]
+] [28 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui1.png>]
 Cap\'{\i }tol 6.
-<Diagrames/logoYices.png, id=773, 308.46951pt x 86.37146pt>
+<Diagrames/logoYices.png, id=777, 308.46951pt x 86.37146pt>
 File: Diagrames/logoYices.png Graphic file (type png)
 <use Diagrames/logoYices.png>
-Package pdftex.def Info: Diagrames/logoYices.png  used on input line 668.
+Package pdftex.def Info: Diagrames/logoYices.png  used on input line 679.
 (pdftex.def)             Requested size: 193.47577pt x 54.17311pt.
-[28
+[29
 
  </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/logoYices.png>]
-<Diagrames/cpp.png, id=789, 361.35pt x 406.51875pt>
+<Diagrames/cpp.png, id=793, 361.35pt x 406.51875pt>
 File: Diagrames/cpp.png Graphic file (type png)
 <use Diagrames/cpp.png>
-Package pdftex.def Info: Diagrames/cpp.png  used on input line 692.
+Package pdftex.def Info: Diagrames/cpp.png  used on input line 703.
 (pdftex.def)             Requested size: 96.73788pt x 108.83107pt.
-<Diagrames/gcc.png, id=790, 109.40875pt x 130.4875pt>
+<Diagrames/gcc.png, id=794, 109.40875pt x 130.4875pt>
 File: Diagrames/gcc.png Graphic file (type png)
 <use Diagrames/gcc.png>
-Package pdftex.def Info: Diagrames/gcc.png  used on input line 706.
+Package pdftex.def Info: Diagrames/gcc.png  used on input line 717.
 (pdftex.def)             Requested size: 96.73788pt x 115.37688pt.
-<Diagrames/qtc.png, id=791, 401.5pt x 401.5pt>
-File: Diagrames/qtc.png Graphic file (type png)
-<use Diagrames/qtc.png>
-Package pdftex.def Info: Diagrames/qtc.png  used on input line 718.
-(pdftex.def)             Requested size: 96.73788pt x 96.73567pt.
- [29 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/cpp.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gcc.png (PNG copy)>]
-<Diagrames/latex.png, id=799, 317.185pt x 120.45pt>
+<Diagrames/latex.png, id=795, 317.185pt x 120.45pt>
 File: Diagrames/latex.png Graphic file (type png)
 <use Diagrames/latex.png>
-Package pdftex.def Info: Diagrames/latex.png  used on input line 731.
+Package pdftex.def Info: Diagrames/latex.png  used on input line 742.
 (pdftex.def)             Requested size: 193.47577pt x 73.47438pt.
-<Diagrames/Linux.png, id=802, 281.05pt x 331.2375pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/cpp.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gcc.png (PNG copy)>]
+<Diagrames/Linux.png, id=805, 281.05pt x 331.2375pt>
 File: Diagrames/Linux.png Graphic file (type png)
 <use Diagrames/Linux.png>
-Package pdftex.def Info: Diagrames/Linux.png  used on input line 747.
+Package pdftex.def Info: Diagrames/Linux.png  used on input line 758.
 (pdftex.def)             Requested size: 96.73788pt x 114.00917pt.
- [30 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/qtc.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/latex.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Linux.png>] [31]
+
+Underfull \vbox (badness 1515) has occurred while \output is active []
+
+ [31 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/latex.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Linux.png>] [32]
 Cap\'{\i }tol 7.
-<Diagrames/ModelDades.png, id=820, 1210.5225pt x 1143.27126pt>
+<Diagrames/Arqui2.png, id=821, 911.405pt x 681.54625pt>
+File: Diagrames/Arqui2.png Graphic file (type png)
+<use Diagrames/Arqui2.png>
+Package pdftex.def Info: Diagrames/Arqui2.png  used on input line 797.
+(pdftex.def)             Requested size: 483.69684pt x 361.71696pt.
+<Diagrames/ModelDades.png, id=822, 1210.5225pt x 1143.27126pt>
 File: Diagrames/ModelDades.png Graphic file (type png)
 <use Diagrames/ModelDades.png>
-Package pdftex.def Info: Diagrames/ModelDades.png  used on input line 798.
+Package pdftex.def Info: Diagrames/ModelDades.png  used on input line 814.
 (pdftex.def)             Requested size: 483.69684pt x 456.82939pt.
-[32
+[33
 
-]
-<Diagrames/UMLKai.png, id=825, 770.88pt x 510.90875pt>
+] [34 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui2.png>] [35 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/ModelDades.png>]
+<Diagrames/UMLKai.png, id=839, 770.88pt x 510.90875pt>
 File: Diagrames/UMLKai.png Graphic file (type png)
 <use Diagrames/UMLKai.png>
-Package pdftex.def Info: Diagrames/UMLKai.png  used on input line 807.
+Package pdftex.def Info: Diagrames/UMLKai.png  used on input line 831.
 (pdftex.def)             Requested size: 483.69684pt x 320.57231pt.
- [33 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/ModelDades.png>] [34 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/UMLKai.png>]
+ [36 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/UMLKai.png>]
 Cap\'{\i }tol 8.
-[35
+[37
 
-] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 890--892
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 896--899
-
- []
-
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 910--911
+] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 918--920
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 910--911
+Underfull \hbox (badness 10000) in paragraph at lines 924--927
+
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 938--939
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 919--921
+Underfull \hbox (badness 10000) in paragraph at lines 938--939
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--929
+Underfull \hbox (badness 10000) in paragraph at lines 947--949
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--929
+Underfull \hbox (badness 10000) in paragraph at lines 956--957
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 932--933
+Underfull \hbox (badness 10000) in paragraph at lines 956--957
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 932--933
+Underfull \hbox (badness 10000) in paragraph at lines 960--961
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 933--934
+Underfull \hbox (badness 10000) in paragraph at lines 960--961
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 933--934
+Underfull \hbox (badness 10000) in paragraph at lines 961--962
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 934--935
+Underfull \hbox (badness 10000) in paragraph at lines 961--962
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 934--935
+Underfull \hbox (badness 10000) in paragraph at lines 962--963
 
  []
 
-[38] [39]
+
+Underfull \hbox (badness 10000) in paragraph at lines 962--963
+
+ []
+
+[40] [41]
 Cap\'{\i }tol 9.
-[40
+[42
 
 ]
 Cap\'{\i }tol 10.
-[41
+[43
 
 ]
 Cap\'{\i }tol 11.
-[42
+[44
 
 ]
 Cap\'{\i }tol 12.
 
 Package biblatex Warning: No driver for entry type 'artricle'.
-(biblatex)                Using fallback driver on input line 964.
-
-[43
-
-] [44]
-Cap\'{\i }tol 13.
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 965.
+(biblatex)                Using fallback driver on input line 992.
 
 [45
 
+] [46]
+Cap\'{\i }tol 13.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 993.
+
+[47
+
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 968.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 968.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 996.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 996.
  (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 968.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 968.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 996.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 996.
 Package rerunfilecheck Info: File `Doc.out' has not changed.
 (rerunfilecheck)             Checksum: C8CF0DA3191629D7D78854A4FACED087;3828.
 Package logreq Info: Writing requests to 'Doc.run.xml'.
@@ -1234,18 +1242,18 @@ Package logreq Info: Writing requests to 'Doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28440 strings out of 492623
- 515256 string characters out of 6135669
- 967155 words of memory out of 5000000
- 31428 multiletter control sequences out of 15000+600000
+ 28443 strings out of 492623
+ 515297 string characters out of 6135669
+ 967162 words of memory out of 5000000
+ 31429 multiletter control sequences out of 15000+600000
  16245 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,14n,48p,868b,1976s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf (45 pages, 568923 bytes).
+Output written on /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf (47 pages, 574733 bytes).
 PDF statistics:
- 1085 PDF objects out of 1200 (max. 8388607)
- 988 compressed objects within 10 object streams
- 408 named destinations out of 1000 (max. 500000)
+ 1094 PDF objects out of 1200 (max. 8388607)
+ 995 compressed objects within 10 object streams
+ 410 named destinations out of 1000 (max. 500000)
  521 words of extra memory for PDF output out of 10000 (max. 10000000)
 

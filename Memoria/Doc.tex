@@ -242,6 +242,17 @@
   Consistint en fer una reunió amb els tutors per decidir el pròxim pas del treball i jo dedicar-me durant un temps a fer aquest pas. Després d'aquest temps es convoca una altre reunió on es valora el treball fet i es decideix com seguir. 
   Des de aquí es va repetint fins a acabar el projecte.
 
+  El model de desenvolupament que s'ha triat en aquest treball ha estat el model de prototips (o prototipatge), 
+  que consisteix en crear, com el nom indica, prototips del programari que es pretén crear, és a dir, versions incompletes del software que s'està desenvolupant.
+  Generalment, un prototip només compleix alguns dels requeriments del sistema i pot no tenir res a veure amb el producte final. Aquest model presenta diferents beneficis:
+  \begin{itemize}
+    \item Permet obtenir \textit{feedback} molt aviat en les etapes de desenvolupament.
+    \item Augmenta la precisió de les estimacions de temps de dedicació a la implementació de les funcionalitats. 
+    \item Permet que els desenvolupadors es centrin en en treballar en les parts del sistema que comprenen i no haver de implementar tot el sistema de cop.
+  \end{itemize}
+
+
+
   %1 - estudiar el problema
   %2 - fer el parser
   %3 - testejar el parser
@@ -713,17 +724,17 @@
 
   \subsection{QtCreator}
 
-  \begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.2\textwidth]{Diagrames/qtc.png}
-    \caption{Logo QtCreator}
-    \label{fig:qtc}
-  \end{figure}
+  % \begin{figure}[ht!]
+  %   \centering
+  %   \includegraphics[width=0.2\textwidth]{Diagrames/qtc.png}
+  %   \caption{Logo QtCreator}
+  %   \label{fig:qtc}
+  % \end{figure}
 
-  El QtCreator és un Entorn de Desoenvolupament Integrat (IDE de \textit{Integrated Development Environment}) multiplataforma per a C++, 
-  JavaScript i QML que forma part del SDK per el \textit{framework} de desenvolupament d'aplicacions amb GUi Qt. Utilitza 
+  % El QtCreator és un Entorn de Desoenvolupament Integrat (IDE de \textit{Integrated Development Environment}) multiplataforma per a C++, 
+  % JavaScript i QML que forma part del SDK per el \textit{framework} de desenvolupament d'aplicacions amb GUi Qt. Utilitza 
 
-  S'ha utilitzat la versió 4.9.2-3.
+  % S'ha utilitzat la versió 4.9.2-3.
 
   \subsection{\LaTeX}
   \begin{figure}[ht!]
@@ -782,7 +793,12 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \subsection{Anàlisis de processos}
   L'usuari cridarà el programa, el programa llegirà el fitxer XHSTT que li ha passat l'usuari per paràmetre i s'encarregarà de codificar el model pel yices i cridar-lo per resoldre'l, utilitzant la llibreria per C++ pròpia del Yices 2.
   %AMPLIAR + dibuixet un dibuixet amb lo de requeriments mes enfocat als processos
-
+  \begin{figure}[p]
+    \includegraphics[width=\textwidth]{Diagrames/Arqui2.png}
+    \caption{Esquema de processos}
+    \label{fig:procs}
+  \end{figure}
+  
 
   
   \section{Disseny}    
@@ -794,22 +810,34 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \subsection{Model de dades}
 
   El model de dades correspondria al següent diagrama:
-  \begin{figure}[ht!]
+  \begin{figure}[H]
     \includegraphics[width=\textwidth]{Diagrames/ModelDades.png}
     \caption{Model de Dades}
     \label{fig:DataModel}
   \end{figure}
 
+  Com es pot veure en la figura anterior, la classe \textit{Model} guarda la informació de la instància (sense incloure les restriccions). D'aquesta heretaràn tots els encodings que es puguin arribar a fer, posat que sempre serà el mateix.
+  Per fer-ho s'ha creat la classe \textit{ModelEntity} de la qual hereten les classes \textit{Event}, \textit{Resource}, \textit{ResourceType} i \textit{Time},
+  representant respectivament a les assignatures, els recursos, els tipus de recursos i els espais de temps disponibles. Aquestes classes mantenen tota la informació necessària per a representar a cada tipus d'element. La classe \textit{ModelEntity}
+  inclou un identificador unic de tipus \textit{string} i un numero enter unic per cada un dels tipus existents. Hi poden haver un \textit{Event} i un \textit{Resource} amb el mateix número, pero mai hi haura dos elements del mateix tipus amb el mateix numero.
+
+  A més s'ha creat una classe \textit{Group} per tal de mantenir els diferents grups d'elements d'elements que preveu XHSTT.  
+
+
   \subsection{Model d'objectes}
 
   El model d'objectes correspondria al següent diagrama:
-  \begin{figure}[ht!]
+  \begin{figure}[H]
     \includegraphics[width=\textwidth]{Diagrames/UMLKai.png}
     \caption{Model d'objectes}
     \label{fig:ObjectModel}
   \end{figure}
   
 
+  El programa consistirà en un objecte HSTTEncoding al qual donarem el nom del fitxer que volem llegir i treballarà amb ell. 
+  El HSTTEncoding crearà l'objecte XMLParser per tal de llegir el fitxer i es comunicaràn entre ells mentre XMLParser vagi llegint el fitxer enviant la informació llegida al HSTTEncoding. 
+  Al heretar de Model, aquest pot guardar totes les dades, que consistiràn en diferents tipus de \textit{ModelEntity} i diferents \textit{Groups}.
+  Desde aquí HSTTEncoding s'encarregarà de resoldre la instància comunicant-se amb la API SMT.
 
 
   
@@ -927,7 +955,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \paragraph*{Spread Events Constraint} ~\\~\\
 
-  
+
 
   \paragraph*{Avoid Clashes Constraint} ~\\~\\
   \paragraph*{Avoid Unavailable TimesConstraint} ~\\~\\
