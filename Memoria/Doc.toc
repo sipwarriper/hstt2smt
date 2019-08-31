@@ -103,12 +103,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {8.1.3}Restriccions XHSTT}{39}{subsection.8.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {9}Implantaci\IeC {\'o} i resultats}{42}{chapter.9}% 
+\contentsline {chapter}{\numberline {9}Implantaci\IeC {\'o} i resultats}{43}{chapter.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Conclusions}{43}{chapter.10}% 
+\contentsline {chapter}{\numberline {10}Conclusions}{44}{chapter.10}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Treball futur}{44}{chapter.11}% 
+\contentsline {chapter}{\numberline {11}Treball futur}{45}{chapter.11}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{45}{chapter.12}% 
+\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{46}{chapter.12}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{47}{chapter.13}% 
+\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{48}{chapter.13}% 

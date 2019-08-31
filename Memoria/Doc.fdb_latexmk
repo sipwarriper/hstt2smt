@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc"] 1567250720 "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf" "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl" "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc" 1567256356
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf" 1567256355 91338 e84e70fde28c565cc52b205e9bf78b4c "pdflatex"
+["biber /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc"] 1567261503 "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf" "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl" "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc" 1567261509
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf" 1567261509 91338 e84e70fde28c565cc52b205e9bf78b4c "pdflatex"
   "bibliography.bib" 1567250720 6112 b09161dd91d6d698347d5b52672db684 ""
   (generated)
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl"
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.blg"
-["pdflatex"] 1567256354 "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.tex" "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf" "Doc" 1567256356
+["pdflatex"] 1567261507 "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.tex" "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf" "Doc" 1567261509
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui1.png" 1567167151 45556 25f7f80099ebc55f357f6eae64991dab ""
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui2.png" 1567252146 47014 17bed1a10565a2e1f59d5109153eb2e8 ""
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Linux.png" 1567040270 34001 daa3b96162c3eb4e8c34bad9ea9ddcf9 ""
@@ -18,12 +18,12 @@
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/latex.png" 1567039206 9826 dd4cb42ea6d6e1661a4465fd468f8b28 ""
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/logoYices.png" 1567035307 11760 0117cfde32eb875e59f6182fd768d9ae ""
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/totalizer.png" 1567236210 18391 23416d1a422db4c43fa6eeb65951fc6b ""
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux" 1567256355 21456 92f0df634a04f8491702b4bc9c2e656f "pdflatex"
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl" 1567250721 31501 742009d5ec30b99c3d7afe19e7db56e7 "biber /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc"
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.out" 1567256355 3828 c8cf0da3191629d7d78854a4faced087 "pdflatex"
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.run.xml" 1567256355 2300 8cc1322fb8fccf71aa4f3953c6ad9506 "pdflatex"
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.tex" 1567256353 63444 3e44ff72dc46d226ae05cf47eb68b26d ""
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.toc" 1567256355 7090 58383171901aba4dd58e3af55280e84d "pdflatex"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux" 1567261509 21456 8e67fd93ffad504015926334daad7acf "pdflatex"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl" 1567261504 31501 742009d5ec30b99c3d7afe19e7db56e7 "biber /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.out" 1567261509 3828 c8cf0da3191629d7d78854a4faced087 "pdflatex"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.run.xml" 1567261509 2300 8cc1322fb8fccf71aa4f3953c6ad9506 "pdflatex"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.tex" 1567261503 67802 8ee1456018a90e21895449f96d4ec250 ""
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.toc" 1567261509 7090 0b9556219ababf4e5916aa0ba2910ac6 "pdflatex"
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint1.xml" 1567022467 314 5f5eecf7bd2e916ee0159b238a573ed1 ""
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint2.xml" 1567022531 505 7a8acf4c0c1199707559067270837e84 ""
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint3.xml" 1567022594 949 0260f86994be65ed654a4e6ae5152b97 ""
@@ -249,10 +249,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1563541949 3106380 436fef8c2e0ca660ce1dd89198cfa583 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1563541939 7979416 95f9e3a8ac77a9475a245ea59f69810c ""
   (generated)
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf"
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.log"
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.toc"
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux"
-  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.run.xml"
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.out"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.log"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.run.xml"
   "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.toc"
+  "/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf"

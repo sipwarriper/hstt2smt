@@ -82,6 +82,7 @@
   {\normalfont\Large\bfseries}{\thesection.}{1em}{\Large}
   
   \begin{document}
+  \shipout\null
   \tableofcontents
   
   \chapter{Introducció, motivacions, propòsit i objectius}
@@ -954,12 +955,84 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
 
   \paragraph*{Spread Events Constraint} ~\\~\\
+  Aquesta restricció posa límits en el nombre de sessions de cada event que es poden celebrar en certs grups d'espais de temps definits com a dies.
 
+  Definim $Tg$ com el conjunt grups d'espais de temps definits per la restricció.
+
+    \begin{align*}
+      \forall e \in Events \ &\forall g \in Tg \\
+      &at\_most\_k(\{Xs_{e,t} | t \leftarrow g\}, max)\\
+      \forall e \in Events \ &\forall g \in Tg \\
+      &at\_least\_k(\{Xs_{e,t} | t \leftarrow g\}, max)
+    \end{align*}
 
 
   \paragraph*{Avoid Clashes Constraint} ~\\~\\
-  \paragraph*{Avoid Unavailable TimesConstraint} ~\\~\\
+    Aquesta restricció imposa que certs recursos no poden tenir assignats més d'un event al mateix temps. 
+    Aquí aprofitem que els recursos estàn assignats d'un inici, i definim $E_r$ com el conjunt de events als quals ha de assistir un recurs $r$ i imposem que per cada espai de temps, com a molt un d'els events de E pot estar programat:
+    \begin{align*}
+      \forall r \in Resources \ & \forall t \in Times \\
+      &at\_most\_one(\{Xt_{e,t} | e \leftarrow E_r\})
+    \end{align*}
+
+  \paragraph*{Avoid Unavailable Times Constraint} ~\\~\\
+
+  Restricció que indica que hi ha certs espais de temps durant les quals no podem utilitzar certs recursos. $T$ és conjunt d'espais de temps no disponibles i $E_r$ el conjunt d'events als que ha d'assistir un recurs $r$:
+  \begin{align*}
+    \forall r \in Resources \ \forall t \in T \ \forall e \in E_r \quad
+    (\neg Xt_{e,t})
+  \end{align*}
+    
+    
+  \paragraph*{Limit Idle Times Constraint} ~\\~\\
+
+  Restricció que limita el nombre d'espais de temps lliure entre dos espais de temps ocupats a l'horari de certs recursos. 
+  Per tal de codificar aquesta restricció és necessari afegir variables auxiliars al model. Per cada espai de temps que pot ser forat s'introdueix una variable auxiliar que serà certa si l'espai realment és un forat.
+
+  El conjunt $Tg$ representa el conjunt de grups d'espais de temps que tractem. 
+  S'introdueix la variable $idle_i$ per cada recurs que defineix si aquest té un forat en l'horari en l'espai de temps $i$. Per tal de considerar un espai de temps com a forat, cal que en algún moment abans i després hi hagi programada alguna activitat.
+   Així que es defineixen dos conjunts: $A_i$ representant els espais de temps posterior (\textit{After}) de $i$ i $B_i$ representant els espais de temps anteriors (\textit{Before}) de $i$.
+   
+   Llavors, per a cada recurs $r$ es fan les següents clàusules:
+   \begin{align*}
+    \forall g \in Tg \ \forall t \in g \ &\forall e \in E_r \\
+    &(\neg Idle_i \lor \neg Xt_{e, t}) & si \ \ (B_t \neq \emptyset \ \& A_t \neq \emptyset) \\
+    \forall g \in Tg \ \forall t \in g  \ & \\
+    & (\neg Idle_t \lor \{\forall b \in B_t \ \forall e \in E_r \ Xt_{e,b}\}) & si \ \ (B_t \neq \emptyset)\\
+    \forall g \in Tg \ \forall t \in g & \\
+    & (\neg Idle_t \lor \{\forall a \in A_t \ \forall e \in E_r \ Xt_{e,a}\}) & si \ \ (A_t \neq \emptyset)\\
+    \forall g \in Tg \ \forall t \in g \ \forall b \in B_t \ \forall a \in A_t & \\
+    \forall e1 \in E_r \ \forall e_2 \in E_r \ \forall e_3 \in E_r & \\
+    & (Xt_{e_{1}, t} \lor \neg Xt_{e_2, b} \lor Xt_{e_3, a} \lor Idle_t) & si \ \ (B_t \neq \emptyset \ \& A_t \neq \emptyset)
+   \end{align*}
+
+   Un cop definides i lliguades les variables auxiliars l'únic que queda és, per cada recurs, imposar les restriccions de cardinalitat:
+
+   \begin{align*}
+    \forall r \in Resources &\\
+    & at\_most\_k(\{ Idle_t | t \leftarrow Times\}, max) \\
+    & at\_least\_k(\{ Idle_t | t \leftarrow Times\}, min)
+   \end{align*}
+
   \paragraph*{Cluster Busy Times Constraint} ~\\~\\
+
+  Restricció que imposa límits sobre el nombre de grups d'espais de temps (que podem entendre com a dies) en què un recurs pot estar ocupat. En aquesta restricció introduirem una variable $Busy_g$ per a cada recurs que ens indicarà si el recurs està ocupat en el grup $g$ o no.
+
+  Per a cada recurs $r$ es fan les clàusules següents:
+  
+  \begin{align*}
+    \forall g \in Tg & \\
+    &(\neg Busy_g \lor (\forall e \in E_r \ \forall t \in g \quad Xt_{e,t}))\\
+    \forall g \in Tg \ \forall t \in g \ \forall e \in E_r &\\
+    & (\neg Xt_{e,t} \lor Bsuy_g)
+  \end{align*}
+
+  Un cop definides i lliguades les variables auxiliars l'únic que queda és, per cada recurs, imposar les restriccions de cardinalitat:
+  \begin{align*}
+    \forall r \in Resources &\\
+    & at\_most\_k(\{ Busy_g | g \leftarrow Tg\}, max) \\
+    & at\_least\_k(\{ Busy_g | g \leftarrow Tg\}, min)
+   \end{align*}
   
 
 
