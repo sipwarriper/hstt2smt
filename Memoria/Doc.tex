@@ -585,14 +585,53 @@
     \begin{itemize}
       \item Si $n \leq 3$, l'encoding és el mateix que el quadràtic.
       \item si $n \geq 4$, introdueix una variable i codifica \textit{AMO$(\{x_0, x_1, y\})$} i \textit{AMO$(\{x_2, x_3, ...  ,\neg y\})$} de forma recursiva.
-    \end{itemize}
+    \end{itemize} 
           
     
   \end{itemize}
 
   \subsubsection{Cardinality Constraints comparadaes amb k}
-  \paragraph*{Sorter}
-  \paragraph*{Totalizer}
+  \paragraph*{Sorting networks}~\\~\\
+  Una sorting network agafa una entrada de mida $n$ i l'ordena. Es pot fer de manera recursiva com es pot veure a continuació, utilitzant una estrategia semblant a la del \textit{mergesort}:
+  
+  \begin{itemize}
+    \item Si $n = 1$, la sortida de la sorting network és:\\ \begin{center} Sorting($x_0$) = $x_0$\end{center}
+    \item Si $n = 2$, la sorting network és un sól merge (un comparador entre 2):\\ \begin{center} Sorting($x_0, x_1$) = Merge($x_0, x_1$)\end{center}
+    \item Si $n > 2$, agafem una $l$ amb $0 \leq l < n-1$: Definim:
+    \begin{gather*}
+      (z_0,z_2, . . . ,z_{l-1}) = \text{Sorting}(x_0, x_1, . . . , x_{l-1}),\\
+      (z_l,z_{l+1}, . . . ,z_{n-1}) = \text{Sorting}(x_l, x_{l+1}, . . . , x_{n-1}), \\
+      (y_0, y_1, . . . , y_{n-1}) = \text{Merge}(z_0,z_1, . . . , z_{l-1};z_l, . . . ,z_{n-1}).
+    \end{gather*}
+
+    Així ens queda que :$\text{Sorting}(x_0, x_1, . . . , x_{n-1}) := (y_0, y_1, . . . , y_{n-1}).$
+  \end{itemize}
+
+  El nombre de variables i clàusules introduides per una sorting network de mida $n$ es pot calcular recursivament. Si aquesta està formada per dues \textit{sorting networks} de mida $l$ i $n-l$, introduirem $V_1 + V_2 + V_3$ variables i $C_1 + C_2 + C_3$ clàusules, on $(V_1, C_1) i (V_2 i C_2)$ són les variables i clàusules utilitzades en les dues \textit{sorting networks} internes i $(V_3, C_3)$ són el nombre de variables i clàusules necessàries en el merge de les entrades de mida $(l, n-l)$.
+
+
+
+
+  \paragraph*{Totalizer} ~\\~\\
+  El Totalizer encoding es basa en generar una representació unària de la cardinalitat del conjunt de variables d'entrada. 
+  Va ser introduït per Bailleux i Bougkhad\cite{Bailleux2003EfficientCE}. L'encoding consisteix en l'escriptura d'un arbre binari on a les fulles hi han les variables d'entrada i cada uns interior, 
+  conté la representació unària de la cardinalitat dels seus descendents fulla. Per tant amb tantes variables auxiliars com descendents fulla tingui.
+
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Diagrames/totalizer.png}
+    \caption{Representació Gràfica del arbre d'un totalizer}
+    \label{fig:totalizer}
+  \end{figure}
+
+  Seguint amb l'exemple de la figura \ref{fig:totalizer} tindríem com a entrada el conjunt de variables $\{x_1, x_2, x_3, x_4, x_5, x_6\}$ i com a sortida el conjunt de variables $\{s_11, s_12, s_13, s_14, s_15, s_16\}$. És important notar que cada node codifica la cardinalitat de les fulles q en pengen, en format unari. Això significa que per tot i de cada node, $s_i \geq S_{i+1}$.
+
+  En la figura tambés es poden veure totes les variables auxiliars que introdueix l'encoding per codificar un \textit{at-most-k} sobre 6 variables. Per veure quines clàusules genera, caldria definir un sumador unari, que donats dos nombres unaris, en retorni la suma en unari. 
+  Aplicant-lo a cada node interior és suficient per garantir que $\{s_11, s_12, s_13, s_14, s_15, s_16\}$ és la representació unaria de la cardinalitat de $\{x_1, x_2, x_3, x_4, x_5, x_6\}$. 
+  Amb la representació unaria de la cardinalitat, n'hi ha prou amb imposar que l'interpretació de $out_{k+1}$ sigui falsa, per fer efectiu un, \textit{at-most-k}. 
+
+
+
 
 
 
@@ -784,7 +823,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \item Bloc de escriptura del resultat a XHSTT. \\ En aquest apartat creem un fitxer amb la instància treballada XHSTT i hi afegim la solució trobada al final.
   \end{itemize}
 
-  L'usuari només tindrà un binari, anomenat \textit{hstt2smt}, amb el qual interactuarà per resoldre una instància que passarà per fitxer. Aquest s'encarregarà de fer tota la feina. 
+  L'usuari només tindrà un binari, anomenat \textit{hstt2smt}, amb el qual interactuarà per resoldre una instància que passarà per fitxer. Aquest s'encarregarà de fer tota la feina i mostrarà per pantalla el resultat, a part també creara un fitxer en la carpeta \textit{output} amb la instància treballada, afegint-hi la solució trobada en el format XHSTT
   Aquest binari serà el resultat de compilar el generador amb la API SMT i les llibreries que es necessiten per poder treballar amb XML i amb SMT.
   %%%REVISAR%%%%%
 
@@ -826,13 +865,76 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   Les variables del model són les següents:
   \begin{itemize}
-    \item $Xt_{0,0} ... Xt_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui la instancià. Cada una d'aquestes variables indica si un event en un espai de temps, s'està celebrant o no. 
+    \item $Xt_{0,0} . . . Xt_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui la instancià. Cada una d'aquestes variables indica si un event en un espai de temps, s'està celebrant o no. 
     Doncs si per l'event $e$ i l'espai $t$, $Xt_{e,t}$ és certa, vol dir que en el temps $t$, $e$ s'està celebrant.
-    \item $Xs_{0,0} ... Xs_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui la instància. Cada una de aquestes variables indica si un event comença en l'espai de temps representat. Un event comença en un espai de temps si no es donava en l'espai de temps anterior i/o si l'espai de temps és la primera hora del dia.
+    \item $Xs_{0,0} . . . Xs_{|Events|-1,|Times|-1}$\\Per cada event tenim tantes variables com espais de temps tingui la instància. Cada una de aquestes variables indica si un event comença en l'espai de temps representat. Un event comença en un espai de temps si no es donava en l'espai de temps anterior i/o si l'espai de temps és la primera hora del dia.
     Doncs si per l'event $e$ i l'espai $t$, $Xt_{e,t}$ és certa, vol dir que en el temps $t$, $e$ comença i que cap més variable $Xs_{e,i}$ serà certa i que la variable $Xt_{e,t}$ serà certa.
-    %A continuar
- 
+    \item $Xd_{0,1,0} . . . Xd_{|Events|-1, event.duration, |Times|-1}$\\ Per cada event i cada possible duració d'aquest tenim una variable. Per exemple, si per a un event de duració 5, es defineixen fins a 5 conjunts de $|Times|$ variables. 
+    Cada variable ens indica si comença una lliçó de la durada i en l'espai de temps que representa la variable. 
   \end{itemize}
+
+  \subsection{Clàusules de Channeling}
+
+  Per poder dotar les variables del model de semàntica caldrà afegir certes clàusules. A continuació s'enumeren:
+  \begin{itemize}
+    \item Si un event comença a una hora determinada, llavors té una duració: \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$exactily\_one(\neg Xs_{e,i} \vee \{ \forall j \in 1 ... e.duration$ $Xd_{e,j,i}\})$\end{center}
+    \item Si un event té lloc a t pero no a t-1, és que comença: \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$\neg Xt_{e,i} \vee Xt_{i-1} \vee Xs_i$ \end{center}
+    \item Si un event comença amb duració d, llavors té lloc en d hores consecutives: \begin{center} 
+      $\forall e \in 0 ... |Events|-1$ $\forall d in 1 ... e.duration$ $\forall i \in 0 ... |Times|-1$ $\forall j \in i ... i+d-1$ \\
+      $\neg Xd_{e,d,i} \vee Xt_{e,j}$
+    
+    \end{center}
+  \end{itemize}
+
+  \subsection{Restriccions XHSTT}
+  \paragraph*{Assign Times Constraint} ~\\~\\
+  Restricció per imposar que a tots els events se'ls hi assigni temps. Per tant, per a cada event $e$ hem de imposar que del conjunt de variables $Xt{e,i}$, n'hi hagi exactament $e.duration$ que s'evaluin a Cert:
+  \[
+    \forall e \in Events \ exactly_k(\{Xt_{e,0} ... Xt_{e,|Times|-1}\}, e.duration)
+  \]
+
+  \paragraph*{Split Events Constraint} ~\\~\\ 
+  Aquesta restricció limita la manera en com es fracmenten els events. És a dir, sobre el nombre de sessions en què es fragmenta i la durada d'aquestes.\\
+  Per a la restricció sobre el nombre de sessions en què es fragmenta un event, utilitzarem les tags de \textit{MinimumAmount} i \textit{MaximumAmount} per fer les següents clàusules:
+  \begin{gather*}
+    \forall e \in Events \ at\_most\_k(\{Xs_{e,0} . . . Xs_{e,|Times|-1}\}, MaximumAmount)\\
+    \forall e \in Events \ at\_least\_k(\{Xs_{e,0} . . . Xs_{e,|Times|-1}\}, MinimumAmount)
+  \end{gather*}
+
+  Pel que fa el control de la durada de les sessions nomes cal negar totes les variables Xd de cada event que corresponguin a duracions q no estiguin compreses entre el rang definit per les tags \textit{MinimumDuration} i \textit{MaximumDuration}:
+  \begin{gather*}
+    \forall e \in Events \ \forall d \notin MinimumDuration...MaximumDuration \land d \in 1 ... e.duration  \\
+    \forall t \in 0...|Times|-1 \quad \neg Xd_{e,d,t}
+  \end{gather*}
+
+  \paragraph*{Distribute Split Constraint} ~\\~\\
+
+  Restricció que limita el nombre de events d'una duració determinada, per tant limita la cardinalitat de variables $Xd$. $d$ ve donada per la tag \textit{Duration} i el màxim i mínim venen donats per les tags \textit{Maximum} i \textit{Minimum}:
+  \begin{gather*}
+  \forall e \in Events \ at\_most\_k(\{Xd_{e,d,0} .... Xd_{e,d,|Times|-1}\}, max) \quad \quad si \ max<\frac{e.duration}{d}\\
+  \forall e \in Events \ at\_most_k(\{Xd_{e,d,0} .... Xd_{e,d,|Times|-1}\}, min) \quad \quad \quad si \ min>0\\
+  \end{gather*}
+
+
+  \paragraph*{Prefer Times Constraint} ~\\~\\
+  Restricció que indica en quins espais de temps no es poden programar certes sessions. Per exemple, pot servir per indicar que no es pot ptrogramar una sessió de dues hores en la última hora del dia.
+
+  Definim el cunjunt $Ta$ com el conjunt de slots de temps els quals la restricció ens diu que són preferits. Neguem totes les variables $Xd$ de duració d que representin espais de temps no continguts dins de Ta.
+  \begin{gather*}
+    \forall e \in Events \ \forall t \in Times \land t \notin Ta \\ (\neg Xd_{e,d,t})
+  \end{gather*}
+
+
+  \paragraph*{Spread Events Constraint} ~\\~\\
+
+  
+
+  \paragraph*{Avoid Clashes Constraint} ~\\~\\
+  \paragraph*{Avoid Unavailable TimesConstraint} ~\\~\\
+  \paragraph*{Cluster Busy Times Constraint} ~\\~\\
+  
+
+
    
   % En aquest apartat es detallen els problemes i les solucions apareguts en la 
   % implementació, així com, si és el cas, el model de classes i els algorismes més 

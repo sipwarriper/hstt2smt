@@ -151,6 +151,34 @@
       \field{year}{1971}
       \true{nocite}
     \endentry
+    \entry{Bailleux2003EfficientCE}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1c900f9157237af8d10f986221fd67a3}{%
+           family={Bailleux},
+           familyi={B\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+        {{hash=33a254f759330211cf0c562459590ec3}{%
+           family={Boufkhad},
+           familyi={B\bibinitperiod},
+           given={Yacine},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff54ce7c9f263de6988df4dbb242e499}
+      \strng{fullhash}{ff54ce7c9f263de6988df4dbb242e499}
+      \strng{bibnamehash}{ff54ce7c9f263de6988df4dbb242e499}
+      \strng{authorbibnamehash}{ff54ce7c9f263de6988df4dbb242e499}
+      \strng{authornamehash}{ff54ce7c9f263de6988df4dbb242e499}
+      \strng{authorfullhash}{ff54ce7c9f263de6988df4dbb242e499}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{CP}
+      \field{title}{Efficient CNF Encoding of Boolean Cardinality Constraints}
+      \field{year}{2003}
+      \true{nocite}
+    \endentry
     \entry{utwente}{misc}{}
       \name{author}{1}{}{%
         {{hash=ce2494544a95fbd68332cc45cec79ea3}{%
@@ -167,8 +195,8 @@
       \strng{authorbibnamehash}{ce2494544a95fbd68332cc45cec79ea3}
       \strng{authornamehash}{ce2494544a95fbd68332cc45cec79ea3}
       \strng{authorfullhash}{ce2494544a95fbd68332cc45cec79ea3}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{International High School Timetabling competition.}
@@ -398,8 +426,8 @@
       \endverb
     \endentry
     \entry{vscode}{misc}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labeltitlesource}{title}
       \field{title}{Visual Studio Code}
       \true{nocite}
@@ -639,8 +667,8 @@
       \strng{authorbibnamehash}{3ae5d1423b655cb989fede4e5a1a0b43}
       \strng{authornamehash}{3ae5d1423b655cb989fede4e5a1a0b43}
       \strng{authorfullhash}{3ae5d1423b655cb989fede4e5a1a0b43}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Communications of the ACM}
@@ -706,6 +734,49 @@
       \true{nocite}
       \field{pages}{827\bibrangedash 831}
       \range{pages}{5}
+    \endentry
+    \entry{asin2009cardinality}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=51bb319630c5ba571f44314cffe6eb18}{%
+           family={Asín},
+           familyi={A\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=72bfdc74b3cc50ed25e7206b90789dbf}{%
+           family={Nieuwenhuis},
+           familyi={N\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e2ba4d9cf7e8bdf98cb32d08498311d3}{%
+           family={Oliveras},
+           familyi={O\bibinitperiod},
+           given={Albert},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e811bc42141bc9911e091bc2c4d479eb}{%
+           family={Rodríguez-Carbonell},
+           familyi={R\bibinithyphendelim C\bibinitperiod},
+           given={Enric},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5631c1f452cc56b50d07a43b4e5ad3f1}
+      \strng{fullhash}{26e80997c80a537f4626a1bddc2599b6}
+      \strng{bibnamehash}{5631c1f452cc56b50d07a43b4e5ad3f1}
+      \strng{authorbibnamehash}{5631c1f452cc56b50d07a43b4e5ad3f1}
+      \strng{authornamehash}{5631c1f452cc56b50d07a43b4e5ad3f1}
+      \strng{authorfullhash}{26e80997c80a537f4626a1bddc2599b6}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Conference on Theory and Applications of Satisfiability Testing}
+      \field{title}{Cardinality networks and their applications}
+      \field{year}{2009}
+      \true{nocite}
+      \field{pages}{167\bibrangedash 180}
+      \range{pages}{14}
     \endentry
   \enddatalist
 \endrefsection
