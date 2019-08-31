@@ -27,7 +27,7 @@
     \addbibresource{bibliography.bib}
     \bibliography{bibliography}
     
-  \setcounter{tocdepth}{4}
+  \setcounter{tocdepth}{2}
   \setcounter{secnumdepth}{4}
   
   \newunicodechar{Ŀ}{\L.}
@@ -917,6 +917,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \subsection{Restriccions XHSTT}
   \paragraph*{Assign Times Constraint} ~\\~\\
+  
   Restricció per imposar que a tots els events se'ls hi assigni temps. Per tant, per a cada event $e$ hem de imposar que del conjunt de variables $Xt{e,i}$, n'hi hagi exactament $e.duration$ que s'evaluin a Cert:
   \[
     \forall e \in Events \ exactly_k(\{Xt_{e,0} ... Xt_{e,|Times|-1}\}, e.duration)
@@ -946,6 +947,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
 
   \paragraph*{Prefer Times Constraint} ~\\~\\
+  
   Restricció que indica en quins espais de temps no es poden programar certes sessions. Per exemple, pot servir per indicar que no es pot ptrogramar una sessió de dues hores en la última hora del dia.
 
   Definim el cunjunt $Ta$ com el conjunt de slots de temps els quals la restricció ens diu que són preferits. Neguem totes les variables $Xd$ de duració d que representin espais de temps no continguts dins de Ta.
@@ -955,6 +957,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
 
   \paragraph*{Spread Events Constraint} ~\\~\\
+  
   Aquesta restricció posa límits en el nombre de sessions de cada event que es poden celebrar en certs grups d'espais de temps definits com a dies.
 
   Definim $Tg$ com el conjunt grups d'espais de temps definits per la restricció.
@@ -968,6 +971,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
 
   \paragraph*{Avoid Clashes Constraint} ~\\~\\
+
     Aquesta restricció imposa que certs recursos no poden tenir assignats més d'un event al mateix temps. 
     Aquí aprofitem que els recursos estàn assignats d'un inici, i definim $E_r$ com el conjunt de events als quals ha de assistir un recurs $r$ i imposem que per cada espai de temps, com a molt un d'els events de E pot estar programat:
     \begin{align*}
@@ -1036,7 +1040,24 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   
 
 
+   \section{Proves}
+
+   Les proves del programa desenvolupat s'han dividit en dos fases: el parser i el generador automàtic d'horaris sencer. 
+   Això s'ha fet així per assegurar que quan es comences a dissenyar el model, les dades rebudes per aquest fossin sempre correctes. Així doncs, abans de començar a fer la codificació en sí, s'ha fet i provat el parser.
+
+   Per fer les proves tant del parser com del programa sencer s'ha utilitzat el mètode de la caixa negra\cite{wiki:blackbox}. Aquest mètode consisteix en examinar el funcionament del programari que està sent provat sense tenir en compte el com està implementat, com un tot. 
+   La idea està en provar els casos d'ús de forma independent al codi intern en sí i comparar els resultats amb els que s'esperaven.
    
+   Aquest mètode busca trobar errors en:
+    \begin{itemize}
+      \item Funcions incorrectes o inexistents
+      \item Errors de interfície
+      \item Errors en les estructures de dades
+      \item Errors en el comportament o en el rendiment
+      \item Errors de inicialització i terminació
+    \end{itemize}
+
+
   % En aquest apartat es detallen els problemes i les solucions apareguts en la 
   % implementació, així com, si és el cas, el model de classes i els algorismes més 
   % rellevants. 

@@ -179,6 +179,34 @@
       \field{year}{2003}
       \true{nocite}
     \endentry
+    \entry{wiki:blackbox}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 31-August-2019]}
+      \field{title}{Black-box testing --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2019}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Black-box_testing&oldid=909756532
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Black-box_testing&oldid=909756532
+      \endverb
+    \endentry
     \entry{utwente}{misc}{}
       \name{author}{1}{}{%
         {{hash=ce2494544a95fbd68332cc45cec79ea3}{%
@@ -195,8 +223,8 @@
       \strng{authorbibnamehash}{ce2494544a95fbd68332cc45cec79ea3}
       \strng{authornamehash}{ce2494544a95fbd68332cc45cec79ea3}
       \strng{authorfullhash}{ce2494544a95fbd68332cc45cec79ea3}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{International High School Timetabling competition.}
@@ -355,7 +383,7 @@
       \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
@@ -412,8 +440,8 @@
       \strng{authorbibnamehash}{d00330b6b1cf1afee077c2f2f6aaa537}
       \strng{authornamehash}{d00330b6b1cf1afee077c2f2f6aaa537}
       \strng{authorfullhash}{d00330b6b1cf1afee077c2f2f6aaa537}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{\LaTeX – A document preparation system}
@@ -570,7 +598,7 @@
       \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{2}
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
@@ -597,7 +625,7 @@
       \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
-      \field{extraname}{4}
+      \field{extraname}{5}
       \field{sortinit}{2}
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
@@ -634,8 +662,8 @@
       \strng{authorbibnamehash}{8b0c25c7c6cbf35fb01eec1e7e6257cc}
       \strng{authornamehash}{8b0c25c7c6cbf35fb01eec1e7e6257cc}
       \strng{authorfullhash}{8b0c25c7c6cbf35fb01eec1e7e6257cc}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Handbook of Model Checking}
@@ -692,7 +720,7 @@
       \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
       \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
-      \field{extraname}{5}
+      \field{extraname}{6}
       \field{sortinit}{3}
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}

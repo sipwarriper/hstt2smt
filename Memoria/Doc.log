@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.19)  31 AUG 2019 16:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.19)  31 AUG 2019 17:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -926,7 +926,7 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46 ...mberline {4.4.2}SAT}{22}{subsection.4.4.2}
+l.54 ...rdinality Encodings}{23}{subsection.4.4.4}
                                                   % [1
 
 
@@ -956,7 +956,7 @@ Cap\'{\i }tol 3.
 [8
 
 ]
-<Diagrames/gantt1.png, id=402, 2276.505pt x 310.15875pt>
+<Diagrames/gantt1.png, id=372, 2276.505pt x 310.15875pt>
 File: Diagrames/gantt1.png Graphic file (type png)
 <use Diagrames/gantt1.png>
 Package pdftex.def Info: Diagrames/gantt1.png  used on input line 286.
@@ -970,7 +970,7 @@ Cap\'{\i }tol 4.
 [11
 
 ]
-<Diagrames/Reduccio.png, id=419, 698.61pt x 135.50626pt>
+<Diagrames/Reduccio.png, id=390, 698.61pt x 135.50626pt>
 File: Diagrames/Reduccio.png Graphic file (type png)
 <use Diagrames/Reduccio.png>
 Package pdftex.def Info: Diagrames/Reduccio.png  used on input line 337.
@@ -1060,7 +1060,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 627--631
 
  []
 
-<Diagrames/totalizer.png, id=751, 422.57875pt x 302.12875pt>
+<Diagrames/totalizer.png, id=726, 422.57875pt x 302.12875pt>
 File: Diagrames/totalizer.png Graphic file (type png)
 <use Diagrames/totalizer.png>
 Package pdftex.def Info: Diagrames/totalizer.png  used on input line 634.
@@ -1072,7 +1072,7 @@ Overfull \hbox (14.14822pt too wide) in paragraph at lines 639--640
 
 [25 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/totalizer.png>] [26]
 Cap\'{\i }tol 5.
-<Diagrames/Arqui1.png, id=767, 914.41624pt x 794.97pt>
+<Diagrames/Arqui1.png, id=742, 914.41624pt x 794.97pt>
 File: Diagrames/Arqui1.png Graphic file (type png)
 <use Diagrames/Arqui1.png>
 Package pdftex.def Info: Diagrames/Arqui1.png  used on input line 668.
@@ -1081,7 +1081,7 @@ Package pdftex.def Info: Diagrames/Arqui1.png  used on input line 668.
 
 ] [28 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui1.png>]
 Cap\'{\i }tol 6.
-<Diagrames/logoYices.png, id=780, 308.46951pt x 86.37146pt>
+<Diagrames/logoYices.png, id=756, 308.46951pt x 86.37146pt>
 File: Diagrames/logoYices.png Graphic file (type png)
 <use Diagrames/logoYices.png>
 Package pdftex.def Info: Diagrames/logoYices.png  used on input line 680.
@@ -1089,17 +1089,17 @@ Package pdftex.def Info: Diagrames/logoYices.png  used on input line 680.
 [29
 
  </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/logoYices.png>]
-<Diagrames/cpp.png, id=796, 361.35pt x 406.51875pt>
+<Diagrames/cpp.png, id=772, 361.35pt x 406.51875pt>
 File: Diagrames/cpp.png Graphic file (type png)
 <use Diagrames/cpp.png>
 Package pdftex.def Info: Diagrames/cpp.png  used on input line 704.
 (pdftex.def)             Requested size: 96.73788pt x 108.83107pt.
-<Diagrames/gcc.png, id=797, 109.40875pt x 130.4875pt>
+<Diagrames/gcc.png, id=773, 109.40875pt x 130.4875pt>
 File: Diagrames/gcc.png Graphic file (type png)
 <use Diagrames/gcc.png>
 Package pdftex.def Info: Diagrames/gcc.png  used on input line 718.
 (pdftex.def)             Requested size: 96.73788pt x 115.37688pt.
-<Diagrames/latex.png, id=798, 317.185pt x 120.45pt>
+<Diagrames/latex.png, id=774, 317.185pt x 120.45pt>
 File: Diagrames/latex.png Graphic file (type png)
 <use Diagrames/latex.png>
 Package pdftex.def Info: Diagrames/latex.png  used on input line 743.
@@ -1108,7 +1108,7 @@ Package pdftex.def Info: Diagrames/latex.png  used on input line 743.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/cpp.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gcc.png (PNG copy)>]
-<Diagrames/Linux.png, id=809, 281.05pt x 331.2375pt>
+<Diagrames/Linux.png, id=785, 281.05pt x 331.2375pt>
 File: Diagrames/Linux.png Graphic file (type png)
 <use Diagrames/Linux.png>
 Package pdftex.def Info: Diagrames/Linux.png  used on input line 759.
@@ -1118,12 +1118,12 @@ Underfull \vbox (badness 1515) has occurred while \output is active []
 
  [31 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/latex.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Linux.png>] [32]
 Cap\'{\i }tol 7.
-<Diagrames/Arqui2.png, id=824, 911.405pt x 681.54625pt>
+<Diagrames/Arqui2.png, id=800, 911.405pt x 681.54625pt>
 File: Diagrames/Arqui2.png Graphic file (type png)
 <use Diagrames/Arqui2.png>
 Package pdftex.def Info: Diagrames/Arqui2.png  used on input line 798.
 (pdftex.def)             Requested size: 483.69684pt x 361.71696pt.
-<Diagrames/ModelDades.png, id=825, 1210.5225pt x 1143.27126pt>
+<Diagrames/ModelDades.png, id=801, 1210.5225pt x 1143.27126pt>
 File: Diagrames/ModelDades.png Graphic file (type png)
 <use Diagrames/ModelDades.png>
 Package pdftex.def Info: Diagrames/ModelDades.png  used on input line 815.
@@ -1131,7 +1131,7 @@ Package pdftex.def Info: Diagrames/ModelDades.png  used on input line 815.
 [33
 
 ] [34 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui2.png>] [35 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/ModelDades.png>]
-<Diagrames/UMLKai.png, id=842, 770.88pt x 510.90875pt>
+<Diagrames/UMLKai.png, id=818, 770.88pt x 510.90875pt>
 File: Diagrames/UMLKai.png Graphic file (type png)
 <use Diagrames/UMLKai.png>
 Package pdftex.def Info: Diagrames/UMLKai.png  used on input line 832.
@@ -1141,123 +1141,147 @@ Cap\'{\i }tol 8.
 [37
 
 ] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 919--921
+Underfull \hbox (badness 10000) in paragraph at lines 919--920
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--928
+Underfull \hbox (badness 10000) in paragraph at lines 919--920
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--929
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 939--940
+Underfull \hbox (badness 10000) in paragraph at lines 940--941
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--940
+Underfull \hbox (badness 10000) in paragraph at lines 940--941
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 948--950
+Underfull \hbox (badness 10000) in paragraph at lines 949--950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 957--959
+Underfull \hbox (badness 10000) in paragraph at lines 949--950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 970--973
+Underfull \hbox (badness 10000) in paragraph at lines 959--960
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 959--960
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 973--974
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 973--974
 
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 978--979
+Underfull \hbox (badness 10000) in paragraph at lines 982--983
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 978--979
+Underfull \hbox (badness 10000) in paragraph at lines 982--983
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 987--988
+Underfull \hbox (badness 10000) in paragraph at lines 991--992
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 987--988
-
- []
-
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
+Underfull \hbox (badness 10000) in paragraph at lines 991--992
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [41]
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1022
 
  []
 
-[42]
+
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1022
+
+ []
+
+[42] [43]
 Cap\'{\i }tol 9.
-[43
-
-]
-Cap\'{\i }tol 10.
 [44
 
 ]
-Cap\'{\i }tol 11.
+Cap\'{\i }tol 10.
 [45
 
 ]
-Cap\'{\i }tol 12.
-
-Package biblatex Warning: No driver for entry type 'artricle'.
-(biblatex)                Using fallback driver on input line 1065.
-
+Cap\'{\i }tol 11.
 [46
 
-] [47]
+]
+Cap\'{\i }tol 12.
+[47
+
+]
+
+Package biblatex Warning: No driver for entry type 'artricle'.
+(biblatex)                Using fallback driver on input line 1086.
+
+[48]
 Cap\'{\i }tol 13.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 1066.
+(hyperref)                removing `\@ifnextchar' on input line 1087.
 
-[48
+[49
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1069.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1069.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1090.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1090.
  (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1069.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1069.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1090.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1090.
 Package rerunfilecheck Info: File `Doc.out' has not changed.
-(rerunfilecheck)             Checksum: C8CF0DA3191629D7D78854A4FACED087;3828.
+(rerunfilecheck)             Checksum: 4E8C86D7B04AC34D9BFD0BAAB0BBEED7;3348.
 Package logreq Info: Writing requests to 'Doc.run.xml'.
 \openout1 = `Doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
  28444 strings out of 492623
- 515304 string characters out of 6135669
- 967162 words of memory out of 5000000
- 31429 multiletter control sequences out of 15000+600000
+ 515309 string characters out of 6135669
+ 967218 words of memory out of 5000000
+ 31426 multiletter control sequences out of 15000+600000
  16245 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,14n,48p,868b,1978s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,14n,48p,868b,1979s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf (49 pages, 580857 bytes).
+Output written on /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf (50 pages, 581579 bytes).
 PDF statistics:
- 1103 PDF objects out of 1200 (max. 8388607)
- 1001 compressed objects within 11 object streams
- 411 named destinations out of 1000 (max. 500000)
- 521 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1086 PDF objects out of 1200 (max. 8388607)
+ 984 compressed objects within 10 object streams
+ 414 named destinations out of 1000 (max. 500000)
+ 481 words of extra memory for PDF output out of 10000 (max. 10000000)
 
