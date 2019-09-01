@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper,oneside]{article}
+    \usepackage{a4wide}
+    \usepackage{epsfig}
+    \usepackage{amsmath}
+    \usepackage{tabu}
+    \usepackage{amsfonts}
+    \usepackage{latexsym}
+    \usepackage[utf8]{inputenc}
+    \usepackage{listings}
+    \usepackage{color}
+    \usepackage{titlesec}    
+    \usepackage{enumitem}
+    \usepackage[catalan]{babel}
+    \usepackage{newunicodechar}
+    \usepackage{graphicx}
+    \usepackage{subcaption}
+    \usepackage{float}
+    \usepackage{xcolor}
+    \usepackage{pgf, tikz}
+    \usepackage{listings}
+    \usepackage{eurosym}
+    \usepackage[figuresleft]{rotating}
+    \usepackage{mathtools}
+    \usepackage{pdfpages}
+  \setcounter{tocdepth}{2}
+  \setcounter{secnumdepth}{4}
+  
+  \newunicodechar{Ŀ}{\L.}
+  \newunicodechar{ŀ}{\l.}
+  \definecolor{dkgreen}{rgb}{0,0.6,0} 
+  \definecolor{gray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mauve}{rgb}{0.58,0,0.82}
+  
+  
+\definecolor{maroon}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\lstdefinelanguage{XML}
+{
+  basicstyle=\ttfamily,
+  morestring=[s]{"}{"},
+  morecomment=[s]{?}{?},
+  morecomment=[s]{!--}{--},
+  commentstyle=\color{darkgreen},
+  moredelim=[s][\color{black}]{>}{<},
+  moredelim=[s][\color{red}]{\ }{=},
+  stringstyle=\color{blue},
+  identifierstyle=\color{maroon}
+}
+
+  \usepackage{hyperref}
+  \hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+  }
+  
+  \setlength{\footskip}{50pt}
+  \setlength{\parindent}{0cm} \setlength{\oddsidemargin}{-0.5cm} \setlength{\evensidemargin}{-0.5cm}
+  \setlength{\textwidth}{17cm} \setlength{\textheight}{23cm} \setlength{\topmargin}{-1.5cm} \addtolength{\parskip}{2ex}
+  \setlength{\headsep}{1.5cm}
+  
+  \renewcommand{\contentsname}{Continguts}
+  % \titleformat{\chapter}[display]
+  % {\normalfont\bfseries}{}{0pt}{\Large}
+  \titleformat{\chapter}[block]
+  {\normalfont\LARGE\bfseries}{\thechapter.}{1em}{\LARGE}
+  \titleformat{\section}[block]
+  {\normalfont\Large\bfseries}{\thesection.}{1em}{\Large}
+  
+  \begin{document}
+  
+  \tableofcontents
+  
+  \end{document}

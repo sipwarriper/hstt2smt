@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-04-28" view-index="0" gantt-divider-location="543" resource-divider-location="300" version="2.8.10" locale="en_US">
+    <description/>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Name" width="382" order="0"/>
+        <field id="tpd4" name="Begin date" width="80" order="1"/>
+        <field id="tpd5" name="End date" width="77" order="2"/>
+        <option id="taskLabelUp" value=""/>
+        <option id="color.recent"><![CDATA[#ffcc99 #ff3399]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+            <taskproperty id="tpc0" name="Name" type="custom" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Estudi del problema i del treball prèvi" color="#8cb6ce" meeting="false" start="2019-05-01" duration="15" complete="0" thirdDate="2019-04-02" thirdDate-constraint="0" expand="true"/>
+        <task id="2" name="Implementació del Parser" color="#8cb6ce" meeting="false" start="2019-05-20" duration="28" complete="0" thirdDate="2019-04-15" thirdDate-constraint="0" expand="true"/>
+        <task id="5" name="Estudi yices" color="#8cb6ce" meeting="false" start="2019-06-21" duration="10" complete="0" thirdDate="2019-05-27" thirdDate-constraint="0" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Estudi API SMT" color="#8cb6ce" meeting="false" start="2019-06-27" duration="10" complete="0" thirdDate="2019-04-25" thirdDate-constraint="0" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="Implementació Encoding" color="#8cb6ce" meeting="false" start="2019-07-11" duration="26" complete="0" thirdDate="2019-04-25" thirdDate-constraint="0" expand="true">
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" name="Proves diferents encodings" color="#8cb6ce" meeting="false" start="2019-08-16" duration="7" complete="0" thirdDate="2019-04-25" thirdDate-constraint="0" expand="true"/>
+        <task id="14" name="Comparacions de resultats i mostreig" color="#8cb6ce" meeting="false" start="2019-08-22" duration="7" complete="0" thirdDate="2019-04-25" thirdDate-constraint="0" expand="true">
+            <depend id="26" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="23" name="Confecció memòria" color="#ffcc99" meeting="false" start="2019-08-06" duration="20" complete="0" thirdDate="2019-04-24" thirdDate-constraint="0" expand="true">
+            <depend id="26" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="26" name="Entrega" color="#ff3399" meeting="false" start="2019-09-03" duration="1" complete="0" thirdDate="2019-05-20" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

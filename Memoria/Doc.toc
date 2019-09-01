@@ -117,12 +117,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {10}Conclusions}{53}{chapter.10}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Treball futur}{54}{chapter.11}% 
+\contentsline {chapter}{\numberline {11}Treball futur}{55}{chapter.11}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{55}{chapter.12}% 
+\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{56}{chapter.12}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{57}{chapter.13}% 
+\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{58}{chapter.13}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.1}Compilaci\IeC {\'o}}{57}{section.13.1}% 
+\contentsline {section}{\numberline {13.1}Compilaci\IeC {\'o}}{58}{section.13.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.2}\IeC {\'U}s}{57}{section.13.2}% 
+\contentsline {section}{\numberline {13.2}\IeC {\'U}s}{58}{section.13.2}% 
