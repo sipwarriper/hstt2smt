@@ -23,6 +23,8 @@
     \usepackage{eurosym}
     \usepackage[figuresleft]{rotating}
     \usepackage{mathtools}
+    \usepackage{pdfpages}
+
 
     \addbibresource{bibliography.bib}
     \bibliography{bibliography}
@@ -82,6 +84,11 @@
   {\normalfont\Large\bfseries}{\thesection.}{1em}{\Large}
   
   \begin{document}
+  \begin{titlepage}
+    \includepdf[pages=-]{portada.pdf}
+  \end{titlepage}
+
+
   \shipout\null
   \tableofcontents
   
@@ -1310,17 +1317,78 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   L'encoding Ladder és el que, consitentment, té més variables. 
   A la vegada, sembla ser el segon que genera menys clàusules, sent el primer l'encoding de Heule. Aquest, tot i no introduir tantes variables com d'altres, és consistentment el que té menys clàusules.
 
+  \section{Resultats d'optimització}
+
 
 
 
   \chapter{Conclusions}
   %%diagrama de gantt... semblant pero diferent del inicial
+
+  Durant el desenvolupament d'aquest treball s'han estudiat, repassat i aplicat diverses tècniques de programació per restriccions, 
+  sobretot les diferents codificacions de restriccions globals a CNF per SAT i SMT, que s'han acabat utilitzant en el generador d'horaris que s'ha creat. 
+
+  Pel que fa el generador desenvolupat al llarg d'aquest treball, tot i estar molt lluny de la perfecció, 
+  ha permés posar a prova les diferents codificacions de les restriccions globals vistes en el treball 
+  i compleix amb els objectius marcats al principi del treball. El generador és capaç de resoldre el problema en un temps raonable (la instància que tarda més és la 4, que ens tarda menys de 10 minuts), 
+  excepte la instància 7, la qual al intentar resoldre, ens quedem sense memòria. Cal tenir en compte però que les instancies 4 i 6 són problemes de instituts reals de Brazil, i els temps d'execució resultants en aquestes instàncies són molt positius.
+
+  La realització d'aquest treball m'ha ajudat molt a aprofondir i consolidar molts dels coneixaments adquirits al llarg de la carrera, particularment els apartats referents al itinerari que he estudiat, el de computació. 
+  També m'ha ajudat a ficar a prova la meva organització i plantejament dels problemes, sobretot els problemes de satisfacció de restriccions, i el com es resolen. 
+  També m'ha ajudat a compendre una mica millor el funcionament del món de la recerca. 
+
+
+  
+  
+
+  % Brazil Instance 4 is a real problem, collected in the year 2000 by M.J.F. Souza, at the public school Dom Silvério, located in Mariana, Minas Gerais, Brasil. This instance corresponds to the morning shift at this school. It was provided in XHSTT format by Haroldo Santos. Haroldo's solution can be found on page 69 (Appendix B) of his PhD thesis.
+
+  %razil Instance 6 is a real problem, collected in the year 2000, at the public school Dom Silvério, located in Mariana, Minas Gerais, Brasil. This instance corresponds to the evening shift at this school. In the work of M.J.F. Souza et al, it corresponds to data set DS00N. It was provided in XHSTT by Haroldo Santos.
+
+
+
   \chapter{Treball futur}
+
+  En primer lloc seria interessant afegir encodings de les diferents restriccions del problema que no suporta actualment el generador d'horaris, posat que ens hem centrat en un sub-conjunt de les instàncies disponibles, les que tenen els recursos preassignats.
+
+  Es podrien explorar els paradigmes de SMT i intentar codificar el problema amb les diferents teories que té, com ara els BitVectors.
+
+  També es podrien millorar les codificacions i el model en sí per utilitzar menys memòria i sobretot, per intentar aconseguir millors resultats al optimitzar el problema, comparant amb les diferents solucions disponibles per a cada instància.
 
   \nocite{*}
   \chapter{Bibliografía}
   \printbibliography[heading=none]
   \chapter{Manual d'usuari i insta\l.lació}
+
+  \section{Compilació}
+
+  Hi ha un \textit{Makefile} per a poder compilar el projecte. Per fer-ho cal tenir insta\l.lades les llibreries \textit{pugixml}\footnote{\url{https://pugixml.org/}} i \textit{yices2}\footnote{\url{https://yices.csl.sri.com/}}
   
+  Per a compilar de forma que s'obtingui el millor rendiment, no cal utilitzar cap paràmetre, però si es vol la versió de depuració, cal ficar el paràmetre \textit{DEBUG:=1}.
+  \begin{center}
+  \begin{itemize}
+    \item Per a compilar normalment: \texttt{make}
+    \item Per a compilar amb capacitat de depurar: \texttt{make DEBUG:=1}
+  \end{itemize}
+  \end{center}
+
+  Això deixa l'executable en la carpeta ./bin/linux sóta el nom \textit{hstt2smt}
+
+
+  \section{Ús}
+  
+  El resultat de compilar com s'ha vist anteriorment, és un executable amb els següents paràmetres rellevants:
+  \begin{itemize}
+    \item fitxer: instància XHSTT que es vol resoldre.
+    \item \texttt{-ub, --upper-bound}: per indicar un upper-bound al resoldre
+    \item \texttt{--use-assumptions=0}: paràmetre heredat de la API SMT, s'ha de ficar a 0, perquè no s'han implementat assumpcions.
+    \item \texttt{-o, --optimizer}: permèt triar l'optimitzador a utilitzar, si es tria \textit{check} no optimitza. Opcions: \texttt{check, ub, bu, dico, native}
+  \end{itemize}
+
+  Per exemple, per a resoldre la primera instància de Brazil, anomanada \textit{BrazilInstance1.xml} que es troba en la carpeta \textit{Instances}, es pot fer (l'ordre dels pràmetres no importa):
+
+  \begin{center}
+    \texttt{./bin/linux/hstt2smt instances/BrazilInstance1.xml --use-assumptions=0 -o=check}
+  \end{center}
   
   \end{document}
