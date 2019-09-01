@@ -99,24 +99,24 @@
   % \section{Propòsit}
   % \section{Objectius}
 
-  La confecció d'horaris és un problema recorrent amb el que es troben els instituts que amaga una alta combinatòria, dificultant-ne molt la seva elaboració manual posat que s'han de prendre moltíssimes decisions a cegues,
-  fent que sigui molt probable cometre errors en la confecció. En aquesta situació, amb la aparició dels computadors molts instituts varen decidir ajudar-se en aquesta tasca utilitzant eines informàtiques capaces 
-  d'explorar grans quantitats de combinacions per segon. No obstant a això, amb aquelles primeres eines es seguien tenint molts problemes per generar horaris viables, que normalment eren de qualitat baixa 
+  La confecció d'horaris és un problema recurrent amb el qual es troben els instituts que amaga una alta combinatòria, dificultant-ne molt la seva elaboració manual posat que s'han de prendre moltíssimes decisions a cegues,
+  fent que sigui molt probable cometre errors en la confecció. En aquesta situació, amb l'aparició dels computadors molts instituts varen decidir ajudar-se en aquesta tasca utilitzant eines informàtiques capaces 
+  d'explorar grans quantitats de combinacions per segon. No obstant a això, amb aquelles primeres eines se seguien tenint molts problemes per generar horaris viables, que normalment eren de qualitat baixa 
   i requerien un refinament posterior que s'havia de fer de forma manual.
   
-  El HSTT (High School TimeTabling) consisteix en la solució de forma automàtica de aquest problema d'alta complexitat (NP). 
-  Així doncs, el que s'intenta és la configuració automàtica de horaris de institut partint de una sèrie de recursos 
+  El HSTT (High School TimeTabling) consisteix en la solució de forma automàtica d'aquest problema d'alta complexitat (NP). 
+  Així doncs, el que s'intenta és la configuració automàtica d'horaris d'institut partint d'una sèrie de recursos 
   (per exemple: aules, professors, assignatures, grups) i repartir-los de manera que sigui viable i tenint en compte 
-  de manera total o parcial les preferències del professorat en quant a horaris, continuïtat, grups, etc. Tot això fa que el problema sigui molt difícil de resoldre, degut al gran nombre de combinacions possibles entre els diferents recursos.
+  de manera total o parcial les preferències del professorat respecte a horaris, continuïtat, grups, etc. Tot això fa que el problema sigui molt difícil de resoldre, a causa del gran nombre de combinacions possibles entre els diferents recursos.
   
   Afegint dificultat al problema, depenguen del país del qual estiguem parlant existeixen una gran diversitat de requisits propis, degut a les característiques pròpies del sistema d'estudis secundaris de cada lloc.
 
-  Degut a tot el mencionat encara no existeix cap eina capaç de trobar una solució òptima al problema de manera determinista en un temps raonable, encara que s'ha avançat molt en la resolució de problemes d'aquest tipus i costen de trobar instituts que optin per fer els horaris de forma manual.
+  A causa de tot el mencionat encara no existeix cap eina capaç de trobar una solució òptima al problema de manera determinista en un temps raonable, encara que s'ha avançat molt en la resolució de problemes d'aquest tipus i costen de trobar instituts que optin per fer els horaris de forma manual.
   
   Els objectius d'aquest treball són els següents:
   \begin{itemize}
     \item Aprofundir sobre el problema de la generació d'horaris en sí i sobre els problemes de satisfacció de restriccions en general i les tècniques que s'utilitzen per resoldre'ls, com ara, SAT i les seves diverses extensions.
-    \item Desenvolupar un generador d'horaris automàtic utilitzant les tècniques estudiades anteriorment, aprofitant les eines relacionades que s'han desenvolupades recentment pel grup de recerca Lògica i Programació, que resolgui el problema en un temps raonable i intenti trobi la millor solució possible, 
+    \item Desenvolupar un generador d'horaris automàtic utilitzant les tècniques estudiades anteriorment, aprofitant les eines relacionades que s'han desenvolupat recentment pel grup de recerca Lògica i Programació, que resolgui el problema en un temps raonable i intenti trobi la millor solució possible, 
     cosa que es preveu molt complicada d'aconseguir en un temps raonable en les instàncies grosses.
     
   \end{itemize}
@@ -125,17 +125,17 @@
   Aquest treball s'emmarca dins del grup de recerca de Lògica i Programació de l'àmbit d'àrea tècnica de la Universitat de Girona.
 
   El grup basa la seva recerca en l'estudi de satisfactibilitat de fórmules proposicionals booleanes (SAT) i Satisfiability Modulo Theories (SMT) i les seves
-  aplicació per a la resolució de problemes combinatoris com ara problemes de \textit{scheduling} i \textit{planning} arribant a utilitzar amb èxit tècniques innovadores en altres àmbits com
+  aplicacions per a la resolució de problemes combinatoris com ara problemes de \textit{scheduling} i \textit{planning} arribant a utilitzar amb èxit tècniques innovadores en altres àmbits com
   pot ser: els problemes de \textit{scheduling} i \textit{planning}.
 
-  Durant la elaboració del treball he rebut ajuda i assessorament dels membres del grup, incloent el meu tutor de projecte, el Dr. Josep Suy, qui també en forma part.
+  Durant l'elaboració del treball he rebut ajuda i assessorament dels membres del grup, incloent els meus tutors de projecte, el Dr. Josep Suy i el Dr. Jordi Coll, qui també en formen part.
 
   \section{Estructura del Treball}
   A continuació s'exposa l'estructura d'aquest document: 
   \begin{enumerate}
     \item Introducció, motivacions, propòsit i objectius: Situa el marc del projecte, explica les raons per les quals s'ha escollit el treball i en defineix els objectius.
     \item Estudi de viabilitat: Justifica la capacitat de fer el projecte
-    \item Metodologia i Planificació: Tot i que a la guia van separats, s'ha decidit ajuntar-los per la gran relació que tenen entre ells. En aquest apartat s'exposa la metodologia que s'ha seguit a la hora de implementar el projecte i es defineix l'estratègia seguida per arribar als objectius.
+    \item Metodologia i Planificació: Tot i que a la guia van separats, s'ha decidit ajuntar-los per la gran relació que tenen entre ells. En aquest apartat s'exposa la metodologia que s'ha seguit a l'hora d'implementar el projecte i es defineix l'estratègia seguida per arribar als objectius.
     \item Marc de treball i conceptes previs: S'exposa el treball previ realitzat sobre el problema, i els coneixements necessaris per a la implementació del programa.
     \item Requisits del sistema: Requisits funcionals i no funcionals que ha de complir el sistema.
     \item Anàlisi i disseny del sistema: Descripció del maquinari i programari utilitzat durant el desenvolupament del projecte.
@@ -176,7 +176,7 @@
   Per part dels requisits de maquinari, tot i que HSTT és un problema dur, 
   després de veure el treball previ realitzat en aquest mateix problema i d'altres de característiques semblants, s'ha determinat que la meva màquina d'ús diari és més que suficient per a tal de realitzar el desenvolupament del generador d'horaris.
 
-  Pel que fa a la habilitat de desenvolupar aquest treball s'ha determinat que era possible degut a que 
+  Pel que fa a l'habilitat de desenvolupar aquest treball s'ha determinat que era possible gràcies al fet que
   el grup de recerca Lògica i Programació ha treballat i aconseguit solucionar problemes semblants de forma exitosa utilitzant tècniques innovadores. 
   Utilitzant els avenços fets pel grup s'ha decidit que es podria desenvolupar el treball en el marc de temps desitjat.
 
@@ -184,7 +184,7 @@
 
   \section{Viabilitat econòmica}
   
-  Degut a que tot el software utilitzat és gratuït, lliure i de codi obert, i que el codi que el grup de recerca m'ha cedit també ha estat gratuït. Per part del maquinari, només s'ha utilitzat el que ja tenia amb anterioritat, així que per aquesta banda tampoc ha suposat cap cost.
+  Gràcies a que tot el software utilitzat és gratuït, lliure i de codi obert, i que el codi que el grup de recerca m'ha cedit també ha estat gratuït. Per part del maquinari, només s'ha utilitzat el que ja tenia amb anterioritat, així que per aquesta banda tampoc ha suposat cap cost.
   Així doncs, aquest projecte no s'ha requerit de cap inversió ni despesa econòmica. 
   Així doncs l'únic cost que ha suposat aquest treball han estat el temps necessari per fer-lo i les ganes que se li han hagut de ficar. 
 
@@ -240,23 +240,23 @@
 
   \chapter{Metodologia i Planificació}
   \section{Metodologia}
-  La part més important i grossa d'aquest treball és la creació d'un generador automàtic d'horaris utilitzant les eines oferides per el grup de recerca. 
+  La part més important i grossa d'aquest treball és la creació d'un generador automàtic d'horaris utilitzant les eines oferides pel grup de recerca. 
   Primer caldrà estudiar el problema (HSTT) i la seva duresa, per poder ser capaç d'entendre el què estem treballant.
-  Des de aquí es procedirà a la implementació del programa, utilitzant la API SMT creada per el Dr. Jordi Coll, el qual es membre del grup de recerca de Lògica i Programació del departament de Informàtica, Matemàtica Aplicada i Estadística.
+  Des de aquí es procedirà a la implementació del programa, utilitzant la API SMT creada pel Dr. Jordi Coll, el qual es membre del grup de recerca de Lògica i Programació del departament d'Informàtica, Matemàtica Aplicada i Estadística.
   Aquesta API ens estalviarà la codificació de les restriccions de cardinalitat i les restriccions pseudo-booleanes, 
-  apart de oferir-nos una interfície senzilla per poder implementar el model en diferents \textit{encodings} i múltiples opcions.
+  a part d'oferir-nos una interfície senzilla per poder implementar el model en diferents \textit{encodings} i múltiples opcions.
 
-  Després de fer un estudi preliminar del problema i el treball previ respecte aquest, la metodologia de treball que s'ha seguit ha estat la de entregues periòdiques. 
-  Consistint en fer una reunió amb els tutors per decidir el pròxim pas del treball i jo dedicar-me durant un temps a fer aquest pas. Després d'aquest temps es convoca una altre reunió on es valora el treball fet i es decideix com seguir. 
-  Des de aquí es va repetint fins a acabar el projecte.
+  Després de fer un estudi preliminar del problema i el treball previ respecte aquest, la metodologia de treball que s'ha seguit ha estat la d'entregues periòdiques. 
+  Consistint a fer una reunió amb els tutors per decidir el pròxim pas del treball i jo dedicar-me durant un temps a fer aquest pas. Després d'aquest temps es convoca una altra reunió on es valora el treball fet i es decideix com seguir. 
+  Des d'aquí es va repetint fins a acabar el projecte.
 
   El model de desenvolupament que s'ha triat en aquest treball ha estat el model de prototips (o prototipatge), 
-  que consisteix en crear, com el nom indica, prototips del programari que es pretén crear, és a dir, versions incompletes del software que s'està desenvolupant.
+  que consisteix a crear, com el nom indica, prototips del programari que es pretén crear, és a dir, versions incompletes del software que s'està desenvolupant.
   Generalment, un prototip només compleix alguns dels requeriments del sistema i pot no tenir res a veure amb el producte final. Aquest model presenta diferents beneficis:
   \begin{itemize}
     \item Permet obtenir \textit{feedback} molt aviat en les etapes de desenvolupament.
     \item Augmenta la precisió de les estimacions de temps de dedicació a la implementació de les funcionalitats. 
-    \item Permet que els desenvolupadors es centrin en en treballar en les parts del sistema que comprenen i no haver de implementar tot el sistema de cop.
+    \item Permet que els desenvolupadors se centrin en treballar en les parts del sistema que comprenen i no haver d'implementar tot el sistema de cop.
   \end{itemize}
 
 
@@ -274,11 +274,11 @@
   \section{Planificació}
 
   Com s'ha dit en l'apartat anterior primer caldrà estudiar el problema HSTT i la seva duresa. 
-  Després es procedirà amb el disseny i la implementació del generador. Primer caldrà dissenyar implementar i testejar un \textit{parser} pels fitxers. En aquest pas també cal pensar i implementar en quina estructura es guardaran aquestes dades i com es transferiran en el model que es codificarà posteriorment. 
+  Després es procedirà amb el disseny i la implementació del generador. Primer caldrà dissenyar implementar i depurar un \textit{parser} pels fitxers. En aquest pas també cal pensar i implementar en quina estructura es guardaran aquestes dades i com es transferiran en el model que es codificarà posteriorment. 
 
   Al tenir el \textit{parser} i l'estructura de dades enllestits caldrà començar a estudiar com funciona la API per C++ del Yices i 
   posteriorment la API SMT del Dr. Jordi Coll. Això ens permetrà començar a dissenyar, codificar i testejar el model, que és el següent pas del treball. 
-  Al tenir enllestit el model, es faran les proves de rendiment amb diferents límits de optimització i diferents \textit{encodings} de les restriccions de cardinalitat.
+  Al tenir enllestit el model, es faran les proves de rendiment amb diferents límits d'optimització i diferents \textit{encodings} de les restriccions de cardinalitat.
   Finalment s'implementarà una forma maca i llegible de mostrar els horaris generats.
   
   Amb això el generador es donarà per acabat i es passarà a la confecció de la memòria del treball. 
@@ -300,45 +300,45 @@
 
   \chapter{Marc de treball i conceptes prèvis}
   \section{Marc de treball}
-    Com s'ha mencionat en la introducció aquest treball s'emmarca dins del grup de recerca de Lògica i Programació (LAP) del departament de Informàtica, Matemàtica Aplicada i Estadística (IMAE) de la Universitat de Girona. 
-    En el treball s'utilitzaran les eines desenvolupades recentment en el grup de recerca, per ser exactes, la API SMT feta en C++ per el Dr. Jordi Coll. 
-    Aquesta API permet codificar problemes SAT, MaxSAT i SMT per a diferents \textit{solvers} de forma transparent a aquest i te implementades les diferents restriccions de cardinalitat i pseudo-booleanes en les diferents possibles codificacions. 
+    Com s'ha mencionat en la introducció aquest treball s'emmarca dins del grup de recerca de Lògica i Programació (LAP) del departament d'Informàtica, Matemàtica Aplicada i Estadística (IMAE) de la Universitat de Girona. 
+    En el treball s'utilitzaran les eines desenvolupades recentment en el grup de recerca, per ser exactes, la API SMT feta en C++ pel Dr. Jordi Coll. 
+    Aquesta API permet codificar problemes SAT, MaxSAT i SMT per a diferents \textit{solvers} de forma transparent a aquest i té implementades les diferents restriccions de cardinalitat i pseudo-booleanes en les diferents possibles codificacions. 
     També inclou diferents algoritmes d'optimització implementats.
 
-    La resta del treball previ seria el treball també sobre confecció d'horaris d'institut fet el 2015 per en Cristòfor Nogueira\cite{treballCristo}
+    La resta del treball previ seria el treball final de grau fet el 2015 per en Cristòfor Nogueira, el qual també consisteix en la confecció d'horaris d'institut \cite{treballCristo}.
     %nose seguir  
     %s'ha de mencionar el treball den cristofol, probablament, 
 
   \section{Definició del problema}
     El problema que es treballa és el de la confecció d'horaris per a institut (HSTT de \textit{High School Time Tables}). 
-    Aquest consisteix en assignar a cada assignatura que es fa en un centre l'espai de temps en que s'impartirà i el conjunt de recursos que utilitzarà. 
+    Aquest consisteix en assignar a cada assignatura que es fa en un centre l'espai de temps en què s'impartirà i el conjunt de recursos que utilitzarà. 
     Els recursos normalment seran professors i aules, però es contemplen altres possibles necessitats especials de cada centre, per això es generalitza.
 
-    La duresa de aquest problema es troba en assignar un espai de temps per a cada assignatura donant-li els recursos que necessita sense violar cap restricció que aquests tinguin, 
-    com podria ser no fer dues assignatures a la vegada en la mateixa aula, o sigui, que al realitzar-se la assignatura tots els seus recursos estiguin disponibles.  
-    De la mateixa manera es poden imposar diverses restriccions de naturaleses diferents i amb cada una s'aniran reduint les possibles combinacions vàlides i fent més i més difícil la generació del horari.
+    La duresa d'aquest problema es troba en assignar un espai de temps per a cada assignatura donant-li els recursos que necessita sense violar cap restricció que aquests tinguin, 
+    com podria ser no fer dues assignatures a la vegada en la mateixa aula, o sigui, que en realitzar-se l'assignatura tots els seus recursos estiguin disponibles.  
+    De la mateixa manera es poden imposar diverses restriccions de naturaleses diferents i amb cada una s'aniran reduint les possibles combinacions vàlides i fent més i més difícil la generació de l'horari.
     \subsection{Estudi de duresa}
 
     
 
-    \subsubsection{Incís en la teoría de la computació}
+    \subsubsection{Incís en la teoria de la computació}
     Abans de procedir a l'estudi de la duresa del problema HSTT, caldrà explicar els següents conceptes de la teoria de la computació: 
     \paragraph*{Problemes decidibles i indecidibles}
 
-    Un problema decidible és aquell per el qual existeix una màquina de Turing que para en totes les entrades possibles amb una resposta: sí o no. Aquests problemes també són coneguts com a Turing Decidibles. 
+    Un problema decidible és aquell pel qual existeix una màquina de Turing que para en totes les entrades possibles amb una resposta: sí o no. Aquests problemes també són coneguts com a Turing Decidibles. 
     Així doncs, un problema decidible és aquell pel qual sempre podrem construir un algorisme que sempre respon el problema.
     
-    Un problema pot ser semi-decidible, això passa quan una màquina de Turing quan l'entrada és acceptada, però es pot penjar o es pot parar quan l'entrada es rebutja. Aquests problemes també son referits com a Turing Reconeixibles.
+    Un problema pot ser semi-decidible, això passa quan una màquina de Turing quan l'entrada és acceptada, però es pot penjar o es pot parar quan l'entrada es rebutja. Aquests problemes també són referits com a Turing Reconeixibles.
     
-    Un problema indecidible és aquell pel qual no podem construir un algorisme que resolgui el problema en temps finit. Aquests problemes poden ser parcialment decidibles, però sempre hi haurà una condició que portara la màquina de Turing a bucle infinit.
+    Un problema indecidible és aquell pel qual no podem construir un algorisme que resolgui el problema en temps finit. Aquests problemes poden ser parcialment decidibles, però sempre hi haurà una condició que portarà la màquina de Turing a bucle infinit.
 
 
     \paragraph*{P, NP i NP-Completesa}
     \begin{itemize}
       \item \textbf{P: }És el conjunt de problemes que poden ser resolts en temps polinòmic amb una màquina de Turing determinista. 
       \item \textbf{NP: }És el conjunt de problemes que poden ser resolts en temps polinòmic amb una màquina de Turing no determinista. 
-      \item \textbf{NP-Complet: }És el conjunt de problemes més durs en el conjunt NP. Un problema C és NP-Complet si C és NP i tot problema NP és reduïble a C.
-      \item \textbf{NP-Hard: }És el conjunt de problemes als quals es pot reduir tot problema NP. O sigui, un problema C és NP-Hard si tot problema NP és reduïble a C. 
+      \item \textbf{NP-Complet: }És el conjunt de problemes més durs en el conjunt NP. Un problema C és NP-Complet si C és NP i tot problema NP és reductible a C.
+      \item \textbf{NP-Hard: }És el conjunt de problemes als quals es pot reduir tot problema NP. O sigui, un problema C és NP-Hard si tot problema NP és reductible a C. 
       \item \textbf{Reducció: }Si tenim dos problemes $L_1$ i $L_2$  i tenim un algoritme $A_2$ que resol $L_2$. Reduir $L_1$ a $L_2$ és transformar el problema $L_1$ a $L_2$ així poder utilitzar el algoritme $A_2$ per resoldre el problema, creant així un algoritme $A_1$ amb l'estructura que es pot veure en la figura \ref{fig:reduccio}
       \begin{figure}[ht!]
         \includegraphics[width=\textwidth]{Diagrames/Reduccio.png}
@@ -359,10 +359,10 @@
 
     Una de les fonts de la duresa del problema ve a l'hora de gestionar els recursos de manera coherent. Així que al confeccionar un horari serà d'interès mantenir el nombre d'incoherències per sota un llindar. 
     Les instàncies HSTT acostumen a tenir com a mínim un tipus de recurs que compleix aquestes premisses. 
-    En cas q no en tinguin, és possible realitzar una transformació binària per arribar a aquesta formulació, 
+    En cas de que no en tinguin, és possible realitzar una transformació binària per arribar a aquesta formulació, 
     ja que tots els recursos poden atendre a un nombre limitat d'assignatures de manera simultània i totes les instàncies disposen d'un nombre limitat de recursos. Per tant, i per simplificar, considerarem només un únic recurs, de disponibilitat limitada. També considerarem que un recurs només pot atendre a una assignatura alhora.
 
-    Diem que dues assignatures són incoherents si comparteixen algun espai de temps. És a dir, si es solapen. Com que els recursos són limitats interessa limitar el nombre de solapaments. Utilitzarem una codificació del problema de la motxilla per representar aquesta situació.
+    Diem que dues assignatures són incoherents si comparteixen algun espai de temps. És a dir, si se superposen. Com que els recursos són limitats interessa limitar el nombre de superposicions. Utilitzarem una codificació del problema de la motxilla per representar aquesta situació.
 
     El problema de la motxilla consisteix en determinar si un conjunt d'ítems $U = \{u_1, u_2, ..., u_n\}$, cadascun amb un pes associat $w_i$, es poden co\l.locar en un conjunt de motxilles $B = \{b_1, b_2, ..., b_m\}$, 
     cadascuna amb una capacitat màxima $c_i$ de manera que cap motxilla sobreexcedeixi la seva capacitat.
@@ -383,10 +383,10 @@
     El problema doncs, rau en determinar quins espais de temps s'assignen a cada $x_i$. 
     Suposem que aquest problema formulat com el de la motxilla té solució: $f: U \rightarrow B$ on el valor de retorn de $f$ és l'index de la motxilla on s'ha de co\l.locat l'ítem d'entrada. 
     Llavors, per cada assignatura $x_i$, escollim $w_i$ espais de temps, q no hagin estat escollits prèviament, del conjunt $S_k = \{t_k,1 ... t_{k, c_k}\}$, on $k = f(u_i)$. 
-    Es a dir, s'escullen tants espais de temps com el pes de l'ítem que representa de manera que no hi hagin solapaments entre els membres de X. Aquest procés és possible perquè $f$ ens garanteix que com a molt s'escolliran $c_k$ espais de temps de $S_k$. 
-    Al final tenim que tots els events tenen assignats exactament $w_i$ espais de temps i cada $X_i$ se solapa amb un, i només un event de $Y$. Per tant, tenim que el nombre d'incoherències o solapaments és $n$.
+    És a dir, s'escullen tants espais de temps com el pes de l'ítem que representa de manera que no hi hagi solapaments entre els membres de X. Aquest procés és possible perquè $f$ ens garanteix que com a molt s'escolliran $c_k$ espais de temps de $S_k$. 
+    Al final tenim que tots els events tenen assignats exactament $w_i$ espais de temps i cada $X_i$ se solapa amb un, i només un event de $Y$. Per tant, tenim que el nombre d'incoherències o superposicions és $n$.
     
-    Ara, suposem que la instància que la instància HSTT que hem descrit genera una solució amb un nombre de solapaments $\leq n$. Sabem que com a mínim el nombre de solapaments ha de ser $\geq n$, ja que cada $x_i$ 
+    Ara, suposem que la instància que la instància HSTT que hem descrit genera una solució amb un nombre de solapaments $\leq n$. Sabem que com a mínim el nombre de superposicions ha de ser $\geq n$, ja que cada $x_i$ 
     s'ha de solapar com a mínim una vegada amb algun membre de Y. Per tant el nombre de solapaments de la solució generada per la instància HSTT ha de ser exactament n i cada event $x_i$ es solapa només una vegada amb un sol membre de $Y$.
     Podríem reimplementar, doncs, $f$ de manera que a partir de la solució obtinguda per la instància HSTT es limiti a esbrinar per cada event $u_i$, amb quint event $y_i$ es solapa, de manera que $f(u_i) =j$.
 
@@ -404,7 +404,7 @@
 
   \subsection{Temps, Recursos i Events}
   \paragraph*{Temps}~\\
-  En aquest tipus de fill es defineixen els múltiples espais de temps, i opcionalment els grups de espais de temps. Els Grups de espais de temps (\textit{TimeGroups}) poden ser de tres tipus: 
+  En aquest tipus de fill es defineixen els múltiples espais de temps, i opcionalment els grups d'espais de temps. Els Grups de espais de temps (\textit{TimeGroups}) poden ser de tres tipus: 
   \textit{Week}, \textit{Day} i \textit{TimeGroup}. Cada grup consisteix en un nom i un identificador.
   
   Un espai de temps es defineix amb la clau \textit{Time}. Aquesta es pot relacionar amb un grup d'espais de temps utilitzant l'identificador d'aquest. Apart d'això té un nom i un identificador.
@@ -432,7 +432,7 @@
 
   \subsection{Restriccions}
 
-  Aquí s'enumeraràn els diferents tipus de restriccions definides en el format.\footnote{Més informació a \url{http://www.it.usyd.edu.au/~jeff/cgi-bin/hseval.cgi?op=spec&part=constraints}} 
+  Aquí s'enumeraran els diferents tipus de restriccions definides en el format.\footnote{Més informació a \url{http://www.it.usyd.edu.au/~jeff/cgi-bin/hseval.cgi?op=spec&part=constraints}} 
 
   Com a pautes generals, cada restricció tindrà els següents camps:
   \begin{itemize}
@@ -463,7 +463,7 @@
 
   \paragraph*{Distribute Split Events Constraints} ~\\
 
-  Restricció que limita el nombre de lliçons de una duració determinada d'un grup d'events. Per exemple, per fer que totes les lliçons de Matemàtiques siguin de duració 2.
+  Restricció que limita el nombre de lliçons d'una duració determinada d'un grup d'events. Per exemple, per fer que totes les lliçons de Matemàtiques siguin de duració 2.
 
 
   A continuació un exemple:
@@ -472,7 +472,7 @@
 
   \paragraph*{Prefer Times Constraints} ~\\
 
-  Restricció que indica temps determinats per a certs events. Per exemple per evitar que events de més de una hora a la última hora del dia i acabin a la primera hora del dia següent.
+  Restricció que indica temps determinats per a certs events. Per exemple per evitar que events de més d'una hora a l'última hora del dia i acabin a la primera hora del dia següent.
 
   A continuació un exemple:
 
@@ -491,7 +491,7 @@
   \paragraph*{Avoid Clashes Constraint} ~\\
   
   Restricció que especifica que cap dels recursos al que s'aplica pot assistir a més d'un event a la vegada. 
-  Cal notar que el format permét que un recurs pugui assistir a més dun event a la vegada.
+  Cal notar que el format permét que un recurs pugui assistir a més d'un event a la vegada.
 
   A continuació un exemple:
 
@@ -499,7 +499,7 @@
   
   \paragraph*{Avoid Unavailable Times Constraints} ~\\
 
-  Restricció que indica que hi ha certes hores durant les quals certs recursos no estan disponibles. Útil per a professors que no treballen cert día o prefereixen no fer-ho en certes hores.
+  Restricció que indica que hi ha certes hores durant les quals certs recursos no estan disponibles. Útil per a professors que no treballen cert dia o prefereixen no fer-ho en certes hores.
   
   A continuació un exemple:
 
@@ -507,7 +507,7 @@
   
   \paragraph*{Limit Idle Times Constraint} ~\\
 
-  Restricció que límita el número d'espais de temps en qué un recurs o grup de recursos no està ocupat. 
+  Restricció que limita el número d'espais de temps en què un recurs o grup de recursos no està ocupat. 
 
   A continuació un exemple:
 
@@ -528,7 +528,7 @@
   En aquest apartat del treball es repassaran diverses tecnologies i conceptes que ens podrien ajudar a resoldre el problema HSTT. 
   Com s'ha vist anteriorment HSTT és un problema de \textit{scheduling} que pertany a NP-Complet i, per tant, no es coneix un mètode determinista en temps polinòmic que pugui resoldre el problema. 
 
-  Existeixen diferents aproximacions per problemes del tipus de HSTT, en aquest treball es centrarà en els mètodes deterministes que garanteixen la optimitat. Aquests mètodes busquen la millor solució al problema entre totes les combinacions 
+  Existeixen diferents aproximacions per problemes del tipus de HSTT, en aquest treball es centrarà en els mètodes deterministes que garanteixen la optimalitat. Aquests mètodes busquen la millor solució al problema entre totes les combinacions 
   que respecten totes les condicions imposades per la instància del problema que volem resoldre. HSTT entra en la categoria de tècniques basades en programació per restriccions i les tècniques basades en reduccions de altres problemes NP-complets com SAT, SMT, etc.
 
  
@@ -541,9 +541,9 @@
   \subsection{SAT}
 
   SAT prové de SATISFIABILITY, que és la abreviació de \textit{Boolean Satisfiability Problem}. 
-  El problema SAT consisteix en, donada una fòrmula de lògica proposicional (una expressió booleana), determinar una assignació de variables (model) per el qual la fórmula sigui certa, o la determinació de que no existeix tal assignació.
-  Per exemple, per a la fòrmula $A \vee \neg B$ és satisfactible amb $A = Cert$ i $B = Fals$ posat que farien la fórmula certa; en canvi per la fórmula $A \vee \neg A$ no hi ha cap assignació que la faci certa, per tant en diríem insatisfactible. 
-  SAT consisteix doncs, en determinar si una fòrmula booleana és o no satisfactible.
+  El problema SAT consisteix en, donada una fórmula de lògica proposicional (una expressió booleana), determinar una assignació de variables (model) per el qual la fórmula sigui certa, o la determinació de que no existeix tal assignació.
+  Per exemple, per a la fórmula $A \vee \neg B$ és satisfactible amb $A = Cert$ i $B = Fals$ posat que farien la fórmula certa; en canvi per la fórmula $A \vee \neg A$ no hi ha cap assignació que la faci certa, per tant en diríem insatisfactible. 
+  SAT consisteix doncs, en determinar si una formula booleana és o no satisfactible.
   
   SAT va ser el primer problema en ser demostrat que era NP-Complet el 1971 per Steven Cool\cite{cook1971complexity}, per tant, tal i com s'ha dit anteriorment, tot problema NP es pot reduir a SAT.
   El fet de que es pot reduir qualsevol problema decidible a SAT en temps polinòmic i la seva simplicitat de formulació el fan un problema d'especial interès en la comunitat científica, generant grans quantitats d'avenços en aquest camp, 
@@ -551,7 +551,7 @@
   
   \paragraph*{Representació formal, CNF}~\\
 
-  CNF prové de \textit{Conjunctive Normal Form} que es tradueix com a Forma Normal Conjuntiva. En lògica booleana una fòrmula esta en CNF si és una conjunció de una o més clàusules i aquestes són una disjunció de literals. O sigui, una AND de ORs. 
+  CNF prové de \textit{Conjunctive Normal Form} que es tradueix com a Forma Normal Conjuntiva. En lògica booleana una fórmula està en CNF si és una conjunció de una o més clàusules i aquestes són una disjunció de literals. O sigui, una AND de ORs. 
   Tota fórmula proposicional pot ser transformada a CNF. Aquesta transformació es basa en les regles d'equivalències lògiques: la doble negació, les lleis De Morgan i la propietat distributiva  
   \subsection{Extensions de SAT}
   \subsubsection{MaxSAT}
@@ -615,7 +615,7 @@
   
   \begin{itemize}
     \item Si $n = 1$, la sortida de la sorting network és:\\ \begin{center} Sorting($x_0$) = $x_0$\end{center}
-    \item Si $n = 2$, la sorting network és un sól merge (un comparador entre 2):\\ \begin{center} Sorting($x_0, x_1$) = Merge($x_0, x_1$)\end{center}
+    \item Si $n = 2$, la sorting network és un sòl merge (un comparador entre 2):\\ \begin{center} Sorting($x_0, x_1$) = Merge($x_0, x_1$)\end{center}
     \item Si $n > 2$, agafem una $l$ amb $0 \leq l < n-1$: Definim:
     \begin{gather*}
       (z_0,z_2, . . . ,z_{l-1}) = \text{Sorting}(x_0, x_1, . . . , x_{l-1}),\\
@@ -626,7 +626,7 @@
     Així ens queda que :$\text{Sorting}(x_0, x_1, . . . , x_{n-1}) := (y_0, y_1, . . . , y_{n-1}).$
   \end{itemize}
 
-  El nombre de variables i clàusules introduides per una sorting network de mida $n$ es pot calcular recursivament. Si aquesta està formada per dues \textit{sorting networks} de mida $l$ i $n-l$, introduirem $V_1 + V_2 + V_3$ variables i $C_1 + C_2 + C_3$ clàusules, on $(V_1, C_1) i (V_2 i C_2)$ són les variables i clàusules utilitzades en les dues \textit{sorting networks} internes i $(V_3, C_3)$ són el nombre de variables i clàusules necessàries en el merge de les entrades de mida $(l, n-l)$.
+  El nombre de variables i clàusules introduïdes per una sorting network de mida $n$ es pot calcular recursivament. Si aquesta està formada per dues \textit{sorting networks} de mida $l$ i $n-l$, introduirem $V_1 + V_2 + V_3$ variables i $C_1 + C_2 + C_3$ clàusules, on $(V_1, C_1) i (V_2 i C_2)$ són les variables i clàusules utilitzades en les dues \textit{sorting networks} internes i $(V_3, C_3)$ són el nombre de variables i clàusules necessàries en el merge de les entrades de mida $(l, n-l)$.
 
 
 
@@ -647,7 +647,7 @@
 
   En la figura també es poden veure totes les variables auxiliars que introdueix l'encoding per codificar un \textit{at-most-k} sobre 6 variables. Per veure quines clàusules genera, caldria definir un sumador unari, que donats dos nombres unaris, en retorni la suma en unari. 
   Aplicant-lo a cada node interior és suficient per garantir que $\{s_11, s_12, s_13, s_14, s_15, s_16\}$ és la representació unària de la cardinalitat de $\{x_1, x_2, x_3, x_4, x_5, x_6\}$. 
-  Amb la representació unària de la cardinalitat, n'hi ha prou amb imposar que l'interpretació de $out_{k+1}$ sigui falsa, per fer efectiu un, \textit{at-most-k}. 
+  Amb la representació unària de la cardinalitat, n'hi ha prou amb imposar que la interpretació de $out_{k+1}$ sigui falsa, per fer efectiu un, \textit{at-most-k}. 
 
 
 
@@ -767,7 +767,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \caption{Logo Linux}
     \label{fig:linux}
   \end{figure}
-  Linux és una familia de sistemes operatius formats pel \textit{kernel} Linux juntament amb les utilitats GNU. 
+  Linux és una família de sistemes operatius formats pel \textit{kernel} Linux juntament amb les utilitats GNU. 
   El generador que s'ha fet en aquest treball ha estat desenvolupat per a Linux, degut a la facilitat d'accés a les múltiples llibreries que s'han utilitzat, a que la API SMT ha estat desenvolupada també per a Linux i simplement per preferència personal, degut a que el sistema operatiu que utilitzo dia a dia és una distribució Linux.
 
   En concret s'ha treballat amb la distribució Arch Linux en la versió del kernel Linux 5.29.arch1-1 al final del treball (s'han usat versions anteriors que han anat sortint mentre es desenvolupava el treball).
@@ -824,10 +824,10 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \label{fig:DataModel}
   \end{figure}
 
-  Com es pot veure en la figura anterior, la classe \textit{Model} guarda la informació de la instància (sense incloure les restriccions). D'aquesta heretaràn tots els encodings que es puguin arribar a fer, posat que sempre serà el mateix.
+  Com es pot veure en la figura anterior, la classe \textit{Model} guarda la informació de la instància (sense incloure les restriccions). D'aquesta heretaran tots els encodings que es puguin arribar a fer, posat que sempre serà el mateix.
   Per fer-ho s'ha creat la classe \textit{ModelEntity} de la qual hereten les classes \textit{Event}, \textit{Resource}, \textit{ResourceType} i \textit{Time},
   representant respectivament a les assignatures, els recursos, els tipus de recursos i els espais de temps disponibles. Aquestes classes mantenen tota la informació necessària per a representar a cada tipus d'element. La classe \textit{ModelEntity}
-  inclou un identificador unic de tipus \textit{string} i un numero enter unic per cada un dels tipus existents. Hi poden haver un \textit{Event} i un \textit{Resource} amb el mateix número, pero mai hi haura dos elements del mateix tipus amb el mateix numero.
+  inclou un identificador  únic de tipus \textit{string} i un numero enter unic per cada un dels tipus existents. Hi poden haver un \textit{Event} i un \textit{Resource} amb el mateix número, però mai hi haurà dos elements del mateix tipus amb el mateix numero.
 
   A més s'ha creat una classe \textit{Group} per tal de mantenir els diferents grups d'elements d'elements que preveu XHSTT.  
 
@@ -843,7 +843,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   
 
   El programa consistirà en un objecte HSTTEncoding al qual donarem el nom del fitxer que volem llegir i treballarà amb ell. 
-  El HSTTEncoding crearà l'objecte XMLParser per tal de llegir el fitxer i es comunicaràn entre ells mentre XMLParser vagi llegint el fitxer enviant la informació llegida al HSTTEncoding. 
+  El HSTTEncoding crearà l'objecte XMLParser per tal de llegir el fitxer i es comunicaran entre ells mentre XMLParser vagi llegint el fitxer enviant la informació llegida al HSTTEncoding. 
   Al heretar de Model, aquest pot guardar totes les dades, que consistiran en diferents tipus de \textit{ModelEntity} i diferents \textit{Groups}.
   Des de aquí HSTTEncoding s'encarregarà de resoldre la instància comunicant-se amb la API SMT.
 
@@ -925,7 +925,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \subsection{Restriccions XHSTT}
   \paragraph*{Assign Times Constraint} ~\\~\\
   
-  Restricció per imposar que a tots els events se'ls hi assigni temps. Per tant, per a cada event $e$ hem de imposar que del conjunt de variables $Xt{e,i}$, n'hi hagi exactament $e.duration$ que s'evaluin a Cert:
+  Restricció per imposar que a tots els events se'ls hi assigni temps. Per tant, per a cada event $e$ hem de imposar que del conjunt de variables $Xt{e,i}$, n'hi hagi exactament $e.duration$ que s'avaluïn a Cert:
   \[
     \forall e \in Events \ exactly_k(\{Xt_{e,0} ... Xt_{e,|Times|-1}\}, e.duration)
   \]
@@ -980,7 +980,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \paragraph*{Avoid Clashes Constraint} ~\\~\\
 
     Aquesta restricció imposa que certs recursos no poden tenir assignats més d'un event al mateix temps. 
-    Aquí aprofitem que els recursos estàn assignats d'un inici, i definim $E_r$ com el conjunt de events als quals ha de assistir un recurs $r$ i imposem que per cada espai de temps, com a molt un d'els events de E pot estar programat:
+    Aquí aprofitem que els recursos estan assignats d'un inici, i definim $E_r$ com el conjunt de events als quals ha de assistir un recurs $r$ i imposem que per cada espai de temps, com a molt un d'els events de E pot estar programat:
     \begin{align*}
       \forall r \in Resources \ & \forall t \in Times \\
       &at\_most\_one(\{Xt_{e,t} | e \leftarrow E_r\})
@@ -1084,7 +1084,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
    
   % A més, ha de mostrar que l’aplicació resultant del projecte fa les tasques 
 
-  En aquesta secció es realitzarà una comparativa de rendiment amb els diferents encodings diferents en la API SMT i es veuràn els resultats donats per el generador per les diferents instàncies de Brazil que es poden trobar en el repositori públic.
+  En aquesta secció es realitzarà una comparativa de rendiment amb els diferents encodings diferents en la API SMT i es veuran els resultats donats per el generador per les diferents instàncies de Brazil que es poden trobar en el repositori públic.
 
   El format XHSTT disposa d'un avaluador d'horaris online anomenat HSeval\cite{hseval}. Aquest, ens serveix per avaluar la bondat d'un horari i, a més, permet mostrar-lo de forma gràfica. 
   A continuació es mostraran els resultats obtinguts amb la instància \textit{BrazilInstance1.xml} en la web i en el generador en sí, que també mostra els horaris resultants per pantalla, com es pot veure a la figura \ref{fig:bi1_term}. 
@@ -1175,11 +1175,11 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   es pot observar que la codificació més lenta és la de Ladder, tot i que les diferencies de temps són molt petites, excepte en la instància 3, on la diferència entre la més ràpida (la codificació quadràtica) i el la més lenta és de pràcticament 4 segons. 
   La resta d'instàncies d'aquesta taula tarden massa poc com per poder observar grans diferencies de temps. 
 
-  En les instàncies grosses, la figura\ref{fig:taula1} es pot observar una mica de tot. En la 4 el millor temps s'aconsegueix amb el encoding ladder, pero aquest aconsegueix mals resultats amb les instancies 5 i 6.
+  En les instàncies grosses, la figura\ref{fig:taula1} es pot observar una mica de tot. En la 4 el millor temps s'aconsegueix amb el encoding Ladder, però aquest aconsegueix mals resultats amb les instancies 5 i 6.
   En general, els temps aconseguits amb la instància 4 són molt diferents entre els encodings, mentre que en la resta de instàncies en general son més semblants. Es pot observar que el Heule en general dona mals resultats en les instàncies grosses, 
   fent saltar la limitació de temps de 30 minuts en la instància 4 i duplicant el temps d'execució en la instància 6. 
 
-  Sorpren generalment que el encoding quadràtic obtingui resultats tant competitus, sent el millor o molt proper al millor en totes les instàncies menys la 4, on aconsegueix igualment el segon lloc, pero molt lluny del millor temps.
+  Sorprèn generalment que el encoding quadràtic obtingui resultats tant competitius, sent el millor o molt proper al millor en totes les instàncies menys la 4, on aconsegueix igualment el segon lloc, però molt lluny del millor temps.
 
 
 
@@ -1231,18 +1231,18 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   Al comparar els dos encodings de les restriccions de cardinalitat, es pot veure que generalment els temps no canvien gaire. En les que més diferència es nota són les següents:
   \begin{itemize}
-    \item \textbf{Instància 3: }Ofereix millors resultats utilitzant el sorter amb el \textit{at\_most\_one} quadràtic o el totalizer amb el \textit{at\_most\_one} ladder. El quadràtic utilitza 3 segons més amb el totalizer, però generalment és més rapid en aquesta instància.
-    \item \textbf{Instància 4: }Generalment és més ràpid el totalizer, pero els millors resultats absoluts en aquesta instància són amb el sorter combinat amb el \textit{at\_most\_one} ladder, 
+    \item \textbf{Instància 3: }Ofereix millors resultats utilitzant el sorter amb el \textit{at\_most\_one} quadràtic o el totalizer amb el \textit{at\_most\_one} ladder. El quadràtic utilitza 3 segons més amb el totalizer, però generalment és més ràpid en aquesta instància.
+    \item \textbf{Instància 4: }Generalment és més ràpid el totalizer, però els millors resultats absoluts en aquesta instància són amb el sorter combinat amb el \textit{at\_most\_one} ladder, 
     encoding amb el qual salta el timeout utilitzant el totalizer. Els temps obtinguts amb el totalizer i el  \textit{at\_most\_one} quadràtic, però, son bastant propers (10 segons de diferència en una instància que tarda pràcticament 10 minuts). 
   \end{itemize}
 
-  Vist això i comparant les taules es pot veure que generalment la combinació d'encodings que ofereix millors temps d'execució és el totalizer amb el \textit{at\_most\_one} quadràtic, i per tant, les pròximes proves utilitzaràn aquesta combinació d'encodings.
+  Vist això i comparant les taules es pot veure que generalment la combinació d'encodings que ofereix millors temps d'execució és el totalizer amb el \textit{at\_most\_one} quadràtic, i per tant, les pròximes proves utilitzaran aquesta combinació d'encodings.
 
   \subsection{Comparativa de variables i clàusules generades}
 
   \paragraph*{Comparativa Sorter vs Totalizer}
 
-  Aquestes comparatives es faràn amb l'encoding \textit{at\_most\_one} quadràtic:
+  Aquestes comparatives es faran amb l'encoding \textit{at\_most\_one} quadràtic:
 
   \begin{figure}[ht!]
     \centering
@@ -1278,7 +1278,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Com es pot veure en la figura \ref{fig:taula5}, l'encoding de les restriccions de cardinalitat genera més variables i més clàusules. Això explicaria el perquè generalment en la comparativa de temps d'execució s'aconseguien més ràpidament.
 
   \paragraph*{Comparativa \textit{at\_most\_one}}
-  Aquestes comparatives es faràn amb l'encoding per restriccions de cardinalitat totalizer: \\
+  Aquestes comparatives es faran amb l'encoding per restriccions de cardinalitat totalizer: \\
 
   \begin{figure}[ht!]
     \centering 
@@ -1311,10 +1311,10 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \label{fig:taula7}
   \end{figure}
 
-  Com es pot veure en la taula corresponent a la figura \ref{fig:taula6} amb l'encoding quadràtic és el que tenim menys clàusules variables sempre, això és degut a que, com hem vist a l'apartat \ref{card}, no introdueix variables. 
+  Com es pot veure en la taula corresponent a la figura \ref{fig:taula6} amb l'encoding quadràtic és el que tenim menys clàusules variables sempre, això és a causa de que, com hem vist a l'apartat \ref{card}, no introdueix variables. 
   Per altre banda podem veure que, sorprenentment no sempre és el que més clàusules té, intercalant-se aquesta posició amb l'encoding Logarítmic en funció de la instància. 
 
-  L'encoding Ladder és el que, consitentment, té més variables. 
+  L'encoding Ladder és el que, consistentment, té més variables. 
   A la vegada, sembla ser el segon que genera menys clàusules, sent el primer l'encoding de Heule. Aquest, tot i no introduir tantes variables com d'altres, és consistentment el que té menys clàusules.
 
   \section{Resultats d'optimització}
@@ -1329,15 +1329,15 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   sobretot les diferents codificacions de restriccions globals a CNF per SAT i SMT, que s'han acabat utilitzant en el generador d'horaris que s'ha creat. 
 
   Pel que fa el generador desenvolupat al llarg d'aquest treball, tot i estar molt lluny de la perfecció, 
-  ha permés posar a prova les diferents codificacions de les restriccions globals vistes en el treball 
+  ha permès posar a prova les diferents codificacions de les restriccions globals vistes en el treball 
   i compleix amb els objectius marcats al principi del treball. El generador és capaç de resoldre el problema en un temps raonable (la instància que tarda més és la 4, que ens tarda menys de 10 minuts), 
   excepte la instància 7, la qual al intentar resoldre, ens quedem sense memòria. Cal tenir en compte però que les instancies 4 i 6 són problemes de instituts reals de Brazil, i els temps d'execució resultants en aquestes instàncies són molt positius.
 
-  Pel que fa la planificació, la implementació del parser va durar bastant més del previst, i des de aquí es va haver de adaptar la planificació en funció d'això com es pot veure en el diagrama de Gantt de la figura \label{fig:Gantt2}
+  Pel que fa la planificació, la implementació del \textit{parser} va durar bastant més del previst, i des de aquí es va haver de adaptar la planificació en funció d'això com es pot veure en el diagrama de Gantt de la figura \label{fig:Gantt2}
 
-  La realització d'aquest treball m'ha ajudat molt a aprofondir i consolidar molts dels coneixaments adquirits al llarg de la carrera, particularment els apartats referents al itinerari que he estudiat, el de computació. 
+  La realització d'aquest treball m'ha ajudat molt a aprofundir i consolidar molts dels coneixements adquirits al llarg de la carrera, particularment els apartats referents a l'itinerari que he estudiat, el de computació. 
   També m'ha ajudat a ficar a prova la meva organització i plantejament dels problemes, sobretot els problemes de satisfacció de restriccions, i el com es resolen. 
-  També m'ha ajudat a compendre una mica millor el funcionament del món de la recerca. 
+  També m'ha ajudat a comprendre una mica millor el funcionament del món de la recerca. 
 
 
   \begin{figure}
@@ -1346,7 +1346,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \caption{Diagrama de Gantt amb el treball realitzat en el projecte}
     \label{fig:Gantt2}
   \end{figure}
-
+ 
 
 
 
@@ -1361,7 +1361,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \chapter{Treball futur}
 
-  En primer lloc seria interessant afegir encodings de les diferents restriccions del problema que no suporta actualment el generador d'horaris, posat que ens hem centrat en un sub-conjunt de les instàncies disponibles, les que tenen els recursos preassignats.
+  En primer lloc seria interessant afegir encodings de les diferents restriccions del problema que no suporta actualment el generador d'horaris, posat que ens hem centrat en un sub-conjunt de les instàncies disponibles, les que tenen els recursos assignats prèviament.
 
   Es podrien explorar els paradigmes de SMT i intentar codificar el problema amb les diferents teories que té, com ara els BitVectors.
 
@@ -1384,7 +1384,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \end{itemize}
   \end{center}
 
-  Això deixa l'executable en la carpeta ./bin/linux sóta el nom \textit{hstt2smt}
+  Això deixa l'executable en la carpeta ./bin/linux sota el nom \textit{hstt2smt}
 
 
   \section{Ús}
@@ -1393,11 +1393,11 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \begin{itemize}
     \item fitxer: instància XHSTT que es vol resoldre.
     \item \texttt{-ub, --upper-bound}: per indicar un upper-bound al resoldre
-    \item \texttt{--use-assumptions=0}: paràmetre heredat de la API SMT, s'ha de ficar a 0, perquè no s'han implementat assumpcions.
-    \item \texttt{-o, --optimizer}: permèt triar l'optimitzador a utilitzar, si es tria \textit{check} no optimitza. Opcions: \texttt{check, ub, bu, dico, native}
+    \item \texttt{--use-assumptions=0}: paràmetre heretat de la API SMT, s'ha de ficar a 0, perquè no s'han implementat assumpcions.
+    \item \texttt{-o, --optimizer}: permet triar l'optimitzador a utilitzar, si es tria \textit{check} no optimitza. Opcions: \texttt{check, ub, bu, dico, native}
   \end{itemize}
 
-  Per exemple, per a resoldre la primera instància de Brazil, anomanada \textit{BrazilInstance1.xml} que es troba en la carpeta \textit{Instances}, es pot fer (l'ordre dels pràmetres no importa):
+  Per exemple, per a resoldre la primera instància de Brazil, anomenada \textit{BrazilInstance1.xml} que es troba en la carpeta \textit{Instances}, es pot fer (l'ordre dels paràmetres no importa):
 
   \begin{center}
     \texttt{./bin/linux/hstt2smt instances/BrazilInstance1.xml --use-assumptions=0 -o=check}

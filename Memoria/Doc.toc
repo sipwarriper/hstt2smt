@@ -29,7 +29,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.1}Estudi de duresa}{12}{subsection.4.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1.1}Inc\IeC {\'\i }s en la teor\IeC {\'\i }a de la computaci\IeC {\'o}}{12}{subsubsection.4.2.1.1}% 
+\contentsline {subsubsection}{\numberline {4.2.1.1}Inc\IeC {\'\i }s en la teoria de la computaci\IeC {\'o}}{12}{subsubsection.4.2.1.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {4.2.1.2}Duresa de HSTT}{13}{subsubsection.4.2.1.2}% 
 \defcounter {refsection}{0}\relax 
