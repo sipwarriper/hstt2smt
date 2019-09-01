@@ -558,7 +558,7 @@
 
   Una teoria es defineix com a conjunt de fórmules lògiques de primer ordre tancades sota conseqüència booleana, o sigui, s'han de poder reduir a un resultat booleà. 
   \subsection{Cardinality Encodings}
-  
+  \label{card}
   Les \textit{cardinality constraints} són aquelles que expressen límits numèrics en quantitats discretes, sorgeixen freqüentment en la codificació de problemes del món real: per exemple un enginyer vol expressar que almenys $n$ parts d'un cert tipus son necessàries per fer funcionar el producte.
 
   Podem definir dos tipus de \textit{cardinality constraints}:
@@ -585,7 +585,7 @@
             $x_i \rightarrow \neg y_i$, si el bit $j$ del nombre i és 0. \\
             $x_i \rightarrow y_i$, si el bit $j$ del nombre i és 1.
           \end{center}
-    \item Ladder encoding: Aquest encoding introdueix $O(n)$ variables auxiliars $a_i$. Cada variable d'aquestes expresa \textit{ALO($\{x_0, ... , x_i\}$)} és cert. \\
+    \item Ladder encoding: Aquest encoding introdueix $O(n)$ variables auxiliars $a_i$. Cada variable d'aquestes expressa \textit{ALO($\{x_0, ... , x_i\}$)} és cert. \\
           Per cada $i \in 0...n-1$ hi haurà 3 clàusules:
           \begin{itemize}[label=$\circ$]
             \item $\neg x_i \vee a_i$
@@ -604,7 +604,7 @@
 
   \subsubsection{Cardinality Constraints comparadaes amb k}
   \paragraph*{Sorting networks}~\\~\\
-  Una sorting network agafa una entrada de mida $n$ i l'ordena. Es pot fer de manera recursiva com es pot veure a continuació, utilitzant una estrategia semblant a la del \textit{mergesort}:
+  Una sorting network agafa una entrada de mida $n$ i l'ordena. Es pot fer de manera recursiva com es pot veure a continuació, utilitzant una estratègia semblant a la del \textit{mergesort}:
   
   \begin{itemize}
     \item Si $n = 1$, la sortida de la sorting network és:\\ \begin{center} Sorting($x_0$) = $x_0$\end{center}
@@ -638,9 +638,9 @@
 
   Seguint amb l'exemple de la figura \ref{fig:totalizer} tindríem com a entrada el conjunt de variables $\{x_1, x_2, x_3, x_4, x_5, x_6\}$ i com a sortida el conjunt de variables $\{s_11, s_12, s_13, s_14, s_15, s_16\}$. És important notar que cada node codifica la cardinalitat de les fulles q en pengen, en format unari. Això significa que per tot i de cada node, $s_i \geq S_{i+1}$.
 
-  En la figura tambés es poden veure totes les variables auxiliars que introdueix l'encoding per codificar un \textit{at-most-k} sobre 6 variables. Per veure quines clàusules genera, caldria definir un sumador unari, que donats dos nombres unaris, en retorni la suma en unari. 
-  Aplicant-lo a cada node interior és suficient per garantir que $\{s_11, s_12, s_13, s_14, s_15, s_16\}$ és la representació unaria de la cardinalitat de $\{x_1, x_2, x_3, x_4, x_5, x_6\}$. 
-  Amb la representació unaria de la cardinalitat, n'hi ha prou amb imposar que l'interpretació de $out_{k+1}$ sigui falsa, per fer efectiu un, \textit{at-most-k}. 
+  En la figura també es poden veure totes les variables auxiliars que introdueix l'encoding per codificar un \textit{at-most-k} sobre 6 variables. Per veure quines clàusules genera, caldria definir un sumador unari, que donats dos nombres unaris, en retorni la suma en unari. 
+  Aplicant-lo a cada node interior és suficient per garantir que $\{s_11, s_12, s_13, s_14, s_15, s_16\}$ és la representació unària de la cardinalitat de $\{x_1, x_2, x_3, x_4, x_5, x_6\}$. 
+  Amb la representació unària de la cardinalitat, n'hi ha prou amb imposar que l'interpretació de $out_{k+1}$ sigui falsa, per fer efectiu un, \textit{at-most-k}. 
 
 
 
@@ -721,7 +721,7 @@
   \end{figure}
 
 
-  En aquest treball s'ha decidit utilitzar el C++ perquè és amb el que es treballa al grup de recerca i és amb el que està feta la API SMT. El C++ s'ha utilitzat en la revisió C++17 del seu estandard. El GCC utilitzat ha estat en la versió 9.1.0-2. 
+  En aquest treball s'ha decidit utilitzar el C++ perquè és amb el que es treballa al grup de recerca i és amb el que està feta la API SMT. El C++ s'ha utilitzat en la revisió C++17 del seu estàndard. El GCC utilitzat ha estat en la versió 9.1.0-2. 
 
   \subsection{QtCreator}
 
@@ -761,7 +761,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \label{fig:linux}
   \end{figure}
   Linux és una familia de sistemes operatius formats pel \textit{kernel} Linux juntament amb les utilitats GNU. 
-  El generador que s'ha fet en aquest treball ha estat desenvolupat per a linux, degut a la facilitat d'accés a les múltiples llibreries que s'han utilitzat, a que la API SMT ha estat desenvolupada també per a Linux i simplement per preferència personal, degut a que el sistema operatiu que utilitzo dia a dia és una distribució Linux.
+  El generador que s'ha fet en aquest treball ha estat desenvolupat per a Linux, degut a la facilitat d'accés a les múltiples llibreries que s'han utilitzat, a que la API SMT ha estat desenvolupada també per a Linux i simplement per preferència personal, degut a que el sistema operatiu que utilitzo dia a dia és una distribució Linux.
 
   En concret s'ha treballat amb la distribució Arch Linux en la versió del kernel Linux 5.29.arch1-1 al final del treball (s'han usat versions anteriors que han anat sortint mentre es desenvolupava el treball).
 
@@ -837,17 +837,17 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   El programa consistirà en un objecte HSTTEncoding al qual donarem el nom del fitxer que volem llegir i treballarà amb ell. 
   El HSTTEncoding crearà l'objecte XMLParser per tal de llegir el fitxer i es comunicaràn entre ells mentre XMLParser vagi llegint el fitxer enviant la informació llegida al HSTTEncoding. 
-  Al heretar de Model, aquest pot guardar totes les dades, que consistiràn en diferents tipus de \textit{ModelEntity} i diferents \textit{Groups}.
-  Desde aquí HSTTEncoding s'encarregarà de resoldre la instància comunicant-se amb la API SMT.
+  Al heretar de Model, aquest pot guardar totes les dades, que consistiran en diferents tipus de \textit{ModelEntity} i diferents \textit{Groups}.
+  Des de aquí HSTTEncoding s'encarregarà de resoldre la instància comunicant-se amb la API SMT.
 
 
   
 
   \chapter{Implementació i proves}
 
-  L'implementaci'o del generador s'he fet en C++, i està format per un conjunt de blocs definits:\
+  La implementació del generador s'he fet en C++, i està format per un conjunt de blocs definits:\
   \begin{itemize}
-    \item \textit{Parser }del fitxer en format XHSTT. \\ S'encarrega de llegir el fitxer XHSTT i extreure'n la informació de la instància contenida en el fitxer XML en format XHSTT passat per paràmetre. És important que aquest fitxer tingui l'estructura establerta en el format XHSTT.
+    \item \textit{Parser }del fitxer en format XHSTT. \\ S'encarrega de llegir el fitxer XHSTT i extreure'n la informació de la instància continguda en el fitxer XML en format XHSTT passat per paràmetre. És important que aquest fitxer tingui l'estructura establerta en el format XHSTT.
     \item Bloc de codificació de la instància a SMT. \\ En aquest apartat utilitzem la API SMT per tal de codificar la instància a SMT i passar-la al \textit{solver} corresponent, el Yices 2.
     \item Bloc de escriptura del resultat a XHSTT. \\ En aquest apartat creem un fitxer amb la instància treballada XHSTT i hi afegim la solució trobada al final.
   \end{itemize}
@@ -858,24 +858,24 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \section{Codificació}
   En aquesta secció es descriu la implementació de la codificació a SMT del generador d'horaris. 
-  Posat que SMT no permet clausules violables, per a la codificació d'aquesta s'utilitzarà el cost i una variable auxiliar per cada clàusula \textit{soft}, 
+  Posat que SMT no permet clàusules violables, per a la codificació d'aquesta s'utilitzarà el cost i una variable auxiliar per cada clàusula \textit{soft}, 
   que s'afegira a la seva corresponent clàusula de forma condicional, negant la clàusula inicial, de manera que si no es compleix la clàusula inicial, la variable auxiliar hagi de ser certa. Al acabar la codificació de la instància afegirem una clàusula pseudo-booleana amb totes les variables auxiliars amb els seus pesos, comparada amb un upperbound.
   Posat que la funció d'optimització serà la de minimitzar el cost total, el optimitzador anirà modificant el upperbound intentant reduir la funció objectiu, que també és el resultat exacte de la pseudo-booleana.
 
   Per exemple, si tenim les \textit{soft-clauses} següents: $SC_1$, $SC_2$, $SC_3$ amb costos respectivament: $W_1$, $W_2$, $W_3$. 
-  Creariem les variables auxiliars $Aux_1$, $Aux_2$ i $Aux_3$. Amb això crearíem les següents clàusules:
+  Crearíem les variables auxiliars $Aux_1$, $Aux_2$ i $Aux_3$. Amb això crearíem les següents clàusules:
   \begin{gather*}
     \neg SC_1 \rightarrow Aux_1 \\
     \neg SC_2 \rightarrow Aux_2 \\
     \neg SC_3 \rightarrow Aux_3
   \end{gather*}
 
-  Hi aplicaríem Algebra de Bool per convertir a CNF i convertiríem les clàusules que són tipus $\neg A \rightarrow B$ a $\neg (\neg A) \vee B$ i d'aquí eliminaríem la doble negació, quedant $A \vee B$:
+  Hi aplicaríem Àlgebra de Bool per convertir a CNF i convertiríem les clàusules que són tipus $\neg A \rightarrow B$ a $\neg (\neg A) \vee B$ i d'aquí eliminaríem la doble negació, quedant $A \vee B$:
   \begin{gather*}
     \neg SC_1 \vee Aux_1 \\
     \neg SC_2 \vee Aux_2 \\
     \neg SC_3 \vee Aux_3
-  \end{gather*}vee
+  \end{gather*}
   Així doncs, afegint la clàusula pseudo-booleana amb les variables auxiliars i els pesos, ens quedarien les següents clàusules:
   \begin{gather*}
       SC_1 \vee Aux_1 \\
@@ -907,7 +907,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Per poder dotar les variables del model de semàntica caldrà afegir certes clàusules. A continuació s'enumeren:
   \begin{itemize}
     \item Si un event comença a una hora determinada, llavors té una duració: \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$exactily\_one(\neg Xs_{e,i} \vee \{ \forall j \in 1 ... e.duration$ $Xd_{e,j,i}\})$\end{center}
-    \item Si un event té lloc a t pero no a t-1, és que comença: \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$\neg Xt_{e,i} \vee Xt_{i-1} \vee Xs_i$ \end{center}
+    \item Si un event té lloc a t però no a t-1, és que comença: \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$\neg Xt_{e,i} \vee Xt_{i-1} \vee Xs_i$ \end{center}
     \item Si un event comença amb duració d, llavors té lloc en d hores consecutives: \begin{center} 
       $\forall e \in 0 ... |Events|-1$ $\forall d in 1 ... e.duration$ $\forall i \in 0 ... |Times|-1$ $\forall j \in i ... i+d-1$ \\
       $\neg Xd_{e,d,i} \vee Xt_{e,j}$
@@ -924,7 +924,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \]
 
   \paragraph*{Split Events Constraint} ~\\~\\ 
-  Aquesta restricció limita la manera en com es fracmenten els events. És a dir, sobre el nombre de sessions en què es fragmenta i la durada d'aquestes.\\
+  Aquesta restricció limita la manera en com es fragmenten els events. És a dir, sobre el nombre de sessions en què es fragmenta i la durada d'aquestes.\\
   Per a la restricció sobre el nombre de sessions en què es fragmenta un event, utilitzarem les tags de \textit{MinimumAmount} i \textit{MaximumAmount} per fer les següents clàusules:
   \begin{gather*}
     \forall e \in Events \ at\_most\_k(\{Xs_{e,0} . . . Xs_{e,|Times|-1}\}, MaximumAmount)\\
@@ -948,9 +948,9 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \paragraph*{Prefer Times Constraint} ~\\~\\
   
-  Restricció que indica en quins espais de temps no es poden programar certes sessions. Per exemple, pot servir per indicar que no es pot ptrogramar una sessió de dues hores en la última hora del dia.
+  Restricció que indica en quins espais de temps no es poden programar certes sessions. Per exemple, pot servir per indicar que no es pot programar una sessió de dues hores en la última hora del dia.
 
-  Definim el cunjunt $Ta$ com el conjunt de slots de temps els quals la restricció ens diu que són preferits. Neguem totes les variables $Xd$ de duració d que representin espais de temps no continguts dins de Ta.
+  Definim el conjunt $Ta$ com el conjunt de slots de temps els quals la restricció ens diu que són preferits. Neguem totes les variables $Xd$ de duració d que representin espais de temps no continguts dins de Ta.
   \begin{gather*}
     \forall e \in Events \ \forall t \in Times \land t \notin Ta \\ (\neg Xd_{e,d,t})
   \end{gather*}
@@ -994,7 +994,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Per tal de codificar aquesta restricció és necessari afegir variables auxiliars al model. Per cada espai de temps que pot ser forat s'introdueix una variable auxiliar que serà certa si l'espai realment és un forat.
 
   El conjunt $Tg$ representa el conjunt de grups d'espais de temps que tractem. 
-  S'introdueix la variable $idle_i$ per cada recurs que defineix si aquest té un forat en l'horari en l'espai de temps $i$. Per tal de considerar un espai de temps com a forat, cal que en algún moment abans i després hi hagi programada alguna activitat.
+  S'introdueix la variable $idle_i$ per cada recurs que defineix si aquest té un forat en l'horari en l'espai de temps $i$. Per tal de considerar un espai de temps com a forat, cal que en algun moment abans i després hi hagi programada alguna activitat.
    Així que es defineixen dos conjunts: $A_i$ representant els espais de temps posterior (\textit{After}) de $i$ i $B_i$ representant els espais de temps anteriors (\textit{Before}) de $i$.
    
    Llavors, per a cada recurs $r$ es fan les següents clàusules:
@@ -1031,7 +1031,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     & (\neg Xt_{e,t} \lor Bsuy_g)
   \end{align*}
 
-  Un cop definides i lliguades les variables auxiliars l'únic que queda és, per cada recurs, imposar les restriccions de cardinalitat:
+  Un cop definides i lligades les variables auxiliars l'únic que queda és, per cada recurs, imposar les restriccions de cardinalitat:
   \begin{align*}
     \forall r \in Resources &\\
     & at\_most\_k(\{ Busy_g | g \leftarrow Tg\}, max) \\
@@ -1076,6 +1076,242 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   % de la informació i comerç electrònic (LSSICE). 
    
   % A més, ha de mostrar que l’aplicació resultant del projecte fa les tasques 
+
+  En aquesta secció es realitzarà una comparativa de rendiment amb els diferents encodings diferents en la API SMT i es veuràn els resultats donats per el generador per les diferents instàncies de Brazil que es poden trobar en el repositori públic.
+
+  El format XHSTT disposa d'un avaluador d'horaris online anomenat HSeval\cite{hseval}. Aquest, ens serveix per avaluar la bondat d'un horari i, a més, permet mostrar-lo de forma gràfica. 
+  A continuació es mostraran els resultats obtinguts amb la instància \textit{BrazilInstance1.xml} en la web i en el generador en sí, que també mostra els horaris resultants per pantalla, com es pot veure a la figura \ref{fig:bi1_term}. 
+
+  Per aconseguir l'informe de resultats només cal pujar el fitxer xml amb la solució, seleccionar la opció \textit{HTML Report} i fer click a \textit{Submit}. El resultat es pot veure a la figura \ref{fig:bi1_report}.
+  Per aconseguir la representació gràfica dels horaris, en comptes de seleccionar \textit{HTML Report}, triem la opció \textit{HTML Timetables}. 
+  Aquesta opció generarà un horari per cada Recurs (en les instàncies de Brazil serien un per cada professor, com veiem a la figura \ref{fig:bi1_teach}, i un per cada classe, com es pot veure en la figura \ref{fig:bi1_class}). 
+
+  Els resultats mostrats a continuació, són els obtinguts de optimitzar la \textit{BrazilInstance1.xml}. \newpage
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Diagrames/brazil1_report.png}
+    \caption{Informe d'optimalitat obtingut amb HSEval}
+    \label{fig:bi1_report}
+  \end{figure}
+  \newpage
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Diagrames/brazil1_teach.png}
+    \caption{Horari d'un professor de \textit{BrazilInstance1.xml}}
+    \label{fig:bi1_teach}
+  \end{figure}
+  % \begin{figure}
+  %   \centering
+  %   \includegraphics[width=0.8\textwidth]{Diagrames/brazil1_class.png}
+  %   \caption{Horari d'unes classes de \textit{BrazilInstance1.xml}}
+  %   \label{fig:bi1_class}
+  % \end{figure}
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\linewidth}
+      \includegraphics[width=\linewidth]{Diagrames/brazil1_class.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\linewidth}
+      \includegraphics[width=\linewidth]{Diagrames/brazil1_class2.png}
+    \end{subfigure}
+    \caption{Horari d'unes classes de \textit{BrazilInstance1.xml}}
+    \label{fig:bi1_class}
+  \end{figure}
+  \begin{figure}[htp!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Diagrames/brazil1_terminal.png}
+    \caption{Resultat de la instància 1 des de el generador d'horaris.}
+    \label{fig:bi1_term}
+  \end{figure}
+  \newpage
+
+  \section{Comparativa d'encodings}
+
+  En aquest apartat es provaran tots els encodings de les clàusules de cardinalitat (bàsicament \textit{at\_most\_one} i \textit{at\_most\_k}) disponibles en la API SMT i es mirarà com afecten aquests en el rendiment del generador d'horaris. 
+  Totes les proves realitzades en aquesta secció seran de resolució. S'ha utilitzat un timeout de 30 minuts.
+
+  \subsection{Comparativa per temps d'execució}
+
+  \paragraph*{Encoding Cardinalitat: Sorter} ~\\
+
+  Aquí es presenta una taula amb els temps d'execució amb els diferents encodings disponibles del \textit{at\_most\_one} combinats amb el encoding de cardinalitat \textit{sorter}:
+  \begin{figure}[ht!]
+    \centering
+    \begin{tabular} { c | c c c}
+      Encoding & BrazilInstance1 & BrazilInstance2 & BrazilInstance3 \\
+      \hline
+      Quadràtic & 1.669 & 11.257 & 16.832\\
+      Logarítmic & 1.625 & 11.784 & 19.444\\
+      Ladder & 1.78 & 12.281 & 20.74 \\
+      Heule & 1.609 & 12.062 & 16.881 \\
+    \end{tabular}
+    \caption{Taula de resultats de temps de les instàncies de la 1 a la 3}
+    \label{fig:taula1}
+  \end{figure}
+
+  \begin{figure}[ht!]
+    \centering
+    \begin{tabular} { c | c c c}
+      Encoding & BrazilInstance4 & BrazilInstance5 & BrazilInstance6 \\
+      \hline
+      Quadràtic & 15:11.96 & 48.887& 01:09.23\\
+      Logarítmic & 24:49.42 & 48.092 & 01:08.44\\
+      Ladder & 9:42.25 & 1:22.49 &  01:19.53\\
+      Heule & Timeout & 52.955  & 02:19.89 \\
+    \end{tabular}
+    \caption{Taula de resultats de temps de les instàncies de la 4 a la 6}
+    \label{fig:taula2}
+  \end{figure}
+
+  Utilitzant una \textit{Sorting network} per a la codificació de les restriccions de cardinalitat, en les instàncies petites, a la figura \ref{fig:taula1}, 
+  es pot observar que la codificació més lenta és la de Ladder, tot i que les diferencies de temps són molt petites, excepte en la instància 3, on la diferència entre la més ràpida (la codificació quadràtica) i el la més lenta és de pràcticament 4 segons. 
+  La resta d'instàncies d'aquesta taula tarden massa poc com per poder observar grans diferencies de temps. 
+
+  En les instàncies grosses, la figura\ref{fig:taula1} es pot observar una mica de tot. En la 4 el millor temps s'aconsegueix amb el encoding ladder, pero aquest aconsegueix mals resultats amb les instancies 5 i 6.
+  En general, els temps aconseguits amb la instància 4 són molt diferents entre els encodings, mentre que en la resta de instàncies en general son més semblants. Es pot observar que el Heule en general dona mals resultats en les instàncies grosses, 
+  fent saltar la limitació de temps de 30 minuts en la instància 4 i duplicant el temps d'execució en la instància 6. 
+
+  Sorpren generalment que el encoding quadràtic obtingui resultats tant competitus, sent el millor o molt proper al millor en totes les instàncies menys la 4, on aconsegueix igualment el segon lloc, pero molt lluny del millor temps.
+
+
+
+
+  \paragraph*{Encoding Cardinalitat: Totalizer} ~\\
+
+  Aquí es presenta una taula amb els temps d'execució amb els diferents encodings disponibles del \textit{at\_most\_one} combinats amb el encoding de cardinalitat \textit{totalizer}:
+  \begin{figure}[ht!]
+    \centering
+    \begin{tabular} { c | c c c}
+      Encoding & BrazilInstance1 & BrazilInstance2 & BrazilInstance3 \\
+      \hline
+      Quadràtic & 1.604 & 11.048 & 19.215\\
+      Logarítmic & 1.611 & 11.252 & 17.846\\
+      Ladder & 1.728 & 10.899 & 16.713 \\
+      Heule & 1.681 & 12.233 & 17.377 \\
+    \end{tabular}
+    \caption{Taula de resultats de temps de les instàncies de la 1 a la 3}
+    \label{fig:taula3}
+  \end{figure}
+
+  \begin{figure}[ht!]
+    \centering
+    \begin{tabular} { c | c c c}
+      Encoding & BrazilInstance4 & BrazilInstance5 & BrazilInstance6 \\
+      \hline
+      Quadràtic & 09:52.03 & 49.606& 01:08.74\\
+      Logarítmic & 12:56.72 & 48.908 & 01:08.23\\
+      Ladder & Timeout & 49.556 & 01:24.78\\
+      Heule & Timeout & 01:14.19  & 01:25.67\\
+    \end{tabular}
+    \caption{Taula de resultats de temps de les instàncies de la 4 a la 6}
+    \label{fig:taula4}
+  \end{figure}
+
+  Amb la codificació \textit{Totalizer} per a les restriccions de cardinalitat, en les instàncies petites, a la figura \ref{fig:taula3}, 
+  es pot veure que, a diferència del apartat anterior, la codificació Ladder és la que dóna millors resultats, mentre que abans era la més lenta en les codificacions petites. Però altre cop, aquestes instàncies son petites i es resolen molt ràpidament, 
+  així que les diferències acostumen a estar dins d'un marge d'error acceptable. 
+
+  Pel que fa les instàncies grosses, es torna a observar que s'obtenen molt bons resultats amb l'encoding quadràtic, on és el millor en la instància 4 per molta diferència, i està molt aprop de ser-ho en la resta de instàncies, 
+  en l'aspecte que s'està comparant en aquest apartat, el temps d'execució.
+  En la instància 4 es pot observar, a més, que l'encoding Ladder fa saltar la limitació de temps i l'encoding de Heule, d'els que acaben, dona els pitjors resultats amb diferència. 
+  Aquest (l'encoding de Heule) també és el que dona pitjors resultats en la resta de instàncies de la taula.
+
+
+
+
+  \paragraph*{Comparativa sorter vs totalizer} ~\\
+
+  Al comparar els dos encodings de les restriccions de cardinalitat, es pot veure que generalment els temps no canvien gaire. En les que més diferència es nota són les següents:
+  \begin{itemize}
+    \item \textbf{Instància 3: }Ofereix millors resultats utilitzant el sorter amb el \textit{at\_most\_one} quadràtic o el totalizer amb el \textit{at\_most\_one} ladder. El quadràtic utilitza 3 segons més amb el totalizer, però generalment és més rapid en aquesta instància.
+    \item \textbf{Instància 4: }Generalment és més ràpid el totalizer, pero els millors resultats absoluts en aquesta instància són amb el sorter combinat amb el \textit{at\_most\_one} ladder, 
+    encoding amb el qual salta el timeout utilitzant el totalizer. Els temps obtinguts amb el totalizer i el  \textit{at\_most\_one} quadràtic, però, son bastant propers (10 segons de diferència en una instància que tarda pràcticament 10 minuts). 
+  \end{itemize}
+
+  Vist això i comparant les taules es pot veure que generalment la combinació d'encodings que ofereix millors temps d'execució és el totalizer amb el \textit{at\_most\_one} quadràtic, i per tant, les pròximes proves utilitzaràn aquesta combinació d'encodings.
+
+  \subsection{Comparativa de variables i clàusules generades}
+
+  \paragraph*{Comparativa Sorter vs Totalizer}
+
+  Aquestes comparatives es faràn amb l'encoding \textit{at\_most\_one} quadràtic:
+
+  \begin{figure}[ht!]
+    \centering
+    \begin{subfigure}[b]{0.45\linewidth}
+      \begin{tabular} { c | c c }
+        Instància & Sorter & Totalizer \\
+        \hline
+        BrazilInstance1 & 222991 &  220114 \\
+        BrazilInstance2 & 1776829 & 1769961  \\
+        BrazilInstance3 & 2187085 & 2179450 \\
+        BrazilInstance4 & 7112715 & 7099821 \\
+        BrazilInstance5 & 6385494 & 6372080 \\
+        BrazilInstance6 & 8702195 & 8687131 \\
+      \end{tabular}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\linewidth}
+      \begin{tabular} { c | c c }
+        Instància & Sorter & Totalizer \\
+        \hline
+        BrazilInstance1 & 978757 &    969534 \\
+        BrazilInstance2 &  6113127 & 	6090809\\
+        BrazilInstance3 &  8853332	& 8828541 \\
+        BrazilInstance4 & 24622271	& 24580215 \\
+        BrazilInstance5 & 24752226	& 24709009 \\
+        BrazilInstance6 & 30815832	& 30766834 \\
+      \end{tabular}
+    \end{subfigure}
+    \caption{Taula de resultats amb el nombre de variables i clàusules generades}
+    \label{fig:taula5}
+  \end{figure}
+
+
+  Com es pot veure en la figura \ref{fig:taula5}, l'encoding de les restriccions de cardinalitat genera més variables i més clàusules. Això explicaria el perquè generalment en la comparativa de temps d'execució s'aconseguien més ràpidament.
+
+  \paragraph*{Comparativa \textit{at\_most\_one}}
+  Aquestes comparatives es faràn amb l'encoding per restriccions de cardinalitat totalizer: \\
+
+  \begin{figure}[ht!]
+    \centering 
+    \begin{tabular} { c | c c c c}
+      Instància & Quadràtic & Logarítmic & Ladder & Heule \\
+      \hline
+      BrazilInstance1 & 220,114  & 220,664 & 220,889 & 220,564 \\
+      BrazilInstance2 & 1,769,961 & 1,771,386 & 1,772,611 & 1,772,461 \\
+      BrazilInstance3 & 2,179,450 & 2,181,100 & 2,182,300 & 2,181,950 \\         
+      BrazilInstance4 & 7,099,821 & 7,102,496 &  timeout & 7,105,171 \\
+      BrazilInstance5 & 6,372,080 & 6,374,680 & 6,376,930 & 6,376,430 \\
+      BrazilInstance6 & 8,687,131 & 8,690,356 & 8,693,031 & 8,692,656 \\
+    \end{tabular}
+    \caption{Taula de resultats amb el nombre de variables generades}
+    \label{fig:taula6}
+  \end{figure}
+  \begin{figure}[H]
+    \centering 
+    \begin{tabular} { c | c c c c}
+      Instància & Quadràtic & Logarítmic & Ladder & Heule \\
+      \hline
+      BrazilInstance1 &  969,534 & 969,984 & 969,559 & 969,234 \\
+      BrazilInstance2 & 6,090,809 & 6,090,534 & 6,087,609 & 6,087,459\\
+      BrazilInstance3  & 8,828,541 & 8,829,116 & 8,826,341 & 8,825,991\\         
+      BrazilInstance4 & 24,580,215  & 24,578,115 &  timeout & 24,571,315 \\
+      BrazilInstance5 &  24,709,009 & 24,708,334 & 24,703,034 & 24,702,534 \\
+      BrazilInstance6  & 30,766,834 & 30,766,834 & 30,759,459 & 30,759,084\\
+    \end{tabular}
+    \caption{Taula de resultats amb el nombre de clàusules generades}
+    \label{fig:taula7}
+  \end{figure}
+
+  Com es pot veure en la taula corresponent a la figura \ref{fig:taula6} amb l'encoding quadràtic és el que tenim menys clàusules variables sempre, això és degut a que, com hem vist a l'apartat \ref{card}, no introdueix variables. 
+  Per altre banda podem veure que, sorprenentment no sempre és el que més clàusules té, intercalant-se aquesta posició amb l'encoding Logarítmic en funció de la instància. 
+
+  L'encoding Ladder és el que, consitentment, té més variables. 
+  A la vegada, sembla ser el segon que genera menys clàusules, sent el primer l'encoding de Heule. Aquest, tot i no introduir tantes variables com d'altres, és consistentment el que té menys clàusules.
+
+
+
 
   \chapter{Conclusions}
   %%diagrama de gantt... semblant pero diferent del inicial

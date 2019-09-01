@@ -38,7 +38,7 @@ XMLWritter::XMLWritter(std::string filename, std::shared_ptr<Model> instance, st
 	node.append_child(pugi::node_pcdata).set_value(date.c_str());
 
     node = xml_metadata.append_child("Description");
-    node.set_value("Solution obtained with a SMT modelling powered by yices");
+    node.append_child(pugi::node_pcdata).set_value("Solution obtained with a SMT modelling powered by yices");
 
     pugi::xml_node solution = xml_solution_group.append_child("Solution");
     solution.append_attribute("Reference") = doc.root().child("HighSchoolTimetableArchive").child("Instances").child("Instance")

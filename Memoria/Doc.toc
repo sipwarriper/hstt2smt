@@ -107,10 +107,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {9}Implantaci\IeC {\'o} i resultats}{44}{chapter.9}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Conclusions}{45}{chapter.10}% 
+\contentsline {section}{\numberline {9.1}Comparativa d'encodings}{48}{section.9.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Treball futur}{46}{chapter.11}% 
+\contentsline {subsection}{\numberline {9.1.1}Comparativa per temps d'execuci\IeC {\'o}}{48}{subsection.9.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{47}{chapter.12}% 
+\contentsline {subsection}{\numberline {9.1.2}Comparativa de variables i cl\IeC {\`a}usules generades}{50}{subsection.9.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{49}{chapter.13}% 
+\contentsline {chapter}{\numberline {10}Conclusions}{52}{chapter.10}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {11}Treball futur}{53}{chapter.11}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{54}{chapter.12}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{56}{chapter.13}% 
