@@ -105,7 +105,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8.2}Proves}{43}{section.8.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {9}Implantaci\IeC {\'o} i resultats}{44}{chapter.9}% 
+\contentsline {chapter}{\numberline {9}Resultats}{44}{chapter.9}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.1}Comparativa d'encodings}{48}{section.9.1}% 
 \defcounter {refsection}{0}\relax 
