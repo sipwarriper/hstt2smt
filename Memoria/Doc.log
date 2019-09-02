@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.19)  2 SEP 2019 00:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.26)  2 SEP 2019 10:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.tex
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.tex
+**/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.tex
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.tex
 LaTeX2e <2018-12-01>
 (/usr/share/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
@@ -851,7 +851,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count354
 \@quotereset=\count355
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.aux
 
 LaTeX Warning: Label `fig:Gantt2' multiply defined.
 
@@ -913,7 +913,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Doc.bbl' found.
- (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl)
+ (/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.bbl)
 Package biblatex Info: Reference section=0 on input line 86.
 Package biblatex Info: Reference segment=0 on input line 86.
 \AtBeginShipoutBox=\box58
@@ -935,7 +935,7 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 86.
 LaTeX Info: Redefining \pageref on input line 86.
 LaTeX Info: Redefining \nameref on input line 86.
- (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.out) (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.out)
+ (/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.out) (/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.out)
 \@outlinefile=\write5
 \openout5 = `Doc.out'.
 
@@ -971,7 +971,7 @@ Package pdftex.def Info: portada.pdf , page1 used on input line 88.
 (pdftex.def)             Requested size: 597.56223pt x 845.08348pt.
  [1
 
- </home/sipwarriper/sources/projects/hstt2smt/Memoria/portada.pdf>] [2] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.toc
+ </home/sipwarriper/source/repos/hstt2smt/Memoria/portada.pdf>] [2] (/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 6.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1024,7 +1024,7 @@ Package pdftex.def Info: Diagrames/gantt1.png  used on input line 293.
 
 LaTeX Warning: Float too large for page by 37.27611pt on input line 296.
 
-[10] [11 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gantt1.png (PNG copy)>]
+[10] [11 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/gantt1.png (PNG copy)>]
 Cap\'{\i }tol 4.
 [12
 
@@ -1039,52 +1039,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 354--355
 
  []
 
-[13 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Reduccio.png>] [14] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/time_ex.xml [15]) (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/resource_ex.xml) (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/event_ex.xml [16])
+[13 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/Reduccio.png>] [14] (/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/time_ex.xml [15]) (/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/resource_ex.xml) (/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/event_ex.xml [16])
 Underfull \hbox (badness 10000) in paragraph at lines 447--448
 
  []
 
-[17] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint1.xml)
+[17] (/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint1.xml)
 Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint2.xml)
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint2.xml)
 Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
-[18] (/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint3.xml)
+[18] (/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint3.xml)
 Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint4.xml [19])
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint4.xml [19])
 Underfull \hbox (badness 10000) in paragraph at lines 482--483
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint5.xml)
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint5.xml)
 Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint6.xml [20])
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint6.xml [20])
 Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint7.xml)
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint7.xml)
 Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint8.xml [21])
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint8.xml [21])
 Underfull \hbox (badness 10000) in paragraph at lines 515--516
 
  []
 
-(/home/sipwarriper/sources/projects/hstt2smt/Memoria/listings/constraint9.xml) [22]
+(/home/sipwarriper/source/repos/hstt2smt/Memoria/listings/constraint9.xml) [22]
 Underfull \hbox (badness 10000) in paragraph at lines 552--553
 
  []
@@ -1129,7 +1129,7 @@ Overfull \hbox (14.14822pt too wide) in paragraph at lines 646--647
 []\OT1/cmr/m/n/10.95 Seguint amb l'e-xem-ple de la fi-gu-ra []4.2[] tindr^^S^^Pem com a en-tra-da el con-junt de va-ri-a-bles $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 x[]; x[]; x[]; x[]; x[]; x[]\OMS/cmsy/m/n/10.95 g$
  []
 
-[26 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/totalizer.png>] [27]
+[26 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/totalizer.png>] [27]
 Cap\'{\i }tol 5.
 <Diagrames/Arqui1.png, id=801, 914.41624pt x 794.97pt>
 File: Diagrames/Arqui1.png Graphic file (type png)
@@ -1138,7 +1138,7 @@ Package pdftex.def Info: Diagrames/Arqui1.png  used on input line 675.
 (pdftex.def)             Requested size: 483.69684pt x 420.50723pt.
 [28
 
-] [29 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui1.png>]
+] [29 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/Arqui1.png>]
 Cap\'{\i }tol 6.
 <Diagrames/logoYices.png, id=814, 308.46951pt x 86.37146pt>
 File: Diagrames/logoYices.png Graphic file (type png)
@@ -1147,7 +1147,7 @@ Package pdftex.def Info: Diagrames/logoYices.png  used on input line 687.
 (pdftex.def)             Requested size: 193.47577pt x 54.17311pt.
 [30
 
- </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/logoYices.png>]
+ </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/logoYices.png>]
 <Diagrames/cpp.png, id=831, 361.35pt x 406.51875pt>
 File: Diagrames/cpp.png Graphic file (type png)
 <use Diagrames/cpp.png>
@@ -1166,7 +1166,7 @@ Package pdftex.def Info: Diagrames/latex.png  used on input line 750.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/cpp.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gcc.png (PNG copy)>]
+ [31 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/cpp.png> </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/gcc.png (PNG copy)>]
 <Diagrames/Linux.png, id=843, 281.05pt x 331.2375pt>
 File: Diagrames/Linux.png Graphic file (type png)
 <use Diagrames/Linux.png>
@@ -1175,7 +1175,7 @@ Package pdftex.def Info: Diagrames/Linux.png  used on input line 766.
 
 Underfull \vbox (badness 1515) has occurred while \output is active []
 
- [32 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/latex.png> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Linux.png>] [33]
+ [32 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/latex.png> </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/Linux.png>] [33]
 Cap\'{\i }tol 7.
 <Diagrames/Arqui2.png, id=858, 911.405pt x 681.54625pt>
 File: Diagrames/Arqui2.png Graphic file (type png)
@@ -1189,13 +1189,13 @@ Package pdftex.def Info: Diagrames/ModelDades.png  used on input line 822.
 (pdftex.def)             Requested size: 483.69684pt x 456.82939pt.
 [34
 
-] [35 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/Arqui2.png>] [36 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/ModelDades.png>]
+] [35 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/Arqui2.png>] [36 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/ModelDades.png>]
 <Diagrames/UMLKai.png, id=877, 770.88pt x 510.90875pt>
 File: Diagrames/UMLKai.png Graphic file (type png)
 <use Diagrames/UMLKai.png>
 Package pdftex.def Info: Diagrames/UMLKai.png  used on input line 839.
 (pdftex.def)             Requested size: 483.69684pt x 320.57231pt.
- [37 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/UMLKai.png>]
+ [37 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/UMLKai.png>]
 Cap\'{\i }tol 8.
 [38
 
@@ -1320,7 +1320,7 @@ Package pdftex.def Info: Diagrames/brazil1_terminal.png  used on input line 1130
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_report.png (PNG copy)> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_teach.png (PNG copy)>] [47 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_class.png (PNG copy)> </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_class2.png (PNG copy)>] [48 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_terminal.png (PNG copy)>]
+ [46 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/brazil1_report.png (PNG copy)> </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/brazil1_teach.png (PNG copy)>] [47 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/brazil1_class.png (PNG copy)> </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/brazil1_class2.png (PNG copy)>] [48 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/brazil1_terminal.png (PNG copy)>]
 Overfull \hbox (4.27055pt too wide) in paragraph at lines 1138--1140
 \OT1/cmr/m/n/10.95 En aquest apar-tat es pro-va-ran tots els en-co-dings de les cl^^Rausules de car-di-na-li-tat (b^^Rasicament \OT1/cmr/m/it/10.95 at[]most[]one
  []
@@ -1360,7 +1360,7 @@ LaTeX Warning: Float too large for page by 35.81062pt on input line 1348.
 
 [53
 
-] [54 </home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gantt2.png (PNG copy)>]
+] [54 </home/sipwarriper/source/repos/hstt2smt/Memoria/Diagrames/gantt2.png (PNG copy)>]
 Cap\'{\i }tol 11.
 [55
 
@@ -1384,7 +1384,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1406.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1406.
- (/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.aux)
+ (/home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1406.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1406.
 Package rerunfilecheck Info: File `Doc.out' has not changed.
@@ -1399,14 +1399,14 @@ Package logreq Info: Writing requests to 'Doc.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  29157 strings out of 492623
- 527207 string characters out of 6135669
- 980495 words of memory out of 5000000
+ 527039 string characters out of 6135669
+ 980496 words of memory out of 5000000
  32079 multiletter control sequences out of 15000+600000
  16604 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,18n,48p,868b,1986s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,18n,48p,864b,1986s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.pdf (59 pages, 950990 bytes).
+Output written on /home/sipwarriper/source/repos/hstt2smt/Memoria/Doc.pdf (59 pages, 950994 bytes).
 PDF statistics:
  1227 PDF objects out of 1440 (max. 8388607)
  1099 compressed objects within 11 object streams

@@ -574,7 +574,7 @@
     \item Les que comparen amb k: \textit{Exactly k (EK)}, \textit{At Most k (AMK)} i \textit{At Least k (ALK)}
   \end{itemize}
 
-  \subsubsection{Cardinality Constraints comparadaes amb 1}
+  \subsubsection{Cardinality Constraints comparades amb 1}
 
   \paragraph*{ALO i EO}
   
@@ -609,7 +609,7 @@
     
   \end{itemize}
 
-  \subsubsection{Cardinality Constraints comparadaes amb k}
+  \subsubsection{Cardinality Constraints comparades amb k}
   \paragraph*{Sorting networks}~\\~\\
   Una sorting network agafa una entrada de mida $n$ i l'ordena. Es pot fer de manera recursiva com es pot veure a continuació, utilitzant una estratègia semblant a la del \textit{mergesort}:
   
@@ -634,7 +634,7 @@
   \paragraph*{Totalizer} ~\\~\\
   El Totalizer encoding es basa en generar una representació unària de la cardinalitat del conjunt de variables d'entrada. 
   Va ser introduït per Bailleux i Bougkhad\cite{Bailleux2003EfficientCE}. L'encoding consisteix en l'escriptura d'un arbre binari on a les fulles hi han les variables d'entrada i cada uns interior, 
-  conté la representació unària de la cardinalitat dels seus descendents fulla. Per tant amb tantes variables auxiliars com descendents fulla tingui.
+  conté la representació unària de la cardinalitat dels seus descendents fulla. Per tant amb tantes variables auxiliars com descendents tingui la fulla.
 
   \begin{figure}[ht!]
     \centering
@@ -643,12 +643,12 @@
     \label{fig:totalizer}
   \end{figure}
 
-  Seguint amb l'exemple de la figura \ref{fig:totalizer} tindríem com a entrada el conjunt de variables $\{x_1, x_2, x_3, x_4, x_5, x_6\}$ i com a sortida el conjunt de variables $\{s_11, s_12, s_13, s_14, s_15, s_16\}$. És important notar que cada node codifica la cardinalitat de les fulles q en pengen, en format unari. Això significa que per tot i de cada node, $s_i \geq S_{i+1}$.
+  Seguint amb l'exemple de la figura \ref{fig:totalizer} tindríem com a entrada el conjunt de variables $\{x_1, x_2, x_3, x_4, x_5, x_6\}$ i com a sortida el conjunt de variables $\{s_{11}, s_{12}, s_{13}, s_{14}, s_{15}, s_{16}\}$. És important notar que cada node codifica la cardinalitat de les fulles q en pengen, en format unari. Això significa que per tot i de cada node, $s_i \geq S_{i+1}$.
 
   En la figura també es poden veure totes les variables auxiliars que introdueix l'encoding per codificar un \textit{at-most-k} sobre 6 variables. Per veure quines clàusules genera, caldria definir un sumador unari, que donats dos nombres unaris, en retorni la suma en unari. 
-  Aplicant-lo a cada node interior és suficient per garantir que $\{s_11, s_12, s_13, s_14, s_15, s_16\}$ és la representació unària de la cardinalitat de $\{x_1, x_2, x_3, x_4, x_5, x_6\}$. 
+  Aplicant-lo a cada node interior és suficient per garantir que $\{s_{11}, s_{12}, s_{13}, s_{14}, s_{15}, s_{16}\}$ és la representació unària de la cardinalitat de $\{x_1, x_2, x_3, x_4, x_5, x_6\}$. 
   Amb la representació unària de la cardinalitat, n'hi ha prou amb imposar que la interpretació de $out_{k+1}$ sigui falsa, per fer efectiu un, \textit{at-most-k}. 
-
+ 
 
 
 
