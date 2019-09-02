@@ -273,7 +273,7 @@ void HSTTEncoding::avoid_clashes_constraint(const int &cost, const std::set<std:
             }
             else{
                 boolvar x = formula_->newBoolVar("avoid_clashes",t);
-                formula_->addAMKWithCheckVar(_lts, 1, x,ENC_AMK);
+                formula_->addAMOWithCheckVar(_lts,x,ENC_AMO);
                 pseudoVars_.push_back({x,weight});
             }
         }
@@ -838,7 +838,7 @@ bool HSTTEncoding::printSolution(ostream &os) const{
         if (a) num++;
         num2++;
     }
-    os<<std::endl<<"Violated Soft Clauses (violated/total): ("<<num<<"/"<<num2<<") ----------- Total cost: "<<pseudoValue;
+    os<<std::endl<<"Violated Soft Clauses (violated/total): ("<<num<<"/"<<num2<<")";
 
     return true;
 

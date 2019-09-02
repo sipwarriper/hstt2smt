@@ -18,12 +18,17 @@
 #include "glucoseapiencoder.h"
 #endif
 
+
+#ifdef USEMINISAT
+#include "minisatapiencoder.h"
+#endif
+
 #define VERSION "1.0"
 
 using namespace util;
 using namespace smtapi;
 
-map<string,AMOEncoding> SolvingArguments::amoencodings = {
+std::map<std::string,AMOEncoding> SolvingArguments::amoencodings = {
 	{"quad",AMO_QUAD},
 	{"log",AMO_LOG},
 	{"ladder",AMO_LADDER},
@@ -31,41 +36,35 @@ map<string,AMOEncoding> SolvingArguments::amoencodings = {
 	{"commander",AMO_COMMANDER}
 };
 
-map<string,CardinalityEncoding> SolvingArguments::cardinalityencodings = {
+std::map<std::string,CardinalityEncoding> SolvingArguments::cardinalityencodings = {
 	{"sorter",CARD_SORTER},
 	{"totalizer",CARD_TOTALIZER}
 };
 
-map<string,PBEncoding> SolvingArguments::pbencodings = {
+std::map<std::string,PBEncoding> SolvingArguments::pbencodings = {
 	{"bdd",PB_BDD},
-	{"bdd2",PB_BDD2},
 	{"swc",PB_SWC},
 	{"gt",PB_GT},
-	{"gt2",PB_GT2},
 	{"gpw",PB_GPW},
 	{"lpw",PB_LPW},
 	{"gbm",PB_GBM},
 	{"lbm",PB_LBM}
 };
 
- map<string,AMOPBEncoding> SolvingArguments::amopbencodings = {
+ std::map<std::string,AMOPBEncoding> SolvingArguments::amopbencodings = {
 	{"bdd",AMOPB_BDD},
-	{"bdd2",AMOPB_BDD2},
 	{"swc",AMOPB_SWC},
 	{"gt",AMOPB_GT},
-	{"gt2",AMOPB_GT2},
 	{"gpw",AMOPB_GPW},
 	{"lpw",AMOPB_LPW},
 	{"gbm",AMOPB_GBM},
 	{"lbm",AMOPB_LBM},
 	{"amomdd",AMOPB_AMOMDD},
-	{"amomdd2",AMOPB_AMOMDD2},
 	{"ic",AMOPB_IMPCHAIN},
 	{"amobdd",AMOPB_AMOBDD},
 	{"gswc",AMOPB_GSWC},
 	{"sorter",AMOPB_SORTER},
 	{"ggt",AMOPB_GGT},
-	{"ggt2",AMOPB_GGT2},
 	{"ggpw",AMOPB_GGPW},
 	{"glpw",AMOPB_GLPW},
 	{"ggbm",AMOPB_GGBM},
@@ -80,8 +79,8 @@ SolvingArguments::SolvingArguments() : Arguments<SolvingArg>(
 
 	//Program solving options
 	{arguments::sop("s","solver",SOLVER,"yices",
-	{"yices","lingeling","openwbo","glucose","optimathsat"},
-	"Solver to use. API only available with yices and glucose. For SMT encodings, only yices. For MaxSAT encodings, only openwbo. Default: yices."),
+	{"yices","lingeling","openwbo","glucose","optimathsat","minisat"},
+	"Solver to use. API only available with yices and glucose. For SMT encodings, only yices. For MaxSAT encodings, only openwbo. For SAT: glucose, minisat. Default: yices."),
 
 	arguments::bop("e","output-encoding",OUTPUT_ENCODING,false,
 	"If 1, the instance will not be solved but the encoding will be output in stdout. If the encoding does not contain a native optimization functionality, the encoding will correspond to the decision version of the problem with the given/computed bounds. Default: 0."),
@@ -133,6 +132,17 @@ SolvingArguments::SolvingArguments() : Arguments<SolvingArg>(
 
 	arguments::bop("","print-stats",PRINT_CHECKS_STATISTICS,true,
 	"If 1, the solving statistics in the computation of each lower/upper bound will be printed. Default: 1."),
+        
+    arguments::iop("","trace-sat",TRACE_SAT,0,
+    "If 1 and using Minisat, it will be printed the trace of the execution, excluding propagations. If 2, also print conflict analysis. If 3, propagations also printed. Default: 0."),
+        
+        
+    arguments::bop("","enable-restarts",ENABLE_RESTARTS,1,
+    "Restarts enable iff set to 1 (only Minisat). Default: 1."),
+        
+    arguments::iop("","phase-saving",PHASE_SAVING,2,
+        "Minisat phase-saving. (0=none, 1=limited, 2=full). Default: 2."),
+        
 
 	arguments::sop("","amo",AMO_ENCODING,"quad",
 	{"quad","log","ladder","heule","commander"},
@@ -165,7 +175,7 @@ SolvingArguments::~SolvingArguments() {
 
 
 void SolvingArguments::printVersion() const{
-	cout << "Program version: " << VERSION << endl;
+	std::cout << "Program version: " << VERSION << std::endl;
 }
 
 void SolvingArguments::checkSolvingArguments(){
@@ -175,7 +185,7 @@ void SolvingArguments::checkSolvingArguments(){
 
 Optimizer * SolvingArguments::getOptimizer(){
 	Optimizer * o;
-	string so = getStringOption(OPTIMIZER);
+	std::string so = getStringOption(OPTIMIZER);
 	if(so == "ub") o = new UBOptimizer();
 	else if(so == "bu") o = new BUOptimizer();
 	else if(so == "dico") o = new DicoOptimizer();
@@ -188,10 +198,10 @@ Optimizer * SolvingArguments::getOptimizer(){
 Encoder * SolvingArguments::getEncoder(Encoding * enc){
 	Encoder * e = NULL;
 	if(getBoolOption(USE_API)){
-		string solver = getStringOption(SOLVER);
+		std::string solver = getStringOption(SOLVER);
 		if(solver=="yices"){
 		#ifndef USEYICES
-			cerr << "Error: this binary has been compiled without support for yices. " << endl;
+			std::cerr << "Error: this binary has been compiled without support for yices. " << std::endl;
 			exit(UNSUPPORTEDFUNC_ERROR);
 		#else
 			Yices2APIEncoder * e2 = new Yices2APIEncoder(enc);
@@ -203,14 +213,22 @@ Encoder * SolvingArguments::getEncoder(Encoding * enc){
 		}
 		else if(solver=="glucose"){
 		#ifndef USEGLUCOSE
-			cerr << "Error: this binary has been compiled without support for glucose. " << endl;
+			std::cerr << "Error: this binary has been compiled without support for glucose. " << std::endl;
 			exit(UNSUPPORTEDFUNC_ERROR);
 		#else
 			e = new GlucoseAPIEncoder(enc);
 		#endif
 		}
+		else if(solver=="minisat"){
+		#ifndef USEMINISAT
+			std::cerr << "Error: this binary has been compiled without support for minisat. " << std::endl;
+			exit(UNSUPPORTEDFUNC_ERROR);
+		#else
+			e = new MinisatAPIEncoder(enc,getIntOption(TRACE_SAT),getBoolOption(ENABLE_RESTARTS),getIntOption(PHASE_SAVING));
+		#endif
+		}
 		else{
-			cerr << "API interaction not supported for solver " << solver << endl;
+			std::cerr << "API interaction not supported for solver " << solver << std::endl;
 			exit(BADARGUMENTS_ERROR);
 		}
 	}
@@ -221,9 +239,9 @@ Encoder * SolvingArguments::getEncoder(Encoding * enc){
 
 FileEncoder * SolvingArguments::getFileEncoder(Encoding * enc){
 	FileEncoder * fe = NULL;
-	string fileformat = getStringOption(FILE_FORMAT);
-	string solver = getStringOption(SOLVER);
-	string fileprefix = getStringOption(FILE_PREFIX);
+	std::string fileformat = getStringOption(FILE_FORMAT);
+	std::string solver = getStringOption(SOLVER);
+	std::string fileprefix = getStringOption(FILE_PREFIX);
 	if(fileformat=="dimacs"){
 		fe = new DimacsFileEncoder(enc,solver);
 		fe->setTmpFileName(fileprefix +".dimacs");
@@ -233,7 +251,7 @@ FileEncoder * SolvingArguments::getFileEncoder(Encoding * enc){
 		fe->setTmpFileName(fileprefix +".smt2");
 	}
 	else{
-		cerr << "Unsupported file format " << fileformat << endl;
+		std::cerr << "Unsupported file format " << fileformat << std::endl;
 		exit(BADARGUMENTS_ERROR);
 	}
 	fe->setProduceModels(getBoolOption(PRODUCE_MODELS));
