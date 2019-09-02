@@ -908,6 +908,18 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Aquest binari serà el resultat de compilar el generador amb la API SMT i les llibreries que es necessiten per poder treballar amb XML i amb SMT.
   %%%REVISAR%%%%%
 
+  \section{Parser XHSTT}
+
+  El parser XHSTT consisteix en una classe que llegeix una instància XHSTT i passa la informació al model per que aquest pugui fer la codificació de les diferents restriccions.
+
+  El funcionament del parser segueix el següent esquema:
+
+  \begin{enumerate}
+    \item Llegir element de la instància (Event, espai de temps o recurs) i enviar les dades al Model que se les guardarà.
+    \item Al acabar de llegir els elements, enviar una senyal al codificador per a què faci les variables del model i les restriccions de \textit{channeling}.
+    \item Llegir restricció i enviar les dades a \textit{HSTTEncoding} per a què les codifiqui.
+  \end{enumerate}
+
   \section{Codificació}
   En aquesta secció es descriu la implementació de la codificació a SMT del generador d'horaris. 
   Posat que SMT no permet clàusules violables, per a la codificació d'aquesta s'utilitzarà el cost i una variable auxiliar per cada clàusula \textit{soft}, 
