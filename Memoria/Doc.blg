@@ -1,14 +1,14 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
-[1] Config.pm:307> INFO - Logfile is 'Doc.blg'
-[41] biber:315> INFO - === Mon Sep  2, 2019, 10:14:15
-[68] Biber.pm:371> INFO - Reading 'Doc.bcf'
+[0] Config.pm:307> INFO - Logfile is 'Doc.blg'
+[40] biber:315> INFO - === Mon Sep  2, 2019, 12:26:34
+[70] Biber.pm:371> INFO - Reading 'Doc.bcf'
 [160] Biber.pm:886> INFO - Using all citekeys in bib section 0
-[180] Biber.pm:4093> INFO - Processing section 0
-[197] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[198] bibtex.pm:1523> INFO - LaTeX decoding ...
-[240] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography.bib'
-[457] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'variable = shifted' with 'variable = non-ignorable'
-[457] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[457] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ca-AD'
-[484] bbl.pm:636> INFO - Writing 'Doc.bbl' with encoding 'UTF-8'
-[497] bbl.pm:739> INFO - Output to Doc.bbl
+[184] Biber.pm:4093> INFO - Processing section 0
+[242] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[245] bibtex.pm:1523> INFO - LaTeX decoding ...
+[288] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography.bib'
+[534] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[535] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'variable = shifted' with 'variable = non-ignorable'
+[535] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ca-AD'
+[569] bbl.pm:636> INFO - Writing 'Doc.bbl' with encoding 'UTF-8'
+[583] bbl.pm:739> INFO - Output to Doc.bbl

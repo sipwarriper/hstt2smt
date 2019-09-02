@@ -85,7 +85,7 @@
   
   \begin{document}
   \begin{titlepage}
-    \includepdf[pages=-]{portada.pdf}
+    \includepdf[pages=1]{portada.pdf}
   \end{titlepage}
 
 
@@ -99,33 +99,44 @@
   % \section{Propòsit}
   % \section{Objectius}
 
-  La confecció d'horaris és un problema recurrent amb el qual es troben els instituts que amaga una alta combinatòria, dificultant-ne molt la seva elaboració manual posat que s'han de prendre moltíssimes decisions a cegues,
-  fent que sigui molt probable cometre errors en la confecció. En aquesta situació, amb l'aparició dels computadors molts instituts varen decidir ajudar-se en aquesta tasca utilitzant eines informàtiques capaces 
-  d'explorar grans quantitats de combinacions per segon. No obstant a això, amb aquelles primeres eines se seguien tenint molts problemes per generar horaris viables, que normalment eren de qualitat baixa 
-  i requerien un refinament posterior que s'havia de fer de forma manual.
+  La confecció d'horaris és un problema recurrent amb el qual es troben els instituts que amaga una alta combinatòria, 
+  dificultant-ne molt la seva elaboració manual donat que s'han de prendre moltíssimes decisions a cegues,
+  fa que sigui molt probable cometre errors en la confecció. En aquesta situació, amb l'aparició dels computadors molts instituts varen decidir ajudar-se en aquesta tasca utilitzant eines informàtiques capaces 
+  d'explorar grans quantitats de combinacions per segon. No obstant a això, 
+  amb aquelles primeres eines sguim tenint molts problemes per generar horaris viables i normalment donaven resultats que
+   eren de qualitat baixa i requerien un refinament posterior que s'havia de fer de forma manual.
   
   El HSTT (High School TimeTabling) consisteix en la solució de forma automàtica d'aquest problema d'alta complexitat (NP). 
   Així doncs, el que s'intenta és la configuració automàtica d'horaris d'institut partint d'una sèrie de recursos 
   (per exemple: aules, professors, assignatures, grups) i repartir-los de manera que sigui viable i tenint en compte 
-  de manera total o parcial les preferències del professorat respecte a horaris, continuïtat, grups, etc. Tot això fa que el problema sigui molt difícil de resoldre, a causa del gran nombre de combinacions possibles entre els diferents recursos.
+  de manera total o parcial les preferències del professorat respecte a horaris, continuïtat, grups, etc. 
+  Tot això, fa que el problema sigui molt difícil de resoldre a causa del gran nombre de combinacions possibles entre els diferents recursos.
   
   Afegint dificultat al problema, depenguen del país del qual estiguem parlant existeixen una gran diversitat de requisits propis, degut a les característiques pròpies del sistema d'estudis secundaris de cada lloc.
 
-  A causa de tot el mencionat encara no existeix cap eina capaç de trobar una solució òptima al problema de manera determinista en un temps raonable, encara que s'ha avançat molt en la resolució de problemes d'aquest tipus i costen de trobar instituts que optin per fer els horaris de forma manual.
+  A causa de tot el mencionat encara no existeix cap eina capaç 
+  de trobar una solució òptima al problema de manera determinista en un temps raonable. 
+  Encara que s'ha avançat molt en la resolució de problemes d'aquest tipus i actualment
+  costa trobar instituts que optin per fer els horaris de forma manual.
+
   
   Els objectius d'aquest treball són els següents:
   \begin{itemize}
     \item Aprofundir sobre el problema de la generació d'horaris en sí i sobre els problemes de satisfacció de restriccions en general i les tècniques que s'utilitzen per resoldre'ls, com ara, SAT i les seves diverses extensions.
-    \item Desenvolupar un generador d'horaris automàtic utilitzant les tècniques estudiades anteriorment, aprofitant les eines relacionades que s'han desenvolupat recentment pel grup de recerca Lògica i Programació, que resolgui el problema en un temps raonable i intenti trobi la millor solució possible, 
-    cosa que es preveu molt complicada d'aconseguir en un temps raonable en les instàncies grosses.
+    \item Desenvolupar un generador d'horaris automàtic utilitzant les tècniques estudiades anteriorment. 
+    Aprofitant les eines relacionades que s'han desenvolupat recentment pel grup de recerca Lògica i Programació, 
+    s'intentarà resoldre el problema en un temps raonable i intentar trobar la millor solució possible. 
+    Això que es preveu molt complicada d'aconseguir en un temps raonable en les instàncies grosses.
     
   \end{itemize}
   
   \section{Grup de recerca Lògica i Programació}
   Aquest treball s'emmarca dins del grup de recerca de Lògica i Programació de l'àmbit d'àrea tècnica de la Universitat de Girona.
 
-  El grup basa la seva recerca en l'estudi de satisfactibilitat de fórmules proposicionals booleanes (SAT) i Satisfiability Modulo Theories (SMT) i les seves
-  aplicacions per a la resolució de problemes combinatoris com ara problemes de \textit{scheduling} i \textit{planning} arribant a utilitzar amb èxit tècniques innovadores en altres àmbits com
+  El grup basa la seva recerca en l'estudi de satisfactibilitat de fórmules proposicionals booleanes (SAT) 
+  i Satisfiability Modulo Theories (SMT) i les seves
+  aplicacions per a la resolució de problemes combinatoris com ara problemes de \textit{scheduling} i \textit{planning} 
+  . El grup ha arribat a utilitzar amb èxit tècniques innovadores en altres àmbits com
   pot ser: els problemes de \textit{scheduling} i \textit{planning}.
 
   Durant l'elaboració del treball he rebut ajuda i assessorament dels membres del grup, incloent els meus tutors de projecte, el Dr. Josep Suy i el Dr. Jordi Coll, qui també en formen part.
@@ -197,7 +208,7 @@
     \hline
      & \euro/h & Hores & Cost \\ [0.5ex] 
     \hline\hline
-    Programador & 14 & 180 & 2520 \\ [1ex] 
+    Programador & 14 & 260 & 2520 \\ [1ex] 
     \hline
    \end{tabular}
    \end{center}
@@ -208,10 +219,10 @@
     \hline
      & Cost Total & Hores & \euro/h \\ [0.5ex] 
     \hline\hline
-    Ordinador Principal & 828 & 170 & 4.9 \\ [1ex] 
-    Ordinador Portatil Secundari & 200 & 10 & 20 \\ [1ex] 
+    Ordinador Principal & 828 & 240 & 3.45 \\ [1ex] 
+    Ordinador Portatil Secundari & 200 & 20 & 10 \\ [1ex] 
     \hline\hline
-    Total & 1028 & 190 & 5.71 \\
+    Total & 1028 & 260 & 3.95 \\
 
 
     \hline
@@ -225,8 +236,8 @@
     \hline
      & Hores \\ [0.5ex] 
     \hline\hline
-    Josep Suy & 20 \\ [1ex] 
-    Jordi Coll & 10 \\ [1ex] 
+    Josep Suy & 30 \\ [1ex] 
+    Jordi Coll & 20 \\ [1ex] 
     \hline
    \end{tabular}
    \end{center}
@@ -353,8 +364,6 @@
     
     \paragraph*{NP-Completesa de HSTT} ~\\
 
-    En aquest apartat s'inclou la demostració que es veu en el treball d'en Cristòfor Nogueira\cite{treballCristo}.
-    
     Es pot demostrar la NP-Completesa del problema HSTT reduint un problema NP-Complet conegut a HSTT, en aquest cas, el problema de la motxilla\cite{wiki:bin}, d'acord amb la demostració proposada per B. Cooper i J.H. Kingston \cite{complexityHSTT}.
 
     Una de les fonts de la duresa del problema ve a l'hora de gestionar els recursos de manera coherent. Així que al confeccionar un horari serà d'interès mantenir el nombre d'incoherències per sota un llindar. 
@@ -645,11 +654,26 @@
 
   Seguint amb l'exemple de la figura \ref{fig:totalizer} tindríem com a entrada el conjunt de variables $\{x_1, x_2, x_3, x_4, x_5, x_6\}$ i com a sortida el conjunt de variables $\{s_{11}, s_{12}, s_{13}, s_{14}, s_{15}, s_{16}\}$. És important notar que cada node codifica la cardinalitat de les fulles q en pengen, en format unari. Això significa que per tot i de cada node, $s_i \geq S_{i+1}$.
 
-  En la figura també es poden veure totes les variables auxiliars que introdueix l'encoding per codificar un \textit{at-most-k} sobre 6 variables. Per veure quines clàusules genera, caldria definir un sumador unari, que donats dos nombres unaris, en retorni la suma en unari. 
+  En la figura \ref{fig:totalizer} també es poden veure totes les variables auxiliars que introdueix l'encoding per codificar un \textit{at-most-k} sobre 6 variables. Per veure quines clàusules genera, caldria definir un sumador unari, que donats dos nombres unaris, en retorni la suma en unari. 
   Aplicant-lo a cada node interior és suficient per garantir que $\{s_{11}, s_{12}, s_{13}, s_{14}, s_{15}, s_{16}\}$ és la representació unària de la cardinalitat de $\{x_1, x_2, x_3, x_4, x_5, x_6\}$. 
   Amb la representació unària de la cardinalitat, n'hi ha prou amb imposar que la interpretació de $out_{k+1}$ sigui falsa, per fer efectiu un, \textit{at-most-k}. 
  
+  \paragraph*{Millores i optimitzacions} ~\\
+  En la API SMT que s'ha utilitzat els encodings que s'han vist tenen aplicades certes millores per millorar la eficiència en clàusules i variables generades. A coninuació s'enumeren les millores:
 
+  \begin{itemize}
+    \item Sabem que \textit{at\_most\_one}, \textit{at\_least\_one} i \textit{exactly\_one} són
+          un subconjunt de les restriccions de cardinalitat amb $k$, però amb $k=1$. Les codificacions d'aquestes (les quatre estudiades) són molt més eficients que quant no sabem la k, i, 
+          per tant, és interessant tenir en compte que si $k=1$, en comptes d'utilitzar un \textit{sorter} o un \textit{totalizer}.
+    \item Si en una restricció de cardinalitat diem que sobre un conjunt de $n$
+          variables com a màxim $k$ han de ser certes (o sigui\textit{at\_most\_one(\{$v_1, ... ,v_n$\}, $k$ )})
+          és el mateix que dir que com a mínim $n-k$ variables han de ser falses,
+          (o sigui\textit{at\_least\_one(\{$\neg v_1, ... ,\neg v_n$\}, $n-k$ )}). Aquesta propietat també es pot aplicar de manera inversa. \\
+          Quan $k$ és molt més gran que $n$, aquesta propietat ens pot ajudar a fer encodings molt més petits. 
+          En la API SMT s'utilitza la següent relació: $k \geq n/2$.
+    \item La codificació de un comparador binàri (molt utilitzat en els 2 encodings) es pot simplifcar en funció del operador utilitzat. En cas del exactament, necessitarem 6 clàusules. Pel $\leq$ 2, i pel $\geq$ només 1. Així es poden reduir les clàusules en les dues codificacions.
+    \item Per últim, la API només codifica la circuiteria necessària per comparar fins a $k+1$, reduint molt la circuiteria necessària per a les diferents codificacions vistes.
+  \end{itemize}
 
 
 
@@ -730,7 +754,7 @@
 
   En aquest treball s'ha decidit utilitzar el C++ perquè és amb el que es treballa al grup de recerca i és amb el que està feta la API SMT. El C++ s'ha utilitzat en la revisió C++17 del seu estàndard. El GCC utilitzat ha estat en la versió 9.1.0-2. 
 
-  \subsection{QtCreator}
+  % \subsection{QtCreator}
 
   % \begin{figure}[ht!]
   %   \centering
@@ -785,6 +809,13 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \chapter{Anàlisis i disseny del sistema}
 
+  En aquest capítol s'estudien les diferents necessitats del generador d'horaris automàtic que es pretén desenvolupar al llarg del treball
+  i es planteja com solucionar-les. 
+  Es presenten propostes de com funcionarà internament l'aplicació, 
+  com es guardaran les diferents dades que necessitem i com es comunicarà amb l'usuari. 
+
+
+
   \section{Anàlisis}
   % En la fase d’anàlisi cal detallar el model de dades i el model de processos. 
   \subsection{Necessitats del sistema}
@@ -824,7 +855,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \label{fig:DataModel}
   \end{figure}
 
-  Com es pot veure en la figura anterior, la classe \textit{Model} guarda la informació de la instància (sense incloure les restriccions). D'aquesta heretaran tots els encodings que es puguin arribar a fer, posat que sempre serà el mateix.
+  Com es pot veure en la figura \ref{fig:DataModel}, la classe \textit{Model} guarda la informació de la instància (sense incloure les restriccions). D'aquesta heretaran tots els encodings que es puguin arribar a fer, posat que sempre serà el mateix.
   Per fer-ho s'ha creat la classe \textit{ModelEntity} de la qual hereten les classes \textit{Event}, \textit{Resource}, \textit{ResourceType} i \textit{Time},
   representant respectivament a les assignatures, els recursos, els tipus de recursos i els espais de temps disponibles. Aquestes classes mantenen tota la informació necessària per a representar a cada tipus d'element. La classe \textit{ModelEntity}
   inclou un identificador  únic de tipus \textit{string} i un numero enter unic per cada un dels tipus existents. Hi poden haver un \textit{Event} i un \textit{Resource} amb el mateix número, però mai hi haurà dos elements del mateix tipus amb el mateix numero.
@@ -846,6 +877,20 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   El HSTTEncoding crearà l'objecte XMLParser per tal de llegir el fitxer i es comunicaran entre ells mentre XMLParser vagi llegint el fitxer enviant la informació llegida al HSTTEncoding. 
   Al heretar de Model, aquest pot guardar totes les dades, que consistiran en diferents tipus de \textit{ModelEntity} i diferents \textit{Groups}.
   Des de aquí HSTTEncoding s'encarregarà de resoldre la instància comunicant-se amb la API SMT.
+
+  \subsection{API SMT}
+
+  La API SMT desenvolupada pel Dr. Jordi Coll serà molt utilitzada durant el desenvolupament del treball.
+  Aquesta API ens fa d'interfície per a codificar de forma senzilla i intuïtiva 
+  problemes de satisfacció de restriccions utilitzant SAT, MaxSAT o SMT. 
+  Això ens ho permet fer de manera independent del solver i, fins i tot,
+  ens permet extreure la codificació del problema que s'estigui treballant 
+  en fitxers de format \textit{SMT-LIB}\footnote{\url{http://smtlib.cs.uiowa.edu/language.shtml}} o 
+  \textit{dimacs} \footnote{\url{https://people.sc.fsu.edu/~jburkardt/data/cnf/cnf.html}}.
+
+  Aquesta API, a més del mencionat, 
+  té codificades les diferents restriccions de cardinalitat mencionades en la secció \ref{card}. Això ens permetrà centrar-nos en implementar el model sense haver-nos de preocupar de codificar les diferents restriccions de cardinalitat vistes.
+
 
 
   

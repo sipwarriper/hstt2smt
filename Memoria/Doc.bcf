@@ -2004,14 +2004,13 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">treballCristo</bcf:citekey>
-    <bcf:citekey order="2">treballCristo</bcf:citekey>
-    <bcf:citekey order="3">wiki:bin</bcf:citekey>
-    <bcf:citekey order="4">complexityHSTT</bcf:citekey>
-    <bcf:citekey order="5">xhstt</bcf:citekey>
-    <bcf:citekey order="6">cook1971complexity</bcf:citekey>
-    <bcf:citekey order="7">Bailleux2003EfficientCE</bcf:citekey>
-    <bcf:citekey order="8">wiki:blackbox</bcf:citekey>
-    <bcf:citekey order="9">hseval</bcf:citekey>
+    <bcf:citekey order="2">wiki:bin</bcf:citekey>
+    <bcf:citekey order="3">complexityHSTT</bcf:citekey>
+    <bcf:citekey order="4">xhstt</bcf:citekey>
+    <bcf:citekey order="5">cook1971complexity</bcf:citekey>
+    <bcf:citekey order="6">Bailleux2003EfficientCE</bcf:citekey>
+    <bcf:citekey order="7">wiki:blackbox</bcf:citekey>
+    <bcf:citekey order="8">hseval</bcf:citekey>
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
