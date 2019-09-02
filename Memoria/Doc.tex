@@ -24,7 +24,8 @@
     \usepackage[figuresleft]{rotating}
     \usepackage{mathtools}
     \usepackage{pdfpages}
-
+    \usepackage{multirow}
+    \usepackage{array, multirow}
 
     \addbibresource{bibliography.bib}
     \bibliography{bibliography}
@@ -1144,6 +1145,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   En aquesta secció es realitzarà una comparativa de rendiment amb els diferents encodings diferents en la API SMT i es veuran els resultats donats per el generador per les diferents instàncies de Brazil que es poden trobar en el repositori públic.
 
   El format XHSTT disposa d'un avaluador d'horaris online anomenat HSeval\cite{hseval}. Aquest, ens serveix per avaluar la bondat d'un horari i, a més, permet mostrar-lo de forma gràfica. 
+  Aquesta eina ens permetrà comprovar com de bona és cada solució comparada amb les ja existents.
   A continuació es mostraran els resultats obtinguts amb la instància \textit{BrazilInstance1.xml} en la web i en el generador en sí, que també mostra els horaris resultants per pantalla, com es pot veure a la figura \ref{fig:bi1_term}. 
 
   Per aconseguir l'informe de resultats només cal pujar el fitxer xml amb la solució, seleccionar la opció \textit{HTML Report} i fer click a \textit{Submit}. El resultat es pot veure a la figura \ref{fig:bi1_report}.
@@ -1193,7 +1195,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \section{Comparativa d'encodings}
 
   En aquest apartat es provaran tots els encodings de les clàusules de cardinalitat (bàsicament \textit{at\_most\_one} i \textit{at\_most\_k}) disponibles en la API SMT i es mirarà com afecten aquests en el rendiment del generador d'horaris. 
-  Totes les proves realitzades en aquesta secció seran de resolució. S'ha utilitzat un timeout de 30 minuts.
+  Totes les proves realitzades en aquesta secció seran de resolució. En totes les proves d'execució s'ha utilitzat un temps límit de 30 minuts.
 
   \subsection{Comparativa per temps d'execució}
 
@@ -1205,10 +1207,10 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \begin{tabular} { c | c c c}
       Encoding & BrazilInstance1 & BrazilInstance2 & BrazilInstance3 \\
       \hline
-      Quadràtic & 1.669 & 11.257 & 16.832\\
-      Logarítmic & 1.625 & 11.784 & 19.444\\
-      Ladder & 1.78 & 12.281 & 20.74 \\
-      Heule & 1.609 & 12.062 & 16.881 \\
+      Quadràtic &   1.052 & 6.450 & 10.331 \\
+      Logarítmic &  1.126 & 6.151 & 10.989 \\
+      Ladder &      1.275 & 6.084 & 12.492  \\
+      Heule &       1.242 & 6.437 & 11.815  \\
     \end{tabular}
     \caption{Taula de resultats de temps de les instàncies de la 1 a la 3}
     \label{fig:taula1}
@@ -1216,30 +1218,27 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \begin{figure}[ht!]
     \centering
-    \begin{tabular} { c | c c c}
-      Encoding & BrazilInstance4 & BrazilInstance5 & BrazilInstance6 \\
+    \begin{tabular} { c | c c c c}
+      Encoding & BrazilInstance4 & BrazilInstance5 & BrazilInstance6 & BrazilInstance7 \\
       \hline
-      Quadràtic & 15:11.96 & 48.887& 01:09.23\\
-      Logarítmic & 24:49.42 & 48.092 & 01:08.44\\
-      Ladder & 9:42.25 & 1:22.49 &  01:19.53\\
-      Heule & Timeout & 52.955  & 02:19.89 \\
+      Quadràtic &   02:56.91 & 28.63 &  35.45 & 01:52.45 \\
+      Logarítmic &  11:38.62 & 28.753 & 39.163 & 01:48.02 \\
+      Ladder &      Timeout &  31.018 & 39.797 & 02:22.87 \\
+      Heule &       05:03.38 & 28.934 & 40.441 & 02:38.68 \\
     \end{tabular}
-    \caption{Taula de resultats de temps de les instàncies de la 4 a la 6}
+    \caption{Taula de resultats de temps de les instàncies de la 4 a la 7}
     \label{fig:taula2}
   \end{figure}
 
-  Utilitzant una \textit{Sorting network} per a la codificació de les restriccions de cardinalitat, en les instàncies petites, a la figura \ref{fig:taula1}, 
-  es pot observar que la codificació més lenta és la de Ladder, tot i que les diferencies de temps són molt petites, excepte en la instància 3, on la diferència entre la més ràpida (la codificació quadràtica) i el la més lenta és de pràcticament 4 segons. 
-  La resta d'instàncies d'aquesta taula tarden massa poc com per poder observar grans diferencies de temps. 
+  Al veure els resultats el primer que salta a la vista és el fet de que la instància 4 sigui la més lenta en resoldre's, sent els seus temps d'execució molt diversos i amb una diferència de temps entre encodings molt gran. En el millor dels casos 
+  tarda menys de 3 minuts en resoldre's, aquest és amb la codificació quadràtica. Les codificacions logarítmica i Ladder són molt pitjors en temps d'execució que la resta en aquesta instància, tardant la primera més de 10 minuts i la segona fent saltar el límit de temps de 30 minuts.
 
-  En les instàncies grosses, la figura\ref{fig:taula1} es pot observar una mica de tot. En la 4 el millor temps s'aconsegueix amb el encoding Ladder, però aquest aconsegueix mals resultats amb les instancies 5 i 6.
-  En general, els temps aconseguits amb la instància 4 són molt diferents entre els encodings, mentre que en la resta de instàncies en general son més semblants. Es pot observar que el Heule en general dona mals resultats en les instàncies grosses, 
-  fent saltar la limitació de temps de 30 minuts en la instància 4 i duplicant el temps d'execució en la instància 6. 
+  En general es pot observar que la instància quadràtica ofereix uns resultats en temps d'execució molt competitius, sent la millor en totes les instàncies de la taula corresponent a la figura \ref{fig:taula2} 
+  menys la setena, on la millor codificació és la logarítmica per aproximadament 4 segons.
+  Pel que fa a les corresponents a la figura \ref{fig:taula1}
+  el quadràtic aconsegueix també el millor temps en totes menys la segona instància, pero sent les diferències de temps tant petites en aquestes instàncies, es podria simplement considerar marge d'error. 
 
-  Sorprèn generalment que el encoding quadràtic obtingui resultats tant competitius, sent el millor o molt proper al millor en totes les instàncies menys la 4, on aconsegueix igualment el segon lloc, però molt lluny del millor temps.
-
-
-
+  Pel que fa la resta de codificacions es pot veure que, en funció de la instància unes tenen millor rendiment que d'altres.
 
   \paragraph*{Encoding Cardinalitat: Totalizer} ~\\
 
@@ -1249,10 +1248,10 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
     \begin{tabular} { c | c c c}
       Encoding & BrazilInstance1 & BrazilInstance2 & BrazilInstance3 \\
       \hline
-      Quadràtic & 1.604 & 11.048 & 19.215\\
-      Logarítmic & 1.611 & 11.252 & 17.846\\
-      Ladder & 1.728 & 10.899 & 16.713 \\
-      Heule & 1.681 & 12.233 & 17.377 \\
+      Quadràtic &  1.126 & 6.136 & 9.743  \\
+      Logarítmic & 1.184 & 6.080 & 10.784  \\
+      Ladder &     1.300 & 6.123 & 15.015   \\
+      Heule &      1.105 & 7.142 & 10.604   \\
     \end{tabular}
     \caption{Taula de resultats de temps de les instàncies de la 1 a la 3}
     \label{fig:taula3}
@@ -1260,121 +1259,138 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \begin{figure}[ht!]
     \centering
-    \begin{tabular} { c | c c c}
-      Encoding & BrazilInstance4 & BrazilInstance5 & BrazilInstance6 \\
+    \begin{tabular} { c | c c c c }
+      Encoding & BrazilInstance4 & BrazilInstance5 & BrazilInstance6 & BrazilInstance7\\
       \hline
-      Quadràtic & 09:52.03 & 49.606& 01:08.74\\
-      Logarítmic & 12:56.72 & 48.908 & 01:08.23\\
-      Ladder & Timeout & 49.556 & 01:24.78\\
-      Heule & Timeout & 01:14.19  & 01:25.67\\
+      Quadràtic &  05:19.96 & 28.235 & 36.191 & 01:50.34 \\
+      Logarítmic & 24:33.60 & 28.768 & 36.309 &  01:48.46\\
+      Ladder &     07:24.02 & 31.006 & 01:06.33 & 02:27.35 \\
+      Heule &      25:24.81 & 29.046 & 36.852 &  02:38.79\\
     \end{tabular}
-    \caption{Taula de resultats de temps de les instàncies de la 4 a la 6}
+    \caption{Taula de resultats de temps de les instàncies de la 4 a la 7}
     \label{fig:taula4}
   \end{figure}
+  
+  Utilitzant un \textit{totalizer} en comptes d'un \textit{sorter} per a la codificació de les restriccions de cardinalitat, les codificacions del \textit{at\_most\_one} no varien molt el seu comportament comparades amb la resta.
+  Torna a saltar a la vista la competitivitat de la codificació quadràtica en temps d'execució en aquest cop, tornant a ser la millor en la majoria d'instàncies grosses. 
 
-  Amb la codificació \textit{Totalizer} per a les restriccions de cardinalitat, en les instàncies petites, a la figura \ref{fig:taula3}, 
-  es pot veure que, a diferència del apartat anterior, la codificació Ladder és la que dóna millors resultats, mentre que abans era la més lenta en les codificacions petites. Però altre cop, aquestes instàncies son petites i es resolen molt ràpidament, 
-  així que les diferències acostumen a estar dins d'un marge d'error acceptable. 
+  La instància 4 torna a oferir un comportament molt extrany entre les diferents codificacions. Es pot observar com les codificacions quadràtiques i de ladder, que abans havia fet saltar el límit de temps, 
+  ara són les dues mes ràpides. En canvi, les codificacions logarítmica i Heule ara són molt lentes, mentre que amb el \textit{sorter} tenien uns temps molt superiors als actuals.
 
-  Pel que fa les instàncies grosses, es torna a observar que s'obtenen molt bons resultats amb l'encoding quadràtic, on és el millor en la instància 4 per molta diferència, i està molt aprop de ser-ho en la resta de instàncies, 
-  en l'aspecte que s'està comparant en aquest apartat, el temps d'execució.
-  En la instància 4 es pot observar, a més, que l'encoding Ladder fa saltar la limitació de temps i l'encoding de Heule, d'els que acaben, dona els pitjors resultats amb diferència. 
-  Aquest (l'encoding de Heule) també és el que dona pitjors resultats en la resta de instàncies de la taula.
+  Una altre cosa que es pot observar és el molt mal resultat de la codificació Ladder amb la instància 5. Mentre que totes les altres codificacions en prou feines passen els 36 segons 
+  (amb diferències de mi\l.lèsimes de segon entre elles), tarda més d'un minut en aconseguir alguna solució per aquesta instància.
 
+  \paragraph*{Conclusions} ~\\
 
+  Pel que fa el temps d'execució la combinació del \textit{sorter} i la codificació quadràtica ha estat la millor.
+   Tot i no ser sempre la més ràpida, ha estat sempre la més estable juntament amb la combinació del \textit{totalizer} 
+   i la codificació quadràtica, donant sempre temps competitius i donant els millors resultats en la instància que més tarda en resoldre's.
 
-
-  \paragraph*{Comparativa sorter vs totalizer} ~\\
-
-  Al comparar els dos encodings de les restriccions de cardinalitat, es pot veure que generalment els temps no canvien gaire. En les que més diferència es nota són les següents:
-  \begin{itemize}
-    \item \textbf{Instància 3: }Ofereix millors resultats utilitzant el sorter amb el \textit{at\_most\_one} quadràtic o el totalizer amb el \textit{at\_most\_one} ladder. El quadràtic utilitza 3 segons més amb el totalizer, però generalment és més ràpid en aquesta instància.
-    \item \textbf{Instància 4: }Generalment és més ràpid el totalizer, però els millors resultats absoluts en aquesta instància són amb el sorter combinat amb el \textit{at\_most\_one} ladder, 
-    encoding amb el qual salta el timeout utilitzant el totalizer. Els temps obtinguts amb el totalizer i el  \textit{at\_most\_one} quadràtic, però, son bastant propers (10 segons de diferència en una instància que tarda pràcticament 10 minuts). 
-  \end{itemize}
-
-  Vist això i comparant les taules es pot veure que generalment la combinació d'encodings que ofereix millors temps d'execució és el totalizer amb el \textit{at\_most\_one} quadràtic, i per tant, les pròximes proves utilitzaran aquesta combinació d'encodings.
+  
 
   \subsection{Comparativa de variables i clàusules generades}
 
-  \paragraph*{Comparativa Sorter vs Totalizer}
-
-  Aquestes comparatives es faran amb l'encoding \textit{at\_most\_one} quadràtic:
+  En aquest apartat estudiarem les variables i clàusules generades per cada combinació de codificacions provades i compararem els diferents resultats. Seguint amb les proves anteriors, les proves que es faran seràn totes de resolució i tindràn un límit de temps de 30 minuts.
+  
+  \paragraph*{Variables} ~\\
 
   \begin{figure}[ht!]
     \centering
-    \begin{subfigure}[b]{0.45\linewidth}
-      \begin{tabular} { c | c c }
-        Instància & Sorter & Totalizer \\
-        \hline
-        BrazilInstance1 & 222991 &  220114 \\
-        BrazilInstance2 & 1776829 & 1769961  \\
-        BrazilInstance3 & 2187085 & 2179450 \\
-        BrazilInstance4 & 7112715 & 7099821 \\
-        BrazilInstance5 & 6385494 & 6372080 \\
-        BrazilInstance6 & 8702195 & 8687131 \\
-      \end{tabular}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\linewidth}
-      \begin{tabular} { c | c c }
-        Instància & Sorter & Totalizer \\
-        \hline
-        BrazilInstance1 & 978757 &    969534 \\
-        BrazilInstance2 &  6113127 & 	6090809\\
-        BrazilInstance3 &  8853332	& 8828541 \\
-        BrazilInstance4 & 24622271	& 24580215 \\
-        BrazilInstance5 & 24752226	& 24709009 \\
-        BrazilInstance6 & 30815832	& 30766834 \\
-      \end{tabular}
-    \end{subfigure}
-    \caption{Taula de resultats amb el nombre de variables i clàusules generades}
+    \begin{tabular} { c | c c | c c | c c}
+      \multirow{2}{*}{Encodings} & 
+      \multicolumn{2}{c | }{BrazilInstance1} & \multicolumn{2}{c | }{BrazilInstance2} & \multicolumn{2}{c}{BrazilInstance3} \\ \cline{2-7}
+      &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
+      \hline
+      Quadràtic &  131,391 & 131,349 & 924,783 & 924,807 & 1,223,115 & 1,223,085 \\
+      Logarítmic & 131,941 & 131,899 & 926,208 & 926,232 & 1,224,765 & 1,224,735\\
+      Ladder &     132,166 & 132,124 & 927,433 & 927,457 & 1,225,965 & 1,225,935 \\
+      Heule &      131,841 & 131,799 & 927,283 & 927,307 & 1,225,615 & 1,225,585\\
+    \end{tabular}
+    \caption{Taula de resultats amb les variables generades per les instàncies de la 1 a la 3}
     \label{fig:taula5}
   \end{figure}
 
-
-  Com es pot veure en la figura \ref{fig:taula5}, l'encoding de les restriccions de cardinalitat genera més variables i més clàusules. Això explicaria el perquè generalment en la comparativa de temps d'execució s'aconseguien més ràpidament.
-
-  \paragraph*{Comparativa \textit{at\_most\_one}}
-  Aquestes comparatives es faran amb l'encoding per restriccions de cardinalitat totalizer: \\
-
   \begin{figure}[ht!]
-    \centering 
-    \begin{tabular} { c | c c c c}
-      Instància & Quadràtic & Logarítmic & Ladder & Heule \\
+    \centering
+    \begin{tabular} { c | c c | c c | c c | c c}
+      \multirow{2}{*}{Encodings} & 
+      \multicolumn{2}{c | }{BrazilInstance4} & \multicolumn{2}{c | }{BrazilInstance5} & \multicolumn{2}{c | }{BrazilInstance6} & \multicolumn{2}{c}{BrazilInstance7}\\ \cline{2-9}
+      &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
       \hline
-      BrazilInstance1 & 220,114  & 220,664 & 220,889 & 220,564 \\
-      BrazilInstance2 & 1,769,961 & 1,771,386 & 1,772,611 & 1,772,461 \\
-      BrazilInstance3 & 2,179,450 & 2,181,100 & 2,182,300 & 2,181,950 \\         
-      BrazilInstance4 & 7,099,821 & 7,102,496 &  timeout & 7,105,171 \\
-      BrazilInstance5 & 6,372,080 & 6,374,680 & 6,376,930 & 6,376,430 \\
-      BrazilInstance6 & 8,687,131 & 8,690,356 & 8,693,031 & 8,692,656 \\
+      Quadràtic &  3,710,406 & 3,710,472  & 3,535,238 & 3,535,238 & 4,652,421	& 4,652,523 & 9,835,793 & 9,835,793 \\
+      Logarítmic & 3,713,081 & 3,713,147  & 3,537,838 & 3,537,838 & 4,655,646	& 4,655,748 & 9,840,268 & 9,840,268 \\
+      Ladder &     Timeout	  & 3,715,947 & 3,540,088 & 3,540,088 & 4,658,321	& 4,658,423 & 9,844,718 & 9,844,718 \\
+      Heule &      3,715,756 & 3,715,822  & 3,539,588 & 3,539,588 & 4,657,946	& 4,658,048 & 9,844,718 & 9,844,718 \\
     \end{tabular}
-    \caption{Taula de resultats amb el nombre de variables generades}
+    \caption{Taula de resultats amb les variables generades per les instàncies de la 4 a la 7}
     \label{fig:taula6}
   \end{figure}
-  \begin{figure}[H]
-    \centering 
-    \begin{tabular} { c | c c c c}
-      Instància & Quadràtic & Logarítmic & Ladder & Heule \\
+
+  Es pot veure que les diferències entre el nombre de variables del \textit{sorter} i el \textit{totalizer} són mínimes, així doncs ens centrarem en analitzar
+   les diferències en el nombre de variables generades per cadascuna de les diferents codificacions disponibles pel \textit{at\_most\_one)}.
+
+   Com era d'esperar, la codificació quadràtica al no introduir variables auxiliars és la millor en aquest aspecte. La codificació logarítmica aconsegueix molt bons resultats també en aquest aspecte, comparant-la amb les altres dos. 
+   Pel que fa codificació Heule en les instàncies més petites no s'allunya molt, arribant a estar per sobre en la més petita, però a mesura que es fa gran el nombre de variables, més s'allunya d'aquesta.
+   Per altre banda, es pot veure que la codificació Ladder és consistentment la que més variables introdueix, sent en aquest aspecte la pitjor.
+
+   \paragraph*{Clàusules}~\\
+
+   \begin{figure}[H]
+     \centering
+     \begin{tabular} { c | c c | c c | c c}
+       \multirow{2}{*}{Encodings} & 
+       \multicolumn{2}{c | }{BrazilInstance1} & \multicolumn{2}{c | }{BrazilInstance2} & \multicolumn{2}{c}{BrazilInstance3} \\ \cline{2-7}
+       &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
+       \hline
+       Quadràtic &  703,680 & 703,666 & 3,556,395 &	3,556,497 & 5,960,643 & 5,960,705 \\
+       Logarítmic & 704,130 & 704,116 & 3,556,120 &	3,556,222 & 5,961,218 & 5,961,280 \\
+       Ladder &     703,705 & 703,691 & 3,553,195 &	3,553,297 & 5,958,443 & 5,958,505 \\
+       Heule &      703,380 & 703,366 & 3,553,045 &	3,553,147 & 5,958,093 & 5,958,155 \\
+     \end{tabular}
+     \caption{Taula de resultats amb les clàusules generades per les instàncies de la 1 a la 3}
+     \label{fig:taula8}
+   \end{figure}
+ 
+   \begin{figure}[ht!]
+     \centering
+     \begin{tabular} { c|c c|c c}
+       \multirow{2}{*}{Encodings} & 
+       \multicolumn{2}{c | }{BrazilInstance4} & \multicolumn{2}{c }{BrazilInstance5} \\ \cline{2-5}
+       &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer}    \\ 
+       \hline
+       Quadràtic &  14,414,235 & 14,414,410 & 16,200,714 & 16,200,714     \\ 
+       Logarítmic & 14,412,135 & 14,412,310 & 16,200,039 & 16,200,039     \\ 
+       Ladder &     Timeout    & 14,405,635 & 16,194,739 & 16,194,739     \\ 
+       Heule &      14,405,335 & 14,405,510 & 16,194,239 & 16,194,239     \\ 
+     \end{tabular}
+     \caption{Taula de resultats amb les clàusules generades per les instàncies de la 4 a la 7}
+     \label{fig:taula9}
+   \end{figure}
+
+   \begin{figure}[ht!]
+    \centering
+    \begin{tabular}  { c|c c|c c}
+      \multirow{2}{*}{Encodings} 
+                         & \multicolumn{2}{c | }{BrazilInstance6} & \multicolumn{2}{c}{BrazilInstance7}\\ \cline{2-5}
+                         & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
       \hline
-      BrazilInstance1 &  969,534 & 969,984 & 969,559 & 969,234 \\
-      BrazilInstance2 & 6,090,809 & 6,090,534 & 6,087,609 & 6,087,459\\
-      BrazilInstance3  & 8,828,541 & 8,829,116 & 8,826,341 & 8,825,991\\         
-      BrazilInstance4 & 24,580,215  & 24,578,115 &  timeout & 24,571,315 \\
-      BrazilInstance5 &  24,709,009 & 24,708,334 & 24,703,034 & 24,702,534 \\
-      BrazilInstance6  & 30,766,834 & 30,766,834 & 30,759,459 & 30,759,084\\
+      Quadràtic          & 18,665,275 & 18,665,548 & 38,762,136 & 38,762,136 \\
+      Logarítmic         & 18,665,275 & 18,665,548 & 38,760,036 & 38,760,036 \\
+      Ladder             & 18,657,900 & 18,658,173 & 38,749,361 & 38,749,361 \\
+      Heule              & 18,657,525 & 18,657,798 & 38,749,361 & 38,749,361 \\
     \end{tabular}
-    \caption{Taula de resultats amb el nombre de clàusules generades}
-    \label{fig:taula7}
+    \caption{Taula de resultats amb les clàusules generades per les instàncies de la 4 a la 7}
+    \label{fig:taula9}
   \end{figure}
 
-  Com es pot veure en la taula corresponent a la figura \ref{fig:taula6} amb l'encoding quadràtic és el que tenim menys clàusules variables sempre, això és a causa de que, com hem vist a l'apartat \ref{card}, no introdueix variables. 
-  Per altre banda podem veure que, sorprenentment no sempre és el que més clàusules té, intercalant-se aquesta posició amb l'encoding Logarítmic en funció de la instància. 
+  De la mateixa manera que l'apartat anterior, es pot veure que les diferències en el nombre de clàusules generades el \textit{sorter} i el \textit{totalizer} són mínimes.
 
-  L'encoding Ladder és el que, consistentment, té més variables. 
-  A la vegada, sembla ser el segon que genera menys clàusules, sent el primer l'encoding de Heule. Aquest, tot i no introduir tantes variables com d'altres, és consistentment el que té menys clàusules.
-
+  Pel que fa les codificacions del \textit{at\_most\_one)}, com era esperable, la codificació quadràtica, generalment, és la que més clàusules introdueix. 
+  En aquest aspecte, la millor codificació en tots els casos és la Heule, sent la que menys clàusules introdueix en el problema. Cal destacar la codificació Ladder, 
+  la qual en les instàncies més grosses introdueix el mateix nombre de clàusules que la Heule, mentre que en les no tant grosses, tot i no ser tant eficient en aquest aspecte, sí ofereix bons resultats.
+  
   \section{Resultats d'optimització}
+
 
 
 

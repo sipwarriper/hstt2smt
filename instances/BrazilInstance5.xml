@@ -7700,5 +7700,840 @@
 				</Events>
 			</Solution>
 		</SolutionGroup>
+		<SolutionGroup Id="ArtonDorneles_fixopt_2015-09-10">
+			<MetaData>
+				<Contributor>Arton Pereira Dorneles</Contributor>
+				<Date>10 September 2015</Date>
+				<Description>Obtained with a fix-and-optimize heuristic described at http://dx.doi.org/10.1016/j.cor.2014.06.023</Description>
+			</MetaData>
+			<Solution Reference="BrazilInstance5_XHSTT-v2014">
+				<Events>
+					<Event Reference="T9-S11">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T9-S11">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T2-S10">
+						<Duration>2</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T2-S10">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T2-S11">
+						<Duration>2</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T2-S11">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T19-S9">
+						<Duration>1</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T19-S9">
+						<Duration>1</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T19-S1">
+						<Duration>2</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T19-S1">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T19-S3">
+						<Duration>1</Duration>
+						<Time Reference="Mo_2"/>
+					</Event>
+					<Event Reference="T19-S3">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T19-S2">
+						<Duration>1</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T19-S2">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T19-S7">
+						<Duration>2</Duration>
+						<Time Reference="Th_4"/>
+					</Event>
+					<Event Reference="T19-S6">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T29-S13">
+						<Duration>2</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T29-S13">
+						<Duration>2</Duration>
+						<Time Reference="We_4"/>
+					</Event>
+					<Event Reference="T29-S13">
+						<Duration>2</Duration>
+						<Time Reference="Th_2"/>
+					</Event>
+					<Event Reference="T29-S13">
+						<Duration>2</Duration>
+						<Time Reference="Fr_2"/>
+					</Event>
+					<Event Reference="T25-S7">
+						<Duration>2</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T25-S7">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T10-S7">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T1-S1">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T1-S1">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T1-S1">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T1-S3">
+						<Duration>2</Duration>
+						<Time Reference="Tu_2"/>
+					</Event>
+					<Event Reference="T1-S3">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T1-S3">
+						<Duration>1</Duration>
+						<Time Reference="Th_5"/>
+					</Event>
+					<Event Reference="T1-S3">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T1-S2">
+						<Duration>1</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T1-S2">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T1-S2">
+						<Duration>2</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T1-S2">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T5-S12">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T27-S10">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T27-S10">
+						<Duration>1</Duration>
+						<Time Reference="Th_5"/>
+					</Event>
+					<Event Reference="T27-S11">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T27-S11">
+						<Duration>1</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T10-S6">
+						<Duration>2</Duration>
+						<Time Reference="We_4"/>
+					</Event>
+					<Event Reference="T18-S4">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T18-S5">
+						<Duration>2</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T18-S2">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T18-S2">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T17-S2">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T17-S2">
+						<Duration>1</Duration>
+						<Time Reference="Th_5"/>
+					</Event>
+					<Event Reference="T17-S1">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T17-S1">
+						<Duration>2</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T18-S1">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T18-S1">
+						<Duration>1</Duration>
+						<Time Reference="Th_5"/>
+					</Event>
+					<Event Reference="T6-S3">
+						<Duration>2</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T6-S3">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T6-S3">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T10-S4">
+						<Duration>2</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T18-S8">
+						<Duration>2</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T21-S11">
+						<Duration>2</Duration>
+						<Time Reference="Th_4"/>
+					</Event>
+					<Event Reference="T21-S12">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T21-S12">
+						<Duration>1</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T8-S13">
+						<Duration>1</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T8-S13">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T28-S12">
+						<Duration>2</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T28-S12">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T25-S6">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T25-S6">
+						<Duration>1</Duration>
+						<Time Reference="Th_4"/>
+					</Event>
+					<Event Reference="T23-S4">
+						<Duration>1</Duration>
+						<Time Reference="Mo_5"/>
+					</Event>
+					<Event Reference="T23-S4">
+						<Duration>2</Duration>
+						<Time Reference="Fr_2"/>
+					</Event>
+					<Event Reference="T23-S5">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T23-S5">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T23-S6">
+						<Duration>2</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T23-S6">
+						<Duration>1</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T23-S7">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T23-S7">
+						<Duration>1</Duration>
+						<Time Reference="Fr_5"/>
+					</Event>
+					<Event Reference="T25-S4">
+						<Duration>1</Duration>
+						<Time Reference="Th_5"/>
+					</Event>
+					<Event Reference="T25-S4">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T20-S10">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T25-S5">
+						<Duration>1</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T25-S5">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T16-S1">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T16-S2">
+						<Duration>1</Duration>
+						<Time Reference="Tu_2"/>
+					</Event>
+					<Event Reference="T16-S3">
+						<Duration>1</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T17-S3">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T17-S3">
+						<Duration>1</Duration>
+						<Time Reference="Th_2"/>
+					</Event>
+					<Event Reference="T18-S3">
+						<Duration>1</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T18-S3">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T18-S10">
+						<Duration>2</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T18-S11">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T22-S7">
+						<Duration>2</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T22-S6">
+						<Duration>1</Duration>
+						<Time Reference="Mo_5"/>
+					</Event>
+					<Event Reference="T22-S6">
+						<Duration>1</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T22-S5">
+						<Duration>2</Duration>
+						<Time Reference="We_4"/>
+					</Event>
+					<Event Reference="T22-S4">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T25-S8">
+						<Duration>1</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T25-S8">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T25-S9">
+						<Duration>1</Duration>
+						<Time Reference="Tu_5"/>
+					</Event>
+					<Event Reference="T25-S9">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T8-S6">
+						<Duration>1</Duration>
+						<Time Reference="Tu_5"/>
+					</Event>
+					<Event Reference="T15-S10">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T8-S4">
+						<Duration>1</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T15-S12">
+						<Duration>1</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T15-S12">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T31-S12">
+						<Duration>2</Duration>
+						<Time Reference="Th_4"/>
+					</Event>
+					<Event Reference="T8-S8">
+						<Duration>1</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T8-S9">
+						<Duration>1</Duration>
+						<Time Reference="Mo_5"/>
+					</Event>
+					<Event Reference="T8-S9">
+						<Duration>2</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T8-S9">
+						<Duration>2</Duration>
+						<Time Reference="Th_4"/>
+					</Event>
+					<Event Reference="T19-S12">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T12-S13">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T12-S13">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T12-S13">
+						<Duration>2</Duration>
+						<Time Reference="Th_4"/>
+					</Event>
+					<Event Reference="T12-S13">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T15-S11">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T8-S7">
+						<Duration>1</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T8-S5">
+						<Duration>1</Duration>
+						<Time Reference="Fr_2"/>
+					</Event>
+					<Event Reference="T27-S4">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T27-S4">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T4-S13">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T4-S13">
+						<Duration>1</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T24-S10">
+						<Duration>1</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T24-S10">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T26-S12">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T26-S11">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T26-S11">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T26-S10">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T26-S10">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T23-S11">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T23-S11">
+						<Duration>1</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T2-S4">
+						<Duration>1</Duration>
+						<Time Reference="Tu_5"/>
+					</Event>
+					<Event Reference="T2-S4">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T2-S5">
+						<Duration>1</Duration>
+						<Time Reference="Th_5"/>
+					</Event>
+					<Event Reference="T2-S5">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T2-S6">
+						<Duration>1</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T2-S6">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T2-S7">
+						<Duration>1</Duration>
+						<Time Reference="Mo_5"/>
+					</Event>
+					<Event Reference="T2-S7">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T2-S8">
+						<Duration>1</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T2-S8">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T2-S9">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T2-S9">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T3-S12">
+						<Duration>1</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T3-S12">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T10-S8">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T10-S9">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T8-S10">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T8-S10">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T8-S10">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T8-S11">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T8-S12">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T8-S12">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T10-S5">
+						<Duration>1</Duration>
+						<Time Reference="Mo_5"/>
+					</Event>
+					<Event Reference="T10-S5">
+						<Duration>1</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T10-S2">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T10-S3">
+						<Duration>2</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T10-S1">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T20-S8">
+						<Duration>2</Duration>
+						<Time Reference="Tu_2"/>
+					</Event>
+					<Event Reference="T28-S5">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T28-S5">
+						<Duration>1</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T28-S7">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T28-S7">
+						<Duration>1</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T28-S6">
+						<Duration>1</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T28-S6">
+						<Duration>2</Duration>
+						<Time Reference="Fr_2"/>
+					</Event>
+					<Event Reference="T28-S9">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T28-S9">
+						<Duration>1</Duration>
+						<Time Reference="Fr_5"/>
+					</Event>
+					<Event Reference="T28-S8">
+						<Duration>1</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T28-S8">
+						<Duration>2</Duration>
+						<Time Reference="Th_4"/>
+					</Event>
+					<Event Reference="T7-S8">
+						<Duration>1</Duration>
+						<Time Reference="Mo_5"/>
+					</Event>
+					<Event Reference="T7-S8">
+						<Duration>2</Duration>
+						<Time Reference="Tu_4"/>
+					</Event>
+					<Event Reference="T7-S8">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T10-S10">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T10-S12">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T10-S13">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T10-S13">
+						<Duration>1</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T7-S7">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T7-S7">
+						<Duration>2</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T7-S6">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T7-S6">
+						<Duration>1</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T7-S6">
+						<Duration>1</Duration>
+						<Time Reference="Th_5"/>
+					</Event>
+					<Event Reference="T7-S5">
+						<Duration>2</Duration>
+						<Time Reference="Mo_3"/>
+					</Event>
+					<Event Reference="T7-S5">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T7-S4">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+					<Event Reference="T7-S4">
+						<Duration>2</Duration>
+						<Time Reference="Th_3"/>
+					</Event>
+					<Event Reference="T24-S9">
+						<Duration>1</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T24-S9">
+						<Duration>2</Duration>
+						<Time Reference="Fr_3"/>
+					</Event>
+					<Event Reference="T24-S8">
+						<Duration>2</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T24-S8">
+						<Duration>1</Duration>
+						<Time Reference="Fr_5"/>
+					</Event>
+					<Event Reference="T30-S12">
+						<Duration>1</Duration>
+						<Time Reference="Th_2"/>
+					</Event>
+					<Event Reference="T30-S13">
+						<Duration>1</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T13-S3">
+						<Duration>1</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T13-S3">
+						<Duration>1</Duration>
+						<Time Reference="Th_1"/>
+					</Event>
+					<Event Reference="T13-S2">
+						<Duration>2</Duration>
+						<Time Reference="Mo_4"/>
+					</Event>
+					<Event Reference="T13-S1">
+						<Duration>2</Duration>
+						<Time Reference="Mo_2"/>
+					</Event>
+					<Event Reference="T6-S1">
+						<Duration>1</Duration>
+						<Time Reference="Mo_1"/>
+					</Event>
+					<Event Reference="T6-S1">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T6-S1">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T6-S2">
+						<Duration>2</Duration>
+						<Time Reference="Mo_2"/>
+					</Event>
+					<Event Reference="T6-S2">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T6-S2">
+						<Duration>2</Duration>
+						<Time Reference="Fr_4"/>
+					</Event>
+					<Event Reference="T21-S9">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T11-S11">
+						<Duration>1</Duration>
+						<Time Reference="Mo_5"/>
+					</Event>
+					<Event Reference="T11-S11">
+						<Duration>1</Duration>
+						<Time Reference="Fr_5"/>
+					</Event>
+					<Event Reference="T15-S9">
+						<Duration>2</Duration>
+						<Time Reference="Fr_1"/>
+					</Event>
+					<Event Reference="T14-S8">
+						<Duration>2</Duration>
+						<Time Reference="We_3"/>
+					</Event>
+					<Event Reference="T14-S6">
+						<Duration>2</Duration>
+						<Time Reference="We_1"/>
+					</Event>
+					<Event Reference="T14-S7">
+						<Duration>1</Duration>
+						<Time Reference="Tu_5"/>
+					</Event>
+					<Event Reference="T14-S7">
+						<Duration>1</Duration>
+						<Time Reference="We_5"/>
+					</Event>
+					<Event Reference="T14-S4">
+						<Duration>2</Duration>
+						<Time Reference="Tu_3"/>
+					</Event>
+					<Event Reference="T14-S5">
+						<Duration>2</Duration>
+						<Time Reference="Tu_1"/>
+					</Event>
+				</Events>
+			</Solution>
+		</SolutionGroup>
 	</SolutionGroups>
 </HighSchoolTimetableArchive>

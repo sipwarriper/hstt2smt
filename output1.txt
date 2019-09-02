@@ -1,190 +1,300 @@
 Starting to solve
-c stats 0;117;0.114412;-1;222991;978757;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;117;0.050322;-1;131391;703680;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (26/37) ----------- Total cost: 90
+Violated Soft Clauses (violated/total): (30/37)
 s SATISFIABLE
-
 Starting to solve
-c stats 0;222;1.35862;-1;1776829;6113127;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;222;0.925636;-1;924783;3556395;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (73/82) ----------- Total cost: 203
+Violated Soft Clauses (violated/total): (72/82)
 s SATISFIABLE
-
 Starting to solve
-c stats 0;248;1.92829;-1;2187085;8853332;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;248;1.46292;-1;1223115;5960643;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (77/88) ----------- Total cost: 237
+Violated Soft Clauses (violated/total): (82/88)
 s SATISFIABLE
-
 Starting to solve
-c stats 0;357;867.725;-1;7112715;24622271;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;357;152.837;-1;3710406;14414235;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (142/151) ----------- Total cost: 282
+Violated Soft Clauses (violated/total): (142/151)
 s SATISFIABLE
-
 Starting to solve
-c stats 0;480;8.05944;-1;6385494;24752226;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;480;3.12574;-1;3535238;16200714;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (148/170) ----------- Total cost: 390
+Violated Soft Clauses (violated/total): (141/170)
 s SATISFIABLE
-
 Starting to solve
-c stats 0;482;8.27786;-1;8702195;30815832;-1;-1;-1;-1;-1;-1;-1;-1;
-v
-Violated Soft Clauses (violated/total): (154/182) ----------- Total cost: 430
-s SATISFIABLE
-========================================================================================================================================================================================
-                                                                Sorter + log
-========================================================================================================================================================================================
-Starting to solve
-c stats 0;117;0.126451;-1;223541;979207;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;482;3.4415;-1;4652421;18665275;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (31/37) ----------- Total cost: 103
+Violated Soft Clauses (violated/total): (142/182)
 s SATISFIABLE
-
 Starting to solve
-c stats 0;222;1.88913;-1;1778254;6112852;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;576;16.7771;-1;9835793;38762136;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (73/82) ----------- Total cost: 197
+Violated Soft Clauses (violated/total): (222/246)
 s SATISFIABLE
-
+======================================================================
+                            SORTER + LOG
+======================================================================
 Starting to solve
-c stats 0;248;4.51101;-1;2188735;8853907;-1;-1;-1;-1;-1;-1;-1;-1;
-v
-Violated Soft Clauses (violated/total): (142/151) ----------- Total cost: 282
-s SATISFIABLE
-
-Starting to solve
-c stats 0;480;7.14801;-1;6388094;24751551;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;117;0.062762;-1;131941;704130;-1;-1;-1;-1;-1;-1;-1;-1;
 v 
-Violated Soft Clauses (violated/total): (131/170) ----------- Total cost: 359
-s SATISFIABLE
-
-Starting to solve
-c stats 0;482;7.26449;-1;8705420;30815832;-1;-1;-1;-1;-1;-1;-1;-1;
-v
-Violated Soft Clauses (violated/total): (147/182) ----------- Total cost: 415
-s SATISFIABLE
-========================================================================================================================================================================================
-                                                                Sorter + ladder
-========================================================================================================================================================================================
-Starting to solve
-c stats 0;117;0.328644;-1;223766;978782;-1;-1;-1;-1;-1;-1;-1;-1;
+Violated Soft Clauses (violated/total): (27/37)
 s SATISFIABLE
 Starting to solve
-c stats 0;222;2.39031;-1;1779479;6109927;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;222;0.578519;-1;926208;3556120;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (70/82)
 s SATISFIABLE
 Starting to solve
-c stats 0;248;5.87049;-1;2189935;8851132;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;248;2.15468;-1;1224765;5961218;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (87/88)
 s SATISFIABLE
 Starting to solve
-c stats 0;357;535.884;-1;7118190;24613496;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;357;672.4;-1;3713081;14412135;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (142/151)
 s SATISFIABLE
 Starting to solve
-c stats 0;480;39.8701;-1;6390344;24746251;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;480;3.28304;-1;3537838;16200039;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (134/170)
 s SATISFIABLE
 Starting to solve
-c stats 0;482;16.7019;-1;8708095;30808457;-1;-1;-1;-1;-1;-1;-1;-1;
-s SATISFIABLE
-========================================================================================================================================================================================
-                                                                Sorter + heule
-========================================================================================================================================================================================
-Starting to solve
-c stats 0;117;0.124358;-1;223441;978457;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;482;7.10549;-1;4655646;18665275;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (153/182)
 s SATISFIABLE
 Starting to solve
-c stats 0;222;2.1604;-1;1779329;6109777;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;576;14.4187;-1;9840268;38760036;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (226/246)
+s SATISFIABLE
+======================================================================
+                            SORTER + LADDER
+======================================================================
+Starting to solve
+c stats 0;117;0.196648;-1;132166;703705;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (37/37)
 s SATISFIABLE
 Starting to solve
-c stats 0;248;2.1773;-1;2189585;8850782;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;222;0.508425;-1;927433;3553195;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (63/82)
 s SATISFIABLE
 Starting to solve
-TIMEOUT
-Starting to solve
-c stats 0;480;11.9633;-1;6389844;24745751;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;248;3.73225;-1;1225965;5958443;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (87/88)
 s SATISFIABLE
 Starting to solve
-c stats 0;482;77.5419;-1;8707720;30808082;-1;-1;-1;-1;-1;-1;-1;-1;
-s SATISFIABLE
-========================================================================================================================================================================================
-                                                                Totalizer + quad
-========================================================================================================================================================================================
+=================================================================
+============================>TIMEOUT<============================
+=================================================================
 Starting to solve
-c stats 0;117;0.107598;-1;220114;969534;-1;-1;-1;-1;-1;-1;-1;-1;
-s SATISFIABLE
-Starting to solve
-c stats 0;222;1.06503;-1;1769961;6090809;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;480;5.56442;-1;3540088;16194739;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (146/170)
 s SATISFIABLE
 Starting to solve
-c stats 0;248;4.3955;-1;2179450;8828541;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;482;7.64661;-1;4658321;18657900;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (159/182)
 s SATISFIABLE
 Starting to solve
-c stats 0;357;546.695;-1;7099821;24580215;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;576;49.126;-1;9844718;38749361;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (236/246)
+s SATISFIABLE
+======================================================================
+                            SORTER + HEULE
+======================================================================
+Starting to solve
+c stats 0;117;0.159397;-1;131841;703380;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (37/37)
 s SATISFIABLE
 Starting to solve
-c stats 0;480;8.54525;-1;6372080;24709009;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;222;0.917503;-1;927283;3553045;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (75/82)
 s SATISFIABLE
 Starting to solve
-c stats 0;482;7.87854;-1;8687131;30766834;-1;-1;-1;-1;-1;-1;-1;-1;
-s SATISFIABLE
-========================================================================================================================================================================================
-                                                                Totalizer + log
-========================================================================================================================================================================================
-Starting to solve
-c stats 0;117;0.135316;-1;220664;969984;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;248;2.9977;-1;1225615;5958093;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (88/88)
 s SATISFIABLE
 Starting to solve
-c stats 0;222;1.45143;-1;1771386;6090534;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;357;278.459;-1;3715756;14405335;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (142/151)
 s SATISFIABLE
 Starting to solve
-c stats 0;248;3.00897;-1;2181100;8829116;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;480;3.45487;-1;3539588;16194239;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (141/170)
 s SATISFIABLE
 Starting to solve
-c stats 0;357;728.434;-1;7102496;24578115;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;482;8.40782;-1;4657946;18657525;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (163/182)
 s SATISFIABLE
 Starting to solve
-c stats 0;480;7.92463;-1;6374680;24708334;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;576;64.6917;-1;9844718;38749361;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (245/246)
+s SATISFIABLE
+======================================================================
+                            TOTALIZER + QUAD
+======================================================================
+Starting to solve
+c stats 0;117;0.056638;-1;131349;703666;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (26/37)
 s SATISFIABLE
 Starting to solve
-c stats 0;482;6.58029;-1;8690356;30766834;-1;-1;-1;-1;-1;-1;-1;-1;
-s SATISFIABLE
-========================================================================================================================================================================================
-                                                                Totalizer + ladder
-========================================================================================================================================================================================
-Starting to solve
-c stats 0;117;0.235926;-1;220889;969559;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;222;0.604074;-1;924807;3556497;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (71/82)
 s SATISFIABLE
 Starting to solve
-c stats 0;222;1.00106;-1;1772611;6087609;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;248;0.909801;-1;1223085;5960705;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (70/88)
 s SATISFIABLE
 Starting to solve
-c stats 0;248;1.88669;-1;2182300;8826341;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;357;295.229;-1;3710472;14414410;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (141/151)
 s SATISFIABLE
 Starting to solve
-Starting to solve
-c stats 0;480;8.36314;-1;6376930;24703034;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;480;3.04247;-1;3535238;16200714;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (141/170)
 s SATISFIABLE
 Starting to solve
-c stats 0;482;22.4693;-1;8693031;30759459;-1;-1;-1;-1;-1;-1;-1;-1;
-s SATISFIABLE
-========================================================================================================================================================================================
-                                                                Totalizer + heule
-========================================================================================================================================================================================
-Starting to solve
-c stats 0;117;0.18042;-1;220564;969234;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;482;4.04564;-1;4652523;18665548;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (145/182)
 s SATISFIABLE
 Starting to solve
-c stats 0;222;2.31829;-1;1772461;6087459;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;576;16.5843;-1;9835793;38762136;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (222/246)
+s SATISFIABLE
+======================================================================
+                            TOTALIZER + QUAD
+======================================================================
+Starting to solve
+c stats 0;117;0.078597;-1;131899;704116;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (34/37)
 s SATISFIABLE
 Starting to solve
-c stats 0;248;2.54207;-1;2181950;8825991;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;222;0.50971;-1;926232;3556222;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (71/82)
 s SATISFIABLE
 Starting to solve
-c stats 0;357;1124.07;-1;7105171;24571315;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;248;1.95489;-1;1224735;5961280;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (87/88)
 s SATISFIABLE
 Starting to solve
-c stats 0;480;33.0627;-1;6376430;24702534;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;357;1444.17;-1;3713147;14412310;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (142/151)
 s SATISFIABLE
 Starting to solve
-c stats 0;482;23.0529;-1;8692656;30759084;-1;-1;-1;-1;-1;-1;-1;-1;
+c stats 0;480;3.33874;-1;3537838;16200039;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (134/170)
+s SATISFIABLE
+Starting to solve
+c stats 0;482;4.24031;-1;4655748;18665548;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (155/182)
+s SATISFIABLE
+Starting to solve
+c stats 0;576;14.0485;-1;9840268;38760036;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (226/246)
+s SATISFIABLE
+======================================================================
+                            TOTALIZER + QUAD
+======================================================================
+Starting to solve
+c stats 0;117;0.208494;-1;132124;703691;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (35/37)
+s SATISFIABLE
+Starting to solve
+c stats 0;222;0.513346;-1;927457;3553297;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (61/82)
+s SATISFIABLE
+Starting to solve
+c stats 0;248;6.2141;-1;1225935;5958505;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (88/88)
+s SATISFIABLE
+Starting to solve
+c stats 0;357;419.351;-1;3715947;14405635;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (142/151)
+s SATISFIABLE
+Starting to solve
+c stats 0;480;5.45623;-1;3540088;16194739;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (146/170)
+s SATISFIABLE
+Starting to solve
+c stats 0;482;33.9633;-1;4658423;18658173;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (178/182)
+s SATISFIABLE
+Starting to solve
+c stats 0;576;49.3167;-1;9844718;38749361;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (236/246)
+s SATISFIABLE
+======================================================================
+                            TOTALIZER + HEULE
+======================================================================
+Starting to solve
+c stats 0;117;0.055735;-1;131799;703366;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (27/37)
+s SATISFIABLE
+Starting to solve
+c stats 0;222;1.56195;-1;927307;3553147;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (78/82)
+s SATISFIABLE
+Starting to solve
+c stats 0;248;1.71127;-1;1225585;5958155;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (87/88)
+s SATISFIABLE
+Starting to solve
+c stats 0;357;1496.88;-1;3715822;14405510;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (142/151)
+s SATISFIABLE
+Starting to solve
+c stats 0;480;3.46646;-1;3539588;16194239;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (141/170)
+s SATISFIABLE
+Starting to solve
+c stats 0;482;4.75638;-1;4658048;18657798;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (148/182)
+s SATISFIABLE
+Starting to solve
+c stats 0;576;64.4662;-1;9844718;38749361;-1;-1;-1;-1;-1;-1;-1;-1;
+v 
+Violated Soft Clauses (violated/total): (245/246)
 s SATISFIABLE
