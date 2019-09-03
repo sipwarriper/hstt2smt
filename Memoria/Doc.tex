@@ -104,7 +104,7 @@
   dificultant-ne molt la seva elaboració manual donat que s'han de prendre moltíssimes decisions a cegues,
   fa que sigui molt probable cometre errors en la confecció. En aquesta situació, amb l'aparició dels computadors molts instituts varen decidir ajudar-se en aquesta tasca utilitzant eines informàtiques capaces 
   d'explorar grans quantitats de combinacions per segon. No obstant a això, 
-  amb aquelles primeres eines sguim tenint molts problemes per generar horaris viables i normalment donaven resultats que
+  amb aquelles primeres eines seguim tenint molts problemes per generar horaris viables i normalment donaven resultats que
    eren de qualitat baixa i requerien un refinament posterior que s'havia de fer de forma manual.
   
   El HSTT (High School TimeTabling) consisteix en la solució de forma automàtica d'aquest problema d'alta complexitat (NP). 
@@ -152,7 +152,7 @@
     \item Requisits del sistema: Requisits funcionals i no funcionals que ha de complir el sistema.
     \item Anàlisi i disseny del sistema: Descripció del maquinari i programari utilitzat durant el desenvolupament del projecte.
     \item Implementació i proves: Es detalla la implementació del programa, els problemes que han aparegut i les solucions que s'han donat a aquests.
-    \item Resultats: Detalla els resultats obtinguts. L'apartat d'implantació que segons la guía donada va aquí, s'ha descartat posat que en aquest treball no té l'objectiu d'implantar res.
+    \item Resultats: Detalla els resultats obtinguts. L'apartat d'implantació que segons la guia donada va aquí, s'ha descartat posat que en aquest treball no té l'objectiu d'implantar res.
     \item Conclusions: Conclusió del projecte i els resultats
     \item Treball futur: Possibles ampliacions, millores o treballs futurs que es poden realitzar.
     \item Bibliografia: Referències utilitzades per desenvolupar el projecte.
@@ -672,7 +672,7 @@
           (o sigui\textit{at\_least\_one(\{$\neg v_1, ... ,\neg v_n$\}, $n-k$ )}). Aquesta propietat també es pot aplicar de manera inversa. \\
           Quan $k$ és molt més gran que $n$, aquesta propietat ens pot ajudar a fer encodings molt més petits. 
           En la API SMT s'utilitza la següent relació: $k \geq n/2$.
-    \item La codificació de un comparador binàri (molt utilitzat en els 2 encodings) es pot simplifcar en funció del operador utilitzat. En cas del exactament, necessitarem 6 clàusules. Pel $\leq$ 2, i pel $\geq$ només 1. Així es poden reduir les clàusules en les dues codificacions.
+    \item La codificació de un comparador binari (molt utilitzat en els 2 encodings) es pot simplificar en funció del operador utilitzat. En cas del exactament, necessitarem 6 clàusules. Pel $\leq$ 2, i pel $\geq$ només 1. Així es poden reduir les clàusules en les dues codificacions.
     \item Per últim, la API només codifica la circuiteria necessària per comparar fins a $k+1$, reduint molt la circuiteria necessària per a les diferents codificacions vistes.
   \end{itemize}
 
@@ -1238,7 +1238,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   En general es pot observar que la instància quadràtica ofereix uns resultats en temps d'execució molt competitius, sent la millor en totes les instàncies de la taula corresponent a la figura \ref{fig:taula2} 
   menys la setena, on la millor codificació és la logarítmica per aproximadament 4 segons.
   Pel que fa a les corresponents a la figura \ref{fig:taula1}
-  el quadràtic aconsegueix també el millor temps en totes menys la segona instància, pero sent les diferències de temps tant petites en aquestes instàncies, es podria simplement considerar marge d'error. 
+  el quadràtic aconsegueix també el millor temps en totes menys la segona instància, però sent les diferències de temps tant petites en aquestes instàncies, es podria simplement considerar marge d'error. 
 
   Pel que fa la resta de codificacions es pot veure que, en funció de la instància unes tenen millor rendiment que d'altres.
 
@@ -1276,7 +1276,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Utilitzant un \textit{totalizer} en comptes d'un \textit{sorter} per a la codificació de les restriccions de cardinalitat, les codificacions del \textit{at\_most\_one} no varien molt el seu comportament comparades amb la resta.
   Torna a saltar a la vista la competitivitat de la codificació quadràtica en temps d'execució en aquest cop, tornant a ser la millor en la majoria d'instàncies grosses. 
 
-  La instància 4 torna a oferir un comportament molt extrany entre les diferents codificacions. Es pot observar com les codificacions quadràtiques i de ladder, que abans havia fet saltar el límit de temps, 
+  La instància 4 torna a oferir un comportament molt estrany entre les diferents codificacions. Es pot observar com les codificacions quadràtiques i ladder, que abans havia fet saltar el límit de temps, 
   ara són les dues mes ràpides. En canvi, les codificacions logarítmica i Heule ara són molt lentes, mentre que amb el \textit{sorter} tenien uns temps molt superiors als actuals.
 
   Una altre cosa que es pot observar és el molt mal resultat de la codificació Ladder amb la instància 5. Mentre que totes les altres codificacions en prou feines passen els 36 segons 
@@ -1396,8 +1396,8 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   En aquesta secció ens centrarem en veure com es comporta el generador d'horaris al intentar buscar la millor solució per les diverses instàncies disponibles. Per fer-ho ens servirem un dels optimitzadors incorporat en la API SMT. 
   Aquests són tres: UB\footnote{Baixa des de \textit{upperbound}}, BU\footnote{Des de 0 a \textit{upperbound}} i DICO\footnote{Dicotòmic}.
-  S'ha optat per l'ùltim, ja que la codificació implementada no fa cap càlcul per aconseguir un bon upperbound i només s'utilitza el cost de violar totes les clàusules \textit{soft}. 
-  Això provocaria que amb qualsevol dels altres mètodes, al iniciar massa lluny del punt òptim, haguessim de fer masses intents de resolució amb diferents upperbounds, fins a trobar el bo. 
+  S'ha optat per l'ultim, ja que la codificació implementada no fa cap càlcul per aconseguir un bon upperbound i només s'utilitza el cost de violar totes les clàusules \textit{soft}. 
+  Això provocaria que amb qualsevol dels altres mètodes, al iniciar massa lluny del punt òptim, haguéssim de fer masses intents de resolució amb diferents upperbounds, fins a trobar el bo. 
 
   També compararem la bondat dels resultats obtinguts amb el generador d'horaris que s'ha desenvolupat durant aquest treball amb les diverses solucions disponibles en les instàncies XHSTT disponibles al repositori públic. 
 
@@ -1425,13 +1425,13 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   Els resultats de resolució obtinguts han semblat positius. 
   Els temps d'execució per determinar si una instància és satisfactible i donar un horari viable per ella, han estat molt bons. 
-  Cal tenir en compte que algunes de les instàncies provades son reals, i s'han arribat a resoldre instàncies de fins a prop de 40 millions de clàusules.
+  Cal tenir en compte que algunes de les instàncies provades son reals, i s'han arribat a resoldre instàncies de fins a prop de 40 milions de clàusules.
   Per això crec que es pot determinar que la habilitat d'oferir un horari viable per a qualsevol instància de les treballades és molt positiva.
 
   Per altre banda, la habilitat de buscar la millor solució en un temps raonable 
-  no es pot determinar com a bona. A part de la primera ìnstància, 
+  no es pot determinar com a bona. A part de la primera instància, 
   la qual es resol molt ràpidament, el generador no és capaç d'obtenir la solució optima.
-   A més, comparant el cost de la solució trobada amb les dues altres solucions de la instància, la obtenida pel generador desenvolupat en aquest treball resulta ser molt més elevat.
+   A més, comparant el cost de la solució trobada amb les dues altres solucions de la instància, la obtinguda pel generador desenvolupat en aquest treball resulta ser molt més elevat.
 
 
 
