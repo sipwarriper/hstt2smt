@@ -26,7 +26,7 @@
 
 
 #define ENC_AMK CARD_TOTALIZER
-#define ENC_AMO AMO_HEULE
+#define ENC_AMO AMO_QUAD
 #define ENC_PB PB_BDD
 
 
@@ -776,7 +776,7 @@ bool HSTTEncoding::printSolution(ostream &os) const{
     }
 
     for(auto& cl: classXweeks){
-        //os<<"\nClass "<<cl.first;
+        os<<"\nClass "<<cl.first;
 
         std::unordered_map<std::string, std::vector<AssignmentEntry>> week_events;
         std::vector<std::string> week_days;
@@ -829,7 +829,7 @@ bool HSTTEncoding::printSolution(ostream &os) const{
             t.endOfRow();
         }
 
-        //os<<std::endl<<t;
+        os<<std::endl<<t;
     }
 
     //

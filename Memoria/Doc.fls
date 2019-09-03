@@ -459,6 +459,7 @@ INPUT /home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_clas
 INPUT /home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_terminal.png
 INPUT /home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_terminal.png
 INPUT /home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/brazil1_terminal.png
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
 INPUT /home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gantt2.png
 INPUT /home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gantt2.png
 INPUT /home/sipwarriper/sources/projects/hstt2smt/Memoria/Diagrames/gantt2.png
@@ -484,6 +485,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb

@@ -15,7 +15,7 @@ ifeq ($(DEBUG), 1)
 FLAGS	:= -g3 -O0 -fbuiltin -fstack-protector-all
 else 
 #FLAGS    := -O3 -ffast-math -D__LINUX__ -Xlinker -Map=$(BUILDDIR)/$(PLATFORM)/$(APPNAME).map -ftree-parallelize-loops=2 #-Werror=return-type 
-FLAGS    := -O3 -ffast-math  -Xlinker -Map=$(BUILDDIR)/$(PLATFORM)/$(APPNAME).map -fconserve-stack 
+FLAGS    := -O3 -ffast-math  -Xlinker -Map=$(BUILDDIR)/$(PLATFORM)/$(APPNAME).map
 endif
 
 CCFLAGS  := $(FLAGS) 

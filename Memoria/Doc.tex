@@ -1392,6 +1392,35 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \section{Resultats d'optimització}
 
 
+  En aquesta secció ens centrarem en veure com es comporta el generador d'horaris al intentar buscar la millor solució per les diverses instàncies disponibles. Per fer-ho ens servirem un dels optimitzadors incorporat en la API SMT. 
+  Aquests són tres: UB\footnote{baixa des de \textit{upperbound}}, BU\footnote{desde 0 a \textit{upperbound}} i DICO\footnote{dicotòmic}.
+  S'ha optat per l'ùltim, ja que la codificació implementada no fa cap càlcul per aconseguir un bon upperbound i només s'utilitza el cost de violar totes les clàusules \textit{soft}. 
+  Això provocaria que amb qualsevol dels altres mètodes, al iniciar massa lluny del punt òptim, haguessim de fer masses intents de resolució amb diferents upperbounds, fins a trobar el bo. 
+
+  També compararem la bondat dels resultats obtinguts amb el generador d'horaris que s'ha desenvolupat durant aquest treball amb les diverses solucions disponibles en les instàncies XHSTT disponibles al repositori públic. 
+
+  El que s'ha pogut comprovar en les diferents proves fetes durant el desenvolupament del treball és la gran duresa que té, tant en temps de resolució com en ús de memòria, aquest problema al intentar optimitzar-lo. 
+  Com hem vist, hem pogut trobar solucions vàlides per a la confecció d'horaris.
+
+  Per les execucions d'optimització s'ha utilitzat la codificació del \textit{at\_most\_one} quadràtica i el \textit{totalizer} per les restriccions de cardinalitat. Totes les execucions s'han fet amb un timeout de 30 minuts. S'han obtingut els següents resultats:
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tabular}  { c| c | c | c}
+      Optimitzador & Temps & Cost & Cost millor\\
+      \hline
+      BrazilInstance1 & 1:07.66 & 79 & 41\\
+      BrazilInstance2 & Timeout & -- & --\\
+      BrazilInstance3 & Timeout & -- & --\\
+
+      
+    \end{tabular}
+    \caption{Taula }
+    \label{fig:taula9}
+  \end{figure}
+
+
+
 
 
 
@@ -1405,6 +1434,9 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   ha permès posar a prova les diferents codificacions de les restriccions globals vistes en el treball 
   i compleix amb els objectius marcats al principi del treball. El generador és capaç de resoldre el problema en un temps raonable (la instància que tarda més és la 4, que ens tarda menys de 10 minuts), 
   excepte la instància 7, la qual al intentar resoldre, ens quedem sense memòria. Cal tenir en compte però que les instancies 4 i 6 són problemes de instituts reals de Brazil, i els temps d'execució resultants en aquestes instàncies són molt positius.
+  Per altre part, la cerca de la solució òptima, ha resultat bastant negativa, tot i tenir bons temps amb l'optimitzador dicotòmic en la instància més petita, generalment ha resultat impossible aconseguir bons resultats. 
+  A més, comparant la optimalitat de la solució obtinguda amb les altres solucions existents de la instància, aquestes últimes han resultat ser molt superiors a les obtingudes en aquest treball.
+
 
   Pel que fa la planificació, la implementació del \textit{parser} va durar bastant més del previst, i des de aquí es va haver de adaptar la planificació en funció d'això com es pot veure en el diagrama de Gantt de la figura \label{fig:Gantt2}
 
@@ -1439,6 +1471,8 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Es podrien explorar els paradigmes de SMT i intentar codificar el problema amb les diferents teories que té, com ara els BitVectors.
 
   També es podrien millorar les codificacions i el model en sí per utilitzar menys memòria i sobretot, per intentar aconseguir millors resultats al optimitzar el problema, comparant amb les diferents solucions disponibles per a cada instància.
+
+  Pel que fa la optimització, com s'ha vist, no s'han aconseguit els resultats desitjats, per això, s'ha de millorar en general. En particular s'hauria de millorar el mètode de càlcul del cost de violar certes restriccions i s'hauria d'afegir un mètode que calcules un bon \textit{upperbound} per tal de donar un millor punt de partida al intentar optimitzar.
 
   \nocite{*}
   \chapter{Bibliografía}

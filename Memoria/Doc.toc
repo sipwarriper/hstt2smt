@@ -117,14 +117,14 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.2}Resultats d'optimitzaci\IeC {\'o}}{53}{section.9.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Conclusions}{54}{chapter.10}% 
+\contentsline {chapter}{\numberline {10}Conclusions}{55}{chapter.10}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Treball futur}{56}{chapter.11}% 
+\contentsline {chapter}{\numberline {11}Treball futur}{57}{chapter.11}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{57}{chapter.12}% 
+\contentsline {chapter}{\numberline {12}Bibliograf\IeC {\'\i }a}{58}{chapter.12}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{59}{chapter.13}% 
+\contentsline {chapter}{\numberline {13}Manual d'usuari i insta\l .laci\IeC {\'o}}{60}{chapter.13}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.1}Compilaci\IeC {\'o}}{59}{section.13.1}% 
+\contentsline {section}{\numberline {13.1}Compilaci\IeC {\'o}}{60}{section.13.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.2}\IeC {\'U}s}{59}{section.13.2}% 
+\contentsline {section}{\numberline {13.2}\IeC {\'U}s}{60}{section.13.2}% 

@@ -1,14 +1,14 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.blg'
-[22] biber:315> INFO - === Mon Sep  2, 2019, 22:28:33
-[39] Biber.pm:371> INFO - Reading '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf'
-[97] Biber.pm:886> INFO - Using all citekeys in bib section 0
-[110] Biber.pm:4093> INFO - Processing section 0
-[119] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[121] bibtex.pm:1523> INFO - LaTeX decoding ...
-[144] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography.bib'
-[275] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'variable = shifted' with 'variable = non-ignorable'
-[275] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[275] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ca-AD'
-[294] bbl.pm:636> INFO - Writing '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl' with encoding 'UTF-8'
-[303] bbl.pm:739> INFO - Output to /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl
+[25] biber:315> INFO - === Tue Sep  3, 2019, 01:15:05
+[45] Biber.pm:371> INFO - Reading '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bcf'
+[103] Biber.pm:886> INFO - Using all citekeys in bib section 0
+[116] Biber.pm:4093> INFO - Processing section 0
+[127] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[167] bibtex.pm:1523> INFO - LaTeX decoding ...
+[191] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliography.bib'
+[319] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'variable = shifted' with 'variable = non-ignorable'
+[319] UCollate.pm:68> INFO - Overriding locale 'ca-AD' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[319] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'ca-AD'
+[341] bbl.pm:636> INFO - Writing '/home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl' with encoding 'UTF-8'
+[349] bbl.pm:739> INFO - Output to /home/sipwarriper/sources/projects/hstt2smt/Memoria/Doc.bbl
