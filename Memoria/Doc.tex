@@ -182,7 +182,7 @@
 
   \section{Viabilitat tècnica}
 
-  Per tal de realitzar aquest projecte farà el software necessari per poder tractar un fitxer XML, codificar una instància del problema en C++ i resoldre-la amb un \textit{solver} SAT o d'alguna extensió de SAT. 
+  Per tal de realitzar aquest projecte farà falta el software necessari per poder tractar un fitxer XML, codificar una instància del problema en C++ i resoldre-la amb un \textit{solver} SAT o d'alguna extensió de SAT. 
   Abans de iniciar el projecte, s'ha comprovat l'existència d'aquest software i que aquest estigués disponible de forma gratuïta, de fet, tot el software que s'utilitzi en aquest projecte serà de codi obert.
 
   Per part dels requisits de maquinari, tot i que HSTT és un problema dur, 
@@ -312,7 +312,7 @@
 
   \chapter{Marc de treball i conceptes prèvis}
   \section{Marc de treball}
-    Com s'ha mencionat en la introducció aquest treball s'emmarca dins del grup de recerca de Lògica i Programació (LAP) del departament d'Informàtica, Matemàtica Aplicada i Estadística (IMAE) de la Universitat de Girona. 
+    Com s'ha mencionat en la introducció aquest treball s'emmarca dins del grup de recerca de Lògica i Programació (LiP) del departament d'Informàtica, Matemàtica Aplicada i Estadística (IMAE) de la Universitat de Girona. 
     En el treball s'utilitzaran les eines desenvolupades recentment en el grup de recerca, per ser exactes, la API SMT feta en C++ pel Dr. Jordi Coll. 
     Aquesta API permet codificar problemes SAT, MaxSAT i SMT per a diferents \textit{solvers} de forma transparent a aquest i té implementades les diferents restriccions de cardinalitat i pseudo-booleanes en les diferents possibles codificacions. 
     També inclou diferents algoritmes d'optimització implementats.
@@ -1142,7 +1142,9 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
    
   % A més, ha de mostrar que l’aplicació resultant del projecte fa les tasques 
 
-  En aquesta secció es realitzarà una comparativa de rendiment amb els diferents encodings diferents en la API SMT i es veuran els resultats donats per el generador per les diferents instàncies de Brazil que es poden trobar en el repositori públic.
+  En aquesta secció es realitzarà una comparativa del rendiment aconseguit amb els diferents encodings diferents en la API SMT 
+  i es veuran els resultats donats per el generador per les diferents instàncies de Brazil que es poden trobar 
+  en el repositori públic.
 
   El format XHSTT disposa d'un avaluador d'horaris online anomenat HSeval\cite{hseval}. Aquest, ens serveix per avaluar la bondat d'un horari i, a més, permet mostrar-lo de forma gràfica. 
   Aquesta eina ens permetrà comprovar com de bona és cada solució comparada amb les ja existents.
@@ -1393,7 +1395,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
 
   En aquesta secció ens centrarem en veure com es comporta el generador d'horaris al intentar buscar la millor solució per les diverses instàncies disponibles. Per fer-ho ens servirem un dels optimitzadors incorporat en la API SMT. 
-  Aquests són tres: UB\footnote{baixa des de \textit{upperbound}}, BU\footnote{desde 0 a \textit{upperbound}} i DICO\footnote{dicotòmic}.
+  Aquests són tres: UB\footnote{Baixa des de \textit{upperbound}}, BU\footnote{Des de 0 a \textit{upperbound}} i DICO\footnote{Dicotòmic}.
   S'ha optat per l'ùltim, ja que la codificació implementada no fa cap càlcul per aconseguir un bon upperbound i només s'utilitza el cost de violar totes les clàusules \textit{soft}. 
   Això provocaria que amb qualsevol dels altres mètodes, al iniciar massa lluny del punt òptim, haguessim de fer masses intents de resolució amb diferents upperbounds, fins a trobar el bo. 
 
@@ -1402,12 +1404,12 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   El que s'ha pogut comprovar en les diferents proves fetes durant el desenvolupament del treball és la gran duresa que té, tant en temps de resolució com en ús de memòria, aquest problema al intentar optimitzar-lo. 
   Com hem vist, hem pogut trobar solucions vàlides per a la confecció d'horaris.
 
-  Per les execucions d'optimització s'ha utilitzat la codificació del \textit{at\_most\_one} quadràtica i el \textit{totalizer} per les restriccions de cardinalitat. Totes les execucions s'han fet amb un timeout de 30 minuts. S'han obtingut els següents resultats:
+  Per les execucions d'optimització s'ha utilitzat la codificació del \textit{at\_most\_one} quadràtica i el \textit{totalizer} per les restriccions de cardinalitat. Totes les execucions s'han fet amb un límit de temps de 30 minuts. S'han obtingut els següents resultats:
 
 \begin{figure}[ht!]
     \centering
     \begin{tabular}  { c| c | c | c}
-      Optimitzador & Temps & Cost & Cost millor\\
+      Optimitzador & Temps & Cost & Cost de la millor solució\\
       \hline
       BrazilInstance1 & 1:07.66 & 79 & 41\\
       BrazilInstance2 & Timeout & -- & --\\
@@ -1415,9 +1417,23 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
       
     \end{tabular}
-    \caption{Taula }
+    \caption{Taula amb els temps d'execució al intentar optimitzar les instàncies de 1 a la 3.}
     \label{fig:taula9}
   \end{figure}
+
+  \section{Conclusió}
+
+  Els resultats de resolució obtinguts han semblat positius. 
+  Els temps d'execució per determinar si una instància és satisfactible i donar un horari viable per ella, han estat molt bons. 
+  Cal tenir en compte que algunes de les instàncies provades son reals, i s'han arribat a resoldre instàncies de fins a prop de 40 millions de clàusules.
+  Per això crec que es pot determinar que la habilitat d'oferir un horari viable per a qualsevol instància de les treballades és molt positiva.
+
+  Per altre banda, la habilitat de buscar la millor solució en un temps raonable 
+  no es pot determinar com a bona. A part de la primera ìnstància, 
+  la qual es resol molt ràpidament, el generador no és capaç d'obtenir la solució optima.
+   A més, comparant el cost de la solució trobada amb les dues altres solucions de la instància, la obtenida pel generador desenvolupat en aquest treball resulta ser molt més elevat.
+
+
 
 
 

@@ -117,6 +117,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.2}Resultats d'optimitzaci\IeC {\'o}}{53}{section.9.2}% 
 \defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.3}Conclusi\IeC {\'o}}{54}{section.9.3}% 
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {10}Conclusions}{55}{chapter.10}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {11}Treball futur}{57}{chapter.11}% 
