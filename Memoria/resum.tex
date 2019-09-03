@@ -103,7 +103,7 @@
   
   \subsection{Estudi de viabilitat}
   Per tal de realitzar aquest projecte farà falta el software necessari per poder tractar un fitxer XML, codificar una instància del problema en C++ i resoldre-la amb un \textit{solver} SAT o d'alguna extensió de SAT. 
-  Abans de iniciar el projecte, s'ha comprovat l'existència d'aquest software i que aquest estigués disponible de forma gratuïta, de fet, tot el software que s'utilitzi en aquest projecte serà de codi obert.
+  Abans d'iniciar el projecte, s'ha comprovat l'existència d'aquest software i que aquest estigués disponible de forma gratuïta, de fet, tot el software que s'utilitzi en aquest projecte serà de codi obert.
 
   Per part dels requisits de maquinari, tot i que HSTT és un problema dur, 
   després de veure el treball previ realitzat en aquest mateix problema i d'altres de característiques semblants, s'ha determinat que la meva màquina d'ús diari és més que suficient per a tal de realitzar el desenvolupament del generador d'horaris.
@@ -131,7 +131,7 @@
 
   El model està pensat per treballar a centrant-nos en els Events (o assignatures), 
   els quals podríem definir com una reunió a la que es presenten diferents recursos 
-  i la nostre feina és la de decidir en quins espais de temps dels disponibles fiquem cada reunió d'aquestes.
+  i la nostra feina és la de decidir en quins espais de temps dels disponibles fiquem cada reunió d'aquestes.
 
   Les variables del model són les següents:
   \begin{itemize}
@@ -148,12 +148,12 @@
   Els resultats de resolució obtinguts han semblat positius. 
   Els temps d'execució per determinar si una instància és satisfactible i donar un horari viable per ella, han estat molt bons. 
   Cal tenir en compte que algunes de les instàncies provades son reals, i s'han arribat a resoldre instàncies de fins a prop de 40 milions de clàusules.
-  Per això crec que es pot determinar que la habilitat d'oferir un horari viable per a qualsevol instància de les treballades és molt positiva.
+  Per això crec que es pot determinar que l'habilitat d'oferir un horari viable per a qualsevol instància de les treballades és molt positiva.
 
-  Per altre banda, la habilitat de buscar la millor solució en un temps raonable 
+  Per altra banda, l'habilitat de buscar la millor solució en un temps raonable 
   no es pot determinar com a bona. A part de la primera instància, 
   la qual es resol molt ràpidament, el generador no és capaç d'obtenir la solució optima.
-   A més, comparant el cost de la solució trobada amb les dues altres solucions de la instància, la obtinguda pel generador desenvolupat en aquest treball resulta ser molt més elevat.
+   A més, comparant el cost de la solució trobada amb les dues altres solucions de la instància, l'obtinguda pel generador desenvolupat en aquest treball resulta ser molt més elevat.
 
   \section{Conclusions}
 
@@ -163,9 +163,9 @@
   Pel que fa el generador desenvolupat al llarg d'aquest treball, tot i estar molt lluny de la perfecció, 
   ha permès posar a prova les diferents codificacions de les restriccions globals vistes en el treball 
   i compleix amb els objectius marcats al principi del treball. El generador és capaç de resoldre el problema en un temps raonable (la instància que tarda més és la 4, que ens tarda menys de 10 minuts), 
-  excepte la instància 7, la qual al intentar resoldre, ens quedem sense memòria. Cal tenir en compte però que les instancies 4 i 6 són problemes de instituts reals de Brazil, i els temps d'execució resultants en aquestes instàncies són molt positius.
-  Per altre part, la cerca de la solució òptima, ha resultat bastant negativa, tot i tenir bons temps amb l'optimitzador dicotòmic en la instància més petita, generalment ha resultat impossible aconseguir bons resultats. 
-  A més, comparant la optimalitat de la solució obtinguda amb les altres solucions existents de la instància, aquestes últimes han resultat ser molt superiors a les obtingudes en aquest treball.
+  excepte la instància 7, la qual a l'intentar resoldre, ens quedem sense memòria. Cal tenir en compte però que les instàncies 4 i 6 són problemes de instituts reals de Brazil, i els temps d'execució resultants en aquestes instàncies són molt positius.
+  Per altra part, la cerca de la solució òptima, ha resultat bastant negativa, tot i tenir bons temps amb l'optimitzador dicotòmic en la instància més petita, generalment ha resultat impossible aconseguir bons resultats. 
+  A més, comparant l'optimalitat de la solució obtinguda amb les altres solucions existents de la instància, aquestes últimes han resultat ser molt superiors a les obtingudes en aquest treball.
 
   
   \end{document}

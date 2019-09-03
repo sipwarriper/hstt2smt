@@ -183,7 +183,7 @@
   \section{Viabilitat tècnica}
 
   Per tal de realitzar aquest projecte farà falta el software necessari per poder tractar un fitxer XML, codificar una instància del problema en C++ i resoldre-la amb un \textit{solver} SAT o d'alguna extensió de SAT. 
-  Abans de iniciar el projecte, s'ha comprovat l'existència d'aquest software i que aquest estigués disponible de forma gratuïta, de fet, tot el software que s'utilitzi en aquest projecte serà de codi obert.
+  Abans d'iniciar el projecte, s'ha comprovat l'existència d'aquest software i que aquest estigués disponible de forma gratuïta, de fet, tot el software que s'utilitzi en aquest projecte serà de codi obert.
 
   Per part dels requisits de maquinari, tot i que HSTT és un problema dur, 
   després de veure el treball previ realitzat en aquest mateix problema i d'altres de característiques semblants, s'ha determinat que la meva màquina d'ús diari és més que suficient per a tal de realitzar el desenvolupament del generador d'horaris.
@@ -404,7 +404,7 @@
   Un dels problemes que presenta HSTT és la complexitat que té representar una instància amb totes les possibles restriccions possibles. Per això s'ha optat utilitzar el format genèric per a representar les instàncies de HSTT anomenat XHSTT (de \textit{Xml-format High School TimeTabling}) utilitzat per HSEval\cite{xhstt}.
   Aquest format és obert i preveu l'addició d'elements i restriccions, així que en aquest treball només es tindran en compte un subconjunt d'ells.
   
-  Aquest format utilitza quatre tipus de fills en les instancies:
+  Aquest format utilitza quatre tipus de fills en les instàncies:
   \begin{itemize}
     \item \textit{Times} pels espais de temps.
     \item \textit{Resources} pels recursos.
@@ -538,7 +538,7 @@
   En aquest apartat del treball es repassaran diverses tecnologies i conceptes que ens podrien ajudar a resoldre el problema HSTT. 
   Com s'ha vist anteriorment HSTT és un problema de \textit{scheduling} que pertany a NP-Complet i, per tant, no es coneix un mètode determinista en temps polinòmic que pugui resoldre el problema. 
 
-  Existeixen diferents aproximacions per problemes del tipus de HSTT, en aquest treball es centrarà en els mètodes deterministes que garanteixen la optimalitat. Aquests mètodes busquen la millor solució al problema entre totes les combinacions 
+  Existeixen diferents aproximacions per problemes del tipus de HSTT, en aquest treball es centrarà en els mètodes deterministes que garanteixen l'optimalitat. Aquests mètodes busquen la millor solució al problema entre totes les combinacions 
   que respecten totes les condicions imposades per la instància del problema que volem resoldre. HSTT entra en la categoria de tècniques basades en programació per restriccions i les tècniques basades en reduccions de altres problemes NP-complets com SAT, SMT, etc.
 
  
@@ -590,7 +590,7 @@
   
   Per codificar una \textit{ALO} a CNF consisteix en una clàusula amb totes les variables sobre les quals s'aplica. Al ser una OR, per complir la clàusula, una de les variables haurà de ser certa.
 
-  Per altre banda per codificar una \textit{EO}, només cal codificar una ALO i una \textit{AMO} per el conjunt de variables.
+  Per altra banda per codificar una \textit{EO}, només cal codificar una ALO i una \textit{AMO} per el conjunt de variables.
   
   \paragraph*{AMO}
 
@@ -672,8 +672,12 @@
           (o sigui\textit{at\_least\_one(\{$\neg v_1, ... ,\neg v_n$\}, $n-k$ )}). Aquesta propietat també es pot aplicar de manera inversa. \\
           Quan $k$ és molt més gran que $n$, aquesta propietat ens pot ajudar a fer encodings molt més petits. 
           En la API SMT s'utilitza la següent relació: $k \geq n/2$.
-    \item La codificació de un comparador binari (molt utilitzat en els 2 encodings) es pot simplificar en funció del operador utilitzat. En cas del exactament, necessitarem 6 clàusules. Pel $\leq$ 2, i pel $\geq$ només 1. Així es poden reduir les clàusules en les dues codificacions.
-    \item Per últim, la API només codifica la circuiteria necessària per comparar fins a $k+1$, reduint molt la circuiteria necessària per a les diferents codificacions vistes.
+    \item La codificació de un comparador binari (molt utilitzat en el sorter) es pot simplificar en funció del operador utilitzat. 
+    En cas del exactament, necessitarem 6 clàusules. 
+    Pel $\leq$ 2, i pel $\geq$ només 1. Així es poden reduir el nombre de clàusules generades pel sorter.
+
+    \item Per últim, la API, en la codificació del sorter, només codifica la circuiteria necessària per comparar fins a $k+1$, 
+    reduint molt la circuiteria necessària per a les diferents codificacions vistes.
   \end{itemize}
 
 
@@ -955,7 +959,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   \subsection{Model}
 
-  El model està pensat per treballar a centrant-nos en els Events, els quals podríem definir com una reunió a la que es presenten diferents recursos i la nostre feina és la de decidir en quins espais de temps dels disponibles fiquem cada reunió d'aquestes.
+  El model està pensat per treballar a centrant-nos en els Events, els quals podríem definir com una reunió a la que es presenten diferents recursos i la nostra feina és la de decidir en quins espais de temps dels disponibles fiquem cada reunió d'aquestes.
 
   Les variables del model són les següents:
   \begin{itemize}
@@ -1333,7 +1337,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
    Com era d'esperar, la codificació quadràtica al no introduir variables auxiliars és la millor en aquest aspecte. La codificació logarítmica aconsegueix molt bons resultats també en aquest aspecte, comparant-la amb les altres dos. 
    Pel que fa codificació Heule en les instàncies més petites no s'allunya molt, arribant a estar per sobre en la més petita, però a mesura que es fa gran el nombre de variables, més s'allunya d'aquesta.
-   Per altre banda, es pot veure que la codificació Ladder és consistentment la que més variables introdueix, sent en aquest aspecte la pitjor.
+   Per altra banda, es pot veure que la codificació Ladder és consistentment la que més variables introdueix, sent en aquest aspecte la pitjor.
 
    \paragraph*{Clàusules}~\\
 
@@ -1394,14 +1398,14 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   \section{Resultats d'optimització}
 
 
-  En aquesta secció ens centrarem en veure com es comporta el generador d'horaris al intentar buscar la millor solució per les diverses instàncies disponibles. Per fer-ho ens servirem un dels optimitzadors incorporat en la API SMT. 
+  En aquesta secció ens centrarem en veure com es comporta el generador d'horaris a l'intentar buscar la millor solució per les diverses instàncies disponibles. Per fer-ho ens servirem un dels optimitzadors incorporat en la API SMT. 
   Aquests són tres: UB\footnote{Baixa des de \textit{upperbound}}, BU\footnote{Des de 0 a \textit{upperbound}} i DICO\footnote{Dicotòmic}.
   S'ha optat per l'ultim, ja que la codificació implementada no fa cap càlcul per aconseguir un bon upperbound i només s'utilitza el cost de violar totes les clàusules \textit{soft}. 
   Això provocaria que amb qualsevol dels altres mètodes, al iniciar massa lluny del punt òptim, haguéssim de fer masses intents de resolució amb diferents upperbounds, fins a trobar el bo. 
 
   També compararem la bondat dels resultats obtinguts amb el generador d'horaris que s'ha desenvolupat durant aquest treball amb les diverses solucions disponibles en les instàncies XHSTT disponibles al repositori públic. 
 
-  El que s'ha pogut comprovar en les diferents proves fetes durant el desenvolupament del treball és la gran duresa que té, tant en temps de resolució com en ús de memòria, aquest problema al intentar optimitzar-lo. 
+  El que s'ha pogut comprovar en les diferents proves fetes durant el desenvolupament del treball és la gran duresa que té, tant en temps de resolució com en ús de memòria, aquest problema a l'intentar optimitzar-lo. 
   Com hem vist, hem pogut trobar solucions vàlides per a la confecció d'horaris.
 
   Per les execucions d'optimització s'ha utilitzat la codificació del \textit{at\_most\_one} quadràtica i el \textit{totalizer} per les restriccions de cardinalitat. Totes les execucions s'han fet amb un límit de temps de 30 minuts. S'han obtingut els següents resultats:
@@ -1417,7 +1421,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
       
     \end{tabular}
-    \caption{Taula amb els temps d'execució al intentar optimitzar les instàncies de 1 a la 3.}
+    \caption{Taula amb els temps d'execució a l'intentar optimitzar les instàncies de 1 a la 3.}
     \label{fig:taula9}
   \end{figure}
 
@@ -1426,12 +1430,12 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Els resultats de resolució obtinguts han semblat positius. 
   Els temps d'execució per determinar si una instància és satisfactible i donar un horari viable per ella, han estat molt bons. 
   Cal tenir en compte que algunes de les instàncies provades son reals, i s'han arribat a resoldre instàncies de fins a prop de 40 milions de clàusules.
-  Per això crec que es pot determinar que la habilitat d'oferir un horari viable per a qualsevol instància de les treballades és molt positiva.
+  Per això crec que es pot determinar que l'habilitat d'oferir un horari viable per a qualsevol instància de les treballades és molt positiva.
 
-  Per altre banda, la habilitat de buscar la millor solució en un temps raonable 
+  Per altra banda, l'habilitat de buscar la millor solució en un temps raonable 
   no es pot determinar com a bona. A part de la primera instància, 
   la qual es resol molt ràpidament, el generador no és capaç d'obtenir la solució optima.
-   A més, comparant el cost de la solució trobada amb les dues altres solucions de la instància, la obtinguda pel generador desenvolupat en aquest treball resulta ser molt més elevat.
+   A més, comparant el cost de la solució trobada amb les dues altres solucions de la instància, l'obtinguda pel generador desenvolupat en aquest treball resulta ser molt més elevat.
 
 
 
@@ -1449,9 +1453,9 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
   Pel que fa el generador desenvolupat al llarg d'aquest treball, tot i estar molt lluny de la perfecció, 
   ha permès posar a prova les diferents codificacions de les restriccions globals vistes en el treball 
   i compleix amb els objectius marcats al principi del treball. El generador és capaç de resoldre el problema en un temps raonable (la instància que tarda més és la 4, que ens tarda menys de 10 minuts), 
-  excepte la instància 7, la qual al intentar resoldre, ens quedem sense memòria. Cal tenir en compte però que les instancies 4 i 6 són problemes de instituts reals de Brazil, i els temps d'execució resultants en aquestes instàncies són molt positius.
-  Per altre part, la cerca de la solució òptima, ha resultat bastant negativa, tot i tenir bons temps amb l'optimitzador dicotòmic en la instància més petita, generalment ha resultat impossible aconseguir bons resultats. 
-  A més, comparant la optimalitat de la solució obtinguda amb les altres solucions existents de la instància, aquestes últimes han resultat ser molt superiors a les obtingudes en aquest treball.
+  excepte la instància 7, la qual a l'intentar resoldre, ens quedem sense memòria. Cal tenir en compte però que les instàncies 4 i 6 són problemes de instituts reals de Brazil, i els temps d'execució resultants en aquestes instàncies són molt positius.
+  Per altra part, la cerca de la solució òptima, ha resultat bastant negativa, tot i tenir bons temps amb l'optimitzador dicotòmic en la instància més petita, generalment ha resultat impossible aconseguir bons resultats. 
+  A més, comparant l'optimalitat de la solució obtinguda amb les altres solucions existents de la instància, aquestes últimes han resultat ser molt superiors a les obtingudes en aquest treball.
 
 
   Pel que fa la planificació, la implementació del \textit{parser} va durar bastant més del previst, i des de aquí es va haver de adaptar la planificació en funció d'això com es pot veure en el diagrama de Gantt de la figura \label{fig:Gantt2}
@@ -1488,7 +1492,7 @@ Per la confecció i edició del document en sí, s'ha utilitzat l'editor Open So
 
   També es podrien millorar les codificacions i el model en sí per utilitzar menys memòria i sobretot, per intentar aconseguir millors resultats al optimitzar el problema, comparant amb les diferents solucions disponibles per a cada instància.
 
-  Pel que fa la optimització, com s'ha vist, no s'han aconseguit els resultats desitjats, per això, s'ha de millorar en general. En particular s'hauria de millorar el mètode de càlcul del cost de violar certes restriccions i s'hauria d'afegir un mètode que calcules un bon \textit{upperbound} per tal de donar un millor punt de partida al intentar optimitzar.
+  Pel que fa la optimització, com s'ha vist, no s'han aconseguit els resultats desitjats, per això, s'ha de millorar en general. En particular s'hauria de millorar el mètode de càlcul del cost de violar certes restriccions i s'hauria d'afegir un mètode que calcules un bon \textit{upperbound} per tal de donar un millor punt de partida a l'intentar optimitzar.
 
   \nocite{*}
   \chapter{Bibliografía}
