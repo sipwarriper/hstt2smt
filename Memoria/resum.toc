@@ -1,0 +1,9 @@
+\babel@toc {catalan}{}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}}{2}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Objectius}{2}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Estudi de viabilitat}{2}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Metodologia}{3}{subsection.1.3}% 
+\contentsline {section}{\numberline {2}Marc de Treball}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Implementaci\IeC {\'o}}{3}{section.3}% 
+\contentsline {section}{\numberline {4}Resultats}{4}{section.4}% 
+\contentsline {section}{\numberline {5}Conclusions}{4}{section.5}% 
