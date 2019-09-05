@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.10.19)  5 SEP 2019 20:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.10.19)  5 SEP 2019 20:37
 entering extended mode
 **d:/sources/projects/hstt2smt/Memoria/slides.tex
 (d:/sources/projects/hstt2smt/Memoria/slides.tex
@@ -1150,7 +1150,7 @@ thkerncmss.
 ] (slides.toc) [7
 
 ]
-<Diagrames/Arqui2.png, id=317, 911.405pt x 681.54625pt>
+<Diagrames/Arqui2.png, id=324, 911.405pt x 681.54625pt>
 File: Diagrames/Arqui2.png Graphic file (type png)
 <use Diagrames/Arqui2.png>
 Package pdftex.def Info: Diagrames/Arqui2.png  used on input line 113.
@@ -1180,6 +1180,10 @@ Overfull \vbox (15.78903pt too high) detected at line 113
 
 ] [17
 
+] [18
+
+] [19
+
 ]
 \tf@nav=\write6
 \openout6 = `slides.nav'.
@@ -1190,19 +1194,19 @@ Overfull \vbox (15.78903pt too high) detected at line 113
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 278.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 278.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
  (slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 278.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 278.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 290.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
 Package rerunfilecheck Info: File `slides.out' has not changed.
-(rerunfilecheck)             Checksum: FE78E6B8347EEC31DF46DCABB4D822FA;591.
+(rerunfilecheck)             Checksum: E49485A667F00755C29B4D5A9ED3E123;654.
  ) 
 Here is how much of TeX's memory you used:
- 23905 strings out of 492973
- 458615 string characters out of 3135931
- 557273 words of memory out of 3000000
- 27203 multiletter control sequences out of 15000+200000
+ 23917 strings out of 492973
+ 458733 string characters out of 3135931
+ 558273 words of memory out of 3000000
+ 27210 multiletter control sequences out of 15000+200000
  10092 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,20n,65p,831b,695s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1213,9 +1217,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX
 s/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb>
-Output written on slides.pdf (17 pages, 229365 bytes).
+Output written on slides.pdf (19 pages, 243747 bytes).
 PDF statistics:
- 681 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 152 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 754 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 160 words of extra memory for PDF output out of 10000 (max. 10000000)
 

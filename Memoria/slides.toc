@@ -9,3 +9,4 @@
 \beamer@subsectionintoc {2}{3}{Restriccions}{12}{0}{2}
 \beamer@sectionintoc {3}{Conclusions i Resultats}{16}{0}{3}
 \beamer@subsectionintoc {3}{1}{Resultats}{17}{0}{3}
+\beamer@subsectionintoc {3}{2}{Conclusions}{19}{0}{3}

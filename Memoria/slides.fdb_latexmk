@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1567707211 "d:/sources/projects/hstt2smt/Memoria/slides.tex" "slides.pdf" "slides" 1567707214
+["pdflatex"] 1567708668 "d:/sources/projects/hstt2smt/Memoria/slides.tex" "slides.pdf" "slides" 1567708670
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233955448 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233955448 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233955454 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -210,17 +210,17 @@
   "C:/Users/sipwa/AppData/Roaming/MiKTeX/2.9/tex/latex/varwidth/varwidth.sty" 1238469540 10894 d359a13923460b2a73d4312d613554c8 ""
   "C:/Users/sipwa/AppData/Roaming/MiKTeX/2.9/tex/latex/xcolor/xcolor.sty" 1463135581 57049 34128738f682d033422ca125f82e5d62 ""
   "Diagrames/Arqui2.png" 1567252146 47014 d7fc478f30af62f9ae99fd7fd50bb111 ""
-  "d:/sources/projects/hstt2smt/Memoria/slides.tex" 1567707211 8597 53e226f7b6975d5ce55b1c30d04085d4 ""
-  "slides.aux" 1567707214 6039 bbb418de1f9921a046e1fce09888c8a3 "pdflatex"
-  "slides.nav" 1567707214 3246 695a6edd6791a92977d6b5c707b2f9a0 "pdflatex"
-  "slides.out" 1567707214 591 de1cd8cbbf50d18f0942841a15028a23 "pdflatex"
-  "slides.tex" 1567707211 8597 53e226f7b6975d5ce55b1c30d04085d4 ""
-  "slides.toc" 1567707214 581 880afd4a37206cb93f0e1b43af6b4c0d "pdflatex"
+  "d:/sources/projects/hstt2smt/Memoria/slides.tex" 1567708664 8804 01c1dc78e4666bedcdb8b3b018307720 ""
+  "slides.aux" 1567708670 6544 d268b2defd5fa531f61ada3d8e9323c0 "pdflatex"
+  "slides.nav" 1567708670 3570 178d6c500f390199a267aaa615258f70 "pdflatex"
+  "slides.out" 1567708670 654 25a27c75f99d1c15bbf4b66bafa047d1 "pdflatex"
+  "slides.tex" 1567708664 8804 01c1dc78e4666bedcdb8b3b018307720 ""
+  "slides.toc" 1567708670 636 d0ce91724b65c90f6a15cb079de0df3c "pdflatex"
   (generated)
-  "slides.nav"
-  "slides.out"
   "slides.snm"
   "slides.log"
+  "slides.nav"
   "slides.aux"
   "slides.toc"
   "slides.pdf"
+  "slides.out"
