@@ -1,4 +1,4 @@
-\documentclass[8pt]{beamer}
+\documentclass[11pt]{beamer}
 \usetheme{Copenhagen}
 \usecolortheme{dolphin}
 \usepackage{epsfig}
@@ -35,8 +35,9 @@
   linkcolor=blue,  %choose some color if you want links to stand out
 }
 
-\title{Generació d'horaris amb operacions lògiques}
-\author{Ismael El Habri}
+\title[Generació d'horaris d'institut amb operacions lògiques]{GENERACIÓ D'HORARIS D'INSTITUT AMB OPERACIONS LÒGIQUES}
+\author{Ismael El Habri \\ \footnotesize Tutors: Dr. Josep Suy i Dr. Jordi Coll}
+\institute{Universitat de Girona}
 
 \date[KPT 2004] % (optional)
 {10 de setembre del 2019}
@@ -74,9 +75,13 @@
     \begin{itemize}
       \item Grup de recerca de Lògica i Programació
     
-      \item API SMT desenvolupada pel Dr. Jordi Coll
+      \item API SMT desenvolupada pel Dr. Jordi Coll. API per a la codificació de problemes SAT, SMT o MaxSAT, 
+      actuant com a interfície per a diferents solvers. En aquest treball s'utilitzarà el Yices 2. 
+      També té implementades les diferents implementacions de múltiples restriccions globals.
 
-      \item Treball del 2015 fet per en Cristòfor Nogueira el 2015.
+      \item Com a punt de partida s'ha utilitzat el treball realitzat el 2015 per en Cristòfor Nogueira. 
+      Mentre ell ha utilitzat BitVectors i MaxSAT, en aquest treball s'utilitzarà SMT. 
+      Així s'han aconseguit uns resultats superiors pel que fa el temps d'execució.
     \end{itemize}
 
   \end{frame}
@@ -89,13 +94,27 @@
     \begin{itemize}
     
       \item Aprofundir sobre el tema.
+       \begin{itemize}
+        \item Problema de generació d'horaris d'institut.
+        \item Problemes de satisfacció de restriccions(CSP).
+        \item Tècniques per resoldre problemes CSP com ara SAT i extensions.
+       \end{itemize}
       \item Crear un generador.
     
     \end{itemize}
           
   \end{frame}
   
-  \subsection{Estudi de viabilitat}
+  \subsection{Metodologia}
+  \begin{frame}
+    \frametitle{Metodologia}
+    \begin{itemize}
+      \item Estudi del treball prèvi i estat de l'art
+      \item Entregues periòdiques
+      \item Prototipatge
+    \end{itemize}
+
+  \end{frame}
 
   \begin{frame}
     \frametitle{Estudi de viabilitat}
