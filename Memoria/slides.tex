@@ -9,12 +9,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage{listings}    
 \usepackage[catalan]{babel}
-\usepackage{newunicodechar}
+\usepackage{newunicodechar} 
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{float}
 \usepackage{pgf, tikz}
 \usepackage{listings}
+\usepackage{eurosym}
 
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -25,8 +26,23 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{maroon}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
 
 \geometry{paperwidth=150mm,paperheight=115mm}
+\lstdefinelanguage{XML}
+{
+  basicstyle=\fontsize{8}{10}\selectfont\ttfamily,
+  morestring=[s]{"}{"},
+  morecomment=[s]{?}{?},
+  morecomment=[s]{!--}{--},
+  commentstyle=\color{darkgreen},
+  moredelim=[s][\color{black}]{>}{<},
+  moredelim=[s][\color{red}]{\ }{=},
+  stringstyle=\color{blue},
+  identifierstyle=\color{maroon}
+}
+
 
 \usepackage{hyperref}
 \hypersetup{
@@ -36,7 +52,7 @@
 }
 
 \title[Generació d'horaris d'institut amb operacions lògiques]{GENERACIÓ D'HORARIS D'INSTITUT AMB OPERACIONS LÒGIQUES}
-\author{Ismael El Habri \\ \footnotesize Tutors: Dr. Josep Suy i Dr. Jordi Coll}
+\author[Ismael El Habri]{Ismael El Habri \\ \footnotesize Tutors: Dr. Josep Suy i Dr. Jordi Coll}
 \institute{Universitat de Girona}
 
 \date[KPT 2004] % (optional)
@@ -109,48 +125,115 @@
   \begin{frame}
     \frametitle{Metodologia}
     \begin{itemize}
-      \item Estudi del treball prèvi i estat de l'art
+      \item Estudi del treball previ i estat de l'art
       \item Entregues periòdiques
       \item Prototipatge
     \end{itemize}
 
   \end{frame}
 
+  \subsection{Planificació}
   \begin{frame}
-    \frametitle{Estudi de viabilitat}
+    \frametitle{Planificació}
+    \begin{enumerate}
+      \item Estudi del problema i la seva duresa.
+      \item Disseny i implementació
+      \begin{enumerate}
+        \item Parser i estructura de dades
+        \item Codificació model i restriccions
+        \item Tractament de la solució
+      \end{enumerate}
+      \item Estudi dels resultats
+        \end{enumerate}
 
+  \end{frame}
+
+  \subsection{Pressuposts}
+  \begin{frame}{Pressuposts}
+    \begin{center}
+      \begin{tabular}{|| c | c | c | c||} 
+      \hline
+       & \euro/h & Hores & Cost \\ [0.5ex] 
+      \hline\hline
+      Programador & 14 & 260 & 2520 \\ [1ex] 
+      \hline
+     \end{tabular}
+     \end{center}
+  
+     \begin{center}
+      \begin{tabular}{|| c | c | c | c||} 
+      \hline
+       & Cost Total & Hores & \euro/h \\ [0.5ex] 
+      \hline\hline
+      Ordinador Principal & 828 & 240 & 3.45 \\ [1ex] 
+      Ordinador Portatil Secundari & 200 & 20 & 10 \\ [1ex] 
+      \hline\hline
+      Total & 1028 & 260 & 3.95 \\
+      \hline
+     \end{tabular}
+     \end{center}
+  
+     \begin{center}
+      \begin{tabular}{|| c | c ||} 
+      \hline
+       & Hores \\ [0.5ex] 
+      \hline\hline
+      Josep Suy & 30 \\ [1ex] 
+      Jordi Coll & 20 \\ [1ex] 
+      \hline
+     \end{tabular}
+     \end{center}
   \end{frame}
 
   \section{Implementació}
   
   \begin{frame}
-  \frametitle{Implementació}
+  \frametitle{Implementació: Esquema}
     \begin{figure}[p]
-      \includegraphics[width=\textwidth]{Diagrames/Arqui2.png}
+      \includegraphics[width=0.85\textwidth]{Diagrames/Arqui2.png}
       \label{fig:procs}
     \end{figure}
   \end{frame}
 
+  \begin{frame}
+    \frametitle{Implementació: Model de dades}
+    \begin{figure}[p]
+      \includegraphics[width=0.75\textwidth]{Diagrames/ModelDades.png}
+      \label{fig:procs}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Implementació: Model d'objectes}
+    \begin{figure}[p]
+      \includegraphics[width=0.85\textwidth]{Diagrames/UMLKai.png}
+      \label{fig:procs}
+    \end{figure}
+  \end{frame}
+
+
   
   \subsection{Parser}
   
-  \begin{frame}
+  \begin{frame}[fragile]
     \frametitle{Parser}
 
+    \lstinputlisting[language=XML]{listings/resource_ex.xml}
     Instància XHSTT $\Rightarrow$ dades + restriccions
 
 
   \end{frame}
 
   \subsection{Model}
-  
+   
   \begin{frame}
     \frametitle{Model}
 
     \begin{itemize}
-      \item $Xt_{0,0} . . . Xt_{|Events|-1,|Times|-1}$
-      \item $Xs_{0,0} . . . Xs_{|Events|-1,|Times|-1}$
-      \item $Xd_{0,1,0} . . . Xd_{|Events|-1, event.duration, |Times|-1}$
+      \item $Xt_{0,0} . . . Xt_{|Events|-1,|Times|-1}$\\Cada variable ens indica si en un espai de temps, es dona lloc l'event corresponent.
+      \item $Xs_{0,0} . . . Xs_{|Events|-1,|Times|-1}$\\Cada variable ens indica si en un espai de temps, comença l'event corresponent.
+      \item $Xd_{0,1,0} . . . Xd_{|Events|-1, event.duration, |Times|-1}$\\ 
+      Cada variable ens indica si comença una lliçó de la durada i en l'espai de temps que representa la variable. 
     \end{itemize}
   \end{frame}
 
@@ -158,11 +241,15 @@
   \frametitle{Clàusules de Channeling}  
 
   \begin{itemize}
-    \item Si un event comença a una hora determinada, llavors té una duració: \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$exactly\_one(\neg Xs_{e,i} \vee \{ \forall j \in 1 ... e.duration$ $Xd_{e,j,i}\})$\end{center}
-    \item Si un event té lloc a t però no a t-1, és que comença: \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$\neg Xt_{e,i} \vee Xt_{i-1} \vee Xs_i$ \end{center}
-    \item Si un event comença amb duració d, llavors té lloc en d hores consecutives: \begin{center} 
+    \item Si un event comença a una hora determinada, llavors té una duració: 
+  \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$exactly\_one(Xs_{e,i} \rightarrow \{Xd_{e,1 ... e.duration,i}\})$\end{center}
+    \item Si un event té lloc a t però no a t-1, és que comença: 
+  \begin{center} 
+  $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$(Xt_{e,i} \land \neg Xt_{i-1}) \rightarrow Xs_i$ \end{center}
+    \item Si un event comença amb duració d, llavors té lloc en d hores consecutives: 
+    \begin{center} 
       $\forall e \in 0 ... |Events|-1$ $\forall d in 1 ... e.duration$ $\forall i \in 0 ... |Times|-1$ $\forall j \in i ... i+d-1$ \\
-      $\neg Xd_{e,d,i} \vee Xt_{e,j}$    
+      $Xd_{e,d,i} \rightarrow Xt_{e,j}$    
     \end{center}
   \end{itemize}
 
@@ -176,7 +263,7 @@
 
     \begin{itemize}
       \item Assign Times Constraint \[
-        \forall e \in Events \ exactly_k(\{Xt_{e,0} ... Xt_{e,|Times|-1}\}, e.duration)
+        \forall e \in Events \ exactly\_k(\{Xt_{e,0} ... Xt_{e,|Times|-1}\}, e.duration)
       \]
       \item Split Events Constraint
       \begin{gather*}
