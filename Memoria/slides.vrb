@@ -1,0 +1,6 @@
+\frametitle{Parser}
+
+    \lstinputlisting[language=XML]{listings/resource_ex.xml}
+    Instància XHSTT $\Rightarrow$ dades + restriccions
+
+
