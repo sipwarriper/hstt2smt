@@ -85,7 +85,7 @@
     Confecció d'horaris, problema recurrent amb el que es troben els instituts $\Rightarrow$ High School TimeTabling problem (HSTT)\\ ~\\
 
     \begin{figure}
-      \includegraphics[width=0.7\textwidth]{Diagrames/horari.png}
+      \includegraphics[width=0.6\textwidth]{Diagrames/horari.png}
     \end{figure}
     
     \begin{itemize}
@@ -297,7 +297,7 @@
   $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$(Xt_{e,i} \land \neg Xt_{e,i-1}) \rightarrow Xs_{e,i}$ \end{center}
     \item Si un event comença amb duració d, llavors té lloc en d hores consecutives: 
     \begin{center} 
-      $\forall e \in 0 ... |Events|-1$ $\forall d in 1 ... e.duration$ $\forall i \in 0 ... |Times|-1$ $\forall j \in i ... i+d-1$ \\
+      $\forall e \in 0 ... |Events|-1$ $\forall d \in 1 ... e.duration$ $\forall i \in 0 ... |Times|-1$ $\forall j \in i ... i+d-1$ \\
       $Xd_{e,d,i} \rightarrow Xt_{e,j}$    
     \end{center}
   \end{itemize}
