@@ -1,6 +1,9 @@
 \frametitle{Parser}
-
-    \lstinputlisting[language=XML]{listings/resource_ex.xml}
+    \begin{minipage}{.5\textwidth}
+      \lstinputlisting[language=XML]{listings/resource_ex.xml}
+    \end{minipage}
+    \begin{minipage}{.4\textwidth}
+      \lstinputlisting[language=XML]{listings/constraint4.xml}
+    \end{minipage}
+    ~\\
     Instància XHSTT $\Rightarrow$ dades + restriccions
-
-

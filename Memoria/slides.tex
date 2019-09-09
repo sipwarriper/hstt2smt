@@ -1,4 +1,4 @@
-\documentclass[11pt]{beamer}
+\documentclass[13pt]{beamer}
 \usetheme{Copenhagen}
 \usecolortheme{dolphin}
 \usepackage{epsfig}
@@ -37,7 +37,7 @@
 \geometry{paperwidth=150mm,paperheight=115mm}
 \lstdefinelanguage{XML}
 {
-  basicstyle=\fontsize{8}{10}\selectfont\ttfamily,
+  basicstyle=\fontsize{6}{9}\selectfont\ttfamily,
   morestring=[s]{"}{"},
   morecomment=[s]{?}{?},
   morecomment=[s]{!--}{--},
@@ -85,7 +85,7 @@
     Confecció d'horaris, problema recurrent amb el que es troben els instituts $\Rightarrow$ High School TimeTabling problem (HSTT)\\ ~\\
 
     \begin{figure}
-      \includegraphics[width=0.7\textwidth]{Diagrames/horari.jpg}
+      \includegraphics[width=0.7\textwidth]{Diagrames/horari.png}
     \end{figure}
     
     \begin{itemize}
@@ -113,7 +113,7 @@
       També té implementades les diferents implementacions de múltiples restriccions globals.
 
       \item Com a punt de partida s'ha utilitzat el treball realitzat el 2015 per en Cristòfor Nogueira. 
-      Mentre ell ha utilitzat BitVectors i MaxSAT, en aquest treball s'utilitzarà SMT. 
+      Mentre ell ha utilitzat BitVectors i MaxSAT, en aquest treball s'utilitzarà LIA. 
       Així s'han aconseguit uns resultats superiors pel que fa el temps d'execució.
     \end{itemize}
 
@@ -123,6 +123,8 @@
 
   \begin{frame}
     \frametitle{Objectius}
+
+\scalebox{1.25}{\begin{minipage}{\textwidth}
 
     \begin{itemize}
     
@@ -135,23 +137,33 @@
       \item Crear un generador.
     
     \end{itemize}
+  \end{minipage}}
           
   \end{frame}
   
   \subsection{Metodologia}
   \begin{frame}
     \frametitle{Metodologia}
+
+\scalebox{1.25}{\begin{minipage}{\textwidth}
     \begin{itemize}
       \item Estudi del treball previ i estat de l'art
+      \begin{enumerate}
+        \item SAT
+        \item MaxSAT
+        \item SMT
+      \end{enumerate}
       \item Entregues periòdiques
       \item Prototipatge
     \end{itemize}
-
+  \end{minipage}}
   \end{frame}
 
   \subsection{Planificació}
   \begin{frame}
     \frametitle{Planificació}
+
+\scalebox{1.25}{\begin{minipage}{\textwidth}
     \begin{enumerate}
       \item Estudi del problema i la seva duresa.
       \item Disseny i implementació
@@ -162,7 +174,7 @@
       \end{enumerate}
       \item Estudi dels resultats
         \end{enumerate}
-
+      \end{minipage}}
   \end{frame}
 
   \subsection{Pressuposts}
@@ -178,14 +190,14 @@
      \end{center}
   
      \begin{center}
-      \begin{tabular}{|| c | c | c | c||} 
+      \begin{tabular}{|| c | c |} 
       \hline
-       & Cost Total & Hores & \euro/h \\ [0.5ex] 
+       & Cost Total \\ [0.5ex] 
       \hline\hline
-      Ordinador Principal & 828 & 240 & 3.45 \\ [1ex] 
-      Ordinador Portatil Secundari & 200 & 20 & 10 \\ [1ex] 
+      Ordinador Principal & 828  \\ [1ex] 
+      Ordinador Portatil Secundari & 200 \\ [1ex] 
       \hline\hline
-      Total & 1028 & 260 & 3.95 \\
+      Total & 1028 \\
       \hline
      \end{tabular}
      \end{center}
@@ -238,11 +250,14 @@
   
   \begin{frame}[fragile]
     \frametitle{Parser}
-
-    \lstinputlisting[language=XML]{listings/resource_ex.xml}
+    \begin{minipage}{.5\textwidth}
+      \lstinputlisting[language=XML]{listings/resource_ex.xml}      
+    \end{minipage}
+    \begin{minipage}{.4\textwidth}
+      \lstinputlisting[language=XML]{listings/constraint4.xml}      
+    \end{minipage}
+    ~\\
     Instància XHSTT $\Rightarrow$ dades + restriccions
-
-
   \end{frame}
 
   \subsection{Model}
@@ -274,10 +289,12 @@
 
   \begin{itemize}
     \item Si un event comença a una hora determinada, llavors té una duració: 
-  \begin{center} $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$exactly\_one(Xs_{e,i} \rightarrow \{Xd_{e,1 ... e.duration,i}\})$\end{center}
+  \begin{center} 
+  $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\
+  $Xs_{e,i} \rightarrow exactly\_one(\{Xd_{e,1 ... e.duration,i}\})$\end{center}
     \item Si un event té lloc a t però no a t-1, és que comença: 
   \begin{center} 
-  $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$(Xt_{e,i} \land \neg Xt_{i-1}) \rightarrow Xs_i$ \end{center}
+  $\forall e \in 0 ... |Events|-1$ $\forall i \in 0 ... |Times|-1$ \\$(Xt_{e,i} \land \neg Xt_{e,i-1}) \rightarrow Xs_{e,i}$ \end{center}
     \item Si un event comença amb duració d, llavors té lloc en d hores consecutives: 
     \begin{center} 
       $\forall e \in 0 ... |Events|-1$ $\forall d in 1 ... e.duration$ $\forall i \in 0 ... |Times|-1$ $\forall j \in i ... i+d-1$ \\
@@ -329,6 +346,8 @@
       \forall e \in Events \ \forall t \in Times \land t \notin Ta \\ (\neg Xd_{e,d,t})
     \end{gather*}
     \textbf{Spread Events Constraint}\\
+    Restricció posa límits en el nombre de sessions de 
+    cada event que es poden celebrar en certs dies.
         \begin{align*}
           \forall e \in Events \ &\forall g \in Tg \\
           &at\_most\_k(\{Xs_{e,t} | t \leftarrow g\}, max)\\
@@ -337,7 +356,7 @@
         \end{align*}    
   \end{frame}
 
-  \begin{frame}{Restriccions}{Spread Events Constraint i Avoid Clashes Constraint}   
+  \begin{frame}{Restriccions}{Avoid Clashes Constraint i Avoid Unavailable Times Constraint}  
       \textbf{Avoid Clashes Constraint}\\
       Aquesta restricció imposa que certs recursos no poden tenir assignats més d'un event al mateix temps. 
         \begin{align*}
@@ -349,12 +368,9 @@
         \begin{align*}
           \forall r \in Resources \ \forall t \in T \ \forall e \in E_r \quad
           (\neg Xt_{e,t})
-        \end{align*}
-    
-
-  
+        \end{align*}  
   \end{frame}
-  \begin{frame}{Restriccions}{Limit Idle TImes Constraint}
+  \begin{frame}{Restriccions}{Limit Idle Times Constraint}
     Restricció que limita el nombre d'espais de temps lliure entre dos espais de temps ocupats a l'horari de certs recursos. 
     
     Per a cada recurs $r$ es fan les clàusules següents:
@@ -372,7 +388,7 @@
        \end{align*}
     
       \end{frame}
-      \begin{frame}{Restriccions}{Limit Idle TImes Constraint}
+      \begin{frame}{Restriccions}{Limit Idle Times Constraint}
        Un cop definides i lligades les variables auxiliars cal imposar les restriccions de cardinalitat:
     
        \begin{align*}
@@ -409,6 +425,15 @@
   
   \end{frame}
 
+  \begin{frame}{Funció objectiu}
+    Per cada clàusula \textit{soft} afegim una variable auxiliar $aux_i$ i ens guardem el pes $w_i$ d'aquesta.
+    \\ Per a la optimització afegim la següent clàusula pseudobooleana, per a $n$ clàusules 
+    \textit{soft}:\\ \[
+        aux_{0}w_{0} + . . .  + aux_{n-1}w_{n-1} \leq UPPERBOUND
+    \]
+  
+  \end{frame}
+
 
   \section{Conclusions i Resultats}
   \begin{frame}
@@ -441,8 +466,8 @@
         \multicolumn{2}{c | }{BrazilInstance1} & \multicolumn{2}{c | }{BrazilInstance2} & \multicolumn{2}{c}{BrazilInstance3} \\ \cline{2-7}
         &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
         \hline
-        Quadràtic &  1.052 & 1.126 & 6.450 &6.136 &10.331& 9.743   \\
-        Logarítmic & 1.126 & 1.184 & 6.151 &6.080 &10.989& 10.784 \\
+        Quadràtic &  \textbf{1.052} & 1.126 & 6.450 &6.136 &10.331& \textbf{9.743}   \\
+        Logarítmic & 1.126 & 1.184 & 6.151 &\textbf{6.080} &10.989& 10.784 \\
         Ladder &     1.275 & 1.300 & 6.084 &6.123 &12.492& 15.015  \\
         Heule &      1.242 & 1.105 & 6.437 &7.142 &11.815& 10.604 \\
       \end{tabular}
@@ -453,8 +478,8 @@
         \multicolumn{2}{c | }{BrazilInstance4} & \multicolumn{2}{c | }{BrazilInstance5} & \multicolumn{2}{c | }{BrazilInstance6} & \multicolumn{2}{c}{BrazilInstance7}\\ \cline{2-9}
         &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
         \hline
-        Quadràtic &   02:56.91 & 05:19.96 & 28.63 & 28.235&  35.45  &36.191  &  01:52.45 & 01:50.34 \\
-        Logarítmic &  11:38.62 & 24:33.60 & 28.753& 28.768 & 39.163 &36.309  &  01:48.02 & 01:48.46\\
+        Quadràtic &   \textbf{02:56.91} & 05:19.96 & 28.63 & \textbf{28.235}&  \textbf{35.45}  &36.191  &  01:52.45 & 01:50.34 \\
+        Logarítmic &  11:38.62 & 24:33.60 & 28.753& 28.768 & 39.163 &36.309  &  \textbf{01:48.02} & 01:48.46\\
         Ladder &      Timeout &  07:24.02 & 31.018& 31.006 & 39.797 &01:06.33&  02:22.87 & 02:27.35 \\
         Heule &       05:03.38 & 25:24.81 & 28.934& 29.046 & 40.441 &36.852  &  02:38.68 & 02:38.79\\
       \end{tabular}
@@ -468,7 +493,7 @@
         \multicolumn{2}{c | }{BrazilInstance1} & \multicolumn{2}{c | }{BrazilInstance2} & \multicolumn{2}{c}{BrazilInstance3} \\ \cline{2-7}
         &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
         \hline
-        Quadràtic &  131,391 & 131,349 & 924,783 & 924,807 & 1,223,115 & 1,223,085 \\
+        Quadràtic &  131,391 & \textbf{131,349} & \textbf{924,783} & 924,807 & 1,223,115 & \textbf{1,223,085} \\
         Logarítmic & 131,941 & 131,899 & 926,208 & 926,232 & 1,224,765 & 1,224,735\\
         Ladder &     132,166 & 132,124 & 927,433 & 927,457 & 1,225,965 & 1,225,935 \\
         Heule &      131,841 & 131,799 & 927,283 & 927,307 & 1,225,615 & 1,225,585\\
@@ -482,7 +507,7 @@
         \multicolumn{2}{c | }{BrazilInstance4} & \multicolumn{2}{c }{BrazilInstance5} \\ \cline{2-5}
         &\textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer}    \\ 
         \hline
-        Quadràtic &  3,710,406 & 3,710,472  & 3,535,238 & 3,535,238     \\ 
+        Quadràtic &  \textbf{3,710,406} & 3,710,472  & \textbf{3,535,238} & \textbf{3,535,238}     \\ 
         Logarítmic & 3,713,081 & 3,713,147  & 3,537,838 & 3,537,838     \\ 
         Ladder &     Timeout	  & 3,715,947 & 3,540,088 & 3,540,088     \\ 
         Heule &      3,715,756 & 3,715,822  & 3,539,588 & 3,539,588     \\ 
@@ -495,7 +520,7 @@
                           & \multicolumn{2}{c | }{BrazilInstance6} & \multicolumn{2}{c}{BrazilInstance7}\\ \cline{2-5}
                           & \textit{Sorter} & \textit{Totalizer} & \textit{Sorter} & \textit{Totalizer} \\
        \hline
-       Quadràtic          & 4,652,421	& 4,652,523 & 9,835,793 & 9,835,793 \\
+       Quadràtic          & \textbf{4,652,421}	& 4,652,523 & \textbf{9,835,793} & \textbf{9,835,793} \\
        Logarítmic         & 4,655,646	& 4,655,748 & 9,840,268 & 9,840,268 \\
        Ladder             & 4,658,321	& 4,658,423 & 9,844,718 & 9,844,718 \\
        Heule              & 4,657,946	& 4,658,048 & 9,844,718 & 9,844,718 \\
@@ -514,7 +539,7 @@
       Quadràtic &  703,680 & 703,666 & 3,556,395 &	3,556,497 & 5,960,643 & 5,960,705 \\
       Logarítmic & 704,130 & 704,116 & 3,556,120 &	3,556,222 & 5,961,218 & 5,961,280 \\
       Ladder &     703,705 & 703,691 & 3,553,195 &	3,553,297 & 5,958,443 & 5,958,505 \\
-      Heule &      703,380 & 703,366 & 3,553,045 &	3,553,147 & 5,958,093 & 5,958,155 \\
+      Heule &      703,380 & \textbf{703,366} & \textbf{3,553,045} &	3,553,147 & \textbf{5,958,093} & 5,958,155 \\
     \end{tabular}
   \end{frame}
 
@@ -528,7 +553,7 @@
       Quadràtic &  14,414,235 & 14,414,410 & 16,200,714 & 16,200,714     \\ 
       Logarítmic & 14,412,135 & 14,412,310 & 16,200,039 & 16,200,039     \\ 
       Ladder &     Timeout    & 14,405,635 & 16,194,739 & 16,194,739     \\ 
-      Heule &      14,405,335 & 14,405,510 & 16,194,239 & 16,194,239     \\ 
+      Heule &      \textbf{14,405,335} & 14,405,510 & \textbf{16,194,239} & \textbf{16,194,239}     \\ 
     \end{tabular}
     ~\\~\\~\\
    \begin{tabular}  { c|c c|c c}
@@ -539,7 +564,7 @@
      Quadràtic          & 18,665,275 & 18,665,548 & 38,762,136 & 38,762,136 \\
      Logarítmic         & 18,665,275 & 18,665,548 & 38,760,036 & 38,760,036 \\
      Ladder             & 18,657,900 & 18,658,173 & 38,749,361 & 38,749,361 \\
-     Heule              & 18,657,525 & 18,657,798 & 38,749,361 & 38,749,361 \\
+     Heule              & \textbf{18,657,525} & 18,657,798 & \textbf{38,749,361} & \textbf{38,749,361} \\
    \end{tabular}
  \end{frame}
 
@@ -566,8 +591,15 @@
         \item Resolució en temps raonable $\Rightarrow$ aconseguit
         \item Optimització en temps raonable  $\Rightarrow$ no aconseguit
       \end{itemize}
-
     \end{itemize}
+    \textbf{Treball futur:}\\
+    \begin{itemize}
+      \item Afegir tipus de instàncies suportades
+      \item Intentar provar altres teories de SMT.
+      \item Millorar codificacions i model en sí.
+      \item Intentar millorar la optimització.
+    \end{itemize}
+
 
   \end{frame}
 

@@ -9,7 +9,7 @@
 \beamer@subsectionintoc {2}{1}{Parser}{13}{0}{2}
 \beamer@subsectionintoc {2}{2}{Model}{14}{0}{2}
 \beamer@subsectionintoc {2}{3}{Restriccions}{17}{0}{2}
-\beamer@sectionintoc {3}{Conclusions i Resultats}{24}{0}{3}
-\beamer@subsectionintoc {3}{1}{Resultats}{25}{0}{3}
-\beamer@subsectionintoc {3}{2}{Conclusions}{32}{0}{3}
-\beamer@sectionintoc {4}{Demostraci\IeC {\'o}}{33}{0}{4}
+\beamer@sectionintoc {3}{Conclusions i Resultats}{25}{0}{3}
+\beamer@subsectionintoc {3}{1}{Resultats}{26}{0}{3}
+\beamer@subsectionintoc {3}{2}{Conclusions}{33}{0}{3}
+\beamer@sectionintoc {4}{Demostraci\IeC {\'o}}{34}{0}{4}
